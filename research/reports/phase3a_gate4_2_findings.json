@@ -1,0 +1,52 @@
+{
+  "audit_phase": "Phase 3A Gate 4.2 Audit Findings",
+  "verdict": "PASS",
+  "verdict_justification": "All three critical numerical contradictions have been definitively resolved down to the raw prediction records. Base_K100 recall is confirmed as 53.87% (9-proj macro) and 60.60% (8-proj macro); 61.35% is proven to be an obsolete manual transcription artifact. Quantile adaptation recall is confirmed as 42.75% (-11.12 percentage points delta); 42.66% is proven obsolete. HTTPCLIENT recall is confirmed as 42.79% under Gate 4; 55.98% is proven to be an obsolete narrative residue copied from the Gate 3 pilot. All metrics are 100% reproducible directly from raw prediction data in pure Java. Test quarantine is 100% verified untouched.",
+  "findings": [
+{
+  "finding_id": "F-4.2-01",
+  "severity": "CRITICAL_RESOLVED",
+  "original_claim": "Base_K100 macro recall reported as 61.35% in Gate 4.1 summary prose vs 53.87% in JSON/audit report.",
+  "independently_verified_result": "Base_K100 macro recall is exactly 53.8708% across all 9 validation projects, and 60.6046% across the 8 defect-positive projects.",
+  "evidence": "Independent Java calculation of TP/(TP+FN) for each project across commits [100, N): batik 37.86%, codec 54.79%, commons-exec 0.00%, commons-fileupload 53.77%, commons-jelly 46.73%, daemon 68.52%, digester 69.86%, httpclient 87.71%, httpcore 65.52%. Mean across 9 = 53.87%. Mean across 8 = 60.60%.",
+  "correction_made": "Purged 61.35% completely. Canonical metrics JSON records 53.87% for 9 projects and 60.60% for 8 projects.",
+  "remaining_risk": "None. Numerically proven."
+},
+{
+  "finding_id": "F-4.2-02",
+  "severity": "CRITICAL_RESOLVED",
+  "original_claim": "Quantile adaptation recall reported as 42.66% in summary prose vs 42.75% in JSON/audit report.",
+  "independently_verified_result": "Quantile adaptation macro recall is exactly 42.7517% across all 9 validation projects (and 48.0956% across 8 projects), representing an absolute reduction of -11.12 percentage points from Base_K100 (-20.64% relative).",
+  "evidence": "Independent Java evaluation of Quantile_Thresh_K100_Delay90d across all 9 projects: mean recall = 42.7517%. Mean delta = -0.111191 pp (p=0.1953, W=8.0).",
+  "correction_made": "Replaced 42.66% with canonical 42.75% and verified exact delta.",
+  "remaining_risk": "None. Numerically proven."
+},
+{
+  "finding_id": "F-4.2-03",
+  "severity": "CRITICAL_RESOLVED",
+  "original_claim": "HTTPCLIENT recall claimed as 55.98% in narrative recommendation while table showed 42.79%.",
+  "independently_verified_result": "HTTPCLIENT Gate 4 quantile recall is exactly 42.7933% (TP=383, FN=512, Total Positives=895). 55.98% was a legacy pilot value.",
+  "evidence": "Raw prediction audit of httpclient commits 100..3289 at tau=0.46864: TP=383, FP=240, TN=2055, FN=512. Precision=61.48%, Recall=42.79%. In contrast, pilot report line 183 used tau=0.373 yielding Recall=55.98%.",
+  "correction_made": "Updated all narrative recommendations in verified report to state 42.79% recall.",
+  "remaining_risk": "None. Obsolete text completely eliminated."
+},
+{
+  "finding_id": "F-4.2-04",
+  "severity": "MODERATE_RESOLVED",
+  "original_claim": "Single-class zero-defect project commons-exec ROC-AUC imputed as 0.5000 and PR-AUC as 0.0000 without explicit dual reporting.",
+  "independently_verified_result": "ROC-AUC is mathematically undefined for single-class evaluations. Imputing 0.5000 deflates macro ROC-AUC from 0.8023 (8 valid projects) to 0.7687 (all 9 projects). PR-AUC deflates from 0.3882 to 0.3450.",
+  "evidence": "Explicit mathematical definition: ROC-AUC denominator requires N_pos * N_neg. When N_pos = 0, denominator is zero.",
+  "correction_made": "Canonical JSON and verified report now systematically present dual macro columns: Macro (8 Valid Projects) and Macro (All 9 Projects, Imputed).",
+  "remaining_risk": "None. Methodologically transparent."
+},
+{
+  "finding_id": "F-4.2-05",
+  "severity": "MODERATE_RESOLVED",
+  "original_claim": "Quantile threshold precision improvement described as significant or superior.",
+  "independently_verified_result": "Paired Wilcoxon signed-rank test yields W=10.0, exact two-sided p=0.3125, r_rb=+0.444 (6 wins, 2 losses, 1 tie). At alpha=0.05, this difference is NOT statistically significant.",
+  "evidence": "Exact permutation distribution on N=8 non-zero pairs: W=10.0, p=0.3125. Cannot reject the null hypothesis of equal precision distributions.",
+  "correction_made": "Classified strictly as an exploratory positive operational trade-off across 6 of 9 projects, not statistically confirmed superiority.",
+  "remaining_risk": "None. Statistically defensible."
+}
+]
+}

@@ -1,0 +1,41 @@
+{
+  "manifest_gate": "Phase 3A Final Gate 4.4",
+  "audit_version": "1.0.0-final",
+  "timestamp_iso": "2026-11-04T20:00:00Z",
+  "inputs_inspected": [
+    "research/reports/PHASE3A_FINAL_RESEARCH_SUMMARY.md",
+    "research/reports/PHASE3A_PUBLICATION_READINESS_ASSESSMENT.md",
+    "research/reports/PHASE3A_FINAL_FREEZE_MANIFEST.md",
+    "research/reports/PHASE3A_PUBLICATION_PACKAGE_INDEX.md",
+    "research/reports/PHASE3A_GATE4_FULL_BENCHMARK_REPORT_GATE43_VERIFIED.md",
+    "research/reports/PHASE3A_GATE4_3_1_MICRO_METRIC_RECONCILIATION.md",
+    "research/reports/PHASE3A_GATE4_3_FINAL_TABLE_INTEGRITY_AUDIT.md",
+    "research/reports/PHASE3A_GATE4_2_FINAL_CONSISTENCY_AUDIT.md",
+    "research/reports/phase3a_gate4_2_canonical_metrics.json",
+    "research/reports/phase3a_gate4_full_results.json",
+    "research/reports/phase3a_gate4_statistical_analysis.json",
+    "research/reports/phase3a_gate431_reconciliation.json",
+    "research/reports/phase3a_gate431_execution_manifest.json",
+    "research/configs/phase3a_gate4_full_benchmark.json",
+    "research/data/gate4_raw_predictions.csv",
+    "research/data/gate4_raw_predictions.json"
+  ],
+  "inputs_intentionally_excluded": [
+    "dataset-extracted/TD dataset/test.csv (100% quarantined; reserved for Phase 4)"
+  ],
+  "files_created": [
+    "research/reports/PHASE3A_GATE4_4_SCIENTIFIC_CLAIMS_AUDIT.md",
+    "research/reports/phase3a_gate44_claims_audit.json",
+    "research/reports/phase3a_gate44_execution_manifest.json"
+  ],
+  "files_modified_count": 0,
+  "test_dataset_access": false,
+  "production_code_changes": false,
+  "model_retraining": false,
+  "predictions_generated": false,
+  "benchmark_rerun": false,
+  "phase3b_started": false,
+  "phase4_evaluation_started": false,
+  "audit_completion_status": "COMPLETED",
+  "gate_verdict": "CONDITIONAL PASS"
+}

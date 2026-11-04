@@ -77,6 +77,10 @@ public final class GraphAlgorithms {
         return state.sccs;
     }
 
+    public static List<Set<String>> tarjanSCC(DependencyGraph g) {
+        return stronglyConnectedComponents(g);
+    }
+
     private static void tarjanStrongConnect(DependencyGraph g, String v, TarjanState state) {
         state.indices.put(v, state.index);
         state.lowlink.put(v, state.index);

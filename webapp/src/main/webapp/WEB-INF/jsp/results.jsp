@@ -71,7 +71,10 @@
     <div class="brand">Java ArchAnalyzer</div>
     <nav>
         <a href="<%= request.getContextPath() %>/projects/upload">New Analysis</a>
-        <a href="<%= request.getContextPath() %>/simulator" style="color:#a5b4fc;font-weight:600;background:rgba(99,102,241,0.12);padding:6px 14px;border-radius:8px;border:1px solid rgba(99,102,241,0.3)">🔮 What-If Simulator</a>
+        <a href="<%= request.getContextPath() %>/simulator" style="color:#a5b4fc;font-weight:600;background:rgba(99,102,241,0.12);padding:6px 14px;border-radius:8px;border:1px solid rgba(99,102,241,0.3)">🔮 Simulator</a>
+        <a href="<%= request.getContextPath() %>/planner" style="color:#38bdf8;font-weight:600;background:rgba(14,165,233,0.12);padding:6px 14px;border-radius:8px;border:1px solid rgba(14,165,233,0.3)">✨ Planner</a>
+        <a href="<%= request.getContextPath() %>/risk" style="color:#60a5fa;font-weight:600;background:rgba(59,130,246,0.12);padding:6px 14px;border-radius:8px;border:1px solid rgba(59,130,246,0.3)">⚠️ Risk (Novelty 3)</a>
+        <a href="<%= request.getContextPath() %>/explanation" style="color:#a78bfa;font-weight:600;background:rgba(167,139,250,0.12);padding:6px 14px;border-radius:8px;border:1px solid rgba(167,139,250,0.3)">🛡️ Verified Explanations (Novelty 4)</a>
         <a href="<%= request.getContextPath() %>/projects/download/zip"><%= (result.finalZipPath != null && result.finalZipPath.getFileName().toString().endsWith("-refactored.zip")) ? "Download Refactored ZIP" : "Download Original Project ZIP" %></a>
         <a href="<%= request.getContextPath() %>/projects/download/report">Download Report</a>
         <a href="<%= request.getContextPath() %>/history" style="margin-left:14px;background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.4);padding:6px 14px;border-radius:8px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
@@ -185,6 +188,75 @@
             Launch Simulator →
         </a>
     </div>
+
+    <!-- ═══════════════════════════════════════
+         SIMULATION-GUIDED REFACTORING PLANNER (NOVELTY 2)
+    ═══════════════════════════════════════ -->
+    <div style="background:linear-gradient(135deg,rgba(14,165,233,0.12),rgba(99,102,241,0.08));border:1px solid rgba(14,165,233,0.3);border-radius:14px;padding:20px 24px;margin-bottom:28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+        <div style="font-size:2.4rem;line-height:1;">✨</div>
+        <div style="flex:1;min-width:200px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+                <span style="font-size:1.05rem;font-weight:700;color:#38bdf8;">Simulation-Guided Refactoring Planner</span>
+                <span style="background:rgba(14,165,233,0.2);color:#38bdf8;border:1px solid rgba(14,165,233,0.4);padding:2px 10px;border-radius:12px;font-size:0.75rem;font-weight:600;">
+                    Novelty 2: Multi-Operation
+                </span>
+            </div>
+            <div style="font-size:0.82rem;color:#94a3b8;line-height:1.5;">
+                Select multiple architectural operations, simulate their combined effect on an isolated graph snapshot, detect conflicts, and verify actual resulting improvements post-apply.
+            </div>
+        </div>
+        <a href="<%= request.getContextPath() %>/planner"
+           style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#0284c7,#0369a1);color:white;padding:11px 22px;border-radius:10px;font-weight:600;font-size:0.88rem;text-decoration:none;white-space:nowrap;box-shadow:0 4px 16px rgba(14,165,233,0.3);flex-shrink:0;">
+            Open Refactoring Planner →
+        </a>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         AI-BASED ARCHITECTURE RISK PREDICTION (NOVELTY 3)
+    ═══════════════════════════════════════ -->
+    <div style="background:linear-gradient(135deg,rgba(59,130,246,0.12),rgba(139,92,246,0.08));border:1px solid rgba(59,130,246,0.35);border-radius:14px;padding:20px 24px;margin-bottom:28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+        <div style="font-size:2.4rem;line-height:1;">⚠️</div>
+        <div style="flex:1;min-width:200px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+                <span style="font-size:1.05rem;font-weight:700;color:#60a5fa;">AI-Based Architecture Risk Prediction</span>
+                <span style="background:rgba(59,130,246,0.2);color:#60a5fa;border:1px solid rgba(59,130,246,0.4);padding:2px 10px;border-radius:12px;font-size:0.75rem;font-weight:600;">
+                    Novelty 3: Static Graph + Git History
+                </span>
+            </div>
+            <div style="font-size:0.82rem;color:#94a3b8;line-height:1.5;">
+                Combines static dependency graph topology with historical Git churn and evolutionary co-change mining using pure-Java machine learning ensembles to predict defect-prone and high-churn architectural components.
+            </div>
+        </div>
+        <a href="<%= request.getContextPath() %>/risk"
+           style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;padding:11px 22px;border-radius:10px;font-weight:600;font-size:0.88rem;text-decoration:none;white-space:nowrap;box-shadow:0 4px 16px rgba(59,130,246,0.3);flex-shrink:0;">
+            View Architecture Risk Assessment →
+        </a>
+    </div>
+
+    <% if (result.metricsBefore != null && result.metricsBefore.cycleCount > 0) { %>
+    <!-- ═══════════════════════════════════════
+         AUTOMATED CYCLE-BREAKING REFACTORING (NOVELTY 1)
+    ═══════════════════════════════════════ -->
+    <div style="background:linear-gradient(135deg,rgba(239,68,68,0.12),rgba(168,85,247,0.08));border:1px solid rgba(239,68,68,0.35);border-radius:14px;padding:20px 24px;margin-bottom:28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+        <div style="font-size:2.4rem;line-height:1;">🔄</div>
+        <div style="flex:1;min-width:200px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+                <span style="font-size:1.05rem;font-weight:700;color:#fca5a5;">Automated Cycle-Breaking Refactoring</span>
+                <span style="background:rgba(239,68,68,0.2);color:#fca5a5;border:1px solid rgba(239,68,68,0.4);padding:2px 10px;border-radius:12px;font-size:0.75rem;font-weight:600;">
+                    <%= result.metricsBefore.cycleCount %> Active Cycle(s) Detected
+                </span>
+            </div>
+            <div style="font-size:0.82rem;color:#cbd5e1;line-height:1.5;">
+                Eliminate architectural dependency cycles automatically using <strong>Compiler-Verified Dependency Inversion</strong>.
+                Extracts required interfaces from public contracts, rewrites caller call-sites, and runs multi-stage compilation/test verification with atomic rollback protection.
+            </div>
+        </div>
+        <button type="button" onclick="openCycleRefactorModal()"
+           style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#ef4444,#dc2626);color:white;border:none;padding:11px 22px;border-radius:10px;font-weight:600;font-size:0.88rem;cursor:pointer;white-space:nowrap;box-shadow:0 4px 16px rgba(239,68,68,0.35);flex-shrink:0;">
+            Break Cycle (Dependency Inversion) →
+        </button>
+    </div>
+    <% } %>
 
 
     <% if (result.selectedCandidate != null) { %>
@@ -779,6 +851,366 @@ function formatChatReply(text) {
 loadArchGraph().catch(err => {
     document.getElementById('nodeDetail').innerHTML = '<p>Could not load graph: ' + esc(err.message) + '</p>';
 });
+
+// ══════════════════════════════════════════════════════════════════════════
+// NOVELTY 1: AUTOMATED CYCLE-BREAKING REFACTORING (DEPENDENCY INVERSION)
+// ══════════════════════════════════════════════════════════════════════════
+let currentCycleAnalysis = null;
+let currentSelectedCandidate = null;
+
+function openCycleRefactorModal() {
+    const modal = document.getElementById('cycleModal');
+    if (!modal) return;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    loadCycleAnalysis();
+}
+
+function closeCycleRefactorModal() {
+    const modal = document.getElementById('cycleModal');
+    if (!modal) return;
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+}
+
+async function loadCycleAnalysis() {
+    const container = document.getElementById('cycleModalBody');
+    container.innerHTML = '<div style="text-align:center;padding:40px;color:#94a3b8;"><div class="spinner" style="margin:0 auto 16px;"></div>Analyzing cyclic Strongly Connected Components & calculating Minimum Feedback Arc cost scores...</div>';
+
+    try {
+        const res = await fetch(CTX + '/api/refactor/cycle/analyze');
+        if (!res.ok) {
+            const err = await res.json();
+            container.innerHTML = '<div style="color:#fca5a5;padding:20px;background:rgba(239,68,68,0.15);border:1px solid #ef4444;border-radius:8px;"><strong>Analysis Failed:</strong> ' + esc(err.error || 'Server returned ' + res.status) + '</div>';
+            return;
+        }
+
+        const data = await res.json();
+        currentCycleAnalysis = data;
+        renderCycleAnalysisStep(data);
+
+    } catch (e) {
+        container.innerHTML = '<div style="color:#fca5a5;padding:20px;background:rgba(239,68,68,0.15);border:1px solid #ef4444;border-radius:8px;"><strong>Network Error:</strong> Could not connect to cycle refactoring API: ' + esc(e.message) + '</div>';
+    }
+}
+
+function renderCycleAnalysisStep(data) {
+    const container = document.getElementById('cycleModalBody');
+    if (!data.cyclicSccs || data.cyclicSccs.length === 0) {
+        container.innerHTML = '<div style="text-align:center;padding:30px;color:#86efac;"><h3>Zero Cyclic SCCs Detected!</h3><p style="color:#94a3b8;">No architectural circular dependencies currently exist in this project.</p></div>';
+        return;
+    }
+
+    let html = `
+        <div style="margin-bottom:18px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                <h3 style="margin:0;font-size:1.05rem;color:#f8fafc;">Step 1: Inspect Cyclic SCCs & Select Inversion Edge</h3>
+                <span style="background:rgba(239,68,68,0.2);color:#fca5a5;border:1px solid rgba(239,68,68,0.4);padding:3px 10px;border-radius:12px;font-size:0.75rem;font-weight:600;">
+                    ${data.totalCyclicSccs} Cyclic SCC(s)
+                </span>
+            </div>
+            <p style="color:#94a3b8;font-size:0.83rem;margin:0 0 14px 0;line-height:1.5;">
+                The strategy computes the <strong>Minimum Feedback Arc Set</strong> heuristic across all cyclic components. Inverting the dependency edge from caller to provider by extracting an interface eliminates cycles with minimal modification blast radius.
+            </p>
+        </div>
+    `;
+
+    data.cyclicSccs.forEach((scc, sccIdx) => {
+        html += `
+            <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:16px;">
+                <div style="font-weight:600;font-size:0.88rem;color:#e2e8f0;margin-bottom:8px;">
+                    Cyclic SCC #${sccIdx + 1} (${scc.members.length} Components):
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">
+                    ${scc.members.map(m => `<span style="background:rgba(239,68,68,0.12);color:#fca5a5;border:1px solid rgba(239,68,68,0.3);padding:2px 8px;border-radius:4px;font-family:monospace;font-size:0.75rem;">${esc(m.substring(m.lastIndexOf('.')+1))}</span>`).join('')}
+                </div>
+
+                <div style="font-size:0.82rem;font-weight:600;color:#cbd5e1;margin-bottom:8px;">Candidate Inversion Edges (Ranked by Cost Heuristic):</div>
+                <table style="width:100%;border-collapse:collapse;font-size:0.8rem;background:var(--surface);border-radius:6px;overflow:hidden;">
+                    <thead>
+                        <tr style="background:rgba(255,255,255,0.04);color:#94a3b8;text-align:left;border-bottom:1px solid var(--border);">
+                            <th style="padding:8px 10px;width:30px;">Select</th>
+                            <th style="padding:8px 10px;">Directed Edge</th>
+                            <th style="padding:8px 10px;">Cost Score</th>
+                            <th style="padding:8px 10px;">Callers</th>
+                            <th style="padding:8px 10px;">Fields</th>
+                            <th style="padding:8px 10px;">Ctors</th>
+                            <th style="padding:8px 10px;">Cycle Reduction</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        `;
+
+        scc.candidates.forEach((cand, cIdx) => {
+            const isSelected = (scc.selectedEdge && cand.fromComponent === scc.selectedEdge.fromComponent && cand.toComponent === scc.selectedEdge.toComponent) || cIdx === 0;
+            const fromSimple = cand.fromComponent.substring(cand.fromComponent.lastIndexOf('.') + 1);
+            const toSimple = cand.toComponent.substring(cand.toComponent.lastIndexOf('.') + 1);
+
+            html += `
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);cursor:pointer;" onclick="selectCandidateRadio('cand_${sccIdx}_${cIdx}')">
+                    <td style="padding:8px 10px;text-align:center;">
+                        <input type="radio" id="cand_${sccIdx}_${cIdx}" name="selectedEdgeRadio" value="${esc(cand.fromComponent)}|${esc(cand.toComponent)}" ${isSelected ? 'checked' : ''} />
+                    </td>
+                    <td style="padding:8px 10px;font-family:monospace;font-weight:600;color:${isSelected ? '#818cf8' : '#e2e8f0'};">
+                        ${esc(fromSimple)} &rarr; ${esc(toSimple)}
+                        ${isSelected ? '<span style="background:rgba(99,102,241,0.2);color:#a5b4fc;padding:1px 6px;border-radius:4px;font-size:0.7rem;margin-left:6px;">OPTIMAL</span>' : ''}
+                    </td>
+                    <td style="padding:8px 10px;font-weight:600;color:#fcd34d;">${cand.costScore.toFixed(1)}</td>
+                    <td style="padding:8px 10px;color:#94a3b8;">${cand.callerCount}</td>
+                    <td style="padding:8px 10px;color:#94a3b8;">${cand.fieldCount}</td>
+                    <td style="padding:8px 10px;color:#94a3b8;">${cand.constructorUsages}</td>
+                    <td style="padding:8px 10px;font-weight:600;color:#86efac;">-${cand.cycleReductionCount} cycle(s)</td>
+                </tr>
+            `;
+        });
+
+        html += `
+                    </tbody>
+                </table>
+                ${scc.selectedEdge ? `<div style="margin-top:10px;font-size:0.78rem;color:#94a3b8;font-style:italic;"><strong>Selection Rationale:</strong> ${esc(scc.selectedEdge.rationale)}</div>` : ''}
+            </div>
+        `;
+    });
+
+    html += `
+        <div style="display:flex;justify-content:flex-end;gap:12px;margin-top:20px;">
+            <button type="button" onclick="closeCycleRefactorModal()" style="background:transparent;border:1px solid var(--border);color:#94a3b8;padding:8px 18px;border-radius:8px;font-size:0.85rem;cursor:pointer;">
+                Cancel
+            </button>
+            <button type="button" onclick="loadPreviewStep()" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);border:none;color:#fff;padding:8px 20px;border-radius:8px;font-weight:600;font-size:0.85rem;cursor:pointer;display:inline-flex;align-items:center;gap:6px;box-shadow:0 2px 10px rgba(99,102,241,0.3);">
+                Preview Interface &amp; Call-Site Edits (Non-Destructive) &rarr;
+            </button>
+        </div>
+    `;
+
+    container.innerHTML = html;
+}
+
+function selectCandidateRadio(id) {
+    const radio = document.getElementById(id);
+    if (radio) radio.checked = true;
+}
+
+async function loadPreviewStep() {
+    const selectedRadio = document.querySelector('input[name="selectedEdgeRadio"]:checked');
+    if (!selectedRadio) {
+        alert('Please select a candidate edge to invert.');
+        return;
+    }
+
+    const [fromComp, toComp] = selectedRadio.value.split('|');
+    const container = document.getElementById('cycleModalBody');
+    container.innerHTML = '<div style="text-align:center;padding:40px;color:#94a3b8;"><div class="spinner" style="margin:0 auto 16px;"></div>Extracting AST interface and calculating call-site modifications (in-memory preview)...</div>';
+
+    try {
+        const res = await fetch(CTX + '/api/refactor/cycle/preview?from=' + encodeURIComponent(fromComp) + '&to=' + encodeURIComponent(toComp), { method: 'POST' });
+        if (!res.ok) {
+            const err = await res.json();
+            container.innerHTML = '<div style="color:#fca5a5;padding:20px;background:rgba(239,68,68,0.15);border:1px solid #ef4444;border-radius:8px;"><strong>Preview Failed:</strong> ' + esc(err.error || 'Server error') + '</div>';
+            return;
+        }
+
+        const data = await res.json();
+        renderPreviewStep(data.preview, fromComp, toComp);
+
+    } catch (e) {
+        container.innerHTML = '<div style="color:#fca5a5;padding:20px;background:rgba(239,68,68,0.15);border:1px solid #ef4444;border-radius:8px;"><strong>Network Error:</strong> ' + esc(e.message) + '</div>';
+    }
+}
+
+function renderPreviewStep(prev, fromComp, toComp) {
+    const container = document.getElementById('cycleModalBody');
+    currentSelectedCandidate = { from: fromComp, to: toComp, prev: prev };
+
+    let html = `
+        <div style="background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);border-radius:8px;padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+            <span style="font-size:1.2rem;">🛡️</span>
+            <div style="font-size:0.82rem;color:#6ee7b7;line-height:1.4;">
+                <strong>NON-DESTRUCTIVE PREVIEW:</strong> Zero source files have been changed on disk. Review the generated interface and AST modifications below before confirming.
+            </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+            <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:14px;">
+                <div style="font-weight:600;font-size:0.86rem;color:#f8fafc;margin-bottom:8px;display:flex;justify-content:space-between;">
+                    <span>Generated Inversion Interface:</span>
+                    <span style="color:#818cf8;font-family:monospace;">${esc(prev.proposedInterfaceName)}.java</span>
+                </div>
+                <div style="font-size:0.75rem;color:#94a3b8;margin-bottom:6px;">Package: <code>${esc(prev.interfacePackage || '(default)')}</code></div>
+                <pre style="background:#0f172a;border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:10px;font-family:Consolas,monospace;font-size:0.76rem;color:#e2e8f0;overflow:auto;max-height:220px;margin:0;"><code>${esc(prev.generatedInterfaceSource || '// No interface generated')}</code></pre>
+            </div>
+
+            <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:14px;display:flex;flex-direction:column;justify-content:space-between;">
+                <div>
+                    <div style="font-weight:600;font-size:0.86rem;color:#f8fafc;margin-bottom:8px;">Planned Call-Site AST Modifications:</div>
+                    <div style="font-size:0.78rem;color:#cbd5e1;margin-bottom:8px;">
+                        <strong>Provider:</strong> Add <code>implements ${esc(prev.proposedInterfaceName)}</code><br>
+                        <strong>Caller (${esc(fromComp.substring(fromComp.lastIndexOf('.')+1))}):</strong> Retarget fields, params, and decouple instantiation.
+                    </div>
+                    <ul style="margin:0 0 10px 18px;padding:0;font-size:0.76rem;color:#94a3b8;line-height:1.5;">
+                        ${(prev.proposedCallerEdits || []).map(ed => `<li>${esc(ed)}</li>`).join('')}
+                    </ul>
+                </div>
+                <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:10px;">
+                    <div style="font-size:0.75rem;color:#94a3b8;"><strong>Expected Architectural Impact:</strong></div>
+                    <div style="font-size:0.85rem;font-weight:700;color:#86efac;margin-top:2px;">
+                        Cycles reduced by ${prev.expectedCycleReduction} &bull; Tarjan SCC broken
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:18px;">
+            <label style="display:flex;align-items:center;gap:8px;font-size:0.82rem;color:#cbd5e1;cursor:pointer;">
+                <input type="checkbox" id="runMavenTestsCheckbox" />
+                <span>Execute external Maven build tool tests during post-refactoring verification (if <code>pom.xml</code> is present)</span>
+            </label>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+            <button type="button" onclick="renderCycleAnalysisStep(currentCycleAnalysis)" style="background:transparent;border:1px solid var(--border);color:#94a3b8;padding:8px 16px;border-radius:8px;font-size:0.85rem;cursor:pointer;">
+                &larr; Back to Candidate Ranking
+            </button>
+            <button type="button" onclick="applyApprovedCycleRepair()" style="background:linear-gradient(135deg,#10b981,#059669);border:none;color:#fff;padding:9px 22px;border-radius:8px;font-weight:700;font-size:0.88rem;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:0 2px 12px rgba(16,185,129,0.35);">
+                <span>🚀</span> Approve &amp; Apply Cycle Repair (with Atomic Rollback)
+            </button>
+        </div>
+    `;
+
+    container.innerHTML = html;
+}
+
+async function applyApprovedCycleRepair() {
+    const runTests = document.getElementById('runMavenTestsCheckbox') ? document.getElementById('runMavenTestsCheckbox').checked : false;
+    const container = document.getElementById('cycleModalBody');
+
+    container.innerHTML = `
+        <div style="text-align:center;padding:50px 20px;">
+            <div class="spinner" style="margin:0 auto 20px;width:38px;height:38px;border-width:3px;"></div>
+            <h3 style="color:#f8fafc;margin:0 0 8px 0;">Applying Cycle-Breaking Refactoring...</h3>
+            <p style="color:#94a3b8;font-size:0.85rem;margin:0 0 20px 0;">Modifying AST call-sites, generating interface, running in-memory compilation, and confirming topological cycle reduction.</p>
+            <div style="display:inline-block;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:10px 18px;font-size:0.78rem;color:#a5b4fc;">
+                🛡️ Atomic rollback manifest is active. If compilation or verification fails, original files will be restored instantly.
+            </div>
+        </div>
+    `;
+
+    try {
+        const res = await fetch(CTX + '/api/refactor/cycle/apply?runMavenTests=' + runTests, { method: 'POST' });
+        const data = await res.json();
+
+        if (data.status === 'ok' && data.result && data.result.success) {
+            renderExecutionSuccess(data.result);
+        } else {
+            renderExecutionFailure(data.result || { errors: [data.error || 'Execution failed'] });
+        }
+
+    } catch (e) {
+        renderExecutionFailure({ errors: ['Network or server failure: ' + e.message] });
+    }
+}
+
+function renderExecutionSuccess(res) {
+    const container = document.getElementById('cycleModalBody');
+    let html = `
+        <div style="text-align:center;margin-bottom:20px;">
+            <div style="font-size:3rem;margin-bottom:10px;">✅</div>
+            <h3 style="color:#86efac;margin:0 0 6px 0;font-size:1.2rem;">Cycle Breaking Verified &amp; Applied Successfully!</h3>
+            <p style="color:#cbd5e1;font-size:0.85rem;margin:0;">${esc(res.summary)}</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;margin-bottom:20px;">
+            <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:12px;text-align:center;">
+                <div style="font-size:0.75rem;color:#94a3b8;text-transform:uppercase;">Dependency Cycles</div>
+                <div style="font-size:1.3rem;font-weight:700;color:#86efac;margin-top:4px;">
+                    ${res.initialCycleCount} &rarr; ${res.finalCycleCount}
+                </div>
+            </div>
+            <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:12px;text-align:center;">
+                <div style="font-size:0.75rem;color:#94a3b8;text-transform:uppercase;">Compiler Status</div>
+                <div style="font-size:1.3rem;font-weight:700;color:#86efac;margin-top:4px;">
+                    ${esc(res.compilerStatus)}
+                </div>
+            </div>
+            <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:12px;text-align:center;">
+                <div style="font-size:0.75rem;color:#94a3b8;text-transform:uppercase;">Verification Verdict</div>
+                <div style="font-size:1.3rem;font-weight:700;color:#86efac;margin-top:4px;">
+                    VERIFIED
+                </div>
+            </div>
+        </div>
+
+        <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:20px;">
+            <div style="font-weight:600;font-size:0.84rem;color:#e2e8f0;margin-bottom:6px;">Modified &amp; Created Source Files:</div>
+            <ul style="margin:0 0 0 20px;padding:0;font-size:0.78rem;color:#94a3b8;line-height:1.6;">
+                ${(res.modifiedFiles || []).map(f => `<li><code>${esc(f)}</code></li>`).join('')}
+            </ul>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+            ${res.zipDownloadPath ? `
+                <a href="${CTX}/projects/download/zip" style="background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff;text-decoration:none;padding:8px 18px;border-radius:8px;font-size:0.85rem;font-weight:600;display:inline-flex;align-items:center;gap:6px;">
+                    📦 Download Refactored Project ZIP
+                </a>
+            ` : '<div></div>'}
+            <button type="button" onclick="location.reload()" style="background:linear-gradient(135deg,#10b981,#059669);color:#fff;border:none;padding:9px 20px;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;">
+                🔄 Reload Results Dashboard
+            </button>
+        </div>
+    `;
+
+    container.innerHTML = html;
+}
+
+function renderExecutionFailure(res) {
+    const container = document.getElementById('cycleModalBody');
+    let html = `
+        <div style="text-align:center;margin-bottom:20px;">
+            <div style="font-size:3rem;margin-bottom:10px;">🛡️</div>
+            <h3 style="color:#fca5a5;margin:0 0 6px 0;font-size:1.2rem;">Refactoring Safely Rolled Back</h3>
+            <p style="color:#cbd5e1;font-size:0.85rem;margin:0;">The automated refactoring could not be verified by the compiler or build tests. All project source files were immediately restored to their exact pre-modification state.</p>
+        </div>
+
+        <div style="background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:14px;margin-bottom:20px;">
+            <div style="font-weight:600;font-size:0.84rem;color:#fca5a5;margin-bottom:6px;">Error Details:</div>
+            <ul style="margin:0 0 0 20px;padding:0;font-size:0.78rem;color:#fca5a5;line-height:1.6;">
+                ${(res.errors || []).map(e => `<li>${esc(e)}</li>`).join('')}
+            </ul>
+        </div>
+
+        <div style="display:flex;justify-content:flex-end;">
+            <button type="button" onclick="closeCycleRefactorModal()" style="background:var(--surface-2);border:1px solid var(--border);color:#cbd5e1;padding:8px 18px;border-radius:8px;font-size:0.85rem;cursor:pointer;">
+                Close
+            </button>
+        </div>
+    `;
+
+    container.innerHTML = html;
+}
 </script>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     CYCLE REFACTORING MODAL CONTAINER
+══════════════════════════════════════════════════════════════════════════ -->
+<div id="cycleModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.75);backdrop-filter:blur(4px);z-index:9999;align-items:center;justify-content:center;padding:20px;">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;max-width:850px;width:100%;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 20px 40px rgba(0,0,0,0.5);overflow:hidden;">
+        <div style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--surface-2);">
+            <div>
+                <div style="font-weight:700;font-size:1.05rem;color:#f8fafc;display:flex;align-items:center;gap:8px;">
+                    <span>🔄</span> Automated Cycle-Breaking Refactoring (Novelty 1)
+                </div>
+                <div style="font-size:0.75rem;color:#94a3b8;margin-top:2px;">
+                    Compiler Tree API &bull; Dependency Inversion Principle &bull; Verified Rollback
+                </div>
+            </div>
+            <button type="button" onclick="closeCycleRefactorModal()" style="background:transparent;border:none;color:#94a3b8;font-size:1.5rem;cursor:pointer;line-height:1;padding:0 6px;">
+                &times;
+            </button>
+        </div>
+        <div id="cycleModalBody" style="padding:22px 24px;overflow-y:auto;flex:1;">
+            <!-- Rendered dynamically -->
+        </div>
+    </div>
+</div>
 </body>
 </html>

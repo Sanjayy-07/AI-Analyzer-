@@ -21,21 +21,29 @@ public class BuildValidator {
 
     public enum Status { PASS, FAIL, SKIPPED }
 
+    public enum ExecutionVerdict { PASS, FAIL, NOT_RUN, SKIPPED, ERROR, TIMEOUT }
+
     public static class BuildResult {
         public Status status = Status.SKIPPED;
+        public boolean compilePassed = false;
+        public boolean testCompilePassed = false;
+        public boolean testsExecuted = false;
+        public boolean testsPassed = false;
+        public ExecutionVerdict testExecutionVerdict = ExecutionVerdict.NOT_RUN;
+        public int testsRunCount = 0;
+        public int testsFailedCount = 0;
+        public int testsSkippedCount = 0;
         public List<String> errors = new ArrayList<>();
         public List<String> warnings = new ArrayList<>();
         public int filesCompiled = 0;
-        public boolean testsExecuted = false;
-        public boolean testsPassed = false;
         public boolean externalDependenciesMissing = false;
         public String buildToolUsed = "javac (in-memory Compiler Tree API)";
         public String testSummary = "Tests were not executed (only structural and compiler checks performed).";
 
         @Override
         public String toString() {
-            return String.format("BuildResult[status=%s files=%d testsExecuted=%s errors=%d externalDepsMissing=%s]",
-                status, filesCompiled, testsExecuted, errors.size(), externalDependenciesMissing);
+            return String.format("BuildResult[status=%s compilePassed=%s testCompilePassed=%s testsExecuted=%s testsPassed=%s verdict=%s errors=%d]",
+                status, compilePassed, testCompilePassed, testsExecuted, testsPassed, testExecutionVerdict, errors.size());
         }
     }
 
@@ -101,6 +109,7 @@ public class BuildValidator {
 
             if (success && result.errors.isEmpty()) {
                 result.status = Status.PASS;
+                result.compilePassed = true;
                 return result;
             }
 
@@ -188,6 +197,7 @@ public class BuildValidator {
 
                 if (newRefactoringErrors.isEmpty()) {
                     result.status = Status.PASS;
+                    result.compilePassed = true;
                     result.externalDependenciesMissing = true;
                     result.warnings.add("Project relies on external dependencies (e.g. Spring, Lombok) not bundled in archive. Refactored code verified with 0 regressions.");
                     result.errors.clear();
@@ -278,6 +288,10 @@ public class BuildValidator {
      * Uses safe timeouts (10 seconds) and honest status reporting.
      */
     public void runExternalBuildToolValidation(Path projectRoot, String buildTool, BuildResult result) {
+        runExternalBuildToolValidation(projectRoot, buildTool, true, result);
+    }
+
+    public void runExternalBuildToolValidation(Path projectRoot, String buildTool, boolean executeTests, BuildResult result) {
         Path pomPath = projectRoot.resolve("pom.xml");
         Path mavenDir = projectRoot;
         if (!Files.exists(pomPath)) {
@@ -293,20 +307,31 @@ public class BuildValidator {
         }
 
         if ("maven".equalsIgnoreCase(buildTool) && Files.exists(pomPath)) {
-            executeMavenValidation(mavenDir, result);
+            executeMavenValidation(mavenDir, executeTests, result);
         } else if ("gradle".equalsIgnoreCase(buildTool) &&
                   (Files.exists(projectRoot.resolve("build.gradle")) || Files.exists(projectRoot.resolve("build.gradle.kts")))) {
+            result.testExecutionVerdict = ExecutionVerdict.SKIPPED;
             result.testSummary = "Gradle build detected; external Gradle test execution skipped (use gradlew directly).";
         } else {
+            result.testExecutionVerdict = ExecutionVerdict.NOT_RUN;
             result.testSummary = "No Maven (pom.xml) or Gradle build configuration found; automated tests not executed.";
         }
     }
 
-    private void executeMavenValidation(Path projectRoot, BuildResult result) {
+    private void executeMavenValidation(Path projectRoot, boolean executeTests, BuildResult result) {
         boolean isWindows = System.getProperty("os.name", "").toLowerCase().contains("win");
-        List<String> command = isWindows
-            ? List.of("cmd.exe", "/c", "mvn", "test-compile", "-B", "-DskipTests=true", "-o")
-            : List.of("mvn", "test-compile", "-B", "-DskipTests=true", "-o");
+        List<String> command;
+        if (executeTests) {
+            command = isWindows
+                ? List.of("cmd.exe", "/c", "mvn", "test", "-B", "-o")
+                : List.of("mvn", "test", "-B", "-o");
+            result.buildToolUsed = "Maven CLI (mvn test)";
+        } else {
+            command = isWindows
+                ? List.of("cmd.exe", "/c", "mvn", "test-compile", "-B", "-DskipTests=true", "-o")
+                : List.of("mvn", "test-compile", "-B", "-DskipTests=true", "-o");
+            result.buildToolUsed = "Maven CLI (mvn test-compile -DskipTests=true)";
+        }
 
         ProcessBuilder pb = new ProcessBuilder(command);
         pb.directory(projectRoot.toFile());
@@ -329,30 +354,64 @@ public class BuildValidator {
             drainer.setDaemon(true);
             drainer.start();
 
-            boolean completed = process.waitFor(25, TimeUnit.SECONDS);
+            boolean completed = process.waitFor(30, TimeUnit.SECONDS);
             if (!completed) {
                 killProcessTree(process);
+                result.testExecutionVerdict = ExecutionVerdict.TIMEOUT;
+                result.testsExecuted = false;
+                result.testsPassed = false;
                 result.testSummary = "Maven build tool validation timed out.";
                 return;
             }
             try { drainer.join(1000); } catch (InterruptedException ignored) {}
 
             int exitCode = process.exitValue();
-            if (exitCode == 0) {
-                result.testsExecuted = true;
-                result.testsPassed = true;
-                result.status = Status.PASS;
-                result.errors.clear();
-                result.buildToolUsed = "Maven CLI (mvn test-compile)";
-                result.testSummary = "Maven build verified successfully (test-compile passed).";
+            String outputStr = output.toString(java.nio.charset.StandardCharsets.UTF_8);
+
+            parseSurefireMetrics(outputStr, result);
+
+            if (executeTests) {
+                if (exitCode == 0) {
+                    result.testCompilePassed = true;
+                    result.testsExecuted = true;
+                    result.testsPassed = true;
+                    result.status = Status.PASS;
+                    result.testExecutionVerdict = ExecutionVerdict.PASS;
+                    result.errors.clear();
+                    result.testSummary = String.format("Maven tests passed: %d run, %d failures, %d errors, %d skipped.",
+                            result.testsRunCount, result.testsFailedCount, 0, result.testsSkippedCount);
+                } else {
+                    result.testCompilePassed = !outputStr.contains("COMPILATION ERROR");
+                    result.testsExecuted = result.testsRunCount > 0;
+                    result.testsPassed = false;
+                    result.testExecutionVerdict = ExecutionVerdict.FAIL;
+                    result.testSummary = String.format("Maven tests failed with exit code %d (%d run, %d failures).",
+                            exitCode, result.testsRunCount, result.testsFailedCount);
+                }
             } else {
-                result.testSummary = "Maven build execution exited with code " + exitCode + ".";
-                // Do not override in-memory javac PASS unless external build failed due to source errors
+                // DEF-02 Fix: When -DskipTests=true is passed, tests are NEVER reported as executed or passed
+                if (exitCode == 0) {
+                    result.testCompilePassed = true;
+                    result.testsExecuted = false;
+                    result.testsPassed = false;
+                    result.testExecutionVerdict = ExecutionVerdict.SKIPPED;
+                    result.testSummary = "Test sources compiled successfully; test execution was skipped (-DskipTests=true).";
+                } else {
+                    result.testCompilePassed = false;
+                    result.testsExecuted = false;
+                    result.testsPassed = false;
+                    result.testExecutionVerdict = ExecutionVerdict.FAIL;
+                    result.testSummary = "Maven test compilation failed with exit code " + exitCode + ".";
+                }
             }
         } catch (IOException e) {
+            result.testExecutionVerdict = ExecutionVerdict.ERROR;
+            result.testsExecuted = false;
+            result.testsPassed = false;
             result.testSummary = "Maven CLI not found in PATH; external test verification skipped (" + e.getMessage() + ").";
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
+            result.testExecutionVerdict = ExecutionVerdict.ERROR;
             result.testSummary = "Maven execution interrupted.";
         } finally {
             if (process != null) {
@@ -360,6 +419,21 @@ public class BuildValidator {
             }
             System.gc();
         }
+    }
+
+    private void parseSurefireMetrics(String output, BuildResult result) {
+        java.util.regex.Matcher m = java.util.regex.Pattern.compile("Tests run:\\s*(\\d+),\\s*Failures:\\s*(\\d+),\\s*Errors:\\s*(\\d+),\\s*Skipped:\\s*(\\d+)").matcher(output);
+        int totalRun = 0;
+        int totalFail = 0;
+        int totalSkip = 0;
+        while (m.find()) {
+            totalRun += Integer.parseInt(m.group(1));
+            totalFail += Integer.parseInt(m.group(2)) + Integer.parseInt(m.group(3));
+            totalSkip += Integer.parseInt(m.group(4));
+        }
+        result.testsRunCount = totalRun;
+        result.testsFailedCount = totalFail;
+        result.testsSkippedCount = totalSkip;
     }
 
     private void killProcessTree(Process process) {

@@ -1,0 +1,192 @@
+{
+  "audit_gate": "Phase 3A Gate 4.3.1",
+  "audit_type": "Pooled Confusion Matrix & Micro-Metric Reconciliation",
+  "audit_timestamp_iso": "2026-11-04T19:40:00Z",
+  "verdict": "PASS",
+  "contradiction_resolution": {
+    "issue": "Arithmetic discrepancy between reported micro-F1 (45.05%) and chat-cited confusion counts (1202, 1374, 18442, 1403 => 46.40%)",
+    "resolution": "PROSE_TRANSCRIPTION_ERROR_RESOLVED",
+    "ground_truth_defect_count": 2680,
+    "total_evaluated_commits": 22421,
+    "false_prose_matrix": {
+      "tp": 1202,
+      "fp": 1374,
+      "tn": 18442,
+      "fn": 1403,
+      "defects_sum": 2605,
+      "calculated_micro_f1": 0.4640030882069099,
+      "status": "INVALID_DISCARDED"
+    },
+    "canonical_base_k100_matrix": {
+      "tp": 1764,
+      "fp": 3388,
+      "tn": 16353,
+      "fn": 916,
+      "defects_sum": 2680,
+      "micro_precision": 0.3423913043478261,
+      "micro_recall": 0.6582089552238806,
+      "micro_f1": 0.45045965270684374,
+      "micro_accuracy": 0.8080371080683288,
+      "micro_mcc": 0.37522386678161035,
+      "status": "AUTHENTIC_CANONICAL_VERIFIED"
+    }
+  },
+  "methods_reconciliation": {
+    "Base_K100_TauStar": {
+      "tp": 1764,
+      "fp": 3388,
+      "tn": 16353,
+      "fn": 916,
+      "total": 22421,
+      "micro_precision": 0.3423913043478261,
+      "micro_recall": 0.6582089552238806,
+      "micro_f1": 0.45045965270684374,
+      "micro_accuracy": 0.8080371080683288,
+      "micro_mcc": 0.37522386678161035
+    },
+    "Quantile_Thresh_K100_Delay90d": {
+      "tp": 1164,
+      "fp": 2322,
+      "tn": 17419,
+      "fn": 1516,
+      "total": 22421,
+      "micro_precision": 0.33390705679862304,
+      "micro_recall": 0.4343283582089552,
+      "micro_f1": 0.37755433019785917,
+      "micro_accuracy": 0.8288211944159494,
+      "micro_mcc": 0.28353764872027404
+    },
+    "Bayes_K100_M50_Delay90d": {
+      "tp": 1894,
+      "fp": 4539,
+      "tn": 15202,
+      "fn": 786,
+      "total": 22421,
+      "micro_precision": 0.2944193999689103,
+      "micro_recall": 0.7067164179104478,
+      "micro_f1": 0.41566992208932296,
+      "micro_accuracy": 0.7624994424869542,
+      "micro_mcc": 0.3419591444398232
+    },
+    "Bayes_K100_M20_Delay90d": {
+      "tp": 1917,
+      "fp": 4987,
+      "tn": 14754,
+      "fn": 763,
+      "total": 22421,
+      "micro_precision": 0.2776651216685979,
+      "micro_recall": 0.7152985074626865,
+      "micro_f1": 0.40004173622704503,
+      "micro_accuracy": 0.7435439989295749,
+      "micro_mcc": 0.32514394207383635
+    },
+    "Bayes_K100_M10_Delay90d": {
+      "tp": 1911,
+      "fp": 5190,
+      "tn": 14551,
+      "fn": 769,
+      "total": 22421,
+      "micro_precision": 0.26911702577101815,
+      "micro_recall": 0.7130597014925373,
+      "micro_f1": 0.3907575912483386,
+      "micro_accuracy": 0.7342223808037108,
+      "micro_mcc": 0.31392434322041957
+    }
+  },
+  "project_level_base_k100": {
+    "org.apache:batik": {
+      "tp": 188,
+      "fp": 285,
+      "tn": 6142,
+      "fn": 300,
+      "total": 6915,
+      "precision": 0.3974630021141649,
+      "recall": 0.38524590163934425,
+      "f1": 0.3912591050988554
+    },
+    "org.apache:codec": {
+      "tp": 139,
+      "fp": 333,
+      "tn": 1451,
+      "fn": 121,
+      "total": 2044,
+      "precision": 0.2944915254237288,
+      "recall": 0.5346153846153846,
+      "f1": 0.3797814207650273
+    },
+    "org.apache:commons-exec": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 600,
+      "fn": 0,
+      "total": 600,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "org.apache:commons-fileupload": {
+      "tp": 55,
+      "fp": 111,
+      "tn": 863,
+      "fn": 51,
+      "total": 1080,
+      "precision": 0.3313253012048193,
+      "recall": 0.5188679245283019,
+      "f1": 0.40441176470588236
+    },
+    "org.apache:commons-jelly": {
+      "tp": 94,
+      "fp": 328,
+      "tn": 1317,
+      "fn": 106,
+      "total": 1845,
+      "precision": 0.22274881516587677,
+      "recall": 0.47,
+      "f1": 0.30225080385852093
+    },
+    "org.apache:daemon": {
+      "tp": 131,
+      "fp": 256,
+      "tn": 723,
+      "fn": 41,
+      "total": 1151,
+      "precision": 0.3385012919896641,
+      "recall": 0.7616279069767442,
+      "f1": 0.46869409660107336
+    },
+    "org.apache:digester": {
+      "tp": 46,
+      "fp": 204,
+      "tn": 1815,
+      "fn": 27,
+      "total": 2092,
+      "precision": 0.184,
+      "recall": 0.6301369863013698,
+      "f1": 0.28482972136222906
+    },
+    "org.apache:httpclient": {
+      "tp": 785,
+      "fp": 1074,
+      "tn": 1221,
+      "fn": 110,
+      "total": 3190,
+      "precision": 0.42227003765465304,
+      "recall": 0.8770949720670391,
+      "f1": 0.570079883805374
+    },
+    "org.apache:httpcore": {
+      "tp": 326,
+      "fp": 797,
+      "tn": 2221,
+      "fn": 160,
+      "total": 3504,
+      "precision": 0.2902938557435441,
+      "recall": 0.6707818930041153,
+      "f1": 0.4052206339341206
+    }
+  },
+  "quarantine_verification": {
+    "status": "VERIFIED_UNTOUCHED",
+    "quarantined_test_projects": ["org.apache:archiva", "org.apache:collections", "org.apache:commons-cli", "org.apache:dbcp", "org.apache:santuario", "org.apache:validator"]
+  }
+}

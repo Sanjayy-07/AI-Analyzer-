@@ -86,6 +86,10 @@ public class AnalysisApiServlet extends HttpServlet {
                 .map(c -> (Object) Map.of("id", c.id, "strategy", c.strategyName, "target", c.targetComponentId,
                     "score", c.compositeScore, "status", c.status, "projectedDependencyScore", c.projectedDependencyScore))
                 .toList();
+            case "cycles" -> {
+                com.archanalyzer.refactor.CycleRefactoringService svc = new com.archanalyzer.refactor.CycleRefactoringService();
+                yield svc.analyzeCycles(result.projectRoot, result.model, result.graph);
+            }
             case "report" -> Map.of("markdown", result.reportMarkdown);
             case "ai" -> {
                 if (result.aiResult == null) {

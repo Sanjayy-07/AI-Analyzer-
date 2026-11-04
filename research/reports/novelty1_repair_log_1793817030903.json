@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-04T18:30:30.902157900Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\fixture-10-13020818912581773342",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.demo.fix10.NodeC", "com.demo.fix10.NodeB", "com.demo.fix10.NodeA"],
+  "selectedEdge": {
+    "from": "com.demo.fix10.NodeC",
+    "to": "com.demo.fix10.NodeA",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.demo.fix10.INodeA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\fixture-10-13020818912581773342\\src\\main\\java\\com\\demo\\fix10\\INodeA.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\fixture-10-13020818912581773342\\src\\main\\java\\com\\demo\\fix10\\INodeA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\fixture-10-13020818912581773342\\src\\main\\java\\com\\demo\\fix10\\NodeA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\fixture-10-13020818912581773342\\src\\main\\java\\com\\demo\\fix10\\NodeC.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 382,
+  "errors": []
+}

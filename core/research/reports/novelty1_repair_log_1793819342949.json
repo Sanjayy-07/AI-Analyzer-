@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-04T19:09:02.944659200Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7077863514150962503\\preview",
+  "status": "PREVIEW_ONLY",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 1,
+  "sccMembers": ["com.demo.B", "com.demo.A"],
+  "selectedEdge": {
+    "from": "com.demo.B",
+    "to": "com.demo.A",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.demo.IA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7077863514150962503\\preview\\src\\main\\java\\com\\demo\\IA.java",
+  "affectedFiles": [],
+  "compilationPassed": false,
+  "testsPassed": false,
+  "executionDurationMs": 569,
+  "errors": []
+}

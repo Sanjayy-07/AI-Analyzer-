@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-04T17:07:19.734289600Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit162536777353393997\\test-proj-A",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.pkg.A2", "com.pkg.A1"],
+  "selectedEdge": {
+    "from": "com.pkg.A2",
+    "to": "com.pkg.A1",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.pkg.IA1",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit162536777353393997\\test-proj-A\\src\\main\\java\\com\\pkg\\IA1.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit162536777353393997\\test-proj-A\\src\\main\\java\\com\\pkg\\IA1.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit162536777353393997\\test-proj-A\\src\\main\\java\\com\\pkg\\A1.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit162536777353393997\\test-proj-A\\src\\main\\java\\com\\pkg\\A2.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 462,
+  "errors": []
+}

@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-04T18:30:28.473689Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\fixture-4-10587327334006745880",
+  "status": "CYCLE_NOT_BROKEN",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 1,
+  "sccMembers": ["com.demo.fix4.NodeE", "com.demo.fix4.NodeD", "com.demo.fix4.NodeC", "com.demo.fix4.NodeB", "com.demo.fix4.NodeA"],
+  "selectedEdge": {
+    "from": "com.demo.fix4.NodeD",
+    "to": "com.demo.fix4.NodeE",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.demo.fix4.INodeE",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\fixture-4-10587327334006745880\\src\\main\\java\\com\\demo\\fix4\\INodeE.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\fixture-4-10587327334006745880\\src\\main\\java\\com\\demo\\fix4\\INodeE.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\fixture-4-10587327334006745880\\src\\main\\java\\com\\demo\\fix4\\NodeE.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\fixture-4-10587327334006745880\\src\\main\\java\\com\\demo\\fix4\\NodeD.java"],
+  "compilationPassed": false,
+  "testsPassed": false,
+  "executionDurationMs": 453,
+  "errors": ["Refactoring completed compilation but did not eliminate the architectural cycle."]
+}

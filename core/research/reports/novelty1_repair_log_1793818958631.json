@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-04T19:02:38.630238500Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit9298795711588873080\\adv-constructors",
+  "status": "COMPILE_FAILED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 1,
+  "sccMembers": ["com.adv2.ServiceB", "com.adv2.ServiceA"],
+  "selectedEdge": {
+    "from": "com.adv2.ServiceA",
+    "to": "com.adv2.ServiceB",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.adv2.IServiceB",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit9298795711588873080\\adv-constructors\\src\\main\\java\\com\\adv2\\IServiceB.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit9298795711588873080\\adv-constructors\\src\\main\\java\\com\\adv2\\IServiceB.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit9298795711588873080\\adv-constructors\\src\\main\\java\\com\\adv2\\ServiceB.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit9298795711588873080\\adv-constructors\\src\\main\\java\\com\\adv2\\ServiceA.java"],
+  "compilationPassed": false,
+  "testsPassed": false,
+  "executionDurationMs": 427,
+  "errors": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit9298795711588873080\\adv-constructors\\src\\main\\java\\com\\adv2\\ServiceA.java:21: variable config might not have been initialized"]
+}

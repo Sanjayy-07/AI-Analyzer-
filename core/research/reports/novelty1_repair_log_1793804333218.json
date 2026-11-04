@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-04T14:58:53.217257500Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit4248407574273597510\\test-fail",
+  "status": "NO_CYCLES_DETECTED",
+  "initialCyclicSccCount": 0,
+  "finalCyclicSccCount": 0,
+  "sccMembers": [],
+  "selectedEdge": {
+    "from": "",
+    "to": "",
+    "costScore": 0.0
+  },
+  "extractedInterface": "",
+  "interfaceFilePath": "",
+  "affectedFiles": [],
+  "compilationPassed": false,
+  "testsPassed": false,
+  "executionDurationMs": 1,
+  "errors": []
+}

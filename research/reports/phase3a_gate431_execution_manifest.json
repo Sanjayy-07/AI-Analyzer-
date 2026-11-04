@@ -1,0 +1,25 @@
+{
+  "manifest_gate": "Gate 4.3.1",
+  "timestamp_iso": "2026-11-04T19:40:00Z",
+  "execution_status": "SUCCESS",
+  "java_version": "18.0.2.1",
+  "jdk_vendor": "Oracle Corporation",
+  "raw_predictions_csv": {
+    "path": "research/data/gate4_raw_predictions.csv",
+    "size_bytes": 3051869,
+    "sha256": "a1cc86cc3094adf45eea693d964d6f75a743ef20fe2b258700b9fcc5f2f75dec"
+  },
+  "canonical_metrics_json": {
+    "path": "research/reports/phase3a_gate4_2_canonical_metrics.json",
+    "size_bytes": 52222,
+    "sha256": "e1053c6e154bfb33db36de360f90457c1d20261565fb0527300a610dbec16573"
+  },
+  "reconciliation_json": {
+    "path": "research/reports/phase3a_gate431_reconciliation.json",
+    "size_bytes": 5167,
+    "sha256": "19ab1dacdd2621def4ee7baf90a5bc4b075e2d450ea1c86b3ffad854b04fc785"
+  },
+  "test_quarantine_verified": true,
+  "model_parameters_immutability_verified": true,
+  "raw_prediction_immutability_verified": true
+}

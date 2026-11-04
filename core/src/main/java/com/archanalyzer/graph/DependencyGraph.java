@@ -57,6 +57,21 @@ public class DependencyGraph {
         rawEdges.removeIf(e -> e.getFrom().equals(from) && e.getTo().equals(to));
     }
 
+    public void removeVertex(String id) {
+        if (!vertices.contains(id)) return;
+        Set<String> outs = new LinkedHashSet<>(outgoing(id));
+        for (String to : outs) {
+            removeEdge(id, to);
+        }
+        Set<String> ins = new LinkedHashSet<>(incoming(id));
+        for (String from : ins) {
+            removeEdge(from, id);
+        }
+        vertices.remove(id);
+        adjacency.remove(id);
+        reverseAdjacency.remove(id);
+    }
+
     /** Isolated copy used by what-if simulation so the baseline graph is never mutated. */
     public DependencyGraph copy() {
         DependencyGraph clone = new DependencyGraph();

@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-04T19:00:02.303235700Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit797483272600003055\\two-cycles-project",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 2,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.cycleone.ServiceB", "com.cycleone.ServiceA"],
+  "selectedEdge": {
+    "from": "com.cycleone.ServiceB",
+    "to": "com.cycleone.ServiceA",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.cycleone.IServiceA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit797483272600003055\\two-cycles-project\\src\\main\\java\\com\\cycleone\\IServiceA.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit797483272600003055\\two-cycles-project\\src\\main\\java\\com\\cycleone\\IServiceA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit797483272600003055\\two-cycles-project\\src\\main\\java\\com\\cycleone\\ServiceA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit797483272600003055\\two-cycles-project\\src\\main\\java\\com\\cycleone\\ServiceB.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit797483272600003055\\two-cycles-project\\src\\main\\java\\com\\cycletwo\\IOrderMgr.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit797483272600003055\\two-cycles-project\\src\\main\\java\\com\\cycletwo\\OrderMgr.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit797483272600003055\\two-cycles-project\\src\\main\\java\\com\\cycletwo\\PaymentMgr.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 2226,
+  "errors": []
+}

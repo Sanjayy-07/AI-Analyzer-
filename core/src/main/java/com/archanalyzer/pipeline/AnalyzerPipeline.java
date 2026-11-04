@@ -384,4 +384,56 @@ public class AnalyzerPipeline {
             }
         } catch (Exception ignored) {}
     }
+
+    private final com.archanalyzer.refactor.CycleRefactoringService cycleRefactoringService = new com.archanalyzer.refactor.CycleRefactoringService();
+    private final com.archanalyzer.planner.SimulationPlannerService simulationPlannerService = new com.archanalyzer.planner.SimulationPlannerService();
+    private final com.archanalyzer.riskprediction.service.ArchitectureRiskService architectureRiskService = new com.archanalyzer.riskprediction.service.ArchitectureRiskService();
+    private final com.archanalyzer.explanation.service.ArchitectureExplanationService architectureExplanationService = new com.archanalyzer.explanation.service.ArchitectureExplanationService();
+
+    public com.archanalyzer.refactor.CycleRefactoringService getCycleRefactoringService() {
+        return cycleRefactoringService;
+    }
+
+    public com.archanalyzer.planner.SimulationPlannerService getSimulationPlannerService() {
+        return simulationPlannerService;
+    }
+
+    public com.archanalyzer.riskprediction.service.ArchitectureRiskService getArchitectureRiskService() {
+        return architectureRiskService;
+    }
+
+    public com.archanalyzer.explanation.service.ArchitectureExplanationService getArchitectureExplanationService() {
+        return architectureExplanationService;
+    }
+
+    public com.archanalyzer.explanation.verification.VerifiedExplanation explainProjectArchitecture(PipelineResult baseline) {
+        if (baseline == null) throw new IllegalArgumentException("Baseline pipeline result cannot be null.");
+        var riskOverview = architectureRiskService.assessProjectRisk(baseline.projectRoot, baseline.model, baseline.graph);
+        return architectureExplanationService.explainProject(baseline.model, baseline.graph, baseline.metricsBefore, riskOverview.components());
+    }
+
+    public com.archanalyzer.riskprediction.service.ArchitectureRiskService.ProjectRiskOverview assessArchitectureRisk(PipelineResult baseline) {
+        if (baseline == null) throw new IllegalArgumentException("Baseline pipeline result cannot be null.");
+        return architectureRiskService.assessProjectRisk(baseline.projectRoot, baseline.model, baseline.graph);
+    }
+
+    public com.archanalyzer.planner.PlannerSimulationResult simulatePlan(String planId, PipelineResult baseline) {
+        if (baseline == null) throw new IllegalArgumentException("Baseline pipeline result cannot be null.");
+        return simulationPlannerService.simulatePlan(planId, baseline.model, baseline.graph);
+    }
+
+    public com.archanalyzer.refactor.CycleRefactoringService.CycleAnalysisDto analyzeCycles(PipelineResult baseline) {
+        if (baseline == null) return new com.archanalyzer.refactor.CycleRefactoringService.CycleAnalysisDto();
+        return cycleRefactoringService.analyzeCycles(baseline.projectRoot, baseline.model, baseline.graph);
+    }
+
+    public com.archanalyzer.refactor.CycleRefactoringService.CyclePreviewDto previewCycleBreaking(PipelineResult baseline, String from, String to) {
+        if (baseline == null) return new com.archanalyzer.refactor.CycleRefactoringService.CyclePreviewDto();
+        return cycleRefactoringService.previewCycleBreaking(baseline.projectRoot, baseline.model, baseline.graph, from, to);
+    }
+
+    public com.archanalyzer.refactor.CycleRefactoringService.CycleExecutionDto applyCycleBreaking(PipelineResult baseline, com.archanalyzer.refactor.cycle.CycleRefactoringExecutor.RefactoringOptions options) throws IOException {
+        if (baseline == null) throw new IllegalArgumentException("Baseline pipeline result cannot be null.");
+        return cycleRefactoringService.applyCycleBreaking(baseline.projectRoot, baseline, options);
+    }
 }

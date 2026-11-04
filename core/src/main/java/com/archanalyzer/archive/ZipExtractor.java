@@ -30,10 +30,12 @@ public class ZipExtractor implements ArchiveExtractor {
             var entries = zipFile.entries();
             while (entries.hasMoreElements()) {
                 ZipEntry entry = entries.nextElement();
+                String name = entry.getName();
+                boolean isDir = entry.isDirectory() || name.endsWith("/") || name.endsWith("\\");
 
-                if (entry.isDirectory()) {
+                if (isDir) {
                     guard.registerEntry(0);
-                    Path targetPath = guard.resolveSafeEntryPath(destinationDir, entry.getName());
+                    Path targetPath = guard.resolveSafeEntryPath(destinationDir, name);
                     Files.createDirectories(targetPath);
                     continue;
                 }

@@ -43,6 +43,17 @@ public class RefactoringEngine {
         "((?:public\\s+|final\\s+|abstract\\s+)*class\\s+" + "%s" + "(?:<[^>]*>)?" +
         "(?:\\s+extends\\s+[\\w.<>,\\s]+)?(?:\\s+implements\\s+[\\w.<>,\\s]+)?)\\s*\\{");
 
+    private final CycleRefactoringService cycleRefactoringService = new CycleRefactoringService();
+    private final com.archanalyzer.planner.SimulationPlannerService simulationPlannerService = new com.archanalyzer.planner.SimulationPlannerService();
+
+    public CycleRefactoringService getCycleRefactoringService() {
+        return cycleRefactoringService;
+    }
+
+    public com.archanalyzer.planner.SimulationPlannerService getSimulationPlannerService() {
+        return simulationPlannerService;
+    }
+
     public List<RefactoringChange> extractInterface(Path projectRoot, Path targetClassFile,
                                                        String targetClassSimpleName) throws IOException {
         List<RefactoringChange> changes = new ArrayList<>();

@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-04T15:51:49.376674700Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7932345529366155788\\two-class",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.demo.ClassB", "com.demo.ClassA"],
+  "selectedEdge": {
+    "from": "com.demo.ClassB",
+    "to": "com.demo.ClassA",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.demo.IClassA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7932345529366155788\\two-class\\src\\main\\java\\com\\demo\\IClassA.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7932345529366155788\\two-class\\src\\main\\java\\com\\demo\\IClassA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7932345529366155788\\two-class\\src\\main\\java\\com\\demo\\ClassA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7932345529366155788\\two-class\\src\\main\\java\\com\\demo\\ClassB.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 454,
+  "errors": []
+}

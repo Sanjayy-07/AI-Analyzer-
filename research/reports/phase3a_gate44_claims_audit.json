@@ -1,0 +1,129 @@
+{
+  "audit_gate": "Phase 3A Final Gate 4.4",
+  "audit_type": "Scientific Claims, Statistical Consistency & Manuscript Readiness Audit",
+  "timestamp_iso": "2026-11-04T20:00:00Z",
+  "verdict": "CONDITIONAL PASS",
+  "verdict_rationale": "Internal numerical, statistical, and artifact consistency is 100% established. All experimental baselines and confusion matrices are reconciled. Conditional Pass is assigned strictly because external literature review is required to substantiate novelty, and authorial tone softening (replacing absolutist terminology like 'Theorem' and '100% verified' with qualified empirical statements) is required prior to IEEE manuscript submission.",
+  "dataset_quarantine_verified": true,
+  "production_code_untouched": true,
+  "model_unretrained": true,
+  "numerical_consistency": {
+    "source_train_prevalence": 0.11144057556096745,
+    "validation_full_prevalence": 0.12096393808155739,
+    "post_burn_in_prevalence": 0.11953079698500207,
+    "total_validation_commits": 23321,
+    "burn_in_commits_omitted": 900,
+    "aligned_evaluation_commits": 22421,
+    "ground_truth_defects": 2680,
+    "ground_truth_clean": 19741,
+    "base_k100": {
+      "tp": 1764,
+      "fp": 3388,
+      "tn": 16353,
+      "fn": 916,
+      "micro_precision": 0.3423913043478261,
+      "micro_recall": 0.6582089552238806,
+      "micro_f1": 0.4504596527075351,
+      "micro_accuracy": 0.8080371080683288,
+      "micro_mcc": 0.37522387140026214
+    },
+    "quantile_thresh": {
+      "tp": 1164,
+      "fp": 2322,
+      "tn": 17419,
+      "fn": 1516,
+      "micro_precision": 0.33390705679862304,
+      "micro_recall": 0.4343283582089552,
+      "micro_f1": 0.3775543301978592,
+      "micro_accuracy": 0.8288211944159493,
+      "micro_mcc": 0.28353765187766187
+    },
+    "bayes_m50": {
+      "tp": 1894,
+      "fp": 4539,
+      "tn": 15202,
+      "fn": 786,
+      "micro_precision": 0.2944194000310897,
+      "micro_recall": 0.7067164179104478,
+      "micro_f1": 0.4156699220915176,
+      "micro_accuracy": 0.7624994424869542,
+      "micro_mcc": 0.3419591410793616
+    },
+    "bayes_m20": {
+      "tp": 1917,
+      "fp": 4987,
+      "tn": 14754,
+      "fn": 763,
+      "micro_precision": 0.2776651216685979,
+      "micro_recall": 0.7152985074626866,
+      "micro_f1": 0.4000417362270451,
+      "micro_accuracy": 0.7435439989295749,
+      "micro_mcc": 0.3251439401886121
+    },
+    "bayes_m10": {
+      "tp": 1911,
+      "fp": 5190,
+      "tn": 14551,
+      "fn": 769,
+      "micro_precision": 0.26911702577097734,
+      "micro_recall": 0.7130597014925373,
+      "micro_f1": 0.3907575912483386,
+      "micro_accuracy": 0.7342223808037108,
+      "micro_mcc": 0.3139243405786377
+    }
+  },
+  "statistical_findings": {
+    "ranking_invariance": {
+      "roc_auc_difference": 0.0,
+      "pr_auc_difference": 0.0,
+      "property": "Strict monotonicity of scalar log-odds adjustment guarantees ranking invariance"
+    },
+    "quantile_precision_vs_base": {
+      "metric": "Macro Precision",
+      "w_statistic": 10.0,
+      "p_value_exact": 0.3125,
+      "rank_biserial_r": 0.4444,
+      "wins": 6,
+      "losses": 2,
+      "ties": 1,
+      "significant_alpha_0_05": false,
+      "interpretation": "Positive operational trend (false alarm mitigation), not a statistically significant confirmation"
+    },
+    "quantile_f1_vs_base": {
+      "metric": "Macro F1",
+      "w_statistic": 5.0,
+      "p_value_exact": 0.078125,
+      "rank_biserial_r": -0.7222,
+      "wins": 2,
+      "losses": 6,
+      "ties": 1,
+      "significant_alpha_0_05": false,
+      "interpretation": "Operational trade-off resulting from recall reduction (-11.12 pp)"
+    },
+    "bayes_m10_f1_vs_base": {
+      "metric": "Macro F1",
+      "w_statistic": 0.0,
+      "p_value_exact": 0.03125,
+      "rank_biserial_r": -1.0,
+      "wins": 0,
+      "losses": 6,
+      "ties": 3,
+      "significant_alpha_0_05": true,
+      "interpretation": "Statistically significant degradation due to small-sample under-regularization"
+    }
+  },
+  "claims_audit_summary": {
+    "total_claims_audited": 10,
+    "supported_by_canonical_artifact": 6,
+    "supported_with_qualification": 2,
+    "descriptive_only": 1,
+    "requires_external_literature_review": 1,
+    "unsupported": 0
+  },
+  "required_author_actions": [
+    "Tone softening: Replace 'Ranking Invariance Theorem' with 'ranking invariance property under monotonic prior transformation'.",
+    "Scope qualification: Clarify that +4.12 pp precision gain is an exploratory operational trend (p=0.3125), not proven superiority.",
+    "Literature benchmarking: Conduct systematic external literature review to substantiate novelty claims regarding delayed defect maturation in JIT-SDP.",
+    "Threats to validity: Document potential multiple-comparison limitations and SZZ labeling noise in manuscript Section 6."
+  ]
+}

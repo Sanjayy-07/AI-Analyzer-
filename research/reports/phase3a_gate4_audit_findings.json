@@ -1,0 +1,53 @@
+{
+"audit_phase": "Phase 3A Gate 4.1 Audit Findings",
+"audit_timestamp": "Wed Nov 04 18:43:46 IST 2026",
+"verdict": "CONDITIONAL PASS",
+"verdict_justification": "No critical fatal errors found. The underlying raw prediction data is intact, reproducible, and leakage-free. Moderate discrepancies identified: (1) Table 1 sample conflation (23,321 vs 22,421 commits) resolved via aligned tables; (2) Degenerate ROC-AUC on commons-exec documented with both 8-project (0.8020) and 9-project (0.7685) averages; (3) Precision gain (+4.12%) confirmed as non-significant (p=0.3125) rather than statistically significant.",
+"findings": [
+{
+"finding_id": "F-01",
+"severity": "MAJOR",
+"title": "Evaluation Window Sample Conflation in Table 1",
+"description": "Table 1 of PHASE3A_GATE4_FULL_BENCHMARK_REPORT.md reported Baseline A1 on N=23,321 commits, while reporting Burn-In methods on N=22,421 commits, conflating full-sample baseline with post-burn-in sample.",
+"impact": "Original Table 1 did not provide the aligned baseline row (N=22,421), making adaptation appear to suffer a larger decline against full-sample (0.3630 vs 0.3116) than against aligned baseline (0.3563 vs 0.3116).",
+"status": "RECOMPUTED_AND_SEPARATED",
+"resolution": "Created separate Macro/Micro tables for Full-Sample (N=23,321) and Aligned Post-Burn-in (N=22,421)."
+},
+{
+"finding_id": "F-02",
+"severity": "MODERATE",
+"title": "ROC-AUC Imputation Convention on Zero-Defect Project (commons-exec)",
+"description": "Reporting ROC-AUC=0.5000 for commons-exec (which has zero positive cases) is a degenerate mathematical imputation that deflated Macro ROC-AUC from 0.8020 (8 valid projects) to 0.7685 (all 9 projects).",
+"impact": "ROC-AUC is mathematically undefined when positive class count is zero. Silently averaging 0.5 distorts macro-average ranking capacity.",
+"status": "DOCUMENTED_AND_REPORTED_BOTH",
+"resolution": "Reported both 8-Project Defined Macro (0.8020) and 9-Project Imputed Macro (0.7685) with explicit undefined caveats."
+},
+{
+"finding_id": "F-03",
+"severity": "MODERATE",
+"title": "Table 1 Baseline A1 Precision and Recall Alignment Discrepancy",
+"description": "Table 1 reported Baseline A1 precision as 27.57% and recall as 60.29%, which were actually the metrics of Base_K100 (aligned post-burn-in window). The true full-sample A1 precision was 27.92% and recall was 54.77%.",
+"impact": "Transposed aligned post-burn-in baseline metrics into full-sample baseline row.",
+"status": "CORRECTED_IN_AUDITED_REPORT",
+"resolution": "Separated full-sample baseline metrics from post-burn-in aligned baseline metrics."
+},
+{
+"finding_id": "F-04",
+"severity": "INFORMATIONAL",
+"title": "Monotonic Ranking Invariance Confirmed",
+"description": "Confirmed that scalar log-odds prior shifts strictly preserve PR-AUC and ROC-AUC down to 1e-12 across all projects.",
+"impact": "Prior adaptation cannot expand the discriminative frontier; it strictly shifts the operating threshold.",
+"status": "VERIFIED_TRUE",
+"resolution": "Documented ranking invariance theorem in audited research report."
+},
+{
+"finding_id": "F-05",
+"severity": "MODERATE",
+"title": "Quantile Threshold Precision Improvement Statistical Significance Clarification",
+"description": "Quantile threshold adaptation improved macro precision from 27.57% to 31.69% (+4.12% mean difference across 6 of 9 projects). However, the paired Wilcoxon test yields p=0.3125, which is not statistically significant at alpha=0.05.",
+"impact": "A +4.12% mean precision increase must be described as a positive operational trend, not a statistically significant breakthrough.",
+"status": "CORRECTED_NARRATIVE",
+"resolution": "Clarified statistical non-significance (p=0.3125) and sample-size constraints (N=9) in report narrative."
+}
+]
+}

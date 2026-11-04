@@ -93,6 +93,70 @@
         <url-pattern>/simulator/*</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CycleRefactoringServlet</servlet-name>
+        <servlet-class>com.archanalyzer.web.servlet.CycleRefactoringServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CycleRefactoringServlet</servlet-name>
+        <url-pattern>/api/refactor/cycle/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CycleRefactoringServlet</servlet-name>
+        <url-pattern>/api/refactor/cycle</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SimulationPlannerServlet</servlet-name>
+        <servlet-class>com.archanalyzer.web.servlet.SimulationPlannerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SimulationPlannerServlet</servlet-name>
+        <url-pattern>/planner</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SimulationPlannerServlet</servlet-name>
+        <url-pattern>/api/refactor/simulation/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SimulationPlannerServlet</servlet-name>
+        <url-pattern>/api/refactor/simulation</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ArchitectureRiskServlet</servlet-name>
+        <servlet-class>com.archanalyzer.web.servlet.ArchitectureRiskServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ArchitectureRiskServlet</servlet-name>
+        <url-pattern>/risk</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ArchitectureRiskServlet</servlet-name>
+        <url-pattern>/api/risk/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ArchitectureRiskServlet</servlet-name>
+        <url-pattern>/api/risk</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ArchitectureExplanationServlet</servlet-name>
+        <servlet-class>com.archanalyzer.web.servlet.ArchitectureExplanationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ArchitectureExplanationServlet</servlet-name>
+        <url-pattern>/explanation</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ArchitectureExplanationServlet</servlet-name>
+        <url-pattern>/api/explanation/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ArchitectureExplanationServlet</servlet-name>
+        <url-pattern>/api/explanation</url-pattern>
+    </servlet-mapping>
+
     <!-- ================= Spring MVC DispatcherServlet (Module 6) ================= -->
     <servlet>
         <servlet-name>spring-mvc</servlet-name>

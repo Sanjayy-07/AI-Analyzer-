@@ -653,6 +653,15 @@
     <nav>
         <a href="<%= request.getContextPath() %>/projects/upload">New Analysis</a>
         <a href="<%= request.getContextPath() %>/dashboard" style="margin-left:24px;color:#94a3b8">Dashboard</a>
+        <a href="<%= request.getContextPath() %>/planner" style="margin-left:20px;background:rgba(99,102,241,0.15);color:#a5b4fc;border:1px solid rgba(99,102,241,0.4);padding:6px 14px;border-radius:8px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
+            🔮 Refactoring Planner
+        </a>
+        <a href="<%= request.getContextPath() %>/risk" style="margin-left:20px;background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.4);padding:6px 14px;border-radius:8px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
+            ⚠️ Risk Prediction (Novelty 3)
+        </a>
+        <a href="<%= request.getContextPath() %>/explanation" style="margin-left:20px;background:rgba(167,139,250,0.15);color:#a78bfa;border:1px solid rgba(167,139,250,0.4);padding:6px 14px;border-radius:8px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
+            🛡️ Verified Explanations (Novelty 4)
+        </a>
         <a href="<%= request.getContextPath() %>/projects/download/report" style="margin-left:24px;color:#94a3b8">Download Report</a>
         <a href="<%= request.getContextPath() %>/history" style="margin-left:20px;background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.4);padding:6px 14px;border-radius:8px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
             🕒 View History
@@ -1292,6 +1301,16 @@ function renderResults(sim) {
         allWarns.forEach(w => {
             wl.innerHTML += `<div class="warning-item">⚠️ <span>${escHtml(w)}</span></div>`;
         });
+        if (cycles.length > 0) {
+            wl.innerHTML += `
+                <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(239,68,68,0.25);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+                    <span style="font-size:0.78rem;color:#fca5a5;">Detected cycles can be broken automatically using verified Dependency Inversion.</span>
+                    <a href="${CTX}/dashboard" style="background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;padding:5px 12px;border-radius:6px;font-size:0.78rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">
+                        <span>🔄</span> Break Cycle in Dashboard &rarr;
+                    </a>
+                </div>
+            `;
+        }
     } else {
         warnSection.style.display = 'none';
     }

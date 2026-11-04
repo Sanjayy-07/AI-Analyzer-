@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-04T19:16:39.969700500Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit2927778732686298662\\figure-eight-project",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.fig8.RightNode", "com.fig8.LeftNode", "com.fig8.Center"],
+  "selectedEdge": {
+    "from": "com.fig8.Center",
+    "to": "com.fig8.LeftNode",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.fig8.ILeftNode",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit2927778732686298662\\figure-eight-project\\src\\main\\java\\com\\fig8\\ILeftNode.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit2927778732686298662\\figure-eight-project\\src\\main\\java\\com\\fig8\\ILeftNode.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit2927778732686298662\\figure-eight-project\\src\\main\\java\\com\\fig8\\LeftNode.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit2927778732686298662\\figure-eight-project\\src\\main\\java\\com\\fig8\\Center.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit2927778732686298662\\figure-eight-project\\src\\main\\java\\com\\fig8\\IRightNode.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit2927778732686298662\\figure-eight-project\\src\\main\\java\\com\\fig8\\RightNode.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit2927778732686298662\\figure-eight-project\\src\\main\\java\\com\\fig8\\Center.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 938,
+  "errors": []
+}

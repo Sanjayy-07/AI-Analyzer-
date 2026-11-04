@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-04T15:22:12.617532800Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit17141175247369971383\\dup-iface",
+  "status": "REPAIR_REJECTED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 1,
+  "sccMembers": ["com.demo.B", "com.demo.A"],
+  "selectedEdge": {
+    "from": "com.demo.B",
+    "to": "com.demo.A",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.demo.IA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit17141175247369971383\\dup-iface\\src\\main\\java\\com\\demo\\IA.java",
+  "affectedFiles": [],
+  "compilationPassed": false,
+  "testsPassed": false,
+  "executionDurationMs": 246,
+  "errors": ["Refactoring exception: Interface file already exists: C:\\Users\\Harini\\AppData\\Local\\Temp\\junit17141175247369971383\\dup-iface\\src\\main\\java\\com\\demo\\IA.java"]
+}

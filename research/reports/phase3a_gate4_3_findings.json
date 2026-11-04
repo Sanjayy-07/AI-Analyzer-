@@ -1,0 +1,146 @@
+{
+  "audit_phase": "Gate 4.3 — Final Table Integrity & Metric Semantics Audit",
+  "verdict": "PASS",
+  "table_integrity_findings": [
+{
+  "audit_check": "TABLE_COLUMN_ORDERING",
+  "severity": "MINOR_RESOLVED",
+  "table_location": "PHASE3A_GATE4_FULL_BENCHMARK_REPORT.md (Table 7.1) vs PHASE3A_GATE4_FULL_BENCHMARK_REPORT_AUDITED.md (Table 3.1)",
+  "description": "In original Table 7.1, columns were: [F1-Score, PR-AUC, ROC-AUC, MCC]. In audited Table 3.1, columns were: [F1-Score, MCC, PR-AUC, ROC-AUC]. In both tables, values strictly matched headers, but order differed.",
+  "canonical_order": "F1-Score | MCC | PR-AUC | ROC-AUC | Brier Score | ECE",
+  "status": "STANDARDIZED"
+},
+{
+  "audit_check": "TABLE_PROJECT_COVERAGE",
+  "severity": "MODERATE_RESOLVED",
+  "table_location": "PHASE3A_GATE4_FULL_BENCHMARK_REPORT_GATE42_VERIFIED.md (Table 4.1)",
+  "description": "Table 4.1 in Gate 4.2 verified report displayed only 4 representative projects (batik, commons-exec, httpclient, httpcore). The other 5 validation projects were omitted from the table.",
+  "recommendation": "Expand Table 4.1 to display all 9 validation projects comprehensively in the Gate 4.3 report.",
+  "status": "EXPANDED_ALL_9_PROJECTS"
+},
+{
+  "audit_check": "UNDEFINED_ROC_AUC_LABELING",
+  "severity": "MODERATE_RESOLVED",
+  "table_location": "All Project Tables (commons-exec row)",
+  "description": "Displaying '0.5000' or '*0.5000*' under ROC-AUC for commons-exec can mislead readers into interpreting 0.5 as an empirical measurement.",
+  "recommendation": "Format commons-exec ROC-AUC cell explicitly as 'N/A (0.5000*)' with footnote explaining 0.5000 is an imputation convention for macro averaging.",
+  "status": "EXPLICIT_NA_LABEL_APPLIED"
+}
+],
+  "metric_semantics_classifications": [
+{
+  "project": "org.apache:commons-exec",
+  "method": "Base_K100_TauStar",
+  "metric_name": "Recall",
+  "raw_value": "0.00% (or UNDEFINED)",
+  "semantic_classification": "UNDEFINED_MATHEMATICAL",
+  "justification": "Actual positives = 0. Denominator TP + FN = 0. Mathematically undefined (0/0). Reported 0.00% is a REPORTING_CONVENTION."
+},
+{
+  "project": "org.apache:commons-exec",
+  "method": "Base_K100_TauStar",
+  "metric_name": "Precision",
+  "raw_value": "0.00%",
+  "semantic_classification": "DEFINED_EMPIRICAL",
+  "justification": "Predicted positives = 7, True Positives = 0. Precision = 0 / 7 = 0.00% (Mathematically defined empirical zero due to false alarms)."
+},
+{
+  "project": "org.apache:commons-exec",
+  "method": "Base_K100_TauStar",
+  "metric_name": "F1-Score",
+  "raw_value": "0.0000",
+  "semantic_classification": "UNDEFINED_MATHEMATICAL",
+  "justification": "Precision + Recall denominator is zero. Mathematically undefined. Reported 0.0000 is a REPORTING_CONVENTION."
+},
+{
+  "project": "org.apache:commons-exec",
+  "method": "Base_K100_TauStar",
+  "metric_name": "MCC",
+  "raw_value": "0.0000",
+  "semantic_classification": "UNDEFINED_MATHEMATICAL",
+  "justification": "Denominator sqrt((TP+FP)(TP+FN)(TN+FP)(TN+FN)) = 0. Mathematically undefined. Reported 0.0000 is a REPORTING_CONVENTION."
+},
+{
+  "project": "org.apache:commons-exec",
+  "method": "Base_K100_TauStar",
+  "metric_name": "ROC-AUC",
+  "raw_value": "0.5000 (Imputed) / N/A",
+  "semantic_classification": "IMPUTED_FOR_AGGREGATION",
+  "justification": "Mann-Whitney denominator N_pos * N_neg = 0. Mathematically undefined. 0.5000 is strictly an IMPUTED_FOR_AGGREGATION convention, NOT an empirical measurement."
+},
+{
+  "project": "org.apache:commons-exec",
+  "method": "Base_K100_TauStar",
+  "metric_name": "PR-AUC",
+  "raw_value": "0.0000 (Imputed) / N/A",
+  "semantic_classification": "IMPUTED_FOR_AGGREGATION",
+  "justification": "No positive recall thresholds exist. Mathematically undefined. 0.0000 is strictly an IMPUTED_FOR_AGGREGATION convention."
+},
+{
+  "project": "org.apache:commons-exec",
+  "method": "Base_K100_TauStar",
+  "metric_name": "Brier Score",
+  "raw_value": "0.0025",
+  "semantic_classification": "DEFINED_EMPIRICAL",
+  "justification": "Mean squared difference sum((p - 0)^2) / 600 = 0.0025. Strictly defined empirical loss."
+},
+{
+  "project": "org.apache:commons-exec",
+  "method": "Base_K100_TauStar",
+  "metric_name": "ECE",
+  "raw_value": "0.0117",
+  "semantic_classification": "DEFINED_EMPIRICAL",
+  "justification": "10-bin expected calibration error. Strictly defined empirical calibration loss."
+},
+{
+  "project": "org.apache:commons-exec",
+  "method": "Quantile_Thresh_K100",
+  "metric_name": "Precision",
+  "raw_value": "0.00%",
+  "semantic_classification": "DEFINED_EMPIRICAL",
+  "justification": "Predicted positives = 359, TP = 0. Precision = 0 / 359 = 0.00% (Empirical zero)."
+},
+{
+  "project": "org.apache:commons-exec",
+  "method": "Quantile_Thresh_K100",
+  "metric_name": "Recall",
+  "raw_value": "0.00% (or UNDEFINED)",
+  "semantic_classification": "UNDEFINED_MATHEMATICAL",
+  "justification": "Actual positives = 0. Denominator = 0. Mathematically undefined."
+},
+{
+  "project": "org.apache:commons-exec",
+  "method": "Quantile_Thresh_K100",
+  "metric_name": "ROC-AUC",
+  "raw_value": "0.5000 (Imputed)",
+  "semantic_classification": "IMPUTED_FOR_AGGREGATION",
+  "justification": "Mathematically undefined. 0.5000 is strictly an imputation convention."
+}
+],
+  "statistical_claims_audit": [
+{
+  "claim_name": "Quantile Threshold Precision Improvement",
+  "mean_difference": "+0.0412 (+4.12 pp)",
+  "p_value": 0.3125,
+  "wilcoxon_w": 10.0,
+  "wins_losses_ties": "6 / 2 / 1",
+  "audit_verdict": "CONFIRMED_NON_SIGNIFICANT",
+  "required_wording": "Must be described as an exploratory positive operational trade-off across 6 of 9 projects, NOT statistically significant at alpha=0.05."
+},
+{
+  "claim_name": "Bayes M=10 F1 Degradation",
+  "mean_difference": "-0.0447 (-4.47 pp)",
+  "p_value": 0.03125,
+  "wilcoxon_w": 0.0,
+  "wins_losses_ties": "0 / 6 / 3",
+  "audit_verdict": "CONFIRMED_STATISTICALLY_SIGNIFICANT",
+  "required_wording": "Statistically significant decrease in F1 (p=0.0313*) demonstrating small-sample burn-in overreaction."
+},
+{
+  "claim_name": "Scalar Log-Odds Ranking Invariance",
+  "delta_auc": "< 1e-12",
+  "audit_verdict": "THEORETICALLY_AND_EMPIRICALLY_VERIFIED",
+  "required_wording": "PR-AUC and ROC-AUC are strictly invariant under scalar log-odds adjustments."
+}
+]
+}

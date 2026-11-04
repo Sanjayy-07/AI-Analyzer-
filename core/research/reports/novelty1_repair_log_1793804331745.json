@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-04T14:58:51.744737800Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit3817566954102662449\\multi-cycle",
+  "status": "CYCLE_NOT_BROKEN",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 1,
+  "sccMembers": ["com.demo.NodeC", "com.demo.NodeB", "com.demo.NodeA"],
+  "selectedEdge": {
+    "from": "com.demo.NodeB",
+    "to": "com.demo.NodeA",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.demo.INodeA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit3817566954102662449\\multi-cycle\\src\\main\\java\\com\\demo\\INodeA.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit3817566954102662449\\multi-cycle\\src\\main\\java\\com\\demo\\INodeA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit3817566954102662449\\multi-cycle\\src\\main\\java\\com\\demo\\NodeA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit3817566954102662449\\multi-cycle\\src\\main\\java\\com\\demo\\NodeB.java"],
+  "compilationPassed": false,
+  "testsPassed": false,
+  "executionDurationMs": 563,
+  "errors": ["Refactoring completed compilation but did not eliminate the architectural cycle."]
+}

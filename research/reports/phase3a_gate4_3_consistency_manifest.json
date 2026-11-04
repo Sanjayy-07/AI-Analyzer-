@@ -1,0 +1,25 @@
+{
+  "audit_phase": "Gate 4.3 Consistency Manifest",
+  "audit_timestamp_iso": "2026-11-04T13:45:00Z",
+  "java_version": "18.0.2.1",
+  "java_vendor": "Oracle Corporation",
+  "source_artifacts": {
+  "canonical_metrics_json": {
+  "path": "research\\reports\\phase3a_gate4_2_canonical_metrics.json",
+  "length_bytes": 52222,
+  "sha256": "e1053c6e154bfb33db36de360f90457c1d20261565fb0527300a610dbec16573"
+},
+  "raw_predictions_csv": {
+  "path": "research\\data\\gate4_raw_predictions.csv",
+  "length_bytes": 3051869,
+  "sha256": "a1cc86cc3094adf45eea693d964d6f75a743ef20fe2b258700b9fcc5f2f75dec"
+}
+},
+  "verification_status": {
+  "test_quarantine_verified": true,
+  "frozen_sub1_intact": true,
+  "table_column_alignment_verified": true,
+  "commons_exec_semantics_verified": true,
+  "canonical_json_consistency_verified": true
+}
+}
