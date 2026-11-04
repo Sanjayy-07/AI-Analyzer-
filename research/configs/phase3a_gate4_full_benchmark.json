@@ -1,0 +1,98 @@
+{
+  "benchmark_phase": "Phase 3A Gate 4: Full Nine-Project Validation Benchmark",
+  "author": "Antigravity Research Engineering Lead",
+  "source_model": {
+    "architecture": "SUB-1__XGBoost",
+    "feature_dimensions": 43,
+    "source_training_commits": 107582,
+    "source_training_prevalence": 0.11139409938465543,
+    "frozen_threshold_tau_star": 0.170,
+    "source_tpr_at_tau": 0.6618,
+    "source_fpr_at_tau": 0.1650
+  },
+  "quarantined_test_projects": [
+    "org.apache:archiva",
+    "org.apache:collections",
+    "org.apache:commons-cli",
+    "org.apache:dbcp",
+    "org.apache:santuario",
+    "org.apache:validator"
+  ],
+  "authorized_validation_projects": [
+    "org.apache:batik",
+    "org.apache:codec",
+    "org.apache:commons-exec",
+    "org.apache:commons-fileupload",
+    "org.apache:commons-jelly",
+    "org.apache:daemon",
+    "org.apache:digester",
+    "org.apache:httpclient",
+    "org.apache:httpcore"
+  ],
+  "experimental_conditions": {
+    "burn_in_sizes": [25, 50, 100, 250, 500],
+    "bayesian_pseudo_weights_M": [10.0, 20.0, 50.0],
+    "feedback_maturation_delay_days": 90.0,
+    "methods": [
+      {
+        "id": "A0",
+        "name": "Frozen Baseline (Default Threshold 0.50)",
+        "type": "baseline",
+        "target_labels": 0
+      },
+      {
+        "id": "A1",
+        "name": "Frozen Baseline (Training Threshold 0.170)",
+        "type": "operational_baseline",
+        "target_labels": 0
+      },
+      {
+        "id": "A1_Soft",
+        "name": "Unlabeled Target Soft Mean Adaptation",
+        "type": "unsupervised_probability_adaptation",
+        "target_labels": 0
+      },
+      {
+        "id": "A2_Bayes",
+        "name": "Bayesian Supervised Prevalence Adaptation",
+        "type": "supervised_probability_adaptation",
+        "burn_in_sizes": [25, 50, 100, 250, 500],
+        "pseudo_weights": [10.0, 20.0, 50.0],
+        "maturation_modes": ["strict_delay_90d", "retrospective"]
+      },
+      {
+        "id": "A3_Thresh",
+        "name": "Quantile-Based Threshold Adaptation",
+        "type": "threshold_adaptation",
+        "burn_in_sizes": [25, 50, 100, 250, 500]
+      },
+      {
+        "id": "A4_Combined",
+        "name": "Combined Probability + Threshold Adaptation",
+        "type": "combined_adaptation",
+        "burn_in_sizes": [100, 250]
+      },
+      {
+        "id": "Diag_BBSE",
+        "name": "Black Box Shift Estimator",
+        "type": "diagnostic_only",
+        "status": "rejected_unstable"
+      },
+      {
+        "id": "Diag_EM",
+        "name": "Saerens Expectation-Maximization",
+        "type": "diagnostic_only",
+        "status": "rejected_unstable"
+      }
+    ]
+  },
+  "data_inputs": {
+    "csv_path": "research/data/gate4_raw_predictions.csv",
+    "json_path": "research/data/gate4_raw_predictions.json"
+  },
+  "outputs": {
+    "full_results_json": "research/reports/phase3a_gate4_full_results.json",
+    "statistical_analysis_json": "research/reports/phase3a_gate4_statistical_analysis.json",
+    "research_report_md": "research/reports/PHASE3A_GATE4_FULL_BENCHMARK_REPORT.md"
+  }
+}

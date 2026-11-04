@@ -1,0 +1,1022 @@
+{
+  "error_analysis": {
+    "model": "HistGradientBoostingClassifier",
+    "threshold": 0.62,
+    "metrics": {
+      "accuracy": 0.7923866441470703,
+      "balanced_accuracy": 0.655000280102846,
+      "precision": 0.2571428571428571,
+      "recall": 0.4793322734499205,
+      "f1": 0.3347210657785179,
+      "pr_auc": 0.2829176438755567,
+      "roc_auc": 0.7474770074198278,
+      "mcc": 0.24009360078519912,
+      "brier_score": 0.21249955190266656,
+      "specificity": 0.8306682867557715,
+      "fpr": 0.16933171324422844,
+      "fnr": 0.5206677265500795,
+      "tp": 1206,
+      "fp": 3484,
+      "fn": 1310,
+      "tn": 17091
+    },
+    "feature_distributions": {
+      "N_FILES_CHANGED": {
+        "TP": {
+          "mean": 16.839137645107794,
+          "std": 42.740739141084894,
+          "median": 6.0,
+          "p25": 3.0,
+          "p75": 14.0,
+          "max": 704.0
+        },
+        "FP": {
+          "mean": 11.03760045924225,
+          "std": 54.5945725174267,
+          "median": 4.0,
+          "p25": 2.0,
+          "p75": 8.0,
+          "max": 1990.0
+        },
+        "FN": {
+          "mean": 6.093893129770993,
+          "std": 22.716801197406827,
+          "median": 2.0,
+          "p25": 1.0,
+          "p75": 4.0,
+          "max": 405.0
+        },
+        "TN": {
+          "mean": 3.8876601720203614,
+          "std": 27.522468407890457,
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 2.0,
+          "max": 1703.0
+        }
+      },
+      "LINES_ADDED": {
+        "TP": {
+          "mean": 618.5505804311774,
+          "std": 3149.708796974453,
+          "median": 204.0,
+          "p25": 80.0,
+          "p75": 530.0,
+          "max": 99490.0
+        },
+        "FP": {
+          "mean": 503.4282433983926,
+          "std": 3708.119963901402,
+          "median": 107.0,
+          "p25": 45.0,
+          "p75": 352.25,
+          "max": 183091.0
+        },
+        "FN": {
+          "mean": 208.84198473282441,
+          "std": 1506.0196585151543,
+          "median": 18.0,
+          "p25": 5.25,
+          "p75": 59.0,
+          "max": 26434.0
+        },
+        "TN": {
+          "mean": 69.48031127494002,
+          "std": 1471.4979280118105,
+          "median": 5.0,
+          "p25": 1.0,
+          "p75": 19.0,
+          "max": 170244.0
+        }
+      },
+      "LINES_REMOVED": {
+        "TP": {
+          "mean": 364.3424543946932,
+          "std": 3000.967840777847,
+          "median": 38.0,
+          "p25": 10.0,
+          "p75": 188.0,
+          "max": 99205.0
+        },
+        "FP": {
+          "mean": 123.57491389207807,
+          "std": 488.3153793289715,
+          "median": 19.0,
+          "p25": 6.0,
+          "p75": 75.0,
+          "max": 19880.0
+        },
+        "FN": {
+          "mean": 96.06488549618321,
+          "std": 943.5763191400114,
+          "median": 5.0,
+          "p25": 1.0,
+          "p75": 23.0,
+          "max": 23947.0
+        },
+        "TN": {
+          "mean": 87.68480486805922,
+          "std": 1701.7325050106836,
+          "median": 2.0,
+          "p25": 1.0,
+          "p75": 10.0,
+          "max": 183114.0
+        }
+      },
+      "N_REFACTORINGS": {
+        "TP": {
+          "mean": 15.341625207296849,
+          "std": 112.47103546145311,
+          "median": 2.0,
+          "p25": 0.0,
+          "p75": 8.0,
+          "max": 3516.0
+        },
+        "FP": {
+          "mean": 5.198622273249139,
+          "std": 37.51135172576012,
+          "median": 0.0,
+          "p25": 0.0,
+          "p75": 3.0,
+          "max": 1435.0
+        },
+        "FN": {
+          "mean": 1.0213740458015268,
+          "std": 8.496500943698086,
+          "median": 0.0,
+          "p25": 0.0,
+          "p75": 0.0,
+          "max": 149.0
+        },
+        "TN": {
+          "mean": 0.6828740272658124,
+          "std": 13.513045897725725,
+          "median": 0.0,
+          "p25": 0.0,
+          "p75": 0.0,
+          "max": 1590.0
+        }
+      },
+      "N_PARENTS": {
+        "TP": {
+          "mean": 1.0,
+          "std": 0.0,
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.0,
+          "max": 1.0
+        },
+        "FP": {
+          "mean": 1.0002870264064294,
+          "std": 0.01694185368929243,
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.0,
+          "max": 2.0
+        },
+        "FN": {
+          "mean": 1.001526717557252,
+          "std": 0.039058305565894166,
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.0,
+          "max": 2.0
+        },
+        "TN": {
+          "mean": 1.0093616523316364,
+          "std": 0.10162579381061818,
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.0,
+          "max": 2.0
+        }
+      },
+      "IN_MAIN_BRANCH": {
+        "TP": {
+          "mean": 1.0,
+          "std": 0.0,
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.0,
+          "max": 1.0
+        },
+        "FP": {
+          "mean": 1.0,
+          "std": 0.0,
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.0,
+          "max": 1.0
+        },
+        "FN": {
+          "mean": 1.0,
+          "std": 0.0,
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.0,
+          "max": 1.0
+        },
+        "TN": {
+          "mean": 1.0,
+          "std": 0.0,
+          "median": 1.0,
+          "p25": 1.0,
+          "p75": 1.0,
+          "max": 1.0
+        }
+      },
+      "AUTHOR_TIMEZONE": {
+        "TP": {
+          "mean": 143.28358208955223,
+          "std": 3159.394946672231,
+          "median": 0.0,
+          "p25": 0.0,
+          "p75": 0.0,
+          "max": 21600.0
+        },
+        "FP": {
+          "mean": -936.4753157290471,
+          "std": 5665.836366106813,
+          "median": 0.0,
+          "p25": 0.0,
+          "p75": 0.0,
+          "max": 25200.0
+        },
+        "FN": {
+          "mean": 1313.5877862595419,
+          "std": 6316.301084247307,
+          "median": 0.0,
+          "p25": 0.0,
+          "p75": 0.0,
+          "max": 25200.0
+        },
+        "TN": {
+          "mean": -31.616640337019483,
+          "std": 8158.312594551464,
+          "median": 0.0,
+          "p25": 0.0,
+          "p75": 0.0,
+          "max": 28800.0
+        }
+      }
+    },
+    "extreme_false_positives": [
+      {
+        "project": "org.apache:collections",
+        "commit": "bd76c28259",
+        "pred_prob": 0.9646,
+        "files_changed": 25.0,
+        "lines_added": 364.0,
+        "lines_removed": 9.0,
+        "refactorings": 0,
+        "message": "Add removeIf (#70)  * Add removeIf to SynchronizedCollection  Add mac store files to gitignore\r \r * "
+      },
+      {
+        "project": "org.apache:archiva",
+        "commit": "d9de8dc7af",
+        "pred_prob": 0.9588,
+        "files_changed": 99.0,
+        "lines_added": 252.0,
+        "lines_removed": 301.0,
+        "refactorings": 0,
+        "message": "use diamond operator"
+      },
+      {
+        "project": "org.apache:collections",
+        "commit": "f98ef6d3ba",
+        "pred_prob": 0.9464,
+        "files_changed": 74.0,
+        "lines_added": 333.0,
+        "lines_removed": 176.0,
+        "refactorings": 0,
+        "message": "COLLECTIONS-653 fix Javadoc syntax for Java 8"
+      },
+      {
+        "project": "org.apache:archiva",
+        "commit": "4b6131e8ba",
+        "pred_prob": 0.9463,
+        "files_changed": 8.0,
+        "lines_added": 62.0,
+        "lines_removed": 110.0,
+        "refactorings": 0,
+        "message": "take of default now jpa  jdo not exists anymore so handle migration  Signed-off-by: olivier lamy <ol"
+      },
+      {
+        "project": "org.apache:archiva",
+        "commit": "e92a96880e",
+        "pred_prob": 0.9328,
+        "files_changed": 32.0,
+        "lines_added": 795.0,
+        "lines_removed": 795.0,
+        "refactorings": 0,
+        "message": "line ending"
+      }
+    ],
+    "extreme_false_negatives": [
+      {
+        "project": "org.apache:archiva",
+        "commit": "e605aa289e",
+        "pred_prob": 0.0015,
+        "files_changed": 0.0,
+        "lines_added": 0.0,
+        "lines_removed": 0.0,
+        "refactorings": 0,
+        "message": "MRM-977 Upgrade from webwork 2 to Struts 2   git-svn-id: https://svn.apache.org/repos/asf/archiva/tr"
+      },
+      {
+        "project": "org.apache:archiva",
+        "commit": "ebaee33d1e",
+        "pred_prob": 0.0015,
+        "files_changed": 0.0,
+        "lines_added": 0.0,
+        "lines_removed": 0.0,
+        "refactorings": 0,
+        "message": "Merged /archiva/trunk:r887040-888396  git-svn-id: https://svn.apache.org/repos/asf/archiva/branches/"
+      },
+      {
+        "project": "org.apache:dbcp",
+        "commit": "b92a3885ad",
+        "pred_prob": 0.1065,
+        "files_changed": 1.0,
+        "lines_added": 3.0,
+        "lines_removed": 3.0,
+        "refactorings": 1,
+        "message": "camel-case."
+      },
+      {
+        "project": "org.apache:dbcp",
+        "commit": "34cd3da6f2",
+        "pred_prob": 0.1097,
+        "files_changed": 12.0,
+        "lines_added": 604.0,
+        "lines_removed": 367.0,
+        "refactorings": 2,
+        "message": "[DBCP-527 ]Add getters to some classes."
+      },
+      {
+        "project": "org.apache:santuario",
+        "commit": "b59704ace1",
+        "pred_prob": 0.1249,
+        "files_changed": 1.0,
+        "lines_added": 1.0,
+        "lines_removed": 7.0,
+        "refactorings": 0,
+        "message": "Reverting previous accidental commit to DOMSignedInfo.   git-svn-id: https://svn.apache.org/repos/as"
+      }
+    ],
+    "project_breakdown": {
+      "org.apache:archiva": {
+        "n_commits": 8695,
+        "n_faults": 1297,
+        "fault_rate_pct": 14.92,
+        "tp": 632,
+        "fp": 1341,
+        "fn": 665,
+        "tn": 6057,
+        "precision": 0.3203,
+        "recall": 0.4873,
+        "f1": 0.3865,
+        "pr_auc": 0.3451,
+        "roc_auc": 0.752,
+        "accuracy": 0.7693,
+        "balanced_accuracy": 0.653,
+        "specificity": 0.8187,
+        "fpr": 0.1813,
+        "fnr": 0.5127
+      },
+      "org.apache:collections": {
+        "n_commits": 3616,
+        "n_faults": 319,
+        "fault_rate_pct": 8.82,
+        "tp": 149,
+        "fp": 661,
+        "fn": 170,
+        "tn": 2636,
+        "precision": 0.184,
+        "recall": 0.4671,
+        "f1": 0.264,
+        "pr_auc": 0.1842,
+        "roc_auc": 0.709,
+        "accuracy": 0.7702,
+        "balanced_accuracy": 0.6333,
+        "specificity": 0.7995,
+        "fpr": 0.2005,
+        "fnr": 0.5329
+      },
+      "org.apache:commons-cli": {
+        "n_commits": 1021,
+        "n_faults": 101,
+        "fault_rate_pct": 9.89,
+        "tp": 46,
+        "fp": 115,
+        "fn": 55,
+        "tn": 805,
+        "precision": 0.2857,
+        "recall": 0.4554,
+        "f1": 0.3511,
+        "pr_auc": 0.3598,
+        "roc_auc": 0.7929,
+        "accuracy": 0.8335,
+        "balanced_accuracy": 0.6652,
+        "specificity": 0.875,
+        "fpr": 0.125,
+        "fnr": 0.5446
+      },
+      "org.apache:dbcp": {
+        "n_commits": 2465,
+        "n_faults": 407,
+        "fault_rate_pct": 16.51,
+        "tp": 150,
+        "fp": 148,
+        "fn": 257,
+        "tn": 1910,
+        "precision": 0.5034,
+        "recall": 0.3686,
+        "f1": 0.4255,
+        "pr_auc": 0.4513,
+        "roc_auc": 0.7708,
+        "accuracy": 0.8357,
+        "balanced_accuracy": 0.6483,
+        "specificity": 0.9281,
+        "fpr": 0.0719,
+        "fnr": 0.6314
+      },
+      "org.apache:santuario": {
+        "n_commits": 5746,
+        "n_faults": 251,
+        "fault_rate_pct": 4.37,
+        "tp": 186,
+        "fp": 1026,
+        "fn": 65,
+        "tn": 4469,
+        "precision": 0.1535,
+        "recall": 0.741,
+        "f1": 0.2543,
+        "pr_auc": 0.3269,
+        "roc_auc": 0.8625,
+        "accuracy": 0.8101,
+        "balanced_accuracy": 0.7772,
+        "specificity": 0.8133,
+        "fpr": 0.1867,
+        "fnr": 0.259
+      },
+      "org.apache:validator": {
+        "n_commits": 1548,
+        "n_faults": 141,
+        "fault_rate_pct": 9.11,
+        "tp": 43,
+        "fp": 193,
+        "fn": 98,
+        "tn": 1214,
+        "precision": 0.1822,
+        "recall": 0.305,
+        "f1": 0.2281,
+        "pr_auc": 0.1783,
+        "roc_auc": 0.6975,
+        "accuracy": 0.812,
+        "balanced_accuracy": 0.5839,
+        "specificity": 0.8628,
+        "fpr": 0.1372,
+        "fnr": 0.695
+      }
+    }
+  },
+  "threshold_optimization": {
+    "validation_curves_sample": [
+      {
+        "threshold": 0.05,
+        "precision": 0.1309,
+        "recall": 1.0,
+        "f1": 0.2315,
+        "balanced_accuracy": 0.5431,
+        "mcc": 0.1063,
+        "fpr": 0.9137
+      },
+      {
+        "threshold": 0.1,
+        "precision": 0.131,
+        "recall": 0.9996,
+        "f1": 0.2317,
+        "balanced_accuracy": 0.5437,
+        "mcc": 0.1068,
+        "fpr": 0.9122
+      },
+      {
+        "threshold": 0.15,
+        "precision": 0.1321,
+        "recall": 0.9957,
+        "f1": 0.2332,
+        "balanced_accuracy": 0.5477,
+        "mcc": 0.1097,
+        "fpr": 0.9004
+      },
+      {
+        "threshold": 0.2,
+        "precision": 0.1345,
+        "recall": 0.9862,
+        "f1": 0.2367,
+        "balanced_accuracy": 0.5564,
+        "mcc": 0.1161,
+        "fpr": 0.8735
+      },
+      {
+        "threshold": 0.25,
+        "precision": 0.1387,
+        "recall": 0.9734,
+        "f1": 0.2428,
+        "balanced_accuracy": 0.5708,
+        "mcc": 0.129,
+        "fpr": 0.8318
+      },
+      {
+        "threshold": 0.3,
+        "precision": 0.154,
+        "recall": 0.938,
+        "f1": 0.2645,
+        "balanced_accuracy": 0.6144,
+        "mcc": 0.1694,
+        "fpr": 0.7092
+      },
+      {
+        "threshold": 0.35,
+        "precision": 0.1669,
+        "recall": 0.8986,
+        "f1": 0.2815,
+        "balanced_accuracy": 0.6407,
+        "mcc": 0.1926,
+        "fpr": 0.6172
+      },
+      {
+        "threshold": 0.4,
+        "precision": 0.1817,
+        "recall": 0.8391,
+        "f1": 0.2988,
+        "balanced_accuracy": 0.6596,
+        "mcc": 0.2096,
+        "fpr": 0.5199
+      },
+      {
+        "threshold": 0.45,
+        "precision": 0.1941,
+        "recall": 0.782,
+        "f1": 0.311,
+        "balanced_accuracy": 0.6676,
+        "mcc": 0.2187,
+        "fpr": 0.4468
+      },
+      {
+        "threshold": 0.5,
+        "precision": 0.211,
+        "recall": 0.726,
+        "f1": 0.3269,
+        "balanced_accuracy": 0.6762,
+        "mcc": 0.2331,
+        "fpr": 0.3736
+      },
+      {
+        "threshold": 0.55,
+        "precision": 0.2395,
+        "recall": 0.6427,
+        "f1": 0.3489,
+        "balanced_accuracy": 0.6809,
+        "mcc": 0.252,
+        "fpr": 0.2809
+      },
+      {
+        "threshold": 0.6,
+        "precision": 0.2691,
+        "recall": 0.5512,
+        "f1": 0.3616,
+        "balanced_accuracy": 0.6726,
+        "mcc": 0.2607,
+        "fpr": 0.206
+      },
+      {
+        "threshold": 0.65,
+        "precision": 0.3182,
+        "recall": 0.4172,
+        "f1": 0.361,
+        "balanced_accuracy": 0.6471,
+        "mcc": 0.2626,
+        "fpr": 0.123
+      },
+      {
+        "threshold": 0.7,
+        "precision": 0.3484,
+        "recall": 0.3548,
+        "f1": 0.3516,
+        "balanced_accuracy": 0.6318,
+        "mcc": 0.2615,
+        "fpr": 0.0913
+      },
+      {
+        "threshold": 0.75,
+        "precision": 0.395,
+        "recall": 0.302,
+        "f1": 0.3423,
+        "balanced_accuracy": 0.6192,
+        "mcc": 0.2683,
+        "fpr": 0.0637
+      },
+      {
+        "threshold": 0.8,
+        "precision": 0.447,
+        "recall": 0.2106,
+        "f1": 0.2863,
+        "balanced_accuracy": 0.5874,
+        "mcc": 0.2458,
+        "fpr": 0.0359
+      },
+      {
+        "threshold": 0.85,
+        "precision": 0.6069,
+        "recall": 0.0564,
+        "f1": 0.1031,
+        "balanced_accuracy": 0.5257,
+        "mcc": 0.1588,
+        "fpr": 0.005
+      },
+      {
+        "threshold": 0.9,
+        "precision": 0.5,
+        "recall": 0.0007,
+        "f1": 0.0014,
+        "balanced_accuracy": 0.5003,
+        "mcc": 0.0152,
+        "fpr": 0.0001
+      },
+      {
+        "threshold": 0.95,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "balanced_accuracy": 0.5,
+        "mcc": 0.0,
+        "fpr": 0.0
+      }
+    ],
+    "operating_points": {
+      "Default_0.5": {
+        "selected_val_threshold": 0.5,
+        "test_precision": 0.1969,
+        "test_recall": 0.7262,
+        "test_f1": 0.3098,
+        "test_balanced_accuracy": 0.682,
+        "test_accuracy": 0.6474,
+        "test_mcc": 0.2313,
+        "test_confusion_matrix": [
+          [
+            13122,
+            7453
+          ],
+          [
+            689,
+            1827
+          ]
+        ]
+      },
+      "Max_Validation_F1": {
+        "selected_val_threshold": 0.62,
+        "test_precision": 0.2571,
+        "test_recall": 0.4793,
+        "test_f1": 0.3347,
+        "test_balanced_accuracy": 0.655,
+        "test_accuracy": 0.7924,
+        "test_mcc": 0.2401,
+        "test_confusion_matrix": [
+          [
+            17091,
+            3484
+          ],
+          [
+            1310,
+            1206
+          ]
+        ]
+      },
+      "Max_Validation_MCC": {
+        "selected_val_threshold": 0.75,
+        "test_precision": 0.3511,
+        "test_recall": 0.2822,
+        "test_f1": 0.3129,
+        "test_balanced_accuracy": 0.6092,
+        "test_accuracy": 0.865,
+        "test_mcc": 0.2408,
+        "test_confusion_matrix": [
+          [
+            19263,
+            1312
+          ],
+          [
+            1806,
+            710
+          ]
+        ]
+      },
+      "Max_Validation_BalancedAcc": {
+        "selected_val_threshold": 0.55,
+        "test_precision": 0.2239,
+        "test_recall": 0.6483,
+        "test_f1": 0.3329,
+        "test_balanced_accuracy": 0.6868,
+        "test_accuracy": 0.7169,
+        "test_mcc": 0.2505,
+        "test_confusion_matrix": [
+          [
+            14923,
+            5652
+          ],
+          [
+            885,
+            1631
+          ]
+        ]
+      },
+      "Max_Precision_Given_Recall_ge_50": {
+        "selected_val_threshold": 0.61,
+        "test_precision": 0.2534,
+        "test_recall": 0.5079,
+        "test_f1": 0.3381,
+        "test_balanced_accuracy": 0.6625,
+        "test_accuracy": 0.7833,
+        "test_mcc": 0.2451,
+        "test_confusion_matrix": [
+          [
+            16810,
+            3765
+          ],
+          [
+            1238,
+            1278
+          ]
+        ]
+      },
+      "Max_Recall_Given_Precision_ge_30": {
+        "selected_val_threshold": 0.64,
+        "test_precision": 0.27,
+        "test_recall": 0.4118,
+        "test_f1": 0.3261,
+        "test_balanced_accuracy": 0.6378,
+        "test_accuracy": 0.8146,
+        "test_mcc": 0.2307,
+        "test_confusion_matrix": [
+          [
+            17774,
+            2801
+          ],
+          [
+            1480,
+            1036
+          ]
+        ]
+      }
+    }
+  },
+  "feature_analysis": {
+    "permutation_importance": {
+      "N_FILES_CHANGED": {
+        "mean_f1_drop": 0.01244,
+        "std_f1_drop": 0.00224,
+        "label_correlation": 0.023
+      },
+      "LINES_ADDED": {
+        "mean_f1_drop": 0.12604,
+        "std_f1_drop": 0.00318,
+        "label_correlation": 0.0155
+      },
+      "LINES_REMOVED": {
+        "mean_f1_drop": 0.00704,
+        "std_f1_drop": 0.00233,
+        "label_correlation": -0.0018
+      },
+      "N_REFACTORINGS": {
+        "mean_f1_drop": 0.00486,
+        "std_f1_drop": 0.00115,
+        "label_correlation": 0.0339
+      },
+      "N_PARENTS": {
+        "mean_f1_drop": 0.00047,
+        "std_f1_drop": 0.0005,
+        "label_correlation": -0.0328
+      },
+      "IN_MAIN_BRANCH": {
+        "mean_f1_drop": 0.0,
+        "std_f1_drop": 0.0,
+        "label_correlation": NaN
+      },
+      "AUTHOR_TIMEZONE": {
+        "mean_f1_drop": 0.00146,
+        "std_f1_drop": 0.00131,
+        "label_correlation": -0.0769
+      }
+    },
+    "feature_ablation": {
+      "drop_N_FILES_CHANGED": {
+        "dropped_feature": "N_FILES_CHANGED",
+        "val_f1": 0.3618,
+        "test_f1": 0.327,
+        "test_precision": 0.2468,
+        "test_recall": 0.4845,
+        "test_pr_auc": 0.2809
+      },
+      "drop_LINES_ADDED": {
+        "dropped_feature": "LINES_ADDED",
+        "val_f1": 0.3524,
+        "test_f1": 0.3075,
+        "test_precision": 0.2827,
+        "test_recall": 0.337,
+        "test_pr_auc": 0.2588
+      },
+      "drop_LINES_REMOVED": {
+        "dropped_feature": "LINES_REMOVED",
+        "val_f1": 0.3628,
+        "test_f1": 0.325,
+        "test_precision": 0.2622,
+        "test_recall": 0.4273,
+        "test_pr_auc": 0.2804
+      },
+      "drop_N_REFACTORINGS": {
+        "dropped_feature": "N_REFACTORINGS",
+        "val_f1": 0.3571,
+        "test_f1": 0.3221,
+        "test_precision": 0.2191,
+        "test_recall": 0.6081,
+        "test_pr_auc": 0.234
+      },
+      "drop_N_PARENTS": {
+        "dropped_feature": "N_PARENTS",
+        "val_f1": 0.3654,
+        "test_f1": 0.3383,
+        "test_precision": 0.254,
+        "test_recall": 0.5064,
+        "test_pr_auc": 0.2813
+      },
+      "drop_IN_MAIN_BRANCH": {
+        "dropped_feature": "IN_MAIN_BRANCH",
+        "val_f1": 0.3645,
+        "test_f1": 0.3347,
+        "test_precision": 0.2571,
+        "test_recall": 0.4793,
+        "test_pr_auc": 0.2829
+      },
+      "drop_AUTHOR_TIMEZONE": {
+        "dropped_feature": "AUTHOR_TIMEZONE",
+        "val_f1": 0.3734,
+        "test_f1": 0.3288,
+        "test_precision": 0.2716,
+        "test_recall": 0.4165,
+        "test_pr_auc": 0.2642
+      }
+    }
+  },
+  "grouped_cross_validation": {
+    "folds": [
+      {
+        "fold": 1,
+        "held_out_projects": [
+          "org.apache:felix"
+        ],
+        "test_samples": 30470,
+        "test_faults": 4098,
+        "best_threshold": 0.76,
+        "precision": 0.6723,
+        "recall": 0.1952,
+        "f1": 0.3026,
+        "balanced_accuracy": 0.5902,
+        "pr_auc": 0.3994,
+        "mcc": 0.3178
+      },
+      {
+        "fold": 2,
+        "held_out_projects": [
+          "org.apache:cocoon"
+        ],
+        "test_samples": 26321,
+        "test_faults": 312,
+        "best_threshold": 0.59,
+        "precision": 0.0307,
+        "recall": 0.6122,
+        "f1": 0.0584,
+        "balanced_accuracy": 0.6901,
+        "pr_auc": 0.0499,
+        "mcc": 0.0968
+      },
+      {
+        "fold": 3,
+        "held_out_projects": [
+          "org.apache:commons-exec",
+          "org.apache:commons-fileupload",
+          "org.apache:commons-jexl",
+          "org.apache:digester",
+          "org.apache:hive",
+          "org.apache:vfs"
+        ],
+        "test_samples": 24806,
+        "test_faults": 1077,
+        "best_threshold": 0.62,
+        "precision": 0.0441,
+        "recall": 0.3928,
+        "f1": 0.0793,
+        "balanced_accuracy": 0.5033,
+        "pr_auc": 0.0443,
+        "mcc": 0.0028
+      },
+      {
+        "fold": 4,
+        "held_out_projects": [
+          "org.apache:batik",
+          "org.apache:beanutils",
+          "org.apache:commons-jelly",
+          "org.apache:configuration",
+          "org.apache:dbutils",
+          "org.apache:httpclient",
+          "org.apache:httpcore",
+          "org.apache:ognl",
+          "org.apache:zookeeper"
+        ],
+        "test_samples": 24567,
+        "test_faults": 3829,
+        "best_threshold": 0.64,
+        "precision": 0.3359,
+        "recall": 0.4192,
+        "f1": 0.373,
+        "balanced_accuracy": 0.6331,
+        "pr_auc": 0.3382,
+        "mcc": 0.2439
+      },
+      {
+        "fold": 5,
+        "held_out_projects": [
+          "org.apache:bcel",
+          "org.apache:cayenne",
+          "org.apache:codec",
+          "org.apache:commons-io",
+          "org.apache:daemon",
+          "org.apache:jxpath",
+          "org.apache:net",
+          "org.apache:thrift"
+        ],
+        "test_samples": 24739,
+        "test_faults": 5494,
+        "best_threshold": 0.63,
+        "precision": 0.4571,
+        "recall": 0.2435,
+        "f1": 0.3178,
+        "balanced_accuracy": 0.5805,
+        "pr_auc": 0.4268,
+        "mcc": 0.2072
+      }
+    ],
+    "summary": {
+      "mean_f1": 0.2262,
+      "std_f1": 0.1307,
+      "mean_pr_auc": 0.2517,
+      "std_pr_auc": 0.1695,
+      "mean_bal_acc": 0.5994,
+      "mean_mcc": 0.1737
+    }
+  },
+  "feature_engineering": {
+    "features_added": [
+      "churn_total",
+      "churn_per_file",
+      "add_ratio",
+      "refac_density",
+      "msg_length"
+    ],
+    "val_threshold": 0.63,
+    "test_accuracy": 0.8037,
+    "test_balanced_accuracy": 0.6622,
+    "test_precision": 0.2729,
+    "test_recall": 0.4813,
+    "test_f1": 0.3483,
+    "test_pr_auc": 0.2933,
+    "test_roc_auc": 0.7462,
+    "test_mcc": 0.2566,
+    "brier_score_before": 0.2125,
+    "brier_score_after": 0.0883
+  },
+  "bootstrap_confidence_intervals": {
+    "n_bootstraps": 1000,
+    "f1_ci_95": [
+      0.3204,
+      0.3481
+    ],
+    "pr_auc_ci_95": [
+      0.2663,
+      0.2998
+    ],
+    "roc_auc_ci_95": [
+      0.7372,
+      0.7569
+    ],
+    "balanced_accuracy_ci_95": [
+      0.6446,
+      0.6645
+    ],
+    "mcc_ci_95": [
+      0.2242,
+      0.2551
+    ]
+  }
+}

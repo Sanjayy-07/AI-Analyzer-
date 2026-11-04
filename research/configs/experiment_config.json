@@ -1,0 +1,92 @@
+{
+  "random_seed": 42,
+  "data_paths": {
+    "train_path": "dataset-extracted/TD dataset/train.csv",
+    "validation_path": "dataset-extracted/TD dataset/validation.csv",
+    "test_path": "dataset-extracted/TD dataset/test.csv"
+  },
+  "quarantined_test_projects": [
+    "org.apache:archiva",
+    "org.apache:collections",
+    "org.apache:commons-cli",
+    "org.apache:dbcp",
+    "org.apache:santuario",
+    "org.apache:validator"
+  ],
+  "nested_cv_config": {
+    "n_splits_outer": 5,
+    "n_splits_inner": 4,
+    "threshold_sweep_points": 91,
+    "outer_fits_per_config": 5,
+    "inner_fits_per_config": 20,
+    "total_fits_per_config": 25,
+    "total_configurations": 18,
+    "total_model_fits_benchmark": 450
+  },
+  "temporal_config": {
+    "bayes_prior_commits": 10.0,
+    "bayes_prior_faults": 1.0,
+    "velocity_window_days": 30.0,
+    "assumed_feedback_delay_days": 90.0,
+    "delay_documentation": "Simulated operational defect feedback delay (T_commit + 90d); actual discovery timestamps not recorded in dataset."
+  },
+  "channels": {
+    "CH-1": {
+      "name": "Pure Churn Volume",
+      "features": ["LINES_ADDED", "LINES_REMOVED", "net_churn", "total_churn", "churn_ratio", "deletion_ratio"]
+    },
+    "CH-2": {
+      "name": "Process & Code Structure",
+      "features": ["N_FILES_CHANGED", "N_REFACTORINGS", "N_PARENTS", "IN_MAIN_BRANCH", "AUTHOR_TIMEZONE", "churn_per_file", "lines_added_per_file", "lines_removed_per_file", "refactorings_per_file", "refactorings_per_kloc", "is_pure_refactoring", "commit_hour", "commit_dayofweek", "is_weekend", "is_off_hours"]
+    },
+    "CH-3": {
+      "name": "Developer Intent Mining",
+      "features": ["is_bug_fix_intent", "is_refactoring_intent", "has_ticket_reference", "is_maintenance_intent", "is_dependency_arch_intent", "msg_char_length", "msg_word_count", "msg_line_count", "msg_type_token_ratio", "msg_uppercase_ratio", "msg_digit_ratio", "bugfix_churn_interaction", "refactor_churn_interaction", "ticket_file_interaction"]
+    },
+    "CH-4": {
+      "name": "Sub-word & Semantic NLP",
+      "svd_components": 30,
+      "word_max_features": 800,
+      "char_max_features": 800,
+      "word_ngram_range": [1, 2],
+      "char_ngram_range": [3, 5]
+    },
+    "CH-5A": {
+      "name": "Zero-Label Author Experience",
+      "features": ["author_prior_commits", "author_tenure_days", "author_velocity_30d", "project_prior_commits"]
+    },
+    "CH-5B": {
+      "name": "Delayed Defect Feedback (90d)",
+      "features": ["author_prior_faults_delayed", "author_fault_rate_delayed", "project_prior_faults_delayed", "project_prior_fault_rate_delayed"]
+    },
+    "CH-5C": {
+      "name": "Combined Author History",
+      "features": ["author_prior_commits", "author_tenure_days", "author_velocity_30d", "project_prior_commits", "author_prior_faults_delayed", "author_fault_rate_delayed", "project_prior_faults_delayed", "project_prior_fault_rate_delayed"]
+    }
+  },
+  "ablation_matrix": [
+    {"key": "ISO-CH1", "type": "isolated", "channels": ["CH-1"], "description": "Pure Churn Volume alone"},
+    {"key": "ISO-CH2", "type": "isolated", "channels": ["CH-2"], "description": "Process & Code Structure alone"},
+    {"key": "ISO-CH3", "type": "isolated", "channels": ["CH-3"], "description": "Developer Intent Mining alone"},
+    {"key": "ISO-CH4", "type": "isolated", "channels": ["CH-4"], "description": "NLP Semantics alone (Word+Char TF-IDF + SVD)"},
+    {"key": "ISO-CH5A", "type": "isolated", "channels": ["CH-5A"], "description": "Zero-Label Author Experience alone"},
+    {"key": "ISO-CH5B", "type": "isolated", "channels": ["CH-5B"], "description": "Delayed Defect Feedback (90d) alone"},
+    {"key": "STEP-1_2", "type": "stepwise", "channels": ["CH-1", "CH-2"], "description": "Churn + Process Structure"},
+    {"key": "STEP-1_3", "type": "stepwise", "channels": ["CH-1", "CH-2", "CH-3"], "description": "Churn + Process + Intent"},
+    {"key": "STEP-1_4", "type": "stepwise", "channels": ["CH-1", "CH-2", "CH-3", "CH-4"], "description": "Churn + Process + Intent + NLP"},
+    {"key": "STEP-1_5A", "type": "stepwise", "channels": ["CH-1", "CH-2", "CH-3", "CH-4", "CH-5A"], "description": "Multi-Modal with Zero-Label Author Experience"},
+    {"key": "FULL-MODEL", "type": "full", "channels": ["CH-1", "CH-2", "CH-3", "CH-4", "CH-5C"], "description": "Full Multi-Modal with Combined Author History"},
+    {"key": "LOO-minus-CH1", "type": "leave_one_out", "channels": ["CH-2", "CH-3", "CH-4", "CH-5C"], "description": "Full Model minus Churn Volume"},
+    {"key": "LOO-minus-CH2", "type": "leave_one_out", "channels": ["CH-1", "CH-3", "CH-4", "CH-5C"], "description": "Full Model minus Process & Structure"},
+    {"key": "LOO-minus-CH3", "type": "leave_one_out", "channels": ["CH-1", "CH-2", "CH-4", "CH-5C"], "description": "Full Model minus Developer Intent"},
+    {"key": "LOO-minus-CH4", "type": "leave_one_out", "channels": ["CH-1", "CH-2", "CH-3", "CH-5C"], "description": "Full Model minus NLP Semantics"},
+    {"key": "LOO-minus-CH5A", "type": "leave_one_out", "channels": ["CH-1", "CH-2", "CH-3", "CH-4", "CH-5B"], "description": "Full Model minus Zero-Label Experience (retains Delayed Faults)"},
+    {"key": "LOO-minus-CH5B", "type": "leave_one_out", "channels": ["CH-1", "CH-2", "CH-3", "CH-4", "CH-5A"], "description": "Full Model minus Delayed Faults (retains Zero-Label Experience)"},
+    {"key": "LOO-minus-CH5C", "type": "leave_one_out", "channels": ["CH-1", "CH-2", "CH-3", "CH-4"], "description": "Full Model minus All Author History"}
+  ],
+  "storage_paths": {
+    "checkpoint_path": "research/checkpoints/stage2_full_ablation_checkpoint.json",
+    "reports_path": "research/reports/stage2_full_ablation_results.json",
+    "cache_dir": "research/cache"
+  }
+}

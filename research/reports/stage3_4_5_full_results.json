@@ -1,0 +1,5451 @@
+{
+  "timestamp": "2026-11-04T11:58:36Z",
+  "total_execution_seconds": 1658.1119828224182,
+  "peak_working_set_mb": 0.0,
+  "stage3_architecture_comparison": {
+    "SUB-1__HistGradientBoosting": {
+      "config_id": "SUB-1__HistGradientBoosting",
+      "subset_key": "SUB-1",
+      "subset_name": "No-NLP Full Model (CH-1+2+3+5C)",
+      "model_name": "HistGradientBoosting",
+      "feature_count": 43,
+      "execution_time_seconds": 11.03948426246643,
+      "frozen_training_threshold_f1": 0.14999999999999997,
+      "frozen_training_threshold_mcc": 0.12,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8949021353353347,
+          "std": 0.07903109620784855
+        },
+        "balanced_accuracy": {
+          "mean": 0.6156276924442686,
+          "std": 0.0911215243115664
+        },
+        "precision": {
+          "mean": 0.48623149889232853,
+          "std": 0.245252104713022
+        },
+        "recall": {
+          "mean": 0.25797884563495366,
+          "std": 0.19861000205042473
+        },
+        "f1": {
+          "mean": 0.29574862712740047,
+          "std": 0.20623789658454633
+        },
+        "pr_auc": {
+          "mean": 0.42704810451495234,
+          "std": 0.21274599061777977
+        },
+        "roc_auc": {
+          "mean": 0.8508873434437583,
+          "std": 0.07167449958581093
+        },
+        "mcc": {
+          "mean": 0.27686127094038915,
+          "std": 0.16648556635491712
+        },
+        "brier": {
+          "mean": 0.0778138506157477,
+          "std": 0.05517261406627702
+        },
+        "ece": {
+          "mean": 0.04198421352477376,
+          "std": 0.02699849708697216
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8998903162239036,
+        "balanced_accuracy": 0.6186076806566966,
+        "precision": 0.6235055724417427,
+        "recall": 0.256651930936692,
+        "f1": 0.36362562042070434,
+        "pr_auc": 0.4937599278414307,
+        "roc_auc": 0.879889926559516,
+        "mcc": 0.35680474879376567,
+        "brier": 0.07491908036202294,
+        "ece": 0.026350174110266744
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.14999999999999997,
+        "accuracy": 0.850997378743656,
+        "balanced_accuracy": 0.7617953400714295,
+        "precision": 0.3966760419330095,
+        "recall": 0.6470097589457002,
+        "f1": 0.4918209485163581,
+        "pr_auc": 0.4937599278414307,
+        "roc_auc": 0.879889926559516,
+        "mcc": 0.42722786670565577,
+        "brier": 0.07491908036202294,
+        "ece": 0.026350174110266744
+      }
+    },
+    "SUB-1__XGBoost": {
+      "config_id": "SUB-1__XGBoost",
+      "subset_key": "SUB-1",
+      "subset_name": "No-NLP Full Model (CH-1+2+3+5C)",
+      "model_name": "XGBoost",
+      "feature_count": 43,
+      "execution_time_seconds": 7.44504451751709,
+      "frozen_training_threshold_f1": 0.16999999999999998,
+      "frozen_training_threshold_mcc": 0.12,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8965906259089653,
+          "std": 0.0784782194371417
+        },
+        "balanced_accuracy": {
+          "mean": 0.6166745630001763,
+          "std": 0.08871942614846921
+        },
+        "precision": {
+          "mean": 0.5111167210544006,
+          "std": 0.24942627845911472
+        },
+        "recall": {
+          "mean": 0.25768862652625846,
+          "std": 0.19203499169783472
+        },
+        "f1": {
+          "mean": 0.3035970141489761,
+          "std": 0.2011894992188296
+        },
+        "pr_auc": {
+          "mean": 0.44291279364187564,
+          "std": 0.20543103399229778
+        },
+        "roc_auc": {
+          "mean": 0.8748695471324371,
+          "std": 0.05660062469937208
+        },
+        "mcc": {
+          "mean": 0.2893383805769243,
+          "std": 0.1633179388080312
+        },
+        "brier": {
+          "mean": 0.07574376991926005,
+          "std": 0.054887835759661545
+        },
+        "ece": {
+          "mean": 0.03800632656460321,
+          "std": 0.023399058326407728
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.9016378204532357,
+        "balanced_accuracy": 0.6201016576836104,
+        "precision": 0.6473298429319372,
+        "recall": 0.2578196680290266,
+        "f1": 0.36876640419947504,
+        "pr_auc": 0.5153690395570356,
+        "roc_auc": 0.8914515513772441,
+        "mcc": 0.36701641781348926,
+        "brier": 0.07272785216927116,
+        "ece": 0.018282322917310898
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.16999999999999998,
+        "accuracy": 0.8607852614749679,
+        "balanced_accuracy": 0.7658805644143527,
+        "precision": 0.4189101172383847,
+        "recall": 0.6437567770456252,
+        "f1": 0.5075461151481274,
+        "pr_auc": 0.5153690395570356,
+        "roc_auc": 0.8914515513772441,
+        "mcc": 0.44416976462771685,
+        "brier": 0.07272785216927116,
+        "ece": 0.018282322917310898
+      }
+    },
+    "SUB-1__ExtraTrees": {
+      "config_id": "SUB-1__ExtraTrees",
+      "subset_key": "SUB-1",
+      "subset_name": "No-NLP Full Model (CH-1+2+3+5C)",
+      "model_name": "ExtraTrees",
+      "feature_count": 43,
+      "execution_time_seconds": 8.550540447235107,
+      "frozen_training_threshold_f1": 0.24999999999999994,
+      "frozen_training_threshold_mcc": 0.24999999999999994,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8865677565977041,
+          "std": 0.08960546390245273
+        },
+        "balanced_accuracy": {
+          "mean": 0.5199880975275283,
+          "std": 0.025738343592505857
+        },
+        "precision": {
+          "mean": 0.5806986515745921,
+          "std": 0.30063031361743314
+        },
+        "recall": {
+          "mean": 0.042791325517520476,
+          "std": 0.0558641420728177
+        },
+        "f1": {
+          "mean": 0.07479724974184312,
+          "std": 0.0925857181472064
+        },
+        "pr_auc": {
+          "mean": 0.34084760489391697,
+          "std": 0.20105409829546605
+        },
+        "roc_auc": {
+          "mean": 0.8160236764507454,
+          "std": 0.04289882095214822
+        },
+        "mcc": {
+          "mean": 0.11959651747440739,
+          "std": 0.0969673719739264
+        },
+        "brier": {
+          "mean": 0.08337667006872604,
+          "std": 0.05640791908621412
+        },
+        "ece": {
+          "mean": 0.053509841250412415,
+          "std": 0.024485955160487034
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8932906991875964,
+        "balanced_accuracy": 0.5283038233458832,
+        "precision": 0.7837235228539576,
+        "recall": 0.058637083993660855,
+        "f1": 0.1091106627347509,
+        "pr_auc": 0.4531175894642108,
+        "roc_auc": 0.8480887297408137,
+        "mcc": 0.19589877673569864,
+        "brier": 0.07934720858638705,
+        "ece": 0.03456773023316513
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.24999999999999994,
+        "accuracy": 0.869197449387444,
+        "balanced_accuracy": 0.7162673370252275,
+        "precision": 0.42836508700735954,
+        "recall": 0.5194761865042956,
+        "f1": 0.4695416164053076,
+        "pr_auc": 0.4531175894642108,
+        "roc_auc": 0.8480887297408137,
+        "mcc": 0.39812214318520056,
+        "brier": 0.07934720858638705,
+        "ece": 0.03456773023316513
+      }
+    },
+    "SUB-1__RandomForest": {
+      "config_id": "SUB-1__RandomForest",
+      "subset_key": "SUB-1",
+      "subset_name": "No-NLP Full Model (CH-1+2+3+5C)",
+      "model_name": "RandomForest",
+      "feature_count": 43,
+      "execution_time_seconds": 20.641502141952515,
+      "frozen_training_threshold_f1": 0.3,
+      "frozen_training_threshold_mcc": 0.31999999999999995,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.894925210891401,
+          "std": 0.08060552088551651
+        },
+        "balanced_accuracy": {
+          "mean": 0.60138118582056,
+          "std": 0.07754314631652479
+        },
+        "precision": {
+          "mean": 0.47825636778596126,
+          "std": 0.25971790379974635
+        },
+        "recall": {
+          "mean": 0.22427577972745288,
+          "std": 0.17008880957838263
+        },
+        "f1": {
+          "mean": 0.2763143494303181,
+          "std": 0.1871236306046666
+        },
+        "pr_auc": {
+          "mean": 0.3931629581685134,
+          "std": 0.18344451489539146
+        },
+        "roc_auc": {
+          "mean": 0.8323484676962526,
+          "std": 0.032607134320794505
+        },
+        "mcc": {
+          "mean": 0.26311725967253075,
+          "std": 0.15591588370043394
+        },
+        "brier": {
+          "mean": 0.08269053322357547,
+          "std": 0.04901840587561924
+        },
+        "ece": {
+          "mean": 0.05191254296689409,
+          "std": 0.04258011700220818
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.9002993065754494,
+        "balanced_accuracy": 0.6078590323500621,
+        "precision": 0.6472371182093728,
+        "recall": 0.2315455834514972,
+        "f1": 0.34107384199533114,
+        "pr_auc": 0.4608776990968839,
+        "roc_auc": 0.8429892012087903,
+        "mcc": 0.34695853268778665,
+        "brier": 0.07865885809412278,
+        "ece": 0.032767948447785196
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.3,
+        "accuracy": 0.8646334888736034,
+        "balanced_accuracy": 0.7116565916386919,
+        "precision": 0.4137283818206194,
+        "recall": 0.514805238134957,
+        "f1": 0.4587653770394321,
+        "pr_auc": 0.4608776990968839,
+        "roc_auc": 0.8429892012087903,
+        "mcc": 0.38543885864393207,
+        "brier": 0.07865885809412278,
+        "ece": 0.032767948447785196
+      }
+    },
+    "SUB-1__LogisticRegression": {
+      "config_id": "SUB-1__LogisticRegression",
+      "subset_key": "SUB-1",
+      "subset_name": "No-NLP Full Model (CH-1+2+3+5C)",
+      "model_name": "LogisticRegression",
+      "feature_count": 43,
+      "execution_time_seconds": 4.3572118282318115,
+      "frozen_training_threshold_f1": 0.21999999999999997,
+      "frozen_training_threshold_mcc": 0.21999999999999997,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8719340136662173,
+          "std": 0.08802182651521273
+        },
+        "balanced_accuracy": {
+          "mean": 0.5662261955789264,
+          "std": 0.06010450541528437
+        },
+        "precision": {
+          "mean": 0.40916745921651987,
+          "std": 0.3067941017915338
+        },
+        "recall": {
+          "mean": 0.18680666708196494,
+          "std": 0.17866240657033877
+        },
+        "f1": {
+          "mean": 0.1931211208147059,
+          "std": 0.19534982811275547
+        },
+        "pr_auc": {
+          "mean": 0.29874738301761095,
+          "std": 0.22090013017595186
+        },
+        "roc_auc": {
+          "mean": 0.7862040376026417,
+          "std": 0.04135080781356613
+        },
+        "mcc": {
+          "mean": 0.16241694137983292,
+          "std": 0.12542586564232708
+        },
+        "brier": {
+          "mean": 0.0974710258187774,
+          "std": 0.05740309681814871
+        },
+        "ece": {
+          "mean": 0.07519513266432573,
+          "std": 0.04624339071727619
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8818203788737893,
+        "balanced_accuracy": 0.6054486723263128,
+        "precision": 0.4460163812360387,
+        "recall": 0.24981232796730335,
+        "f1": 0.32025235243798117,
+        "pr_auc": 0.32943477535001015,
+        "roc_auc": 0.7991189508790613,
+        "mcc": 0.2743330152008887,
+        "brier": 0.09161898801343774,
+        "ece": 0.03944109808459241
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.21999999999999997,
+        "accuracy": 0.8493056459258984,
+        "balanced_accuracy": 0.6743626144168501,
+        "precision": 0.3591863954651551,
+        "recall": 0.449245141379598,
+        "f1": 0.3991995256448266,
+        "pr_auc": 0.32943477535001015,
+        "roc_auc": 0.7991189508790613,
+        "mcc": 0.316839743087534,
+        "brier": 0.09161898801343774,
+        "ece": 0.03944109808459241
+      }
+    },
+    "SUB-2__HistGradientBoosting": {
+      "config_id": "SUB-2__HistGradientBoosting",
+      "subset_key": "SUB-2",
+      "subset_name": "Delayed Faults without Zero-Label (CH-1+2+3+5B)",
+      "model_name": "HistGradientBoosting",
+      "feature_count": 39,
+      "execution_time_seconds": 11.23491883277893,
+      "frozen_training_threshold_f1": 0.18,
+      "frozen_training_threshold_mcc": 0.15999999999999998,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8955052790918705,
+          "std": 0.07920803154078121
+        },
+        "balanced_accuracy": {
+          "mean": 0.6087143496400019,
+          "std": 0.07842396315524211
+        },
+        "precision": {
+          "mean": 0.49934600970484155,
+          "std": 0.25377469682235604
+        },
+        "recall": {
+          "mean": 0.24299714826507962,
+          "std": 0.17441941688163606
+        },
+        "f1": {
+          "mean": 0.29572134561658403,
+          "std": 0.1914433263798128
+        },
+        "pr_auc": {
+          "mean": 0.43256122416390974,
+          "std": 0.21036048739653201
+        },
+        "roc_auc": {
+          "mean": 0.8620481868545028,
+          "std": 0.06692919197679464
+        },
+        "mcc": {
+          "mean": 0.27853576801493873,
+          "std": 0.15362411570275977
+        },
+        "brier": {
+          "mean": 0.0763556214198587,
+          "std": 0.055740029524863434
+        },
+        "ece": {
+          "mean": 0.037315465024923916,
+          "std": 0.02367289951688415
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.9007547731033072,
+        "balanced_accuracy": 0.6197871313133807,
+        "precision": 0.6344262295081967,
+        "recall": 0.2582367169905747,
+        "f1": 0.36706384492263916,
+        "pr_auc": 0.5110588222885775,
+        "roc_auc": 0.889490170892017,
+        "mcc": 0.3622808052220087,
+        "brier": 0.07286056902871524,
+        "ece": 0.023439369733534412
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.18,
+        "accuracy": 0.8662229741034746,
+        "balanced_accuracy": 0.7660589352687877,
+        "precision": 0.43204569877269383,
+        "recall": 0.6371674034531654,
+        "f1": 0.5149309066397034,
+        "pr_auc": 0.5110588222885775,
+        "roc_auc": 0.889490170892017,
+        "mcc": 0.4518316995395317,
+        "brier": 0.07286056902871524,
+        "ece": 0.023439369733534412
+      }
+    },
+    "SUB-2__XGBoost": {
+      "config_id": "SUB-2__XGBoost",
+      "subset_key": "SUB-2",
+      "subset_name": "Delayed Faults without Zero-Label (CH-1+2+3+5B)",
+      "model_name": "XGBoost",
+      "feature_count": 39,
+      "execution_time_seconds": 5.2976744174957275,
+      "frozen_training_threshold_f1": 0.19,
+      "frozen_training_threshold_mcc": 0.14999999999999997,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8961193060434864,
+          "std": 0.07932137086825156
+        },
+        "balanced_accuracy": {
+          "mean": 0.613394179333272,
+          "std": 0.08009751027539476
+        },
+        "precision": {
+          "mean": 0.519578638083318,
+          "std": 0.2534040047932084
+        },
+        "recall": {
+          "mean": 0.2516499245392192,
+          "std": 0.17546326721037628
+        },
+        "f1": {
+          "mean": 0.3097327179208843,
+          "std": 0.18939317451318322
+        },
+        "pr_auc": {
+          "mean": 0.44524962280789654,
+          "std": 0.20580602846727725
+        },
+        "roc_auc": {
+          "mean": 0.8676390200803092,
+          "std": 0.0570172149288502
+        },
+        "mcc": {
+          "mean": 0.2941913240558589,
+          "std": 0.15640399584836961
+        },
+        "brier": {
+          "mean": 0.07583927006692019,
+          "std": 0.05535880975175812
+        },
+        "ece": {
+          "mean": 0.03803310394844955,
+          "std": 0.02046025891521005
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.9015355728653492,
+        "balanced_accuracy": 0.6217219439216595,
+        "precision": 0.6430914309143091,
+        "recall": 0.261656518475269,
+        "f1": 0.37196893342028814,
+        "pr_auc": 0.5145895732466836,
+        "roc_auc": 0.8897534370572765,
+        "mcc": 0.36820427265092953,
+        "brier": 0.07226696342181889,
+        "ece": 0.014426349612183503
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.19,
+        "accuracy": 0.8660928408098009,
+        "balanced_accuracy": 0.7644173094809219,
+        "precision": 0.43137032199443465,
+        "recall": 0.6335807823838518,
+        "f1": 0.5132779241840665,
+        "pr_auc": 0.5145895732466836,
+        "roc_auc": 0.8897534370572765,
+        "mcc": 0.4497808447370284,
+        "brier": 0.07226696342181889,
+        "ece": 0.014426349612183503
+      }
+    },
+    "SUB-2__ExtraTrees": {
+      "config_id": "SUB-2__ExtraTrees",
+      "subset_key": "SUB-2",
+      "subset_name": "Delayed Faults without Zero-Label (CH-1+2+3+5B)",
+      "model_name": "ExtraTrees",
+      "feature_count": 39,
+      "execution_time_seconds": 7.992650747299194,
+      "frozen_training_threshold_f1": 0.26999999999999996,
+      "frozen_training_threshold_mcc": 0.26999999999999996,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8875797432718635,
+          "std": 0.08877961013548488
+        },
+        "balanced_accuracy": {
+          "mean": 0.5225800076567034,
+          "std": 0.027031492755148018
+        },
+        "precision": {
+          "mean": 0.4558558558558559,
+          "std": 0.3734286075430623
+        },
+        "recall": {
+          "mean": 0.049122781207674,
+          "std": 0.05928004381650352
+        },
+        "f1": {
+          "mean": 0.0851205422828978,
+          "std": 0.09742391704761104
+        },
+        "pr_auc": {
+          "mean": 0.3289030577328772,
+          "std": 0.21107349837337153
+        },
+        "roc_auc": {
+          "mean": 0.8076976661275538,
+          "std": 0.03241048939511771
+        },
+        "mcc": {
+          "mean": 0.11826765986090611,
+          "std": 0.10938875355094149
+        },
+        "brier": {
+          "mean": 0.08327619247810611,
+          "std": 0.055961230231620855
+        },
+        "ece": {
+          "mean": 0.05400387007258208,
+          "std": 0.02298268897404635
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8943782417132977,
+        "balanced_accuracy": 0.5367942605728281,
+        "precision": 0.7582508250825083,
+        "recall": 0.07665359913253816,
+        "f1": 0.13923187637300205,
+        "pr_auc": 0.46466186882948984,
+        "roc_auc": 0.8529859075284819,
+        "mcc": 0.21940863295701094,
+        "brier": 0.07946301812661624,
+        "ece": 0.049288304187311074
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.26999999999999996,
+        "accuracy": 0.8673384023349631,
+        "balanced_accuracy": 0.7236832932568069,
+        "precision": 0.4249161349733605,
+        "recall": 0.5388272583201268,
+        "f1": 0.4751397469844072,
+        "pr_auc": 0.46466186882948984,
+        "roc_auc": 0.8529859075284819,
+        "mcc": 0.4041260011205784,
+        "brier": 0.07946301812661624,
+        "ece": 0.049288304187311074
+      }
+    },
+    "SUB-2__RandomForest": {
+      "config_id": "SUB-2__RandomForest",
+      "subset_key": "SUB-2",
+      "subset_name": "Delayed Faults without Zero-Label (CH-1+2+3+5B)",
+      "model_name": "RandomForest",
+      "feature_count": 39,
+      "execution_time_seconds": 18.54368805885315,
+      "frozen_training_threshold_f1": 0.30999999999999994,
+      "frozen_training_threshold_mcc": 0.30999999999999994,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8950859075695142,
+          "std": 0.0807981402760524
+        },
+        "balanced_accuracy": {
+          "mean": 0.6105390068036043,
+          "std": 0.07080478114477316
+        },
+        "precision": {
+          "mean": 0.47266523444269043,
+          "std": 0.2508294837130146
+        },
+        "recall": {
+          "mean": 0.24643482528574445,
+          "std": 0.1578452495172862
+        },
+        "f1": {
+          "mean": 0.3007181833252063,
+          "std": 0.16811043320913796
+        },
+        "pr_auc": {
+          "mean": 0.3912806035837156,
+          "std": 0.1898954172057447
+        },
+        "roc_auc": {
+          "mean": 0.8256798093918581,
+          "std": 0.02132083608369428
+        },
+        "mcc": {
+          "mean": 0.2793252914373119,
+          "std": 0.14305973586409926
+        },
+        "brier": {
+          "mean": 0.08296231447447304,
+          "std": 0.0485619125714948
+        },
+        "ece": {
+          "mean": 0.05383128365000687,
+          "std": 0.042021324453339615
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.9013496681601011,
+        "balanced_accuracy": 0.6254471444541597,
+        "precision": 0.63469068128426,
+        "recall": 0.2704145466677788,
+        "f1": 0.37924782125519096,
+        "pr_auc": 0.4741108332377315,
+        "roc_auc": 0.8505554129482018,
+        "mcc": 0.3712470510723712,
+        "brier": 0.0784026012220743,
+        "ece": 0.03982809397999585
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.30999999999999994,
+        "accuracy": 0.8613987470022866,
+        "balanced_accuracy": 0.7212163836223675,
+        "precision": 0.4080553807426054,
+        "recall": 0.5408290933355576,
+        "f1": 0.46515298253165466,
+        "pr_auc": 0.4741108332377315,
+        "roc_auc": 0.8505554129482018,
+        "mcc": 0.3923956084620462,
+        "brier": 0.0784026012220743,
+        "ece": 0.03982809397999585
+      }
+    },
+    "SUB-2__LogisticRegression": {
+      "config_id": "SUB-2__LogisticRegression",
+      "subset_key": "SUB-2",
+      "subset_name": "Delayed Faults without Zero-Label (CH-1+2+3+5B)",
+      "model_name": "LogisticRegression",
+      "feature_count": 39,
+      "execution_time_seconds": 4.3411033153533936,
+      "frozen_training_threshold_f1": 0.14999999999999997,
+      "frozen_training_threshold_mcc": 0.13999999999999999,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8734859319016577,
+          "std": 0.08481159780799287
+        },
+        "balanced_accuracy": {
+          "mean": 0.5671754667044084,
+          "std": 0.058894170528622135
+        },
+        "precision": {
+          "mean": 0.4217830257769015,
+          "std": 0.3033476625316185
+        },
+        "recall": {
+          "mean": 0.18540065600577532,
+          "std": 0.16885937534264067
+        },
+        "f1": {
+          "mean": 0.19680705606607146,
+          "std": 0.19277229147830674
+        },
+        "pr_auc": {
+          "mean": 0.3125917273084259,
+          "std": 0.2265321317112156
+        },
+        "roc_auc": {
+          "mean": 0.7885982708850848,
+          "std": 0.05759715000379584
+        },
+        "mcc": {
+          "mean": 0.16738886615752696,
+          "std": 0.12264130588287989
+        },
+        "brier": {
+          "mean": 0.0960026714387537,
+          "std": 0.0559697615155854
+        },
+        "ece": {
+          "mean": 0.07420854610877443,
+          "std": 0.042543159243590804
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8829822832815899,
+        "balanced_accuracy": 0.6034398555919991,
+        "precision": 0.45344506517690875,
+        "recall": 0.2437234131287013,
+        "f1": 0.3170400911408886,
+        "pr_auc": 0.3424866040389961,
+        "roc_auc": 0.8195739217558874,
+        "mcc": 0.274338955312087,
+        "brier": 0.08967341496180996,
+        "ece": 0.030682077366973086
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.14999999999999997,
+        "accuracy": 0.8117064192894722,
+        "balanced_accuracy": 0.7087921742643803,
+        "precision": 0.31283955088735965,
+        "recall": 0.5763616648594545,
+        "f1": 0.40555213193649675,
+        "pr_auc": 0.3424866040389961,
+        "roc_auc": 0.8195739217558874,
+        "mcc": 0.32531397702542725,
+        "brier": 0.08967341496180996,
+        "ece": 0.030682077366973086
+      }
+    },
+    "SUB-3__HistGradientBoosting": {
+      "config_id": "SUB-3__HistGradientBoosting",
+      "subset_key": "SUB-3",
+      "subset_name": "Zero-Label Experience without Delayed Faults (CH-1+2+3+5A)",
+      "model_name": "HistGradientBoosting",
+      "feature_count": 39,
+      "execution_time_seconds": 12.06062626838684,
+      "frozen_training_threshold_f1": 0.05,
+      "frozen_training_threshold_mcc": 0.05,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.817203459372424,
+          "std": 0.08895171712445742
+        },
+        "balanced_accuracy": {
+          "mean": 0.5690968573720854,
+          "std": 0.048203019662258643
+        },
+        "precision": {
+          "mean": 0.4023848097220964,
+          "std": 0.2965546117173677
+        },
+        "recall": {
+          "mean": 0.21563876997659204,
+          "std": 0.1833917591392075
+        },
+        "f1": {
+          "mean": 0.11489795896915658,
+          "std": 0.06515954336782054
+        },
+        "pr_auc": {
+          "mean": 0.28248579553049014,
+          "std": 0.19372055682153985
+        },
+        "roc_auc": {
+          "mean": 0.7750843575223816,
+          "std": 0.09740329409157786
+        },
+        "mcc": {
+          "mean": 0.13341468244159677,
+          "std": 0.048226859922948534
+        },
+        "brier": {
+          "mean": 0.13390739301972004,
+          "std": 0.05363057049817753
+        },
+        "ece": {
+          "mean": 0.13966712469869882,
+          "std": 0.10170339499937163
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8357067167370006,
+        "balanced_accuracy": 0.5085939100265822,
+        "precision": 0.1349512069851053,
+        "recall": 0.08766369171740762,
+        "f1": 0.10628507862668757,
+        "pr_auc": 0.15919547786288352,
+        "roc_auc": 0.6833652667170139,
+        "mcc": 0.02087181118181694,
+        "brier": 0.123256119993493,
+        "ece": 0.09680496300734688
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.05,
+        "accuracy": 0.5423955680318269,
+        "balanced_accuracy": 0.6361427516787086,
+        "precision": 0.1638110025818333,
+        "recall": 0.7567770456251564,
+        "f1": 0.26932438850629303,
+        "pr_auc": 0.15919547786288352,
+        "roc_auc": 0.6833652667170139,
+        "mcc": 0.17143941393144888,
+        "brier": 0.123256119993493,
+        "ece": 0.09680496300734688
+      }
+    },
+    "SUB-3__XGBoost": {
+      "config_id": "SUB-3__XGBoost",
+      "subset_key": "SUB-3",
+      "subset_name": "Zero-Label Experience without Delayed Faults (CH-1+2+3+5A)",
+      "model_name": "XGBoost",
+      "feature_count": 39,
+      "execution_time_seconds": 5.570952415466309,
+      "frozen_training_threshold_f1": 0.09,
+      "frozen_training_threshold_mcc": 0.05,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8189573135638601,
+          "std": 0.08694878663610521
+        },
+        "balanced_accuracy": {
+          "mean": 0.5661509846341718,
+          "std": 0.05397444385833696
+        },
+        "precision": {
+          "mean": 0.3954640356039018,
+          "std": 0.2931769064677585
+        },
+        "recall": {
+          "mean": 0.20480266015200527,
+          "std": 0.20076438947638187
+        },
+        "f1": {
+          "mean": 0.09527287924460659,
+          "std": 0.05365324957456793
+        },
+        "pr_auc": {
+          "mean": 0.2764044987748301,
+          "std": 0.19261689550761962
+        },
+        "roc_auc": {
+          "mean": 0.7787032621325409,
+          "std": 0.09378566204883072
+        },
+        "mcc": {
+          "mean": 0.11799305541098007,
+          "std": 0.03938510131493964
+        },
+        "brier": {
+          "mean": 0.13243082462298483,
+          "std": 0.05254440662653708
+        },
+        "ece": {
+          "mean": 0.13931485750454595,
+          "std": 0.10534541172865353
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8372125448495101,
+        "balanced_accuracy": 0.5005779762075289,
+        "precision": 0.11316526610644258,
+        "recall": 0.06739511218617066,
+        "f1": 0.08447906320246745,
+        "pr_auc": 0.1557743333670919,
+        "roc_auc": 0.6800707299996003,
+        "mcc": 0.0014612943348692646,
+        "brier": 0.12206091936900137,
+        "ece": 0.0933739971336387
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.09,
+        "accuracy": 0.6083080812775371,
+        "balanced_accuracy": 0.6272016103156821,
+        "precision": 0.1706501791488246,
+        "recall": 0.6515138877304195,
+        "f1": 0.27045930645245064,
+        "pr_auc": 0.1557743333670919,
+        "roc_auc": 0.6800707299996003,
+        "mcc": 0.16191900048877542,
+        "brier": 0.12206091936900137,
+        "ece": 0.0933739971336387
+      }
+    },
+    "SUB-3__ExtraTrees": {
+      "config_id": "SUB-3__ExtraTrees",
+      "subset_key": "SUB-3",
+      "subset_name": "Zero-Label Experience without Delayed Faults (CH-1+2+3+5A)",
+      "model_name": "ExtraTrees",
+      "feature_count": 39,
+      "execution_time_seconds": 8.384392738342285,
+      "frozen_training_threshold_f1": 0.09999999999999999,
+      "frozen_training_threshold_mcc": 0.07,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8551087459361064,
+          "std": 0.07712822344601218
+        },
+        "balanced_accuracy": {
+          "mean": 0.4896435476212611,
+          "std": 0.02104715930302375
+        },
+        "precision": {
+          "mean": 0.4002734731084777,
+          "std": 0.4896749132469235
+        },
+        "recall": {
+          "mean": 0.005105046942977769,
+          "std": 0.00945459450903366
+        },
+        "f1": {
+          "mean": 0.0011270570248621292,
+          "std": 0.001034546078364178
+        },
+        "pr_auc": {
+          "mean": 0.23934905562795822,
+          "std": 0.17692039849435331
+        },
+        "roc_auc": {
+          "mean": 0.6826186004758095,
+          "std": 0.1593021284231804
+        },
+        "mcc": {
+          "mean": 0.004326760414301545,
+          "std": 0.01949219636798391
+        },
+        "brier": {
+          "mean": 0.12084088613647063,
+          "std": 0.05278443736409777
+        },
+        "ece": {
+          "mean": 0.13362348936273857,
+          "std": 0.09742772075181895
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.868230744920154,
+        "balanced_accuracy": 0.4888891473773513,
+        "precision": 0.004081632653061225,
+        "recall": 0.0007506881307865543,
+        "f1": 0.0012681414682260109,
+        "pr_auc": 0.13309472573971917,
+        "roc_auc": 0.621622531103021,
+        "mcc": -0.04935199308120979,
+        "brier": 0.11119105324154749,
+        "ece": 0.06068278447568768
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.09999999999999999,
+        "accuracy": 0.5434645200870034,
+        "balanced_accuracy": 0.6149325763457896,
+        "precision": 0.15672387010873584,
+        "recall": 0.7068979898240053,
+        "f1": 0.2565655036706274,
+        "pr_auc": 0.13309472573971917,
+        "roc_auc": 0.621622531103021,
+        "mcc": 0.1446685541821501,
+        "brier": 0.11119105324154749,
+        "ece": 0.06068278447568768
+      }
+    },
+    "SUB-3__RandomForest": {
+      "config_id": "SUB-3__RandomForest",
+      "subset_key": "SUB-3",
+      "subset_name": "Zero-Label Experience without Delayed Faults (CH-1+2+3+5A)",
+      "model_name": "RandomForest",
+      "feature_count": 39,
+      "execution_time_seconds": 21.267407178878784,
+      "frozen_training_threshold_f1": 0.07,
+      "frozen_training_threshold_mcc": 0.05,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8190009214572791,
+          "std": 0.09448424375940301
+        },
+        "balanced_accuracy": {
+          "mean": 0.5418119758393519,
+          "std": 0.031984302296319114
+        },
+        "precision": {
+          "mean": 0.44095705494222387,
+          "std": 0.31978283474973246
+        },
+        "recall": {
+          "mean": 0.15218211598485085,
+          "std": 0.16375449712621584
+        },
+        "f1": {
+          "mean": 0.07353590647038141,
+          "std": 0.04224763799781424
+        },
+        "pr_auc": {
+          "mean": 0.26191004565017506,
+          "std": 0.18047988251525432
+        },
+        "roc_auc": {
+          "mean": 0.7489856378218738,
+          "std": 0.09782076762480842
+        },
+        "mcc": {
+          "mean": 0.10483501179543109,
+          "std": 0.03988521679369689
+        },
+        "brier": {
+          "mean": 0.13207411536726488,
+          "std": 0.056417350396334526
+        },
+        "ece": {
+          "mean": 0.13770171612695345,
+          "std": 0.1152420256958005
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.838244315963637,
+        "balanced_accuracy": 0.49145637553863386,
+        "precision": 0.08342311836232107,
+        "recall": 0.04520810743181249,
+        "f1": 0.058638970031375096,
+        "pr_auc": 0.1522795876983406,
+        "roc_auc": 0.6719825467550897,
+        "mcc": -0.02257235546446833,
+        "brier": 0.12072895874265277,
+        "ece": 0.08539432984802667
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.07,
+        "accuracy": 0.5470431856630291,
+        "balanced_accuracy": 0.652837119564609,
+        "precision": 0.16994556136473885,
+        "recall": 0.7889732254566686,
+        "f1": 0.2796535004730369,
+        "pr_auc": 0.1522795876983406,
+        "roc_auc": 0.6719825467550897,
+        "mcc": 0.1924933707031927,
+        "brier": 0.12072895874265277,
+        "ece": 0.08539432984802667
+      }
+    },
+    "SUB-3__LogisticRegression": {
+      "config_id": "SUB-3__LogisticRegression",
+      "subset_key": "SUB-3",
+      "subset_name": "Zero-Label Experience without Delayed Faults (CH-1+2+3+5A)",
+      "model_name": "LogisticRegression",
+      "feature_count": 39,
+      "execution_time_seconds": 4.204664468765259,
+      "frozen_training_threshold_f1": 0.05,
+      "frozen_training_threshold_mcc": 0.05,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8515759121592719,
+          "std": 0.07360265968722873
+        },
+        "balanced_accuracy": {
+          "mean": 0.5192221991156192,
+          "std": 0.018495989765596552
+        },
+        "precision": {
+          "mean": 0.38920636584544643,
+          "std": 0.29709824684107267
+        },
+        "recall": {
+          "mean": 0.0747463269570948,
+          "std": 0.045269879830039036
+        },
+        "f1": {
+          "mean": 0.06945110337373302,
+          "std": 0.042660762167578324
+        },
+        "pr_auc": {
+          "mean": 0.23306129091286118,
+          "std": 0.1693878332929248
+        },
+        "roc_auc": {
+          "mean": 0.6670265916654639,
+          "std": 0.169339693846293
+        },
+        "mcc": {
+          "mean": 0.08097353287712007,
+          "std": 0.04217078717196257
+        },
+        "brier": {
+          "mean": 0.12837089058333612,
+          "std": 0.05328727840267371
+        },
+        "ece": {
+          "mean": 0.1332424716030141,
+          "std": 0.09969209366143385
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8647357364614898,
+        "balanced_accuracy": 0.5052690931628971,
+        "precision": 0.1427376637858935,
+        "recall": 0.04270581366252398,
+        "f1": 0.0657421674370827,
+        "pr_auc": 0.1381110132000349,
+        "roc_auc": 0.6217730906949661,
+        "mcc": 0.01847134333703697,
+        "brier": 0.11846029976203391,
+        "ece": 0.09061569739118372
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.05,
+        "accuracy": 0.47587886449406036,
+        "balanced_accuracy": 0.6005734265507646,
+        "precision": 0.14564610104557427,
+        "recall": 0.7610309450329469,
+        "f1": 0.24449982581665192,
+        "pr_auc": 0.1381110132000349,
+        "roc_auc": 0.6217730906949661,
+        "mcc": 0.12834309961668736,
+        "brier": 0.11846029976203391,
+        "ece": 0.09061569739118372
+      }
+    },
+    "SUB-4__HistGradientBoosting": {
+      "config_id": "SUB-4__HistGradientBoosting",
+      "subset_key": "SUB-4",
+      "subset_name": "Full Model with NLP (CH-1+2+3+4+5C)",
+      "model_name": "HistGradientBoosting",
+      "feature_count": 73,
+      "execution_time_seconds": 258.3883376121521,
+      "frozen_training_threshold_f1": 0.15999999999999998,
+      "frozen_training_threshold_mcc": 0.13999999999999999,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8960679046028751,
+          "std": 0.0788009879282568
+        },
+        "balanced_accuracy": {
+          "mean": 0.6087772312891728,
+          "std": 0.08386943612522378
+        },
+        "precision": {
+          "mean": 0.5073654080649532,
+          "std": 0.2567458731501253
+        },
+        "recall": {
+          "mean": 0.2378394848966634,
+          "std": 0.17772796799541296
+        },
+        "f1": {
+          "mean": 0.28912839435531124,
+          "std": 0.19071865764565812
+        },
+        "pr_auc": {
+          "mean": 0.42622502761830916,
+          "std": 0.2094440146080068
+        },
+        "roc_auc": {
+          "mean": 0.8601306306276137,
+          "std": 0.05473921642087126
+        },
+        "mcc": {
+          "mean": 0.2786754069316325,
+          "std": 0.15971957899641448
+        },
+        "brier": {
+          "mean": 0.07763927288754094,
+          "std": 0.05497663654779681
+        },
+        "ece": {
+          "mean": 0.042300985470126104,
+          "std": 0.03006960286260688
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.9011358777490658,
+        "balanced_accuracy": 0.6084756756665446,
+        "precision": 0.6608034228666508,
+        "recall": 0.23187922262073568,
+        "f1": 0.3432946406520128,
+        "pr_auc": 0.5005372533160347,
+        "roc_auc": 0.8809272813714477,
+        "mcc": 0.3521866325504803,
+        "brier": 0.07442285104706992,
+        "ece": 0.02659619089401487
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.15999999999999998,
+        "accuracy": 0.8624026324106263,
+        "balanced_accuracy": 0.7509607886572685,
+        "precision": 0.4190541939937867,
+        "recall": 0.6075569271832513,
+        "f1": 0.4959994552449695,
+        "pr_auc": 0.5005372533160347,
+        "roc_auc": 0.8809272813714477,
+        "mcc": 0.4291283930411247,
+        "brier": 0.07442285104706992,
+        "ece": 0.02659619089401487
+      }
+    },
+    "SUB-4__XGBoost": {
+      "config_id": "SUB-4__XGBoost",
+      "subset_key": "SUB-4",
+      "subset_name": "Full Model with NLP (CH-1+2+3+4+5C)",
+      "model_name": "XGBoost",
+      "feature_count": 73,
+      "execution_time_seconds": 227.93864560127258,
+      "frozen_training_threshold_f1": 0.19999999999999996,
+      "frozen_training_threshold_mcc": 0.16999999999999998,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8964043100504894,
+          "std": 0.07915380497572261
+        },
+        "balanced_accuracy": {
+          "mean": 0.6045141203440538,
+          "std": 0.07908542079180551
+        },
+        "precision": {
+          "mean": 0.516688405950476,
+          "std": 0.2585415127375037
+        },
+        "recall": {
+          "mean": 0.22774324523689118,
+          "std": 0.16886405973010293
+        },
+        "f1": {
+          "mean": 0.281757485164956,
+          "std": 0.18417846264164237
+        },
+        "pr_auc": {
+          "mean": 0.42032007036472374,
+          "std": 0.2151499199276589
+        },
+        "roc_auc": {
+          "mean": 0.865519325024561,
+          "std": 0.0506222644938668
+        },
+        "mcc": {
+          "mean": 0.27564112626232107,
+          "std": 0.15325274143572856
+        },
+        "brier": {
+          "mean": 0.0765762874585036,
+          "std": 0.05464473096068143
+        },
+        "ece": {
+          "mean": 0.040569042639995764,
+          "std": 0.029085094930173885
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.9016657061590229,
+        "balanced_accuracy": 0.6065488770052856,
+        "precision": 0.6750248262164846,
+        "recall": 0.22679122528984902,
+        "f1": 0.339514266092277,
+        "pr_auc": 0.5117181606478216,
+        "roc_auc": 0.8841122941462569,
+        "mcc": 0.3532280856632915,
+        "brier": 0.0732144869949535,
+        "ece": 0.020963317644645558
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.19999999999999996,
+        "accuracy": 0.8753230094253686,
+        "balanced_accuracy": 0.7434955428777328,
+        "precision": 0.45310853530031614,
+        "recall": 0.5738593710901659,
+        "f1": 0.5063850145364884,
+        "pr_auc": 0.5117181606478216,
+        "roc_auc": 0.8841122941462569,
+        "mcc": 0.4401504542998618,
+        "brier": 0.0732144869949535,
+        "ece": 0.020963317644645558
+      }
+    },
+    "SUB-4__ExtraTrees": {
+      "config_id": "SUB-4__ExtraTrees",
+      "subset_key": "SUB-4",
+      "subset_name": "Full Model with NLP (CH-1+2+3+4+5C)",
+      "model_name": "ExtraTrees",
+      "feature_count": 73,
+      "execution_time_seconds": 276.04258584976196,
+      "frozen_training_threshold_f1": 0.24,
+      "frozen_training_threshold_mcc": 0.24999999999999994,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8812739782705139,
+          "std": 0.09467320614067691
+        },
+        "balanced_accuracy": {
+          "mean": 0.5017868500883139,
+          "std": 0.001743021405211111
+        },
+        "precision": {
+          "mean": 0.4971544715447155,
+          "std": 0.4087854680152741
+        },
+        "recall": {
+          "mean": 0.003741047319727004,
+          "std": 0.0036059550428469197
+        },
+        "f1": {
+          "mean": 0.007420417099603403,
+          "std": 0.00713906638882135
+        },
+        "pr_auc": {
+          "mean": 0.3086270203574546,
+          "std": 0.21796715397705552
+        },
+        "roc_auc": {
+          "mean": 0.7938734817777543,
+          "std": 0.012390193913627206
+        },
+        "mcc": {
+          "mean": 0.03639123981730019,
+          "std": 0.031716950253675553
+        },
+        "brier": {
+          "mean": 0.08807918236758872,
+          "std": 0.056078675668230986
+        },
+        "ece": {
+          "mean": 0.06927161290970868,
+          "std": 0.034965927993707874
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8891078433195144,
+        "balanced_accuracy": 0.5029347559125157,
+        "precision": 0.8470588235294118,
+        "recall": 0.006005505046292435,
+        "f1": 0.011926453536524764,
+        "pr_auc": 0.4180050296214807,
+        "roc_auc": 0.8286012676928995,
+        "mcc": 0.06573533381374108,
+        "brier": 0.08337266356591705,
+        "ece": 0.04201923127757753
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.24,
+        "accuracy": 0.8621516610585414,
+        "balanced_accuracy": 0.6984058698819613,
+        "precision": 0.4022703818369453,
+        "recall": 0.48769705563433147,
+        "f1": 0.4408837279445031,
+        "pr_auc": 0.4180050296214807,
+        "roc_auc": 0.8286012676928995,
+        "mcc": 0.36528373301200234,
+        "brier": 0.08337266356591705,
+        "ece": 0.04201923127757753
+      }
+    },
+    "SUB-4__RandomForest": {
+      "config_id": "SUB-4__RandomForest",
+      "subset_key": "SUB-4",
+      "subset_name": "Full Model with NLP (CH-1+2+3+4+5C)",
+      "model_name": "RandomForest",
+      "feature_count": 73,
+      "execution_time_seconds": 279.10839343070984,
+      "frozen_training_threshold_f1": 0.26999999999999996,
+      "frozen_training_threshold_mcc": 0.24,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.886148832462417,
+          "std": 0.08198946179195689
+        },
+        "balanced_accuracy": {
+          "mean": 0.5715776431100574,
+          "std": 0.06407881588773749
+        },
+        "precision": {
+          "mean": 0.4004367090713288,
+          "std": 0.29245303869517136
+        },
+        "recall": {
+          "mean": 0.15819166213824895,
+          "std": 0.13689901595959597
+        },
+        "f1": {
+          "mean": 0.16699202016939005,
+          "std": 0.13177248430534094
+        },
+        "pr_auc": {
+          "mean": 0.35088461298192897,
+          "std": 0.18889666460939541
+        },
+        "roc_auc": {
+          "mean": 0.8074844151204136,
+          "std": 0.038150620334549405
+        },
+        "mcc": {
+          "mean": 0.1762582383952757,
+          "std": 0.11967490689366084
+        },
+        "brier": {
+          "mean": 0.08959913934245581,
+          "std": 0.04739306429130155
+        },
+        "ece": {
+          "mean": 0.06564406277417827,
+          "std": 0.060143985967139234
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8930118421297243,
+        "balanced_accuracy": 0.5629434739036938,
+        "precision": 0.5844797178130512,
+        "recall": 0.13821002585703562,
+        "f1": 0.22355639503507826,
+        "pr_auc": 0.3861798769206449,
+        "roc_auc": 0.8149636231155954,
+        "mcc": 0.24730784973206846,
+        "brier": 0.08456193969553737,
+        "ece": 0.03648117684411656
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.26999999999999996,
+        "accuracy": 0.8334665650387612,
+        "balanced_accuracy": 0.6936810039527994,
+        "precision": 0.3375897407793062,
+        "recall": 0.5138043206272417,
+        "f1": 0.4074613044053446,
+        "pr_auc": 0.3861798769206449,
+        "roc_auc": 0.8149636231155954,
+        "mcc": 0.3247992308602258,
+        "brier": 0.08456193969553737,
+        "ece": 0.03648117684411656
+      }
+    },
+    "SUB-4__LogisticRegression": {
+      "config_id": "SUB-4__LogisticRegression",
+      "subset_key": "SUB-4",
+      "subset_name": "Full Model with NLP (CH-1+2+3+4+5C)",
+      "model_name": "LogisticRegression",
+      "feature_count": 73,
+      "execution_time_seconds": 225.8224651813507,
+      "frozen_training_threshold_f1": 0.14999999999999997,
+      "frozen_training_threshold_mcc": 0.20999999999999996,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8744921716943124,
+          "std": 0.07876156280600206
+        },
+        "balanced_accuracy": {
+          "mean": 0.5336412245863599,
+          "std": 0.01869496071752332
+        },
+        "precision": {
+          "mean": 0.47930996350819066,
+          "std": 0.33403532209801934
+        },
+        "recall": {
+          "mean": 0.08473191528194782,
+          "std": 0.05384122788474862
+        },
+        "f1": {
+          "mean": 0.09729571023342387,
+          "std": 0.07108271849562946
+        },
+        "pr_auc": {
+          "mean": 0.30343403099569655,
+          "std": 0.21817457685865335
+        },
+        "roc_auc": {
+          "mean": 0.788289804824618,
+          "std": 0.06912913328555126
+        },
+        "mcc": {
+          "mean": 0.12353636595351825,
+          "std": 0.06737584881979516
+        },
+        "brier": {
+          "mean": 0.10218027259516553,
+          "std": 0.055365212420635225
+        },
+        "ece": {
+          "mean": 0.0940793586054983,
+          "std": 0.05055753705325732
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8835864735736462,
+        "balanced_accuracy": 0.5285696513216332,
+        "precision": 0.38137472283813745,
+        "recall": 0.07173242138627074,
+        "f1": 0.12075259758494805,
+        "pr_auc": 0.2472560405932638,
+        "roc_auc": 0.7435049101517524,
+        "mcc": 0.1255152025140589,
+        "brier": 0.09590543427921452,
+        "ece": 0.038382303983305686
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.14999999999999997,
+        "accuracy": 0.7965087096354408,
+        "balanced_accuracy": 0.6313401745894965,
+        "precision": 0.25174229130107795,
+        "recall": 0.4188005671865877,
+        "f1": 0.31446107596918643,
+        "pr_auc": 0.2472560405932638,
+        "roc_auc": 0.7435049101517524,
+        "mcc": 0.21270188523337857,
+        "brier": 0.09590543427921452,
+        "ece": 0.038382303983305686
+      }
+    },
+    "SUB-5__HistGradientBoosting": {
+      "config_id": "SUB-5__HistGradientBoosting",
+      "subset_key": "SUB-5",
+      "subset_name": "Top Isolated Drivers (CH-3 + CH-5B)",
+      "model_name": "HistGradientBoosting",
+      "feature_count": 18,
+      "execution_time_seconds": 8.736608266830444,
+      "frozen_training_threshold_f1": 0.18,
+      "frozen_training_threshold_mcc": 0.13,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8907839490425286,
+          "std": 0.08521723000868872
+        },
+        "balanced_accuracy": {
+          "mean": 0.5645396067279032,
+          "std": 0.05373243187956401
+        },
+        "precision": {
+          "mean": 0.4790843058312527,
+          "std": 0.27886761970961066
+        },
+        "recall": {
+          "mean": 0.1495728174524376,
+          "std": 0.1337019269659684
+        },
+        "f1": {
+          "mean": 0.20891016615326286,
+          "std": 0.15707478035817343
+        },
+        "pr_auc": {
+          "mean": 0.3606241458475793,
+          "std": 0.20296251417116137
+        },
+        "roc_auc": {
+          "mean": 0.8252379181928753,
+          "std": 0.09411187786457026
+        },
+        "mcc": {
+          "mean": 0.2082740624048948,
+          "std": 0.12285241098586638
+        },
+        "brier": {
+          "mean": 0.08212073080038704,
+          "std": 0.0613862122240233
+        },
+        "ece": {
+          "mean": 0.03961998607261682,
+          "std": 0.028496512428276756
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.89732483129148,
+        "balanced_accuracy": 0.5910848731419149,
+        "precision": 0.6247024596667549,
+        "recall": 0.1970139294353157,
+        "f1": 0.2995561192136969,
+        "pr_auc": 0.4535753041174048,
+        "roc_auc": 0.864393883050264,
+        "mcc": 0.31129824466824024,
+        "brier": 0.07823156260102969,
+        "ece": 0.028509434434232105
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.18,
+        "accuracy": 0.855087282259114,
+        "balanced_accuracy": 0.723281924041347,
+        "precision": 0.39331634769212537,
+        "recall": 0.5536742013512387,
+        "f1": 0.4599182429155408,
+        "pr_auc": 0.4535753041174048,
+        "roc_auc": 0.864393883050264,
+        "mcc": 0.3863890837473207,
+        "brier": 0.07823156260102969,
+        "ece": 0.028509434434232105
+      }
+    },
+    "SUB-5__XGBoost": {
+      "config_id": "SUB-5__XGBoost",
+      "subset_key": "SUB-5",
+      "subset_name": "Top Isolated Drivers (CH-3 + CH-5B)",
+      "model_name": "XGBoost",
+      "feature_count": 18,
+      "execution_time_seconds": 3.5977632999420166,
+      "frozen_training_threshold_f1": 0.16999999999999998,
+      "frozen_training_threshold_mcc": 0.16999999999999998,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8911460199715753,
+          "std": 0.08475734884295871
+        },
+        "balanced_accuracy": {
+          "mean": 0.5618377560164834,
+          "std": 0.05271293240903141
+        },
+        "precision": {
+          "mean": 0.5137411116395127,
+          "std": 0.24650142835693467
+        },
+        "recall": {
+          "mean": 0.14230917226223755,
+          "std": 0.12874694688721453
+        },
+        "f1": {
+          "mean": 0.20247563156160714,
+          "std": 0.15879405073079786
+        },
+        "pr_auc": {
+          "mean": 0.3723821056903658,
+          "std": 0.1987122925920517
+        },
+        "roc_auc": {
+          "mean": 0.8346251982498949,
+          "std": 0.08191946532708966
+        },
+        "mcc": {
+          "mean": 0.20749718359720132,
+          "std": 0.1186940010688789
+        },
+        "brier": {
+          "mean": 0.08186152357442252,
+          "std": 0.060469492018028904
+        },
+        "ece": {
+          "mean": 0.039957997053595054,
+          "std": 0.02806443152194862
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8972876503504303,
+        "balanced_accuracy": 0.5854468954105799,
+        "precision": 0.635030198446937,
+        "recall": 0.18416882141963467,
+        "f1": 0.2855295486874434,
+        "pr_auc": 0.447642481579986,
+        "roc_auc": 0.8531976630665605,
+        "mcc": 0.3040833700163338,
+        "brier": 0.07836967640833228,
+        "ece": 0.02197514413071052
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.16999999999999998,
+        "accuracy": 0.8489338365154022,
+        "balanced_accuracy": 0.7318194009428319,
+        "precision": 0.382865307468264,
+        "recall": 0.5811160230211027,
+        "f1": 0.46160471741867093,
+        "pr_auc": 0.447642481579986,
+        "roc_auc": 0.8531976630665605,
+        "mcc": 0.3891814043245345,
+        "brier": 0.07836967640833228,
+        "ece": 0.02197514413071052
+      }
+    },
+    "SUB-5__ExtraTrees": {
+      "config_id": "SUB-5__ExtraTrees",
+      "subset_key": "SUB-5",
+      "subset_name": "Top Isolated Drivers (CH-3 + CH-5B)",
+      "model_name": "ExtraTrees",
+      "feature_count": 18,
+      "execution_time_seconds": 5.270836591720581,
+      "frozen_training_threshold_f1": 0.22999999999999998,
+      "frozen_training_threshold_mcc": 0.21999999999999997,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8842355985417049,
+          "std": 0.09178851911737869
+        },
+        "balanced_accuracy": {
+          "mean": 0.5134958035565627,
+          "std": 0.014930782088319324
+        },
+        "precision": {
+          "mean": 0.4243260974699109,
+          "std": 0.34697203990123404
+        },
+        "recall": {
+          "mean": 0.030619662352701645,
+          "std": 0.03417114843588466
+        },
+        "f1": {
+          "mean": 0.05576540557136158,
+          "std": 0.06073737051019727
+        },
+        "pr_auc": {
+          "mean": 0.30524444825282443,
+          "std": 0.1777330951848024
+        },
+        "roc_auc": {
+          "mean": 0.7881388824165448,
+          "std": 0.08139520986107256
+        },
+        "mcc": {
+          "mean": 0.08625466299158097,
+          "std": 0.07724149460283644
+        },
+        "brier": {
+          "mean": 0.08414951249824615,
+          "std": 0.06091237121699504
+        },
+        "ece": {
+          "mean": 0.03853891066243152,
+          "std": 0.011421856415405428
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8915524901935268,
+        "balanced_accuracy": 0.522584047860686,
+        "precision": 0.6953883495145631,
+        "recall": 0.047793810993410624,
+        "f1": 0.08944041208147975,
+        "pr_auc": 0.423200952038087,
+        "roc_auc": 0.8475127381511187,
+        "mcc": 0.16303186118057597,
+        "brier": 0.0800990105563106,
+        "ece": 0.029510060366438596
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.22999999999999998,
+        "accuracy": 0.8449461805878307,
+        "balanced_accuracy": 0.7360679537927952,
+        "precision": 0.3764092297966495,
+        "recall": 0.5959629660522145,
+        "f1": 0.4613993736075684,
+        "pr_auc": 0.423200952038087,
+        "roc_auc": 0.8475127381511187,
+        "mcc": 0.3897478351449481,
+        "brier": 0.0800990105563106,
+        "ece": 0.029510060366438596
+      }
+    },
+    "SUB-5__RandomForest": {
+      "config_id": "SUB-5__RandomForest",
+      "subset_key": "SUB-5",
+      "subset_name": "Top Isolated Drivers (CH-3 + CH-5B)",
+      "model_name": "RandomForest",
+      "feature_count": 18,
+      "execution_time_seconds": 12.270207405090332,
+      "frozen_training_threshold_f1": 0.27999999999999997,
+      "frozen_training_threshold_mcc": 0.24,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8915186241162696,
+          "std": 0.08463256299502317
+        },
+        "balanced_accuracy": {
+          "mean": 0.5604448010943897,
+          "std": 0.05278319377964964
+        },
+        "precision": {
+          "mean": 0.45806634622661135,
+          "std": 0.2404265688936761
+        },
+        "recall": {
+          "mean": 0.1409763434490287,
+          "std": 0.12720165097722508
+        },
+        "f1": {
+          "mean": 0.20358354882403046,
+          "std": 0.15946370641173224
+        },
+        "pr_auc": {
+          "mean": 0.3150872604245549,
+          "std": 0.19455879355240238
+        },
+        "roc_auc": {
+          "mean": 0.7985464710274787,
+          "std": 0.05195474833577482
+        },
+        "mcc": {
+          "mean": 0.19934568654946064,
+          "std": 0.12612627411638808
+        },
+        "brier": {
+          "mean": 0.08299498706143153,
+          "std": 0.0581984927885004
+        },
+        "ece": {
+          "mean": 0.03620828247126165,
+          "std": 0.02280342470365746
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8975386217025153,
+        "balanced_accuracy": 0.5943054977874513,
+        "precision": 0.6229633401221996,
+        "recall": 0.20410376178163317,
+        "f1": 0.3074700006282591,
+        "pr_auc": 0.4431146743753258,
+        "roc_auc": 0.8426431185860759,
+        "mcc": 0.31644100898038935,
+        "brier": 0.07896285653261145,
+        "ece": 0.028984810285641868
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.27999999999999997,
+        "accuracy": 0.8629510512911082,
+        "balanced_accuracy": 0.7138831413234703,
+        "precision": 0.40980815818765143,
+        "recall": 0.5220618900658938,
+        "f1": 0.4591739417504218,
+        "pr_auc": 0.4431146743753258,
+        "roc_auc": 0.8426431185860759,
+        "mcc": 0.3856797850569429,
+        "brier": 0.07896285653261145,
+        "ece": 0.028984810285641868
+      }
+    },
+    "SUB-5__LogisticRegression": {
+      "config_id": "SUB-5__LogisticRegression",
+      "subset_key": "SUB-5",
+      "subset_name": "Top Isolated Drivers (CH-3 + CH-5B)",
+      "model_name": "LogisticRegression",
+      "feature_count": 18,
+      "execution_time_seconds": 1.548755407333374,
+      "frozen_training_threshold_f1": 0.14999999999999997,
+      "frozen_training_threshold_mcc": 0.14999999999999997,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8798320227099291,
+          "std": 0.09051548825084142
+        },
+        "balanced_accuracy": {
+          "mean": 0.5629701313093937,
+          "std": 0.06135282015082302
+        },
+        "precision": {
+          "mean": 0.42330441185445933,
+          "std": 0.3029744789127022
+        },
+        "recall": {
+          "mean": 0.16987311179761097,
+          "std": 0.17544409420961582
+        },
+        "f1": {
+          "mean": 0.19014678685190717,
+          "std": 0.1967163646933853
+        },
+        "pr_auc": {
+          "mean": 0.3077190023313549,
+          "std": 0.22705742562800685
+        },
+        "roc_auc": {
+          "mean": 0.7760962291573194,
+          "std": 0.05902577890360265
+        },
+        "mcc": {
+          "mean": 0.1614766813535073,
+          "std": 0.127982565366536
+        },
+        "brier": {
+          "mean": 0.0911521596655569,
+          "std": 0.060454183433534994
+        },
+        "ece": {
+          "mean": 0.06755795101473891,
+          "std": 0.035778758798094716
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8881504340874867,
+        "balanced_accuracy": 0.6046337221042757,
+        "precision": 0.4962029685881947,
+        "recall": 0.2398031528901493,
+        "f1": 0.32334251813529774,
+        "pr_auc": 0.37889924083925747,
+        "roc_auc": 0.8221419064191098,
+        "mcc": 0.2917216491512315,
+        "brier": 0.08561633905803029,
+        "ece": 0.023588461690702812
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.14999999999999997,
+        "accuracy": 0.8225446636054359,
+        "balanced_accuracy": 0.7157298581029137,
+        "precision": 0.3306466997329264,
+        "recall": 0.5782800900825757,
+        "f1": 0.42073004217616894,
+        "pr_auc": 0.37889924083925747,
+        "roc_auc": 0.8221419064191098,
+        "mcc": 0.3427458677104382,
+        "brier": 0.08561633905803029,
+        "ece": 0.023588461690702812
+      }
+    },
+    "SUB-6__HistGradientBoosting": {
+      "config_id": "SUB-6__HistGradientBoosting",
+      "subset_key": "SUB-6",
+      "subset_name": "Process + Intent without Author History (CH-1+2+3)",
+      "model_name": "HistGradientBoosting",
+      "feature_count": 35,
+      "execution_time_seconds": 10.774801015853882,
+      "frozen_training_threshold_f1": 0.10999999999999999,
+      "frozen_training_threshold_mcc": 0.05,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8107770136390154,
+          "std": 0.1032296269647661
+        },
+        "balanced_accuracy": {
+          "mean": 0.5282163464787443,
+          "std": 0.05390873220821613
+        },
+        "precision": {
+          "mean": 0.43450233455414916,
+          "std": 0.32418748228078764
+        },
+        "recall": {
+          "mean": 0.1365044967598358,
+          "std": 0.08936140308834449
+        },
+        "f1": {
+          "mean": 0.09988581548758342,
+          "std": 0.050659937522824244
+        },
+        "pr_auc": {
+          "mean": 0.2938700095238949,
+          "std": 0.21199448117624164
+        },
+        "roc_auc": {
+          "mean": 0.7367682420312557,
+          "std": 0.153082860362594
+        },
+        "mcc": {
+          "mean": 0.12283168639590385,
+          "std": 0.07347713244825382
+        },
+        "brier": {
+          "mean": 0.1353624088906797,
+          "std": 0.06467488375990768
+        },
+        "ece": {
+          "mean": 0.14536284191195653,
+          "std": 0.11978040222473062
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8314309085162945,
+        "balanced_accuracy": 0.498856524195366,
+        "precision": 0.10833545755799133,
+        "recall": 0.07089832346317458,
+        "f1": 0.08570708343836653,
+        "pr_auc": 0.16916977537746802,
+        "roc_auc": 0.7105674705420609,
+        "mcc": -0.0027676513253087746,
+        "brier": 0.12131778897455232,
+        "ece": 0.08256799833703476
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.10999999999999999,
+        "accuracy": 0.6498020114889108,
+        "balanced_accuracy": 0.6612011214967619,
+        "precision": 0.19342595244915498,
+        "recall": 0.6758695470848277,
+        "f1": 0.3007739277296264,
+        "pr_auc": 0.16916977537746802,
+        "roc_auc": 0.7105674705420609,
+        "mcc": 0.20805942885656345,
+        "brier": 0.12131778897455232,
+        "ece": 0.08256799833703476
+      }
+    },
+    "SUB-6__XGBoost": {
+      "config_id": "SUB-6__XGBoost",
+      "subset_key": "SUB-6",
+      "subset_name": "Process + Intent without Author History (CH-1+2+3)",
+      "model_name": "XGBoost",
+      "feature_count": 35,
+      "execution_time_seconds": 4.766925096511841,
+      "frozen_training_threshold_f1": 0.09999999999999999,
+      "frozen_training_threshold_mcc": 0.08,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8125282727724168,
+          "std": 0.10251979808602231
+        },
+        "balanced_accuracy": {
+          "mean": 0.5196255074418581,
+          "std": 0.044216007280950834
+        },
+        "precision": {
+          "mean": 0.44733283732630635,
+          "std": 0.3368064908057027
+        },
+        "recall": {
+          "mean": 0.11446841314751614,
+          "std": 0.08939776833771906
+        },
+        "f1": {
+          "mean": 0.07616438129572704,
+          "std": 0.041780634623131155
+        },
+        "pr_auc": {
+          "mean": 0.2976584154654898,
+          "std": 0.21583396799289276
+        },
+        "roc_auc": {
+          "mean": 0.7416838938643686,
+          "std": 0.15427094326055013
+        },
+        "mcc": {
+          "mean": 0.10325963858115102,
+          "std": 0.061515490225557745
+        },
+        "brier": {
+          "mean": 0.13305376685573717,
+          "std": 0.06261927877942706
+        },
+        "ece": {
+          "mean": 0.14446689843792498,
+          "std": 0.11699721529079757
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8331040508635273,
+        "balanced_accuracy": 0.48991345667543973,
+        "precision": 0.08127456485120718,
+        "recall": 0.04829426974726833,
+        "f1": 0.06058703500235442,
+        "pr_auc": 0.16905460495306238,
+        "roc_auc": 0.7135711566950521,
+        "mcc": -0.02552834500243068,
+        "brier": 0.11937121172115575,
+        "ece": 0.07706987012758552
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.09999999999999999,
+        "accuracy": 0.6300961127326132,
+        "balanced_accuracy": 0.6789272096948521,
+        "precision": 0.1950561502017898,
+        "recall": 0.7417632830094253,
+        "f1": 0.30888661190323197,
+        "pr_auc": 0.16905460495306238,
+        "roc_auc": 0.7135711566950521,
+        "mcc": 0.22787976901724247,
+        "brier": 0.11937121172115575,
+        "ece": 0.07706987012758552
+      }
+    },
+    "SUB-6__ExtraTrees": {
+      "config_id": "SUB-6__ExtraTrees",
+      "subset_key": "SUB-6",
+      "subset_name": "Process + Intent without Author History (CH-1+2+3)",
+      "model_name": "ExtraTrees",
+      "feature_count": 35,
+      "execution_time_seconds": 6.526781320571899,
+      "frozen_training_threshold_f1": 0.10999999999999999,
+      "frozen_training_threshold_mcc": 0.09999999999999999,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8718155542707573,
+          "std": 0.08606571535275376
+        },
+        "balanced_accuracy": {
+          "mean": 0.49634269006351134,
+          "std": 0.007305011609925672
+        },
+        "precision": {
+          "mean": 0.0002638522427440633,
+          "std": 0.0005277044854881266
+        },
+        "recall": {
+          "mean": 0.0016,
+          "std": 0.0032
+        },
+        "f1": {
+          "mean": 0.00045300113250283127,
+          "std": 0.0009060022650056624
+        },
+        "pr_auc": {
+          "mean": 0.25563819027616014,
+          "std": 0.18726172367842578
+        },
+        "roc_auc": {
+          "mean": 0.6610071105214221,
+          "std": 0.22331962747331555
+        },
+        "mcc": {
+          "mean": -0.0031591222337454088,
+          "std": 0.0059864038137530905
+        },
+        "brier": {
+          "mean": 0.11663364634062283,
+          "std": 0.05523675370713759
+        },
+        "ece": {
+          "mean": 0.13535696569779204,
+          "std": 0.08116678118193567
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8815229313453924,
+        "balanced_accuracy": 0.49607697944554646,
+        "precision": 0.0013175230566534915,
+        "recall": 8.340979230961715e-05,
+        "f1": 0.00015688735487919673,
+        "pr_auc": 0.13418963241635437,
+        "roc_auc": 0.6281664932015862,
+        "mcc": -0.02949862899852941,
+        "brier": 0.10693080976715087,
+        "ece": 0.05657222332348618
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.10999999999999999,
+        "accuracy": 0.5704207023479765,
+        "balanced_accuracy": 0.6249581623669852,
+        "precision": 0.16375211223326916,
+        "recall": 0.6951372091083493,
+        "f1": 0.2650636897094604,
+        "pr_auc": 0.13418963241635437,
+        "roc_auc": 0.6281664932015862,
+        "mcc": 0.15751441008381392,
+        "brier": 0.10693080976715087,
+        "ece": 0.05657222332348618
+      }
+    },
+    "SUB-6__RandomForest": {
+      "config_id": "SUB-6__RandomForest",
+      "subset_key": "SUB-6",
+      "subset_name": "Process + Intent without Author History (CH-1+2+3)",
+      "model_name": "RandomForest",
+      "feature_count": 35,
+      "execution_time_seconds": 15.770391464233398,
+      "frozen_training_threshold_f1": 0.12,
+      "frozen_training_threshold_mcc": 0.08,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.8165298618165874,
+          "std": 0.09830947149032895
+        },
+        "balanced_accuracy": {
+          "mean": 0.515097736039957,
+          "std": 0.05288362337433501
+        },
+        "precision": {
+          "mean": 0.4410232731312038,
+          "std": 0.31952681194320703
+        },
+        "recall": {
+          "mean": 0.10052568839773487,
+          "std": 0.07725016805406466
+        },
+        "f1": {
+          "mean": 0.07452317748055873,
+          "std": 0.04577803551172963
+        },
+        "pr_auc": {
+          "mean": 0.28818795233997896,
+          "std": 0.20408609109201126
+        },
+        "roc_auc": {
+          "mean": 0.7257669564165743,
+          "std": 0.15457123232124173
+        },
+        "mcc": {
+          "mean": 0.10084668328916013,
+          "std": 0.0658514068916648
+        },
+        "brier": {
+          "mean": 0.13192013708928824,
+          "std": 0.06148029394918599
+        },
+        "ece": {
+          "mean": 0.1412881858250133,
+          "std": 0.11893569033343467
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8365339926753547,
+        "balanced_accuracy": 0.49005626932104973,
+        "precision": 0.07961544239146763,
+        "recall": 0.04420718992409709,
+        "f1": 0.056848653866781076,
+        "pr_auc": 0.16422026084967548,
+        "roc_auc": 0.6980479724789516,
+        "mcc": -0.025974381624061987,
+        "brier": 0.11852016047777968,
+        "ece": 0.07000666680020427
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.12,
+        "accuracy": 0.641557137811158,
+        "balanced_accuracy": 0.6579112127912154,
+        "precision": 0.18995169533054862,
+        "recall": 0.6789557094002836,
+        "f1": 0.29685277706866997,
+        "pr_auc": 0.16422026084967548,
+        "roc_auc": 0.6980479724789516,
+        "mcc": 0.20300532322753317,
+        "brier": 0.11852016047777968,
+        "ece": 0.07000666680020427
+      }
+    },
+    "SUB-6__LogisticRegression": {
+      "config_id": "SUB-6__LogisticRegression",
+      "subset_key": "SUB-6",
+      "subset_name": "Process + Intent without Author History (CH-1+2+3)",
+      "model_name": "LogisticRegression",
+      "feature_count": 35,
+      "execution_time_seconds": 3.737224817276001,
+      "frozen_training_threshold_f1": 0.07,
+      "frozen_training_threshold_mcc": 0.05,
+      "fold_mean_metrics": {
+        "threshold": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.851235934619433,
+          "std": 0.07408398618187878
+        },
+        "balanced_accuracy": {
+          "mean": 0.5102472953035401,
+          "std": 0.02476145752690182
+        },
+        "precision": {
+          "mean": 0.38181372022366733,
+          "std": 0.28382648535842436
+        },
+        "recall": {
+          "mean": 0.05519811502280984,
+          "std": 0.03140852015800504
+        },
+        "f1": {
+          "mean": 0.05803250955071759,
+          "std": 0.03448331732679436
+        },
+        "pr_auc": {
+          "mean": 0.25451008209636417,
+          "std": 0.18759953655775918
+        },
+        "roc_auc": {
+          "mean": 0.6689097820006011,
+          "std": 0.2015906800228991
+        },
+        "mcc": {
+          "mean": 0.07328914034196175,
+          "std": 0.04520882896947746
+        },
+        "brier": {
+          "mean": 0.12619790618945373,
+          "std": 0.05587839189800681
+        },
+        "ece": {
+          "mean": 0.1379343116217791,
+          "std": 0.10189416578373325
+        }
+      },
+      "training_oof_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8646520793441282,
+        "balanced_accuracy": 0.5009909896195134,
+        "precision": 0.11771700356718193,
+        "recall": 0.03303027775460839,
+        "f1": 0.051586009249006706,
+        "pr_auc": 0.14445546990210847,
+        "roc_auc": 0.6526500354133218,
+        "mcc": 0.0035834740670119577,
+        "brier": 0.11434274571039764,
+        "ece": 0.07731665585835784
+      },
+      "training_oof_metrics_at_tau_star": {
+        "threshold": 0.07,
+        "accuracy": 0.4664534959379822,
+        "balanced_accuracy": 0.6502001187146123,
+        "precision": 0.15943963642363246,
+        "recall": 0.8866460922512303,
+        "f1": 0.27027714213068904,
+        "pr_auc": 0.14445546990210847,
+        "roc_auc": 0.6526500354133218,
+        "mcc": 0.1947225575752143,
+        "brier": 0.11434274571039764,
+        "ece": 0.07731665585835784
+      }
+    }
+  },
+  "stage4_validation_results": {
+    "SUB-1__HistGradientBoosting": {
+      "config_id": "SUB-1__HistGradientBoosting",
+      "model_name": "HistGradientBoosting",
+      "feature_subset": "SUB-1",
+      "frozen_training_threshold": 0.14999999999999997,
+      "aggregate_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8849963552163286,
+        "balanced_accuracy": 0.5911272166071536,
+        "precision": 0.5688800792864221,
+        "recall": 0.20347394540942929,
+        "f1": 0.29973890339425585,
+        "pr_auc": 0.42169711115507463,
+        "roc_auc": 0.831904531345916,
+        "mcc": 0.29210684963253614,
+        "brier": 0.08656525234528037,
+        "ece": 0.015330293685855981
+      },
+      "aggregate_metrics_at_tau_star": {
+        "threshold": 0.14999999999999997,
+        "accuracy": 0.7941340422794906,
+        "balanced_accuracy": 0.7308148295449632,
+        "precision": 0.32421875,
+        "recall": 0.6472881956752925,
+        "f1": 0.432035963563232,
+        "pr_auc": 0.42169711115507463,
+        "roc_auc": 0.831904531345916,
+        "mcc": 0.35171364178183695,
+        "brier": 0.08656525234528037,
+        "ece": 0.015330293685855981
+      },
+      "per_project_breakdown": {
+        "org.apache:batik": {
+          "total_commits": 7015,
+          "defect_commits": 492,
+          "prevalence": 0.07013542409123308,
+          "confusion_matrix_at_050": {
+            "TP": 4,
+            "FP": 5,
+            "TN": 6518,
+            "FN": 488
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 165,
+            "FP": 294,
+            "TN": 6229,
+            "FN": 327
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9297220242337847,
+            "balanced_accuracy": 0.5036817814138589,
+            "precision": 0.4444444444444444,
+            "recall": 0.008130081300813009,
+            "f1": 0.015968063872255488,
+            "pr_auc": 0.34631462099591337,
+            "roc_auc": 0.8799167797748804,
+            "mcc": 0.052533691102658375,
+            "brier": 0.05644120994764221,
+            "ece": 0.03262025226738305
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.14999999999999997,
+            "accuracy": 0.9114754098360656,
+            "balanced_accuracy": 0.6451472837202694,
+            "precision": 0.35947712418300654,
+            "recall": 0.3353658536585366,
+            "f1": 0.3470031545741325,
+            "pr_auc": 0.34631462099591337,
+            "roc_auc": 0.8799167797748804,
+            "mcc": 0.2997915130112667,
+            "brier": 0.05644120994764221,
+            "ece": 0.03262025226738305
+          }
+        },
+        "org.apache:codec": {
+          "total_commits": 2144,
+          "defect_commits": 279,
+          "prevalence": 0.13013059701492538,
+          "confusion_matrix_at_050": {
+            "TP": 36,
+            "FP": 29,
+            "TN": 1836,
+            "FN": 243
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 160,
+            "FP": 385,
+            "TN": 1480,
+            "FN": 119
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8731343283582089,
+            "balanced_accuracy": 0.5567413301046441,
+            "precision": 0.5538461538461539,
+            "recall": 0.12903225806451613,
+            "f1": 0.20930232558139536,
+            "pr_auc": 0.3528662830944475,
+            "roc_auc": 0.7699943305754946,
+            "mcc": 0.22268302101349124,
+            "brier": 0.09995157326433961,
+            "ece": 0.021499556377373403
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.14999999999999997,
+            "accuracy": 0.7649253731343284,
+            "balanced_accuracy": 0.6835211930775366,
+            "precision": 0.29357798165137616,
+            "recall": 0.5734767025089605,
+            "f1": 0.3883495145631068,
+            "pr_auc": 0.3528662830944475,
+            "roc_auc": 0.7699943305754946,
+            "mcc": 0.2836189574613358,
+            "brier": 0.09995157326433961,
+            "ece": 0.021499556377373403
+          }
+        },
+        "org.apache:commons-exec": {
+          "total_commits": 700,
+          "defect_commits": 0,
+          "prevalence": 0.0,
+          "confusion_matrix_at_050": {
+            "TP": 0,
+            "FP": 2,
+            "TN": 698,
+            "FN": 0
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 0,
+            "FP": 9,
+            "TN": 691,
+            "FN": 0
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9971428571428571,
+            "balanced_accuracy": 0.9971428571428571,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.0,
+            "roc_auc": 0.5,
+            "mcc": 0.0,
+            "brier": 0.002003413133612256,
+            "ece": 0.010381530709745257
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.14999999999999997,
+            "accuracy": 0.9871428571428571,
+            "balanced_accuracy": 0.9871428571428571,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.0,
+            "roc_auc": 0.5,
+            "mcc": 0.0,
+            "brier": 0.002003413133612256,
+            "ece": 0.010381530709745257
+          }
+        },
+        "org.apache:commons-fileupload": {
+          "total_commits": 1180,
+          "defect_commits": 119,
+          "prevalence": 0.10084745762711865,
+          "confusion_matrix_at_050": {
+            "TP": 27,
+            "FP": 13,
+            "TN": 1048,
+            "FN": 92
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 62,
+            "FP": 153,
+            "TN": 908,
+            "FN": 57
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9110169491525424,
+            "balanced_accuracy": 0.607319082204041,
+            "precision": 0.675,
+            "recall": 0.226890756302521,
+            "f1": 0.33962264150943394,
+            "pr_auc": 0.4197365602359581,
+            "roc_auc": 0.8011626893924394,
+            "mcc": 0.35715414676234664,
+            "brier": 0.0740090831512477,
+            "ece": 0.019169290867004384
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.14999999999999997,
+            "accuracy": 0.8220338983050848,
+            "balanced_accuracy": 0.6884024109172415,
+            "precision": 0.28837209302325584,
+            "recall": 0.5210084033613446,
+            "f1": 0.3712574850299401,
+            "pr_auc": 0.4197365602359581,
+            "roc_auc": 0.8011626893924394,
+            "mcc": 0.2939440933404901,
+            "brier": 0.0740090831512477,
+            "ece": 0.019169290867004384
+          }
+        },
+        "org.apache:commons-jelly": {
+          "total_commits": 1945,
+          "defect_commits": 208,
+          "prevalence": 0.10694087403598972,
+          "confusion_matrix_at_050": {
+            "TP": 15,
+            "FP": 43,
+            "TN": 1694,
+            "FN": 193
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 83,
+            "FP": 409,
+            "TN": 1328,
+            "FN": 125
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8786632390745501,
+            "balanced_accuracy": 0.5236800296709623,
+            "precision": 0.25862068965517243,
+            "recall": 0.07211538461538461,
+            "f1": 0.11278195488721804,
+            "pr_auc": 0.20160140298538837,
+            "roc_auc": 0.6549394402373677,
+            "mcc": 0.0860486116742923,
+            "brier": 0.0995578159513269,
+            "ece": 0.052858684740092976
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.14999999999999997,
+            "accuracy": 0.7254498714652956,
+            "balanced_accuracy": 0.5817875094105665,
+            "precision": 0.16869918699186992,
+            "recall": 0.39903846153846156,
+            "f1": 0.23714285714285716,
+            "pr_auc": 0.20160140298538837,
+            "roc_auc": 0.6549394402373677,
+            "mcc": 0.11628754368482822,
+            "brier": 0.0995578159513269,
+            "ece": 0.052858684740092976
+          }
+        },
+        "org.apache:daemon": {
+          "total_commits": 1251,
+          "defect_commits": 193,
+          "prevalence": 0.1542765787370104,
+          "confusion_matrix_at_050": {
+            "TP": 30,
+            "FP": 18,
+            "TN": 1040,
+            "FN": 163
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 136,
+            "FP": 294,
+            "TN": 764,
+            "FN": 57
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8553157474020784,
+            "balanced_accuracy": 0.5692135909967971,
+            "precision": 0.625,
+            "recall": 0.15544041450777202,
+            "f1": 0.24896265560165975,
+            "pr_auc": 0.46064575821390313,
+            "roc_auc": 0.8038874795537576,
+            "mcc": 0.2603091499158391,
+            "brier": 0.1071541927054032,
+            "ece": 0.021845875701205927
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.14999999999999997,
+            "accuracy": 0.7194244604316546,
+            "balanced_accuracy": 0.7133902073518321,
+            "precision": 0.31627906976744186,
+            "recall": 0.7046632124352331,
+            "f1": 0.43659711075441415,
+            "pr_auc": 0.46064575821390313,
+            "roc_auc": 0.8038874795537576,
+            "mcc": 0.32457880956622037,
+            "brier": 0.1071541927054032,
+            "ece": 0.021845875701205927
+          }
+        },
+        "org.apache:digester": {
+          "total_commits": 2192,
+          "defect_commits": 112,
+          "prevalence": 0.051094890510948905,
+          "confusion_matrix_at_050": {
+            "TP": 34,
+            "FP": 39,
+            "TN": 2041,
+            "FN": 78
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 82,
+            "FP": 282,
+            "TN": 1798,
+            "FN": 30
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9466240875912408,
+            "balanced_accuracy": 0.6424107142857143,
+            "precision": 0.4657534246575342,
+            "recall": 0.30357142857142855,
+            "f1": 0.3675675675675676,
+            "pr_auc": 0.3691820605747346,
+            "roc_auc": 0.8763006524725275,
+            "mcc": 0.34953158857019156,
+            "brier": 0.042128582918322915,
+            "ece": 0.039843608940125765
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.14999999999999997,
+            "accuracy": 0.8576642335766423,
+            "balanced_accuracy": 0.798282967032967,
+            "precision": 0.22527472527472528,
+            "recall": 0.7321428571428571,
+            "f1": 0.3445378151260504,
+            "pr_auc": 0.3691820605747346,
+            "roc_auc": 0.8763006524725275,
+            "mcc": 0.3529883249167223,
+            "brier": 0.042128582918322915,
+            "ece": 0.039843608940125765
+          }
+        },
+        "org.apache:httpclient": {
+          "total_commits": 3290,
+          "defect_commits": 925,
+          "prevalence": 0.2811550151975684,
+          "confusion_matrix_at_050": {
+            "TP": 332,
+            "FP": 172,
+            "TN": 2193,
+            "FN": 593
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 804,
+            "FP": 1090,
+            "TN": 1275,
+            "FN": 121
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.7674772036474165,
+            "balanced_accuracy": 0.643095823095823,
+            "precision": 0.6587301587301587,
+            "recall": 0.3589189189189189,
+            "f1": 0.4646606018194542,
+            "pr_auc": 0.5950805329003203,
+            "roc_auc": 0.7968447517284727,
+            "mcc": 0.3572214815820422,
+            "brier": 0.1578138989477033,
+            "ece": 0.030030567149362926
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.14999999999999997,
+            "accuracy": 0.6319148936170212,
+            "balanced_accuracy": 0.7041506199645735,
+            "precision": 0.4244984160506864,
+            "recall": 0.8691891891891892,
+            "f1": 0.570415040794608,
+            "pr_auc": 0.5950805329003203,
+            "roc_auc": 0.7968447517284727,
+            "mcc": 0.3713936219641074,
+            "brier": 0.1578138989477033,
+            "ece": 0.030030567149362926
+          }
+        },
+        "org.apache:httpcore": {
+          "total_commits": 3604,
+          "defect_commits": 493,
+          "prevalence": 0.13679245283018868,
+          "confusion_matrix_at_050": {
+            "TP": 96,
+            "FP": 114,
+            "TN": 2997,
+            "FN": 397
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 334,
+            "FP": 890,
+            "TN": 2221,
+            "FN": 159
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8582130965593785,
+            "balanced_accuracy": 0.579041000232767,
+            "precision": 0.45714285714285713,
+            "recall": 0.1947261663286004,
+            "f1": 0.27311522048364156,
+            "pr_auc": 0.356873937757503,
+            "roc_auc": 0.7727480777167717,
+            "mcc": 0.231894432527948,
+            "brier": 0.10559945987129044,
+            "ece": 0.025706116125761944
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.14999999999999997,
+            "accuracy": 0.7089345172031076,
+            "balanced_accuracy": 0.6957015706225962,
+            "precision": 0.272875816993464,
+            "recall": 0.6774847870182555,
+            "f1": 0.3890506697728596,
+            "pr_auc": 0.356873937757503,
+            "roc_auc": 0.7727480777167717,
+            "mcc": 0.28400015990187294,
+            "brier": 0.10559945987129044,
+            "ece": 0.025706116125761944
+          }
+        }
+      }
+    },
+    "SUB-1__XGBoost": {
+      "config_id": "SUB-1__XGBoost",
+      "model_name": "XGBoost",
+      "feature_subset": "SUB-1",
+      "frozen_training_threshold": 0.16999999999999998,
+      "aggregate_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8861969898374855,
+        "balanced_accuracy": 0.5934915139934809,
+        "precision": 0.5832502492522432,
+        "recall": 0.2073732718894009,
+        "f1": 0.3059623430962343,
+        "pr_auc": 0.435971959708075,
+        "roc_auc": 0.8397320445093852,
+        "mcc": 0.3005401915704379,
+        "brier": 0.08498692009603039,
+        "ece": 0.00800538981282967
+      },
+      "aggregate_metrics_at_tau_star": {
+        "threshold": 0.16999999999999998,
+        "accuracy": 0.8036533596329488,
+        "balanced_accuracy": 0.7424963903130701,
+        "precision": 0.33994901675163874,
+        "recall": 0.6618220489188231,
+        "f1": 0.4491759894141706,
+        "pr_auc": 0.435971959708075,
+        "roc_auc": 0.8397320445093852,
+        "mcc": 0.37272196819570597,
+        "brier": 0.08498692009603039,
+        "ece": 0.00800538981282967
+      },
+      "per_project_breakdown": {
+        "org.apache:batik": {
+          "total_commits": 7015,
+          "defect_commits": 492,
+          "prevalence": 0.07013542409123308,
+          "confusion_matrix_at_050": {
+            "TP": 11,
+            "FP": 7,
+            "TN": 6516,
+            "FN": 481
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 191,
+            "FP": 303,
+            "TN": 6220,
+            "FN": 301
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9304347826086956,
+            "balanced_accuracy": 0.5106422988574513,
+            "precision": 0.6111111111111112,
+            "recall": 0.022357723577235773,
+            "f1": 0.043137254901960784,
+            "pr_auc": 0.3623000297516108,
+            "roc_auc": 0.8850209826642188,
+            "mcc": 0.10744333926298087,
+            "brier": 0.05449043527490941,
+            "ece": 0.023881377687527388
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.16999999999999998,
+            "accuracy": 0.9138987883107627,
+            "balanced_accuracy": 0.6708801813221259,
+            "precision": 0.3866396761133603,
+            "recall": 0.3882113821138211,
+            "f1": 0.38742393509127787,
+            "pr_auc": 0.3623000297516108,
+            "roc_auc": 0.8850209826642188,
+            "mcc": 0.34112013738794084,
+            "brier": 0.05449043527490941,
+            "ece": 0.023881377687527388
+          }
+        },
+        "org.apache:codec": {
+          "total_commits": 2144,
+          "defect_commits": 279,
+          "prevalence": 0.13013059701492538,
+          "confusion_matrix_at_050": {
+            "TP": 34,
+            "FP": 25,
+            "TN": 1840,
+            "FN": 245
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 156,
+            "FP": 353,
+            "TN": 1512,
+            "FN": 123
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8740671641791045,
+            "balanced_accuracy": 0.5542294867729444,
+            "precision": 0.576271186440678,
+            "recall": 0.12186379928315412,
+            "f1": 0.20118343195266272,
+            "pr_auc": 0.37815033533826353,
+            "roc_auc": 0.7751996310069474,
+            "mcc": 0.22306322363879508,
+            "brier": 0.0978320711365543,
+            "ece": 0.011693906971815334
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.16999999999999998,
+            "accuracy": 0.7779850746268657,
+            "balanced_accuracy": 0.6849318227680244,
+            "precision": 0.30648330058939094,
+            "recall": 0.5591397849462365,
+            "f1": 0.39593908629441626,
+            "pr_auc": 0.37815033533826353,
+            "roc_auc": 0.7751996310069474,
+            "mcc": 0.29245927293445095,
+            "brier": 0.0978320711365543,
+            "ece": 0.011693906971815334
+          }
+        },
+        "org.apache:commons-exec": {
+          "total_commits": 700,
+          "defect_commits": 0,
+          "prevalence": 0.0,
+          "confusion_matrix_at_050": {
+            "TP": 0,
+            "FP": 2,
+            "TN": 698,
+            "FN": 0
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 0,
+            "FP": 12,
+            "TN": 688,
+            "FN": 0
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9971428571428571,
+            "balanced_accuracy": 0.9971428571428571,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.0,
+            "roc_auc": 0.5,
+            "mcc": 0.0,
+            "brier": 0.0025133837480840614,
+            "ece": 0.01173210655771462
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.16999999999999998,
+            "accuracy": 0.9828571428571429,
+            "balanced_accuracy": 0.9828571428571429,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.0,
+            "roc_auc": 0.5,
+            "mcc": 0.0,
+            "brier": 0.0025133837480840614,
+            "ece": 0.01173210655771462
+          }
+        },
+        "org.apache:commons-fileupload": {
+          "total_commits": 1180,
+          "defect_commits": 119,
+          "prevalence": 0.10084745762711865,
+          "confusion_matrix_at_050": {
+            "TP": 26,
+            "FP": 10,
+            "TN": 1051,
+            "FN": 93
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 66,
+            "FP": 135,
+            "TN": 926,
+            "FN": 53
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9127118644067796,
+            "balanced_accuracy": 0.6045311621349765,
+            "precision": 0.7222222222222222,
+            "recall": 0.2184873949579832,
+            "f1": 0.33548387096774196,
+            "pr_auc": 0.43160505921856046,
+            "roc_auc": 0.804580267545284,
+            "mcc": 0.36605191603228515,
+            "brier": 0.07314975015117821,
+            "ece": 0.011993461496283506
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.16999999999999998,
+            "accuracy": 0.8406779661016949,
+            "balanced_accuracy": 0.7136916972255443,
+            "precision": 0.3283582089552239,
+            "recall": 0.5546218487394958,
+            "f1": 0.4125,
+            "pr_auc": 0.43160505921856046,
+            "roc_auc": 0.804580267545284,
+            "mcc": 0.342341415562788,
+            "brier": 0.07314975015117821,
+            "ece": 0.011993461496283506
+          }
+        },
+        "org.apache:commons-jelly": {
+          "total_commits": 1945,
+          "defect_commits": 208,
+          "prevalence": 0.10694087403598972,
+          "confusion_matrix_at_050": {
+            "TP": 16,
+            "FP": 40,
+            "TN": 1697,
+            "FN": 192
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 98,
+            "FP": 350,
+            "TN": 1387,
+            "FN": 110
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.880719794344473,
+            "balanced_accuracy": 0.526947433683185,
+            "precision": 0.2857142857142857,
+            "recall": 0.07692307692307693,
+            "f1": 0.12121212121212122,
+            "pr_auc": 0.22261083118178443,
+            "roc_auc": 0.6992037000132856,
+            "mcc": 0.09960221388652798,
+            "brier": 0.09428860045343866,
+            "ece": 0.03580663209134033
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.16999999999999998,
+            "accuracy": 0.7634961439588689,
+            "balanced_accuracy": 0.6348285062663301,
+            "precision": 0.21875,
+            "recall": 0.47115384615384615,
+            "f1": 0.29878048780487804,
+            "pr_auc": 0.22261083118178443,
+            "roc_auc": 0.6992037000132856,
+            "mcc": 0.19792168893962428,
+            "brier": 0.09428860045343866,
+            "ece": 0.03580663209134033
+          }
+        },
+        "org.apache:daemon": {
+          "total_commits": 1251,
+          "defect_commits": 193,
+          "prevalence": 0.1542765787370104,
+          "confusion_matrix_at_050": {
+            "TP": 33,
+            "FP": 18,
+            "TN": 1040,
+            "FN": 160
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 136,
+            "FP": 276,
+            "TN": 782,
+            "FN": 57
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8577138289368506,
+            "balanced_accuracy": 0.5769856117221858,
+            "precision": 0.6470588235294118,
+            "recall": 0.17098445595854922,
+            "f1": 0.27049180327868855,
+            "pr_auc": 0.4499818080014189,
+            "roc_auc": 0.8000969666101845,
+            "mcc": 0.28124534172151133,
+            "brier": 0.10793289939831383,
+            "ece": 0.019721132156131662
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.16999999999999998,
+            "accuracy": 0.7338129496402878,
+            "balanced_accuracy": 0.7218968236089209,
+            "precision": 0.3300970873786408,
+            "recall": 0.7046632124352331,
+            "f1": 0.44958677685950416,
+            "pr_auc": 0.4499818080014189,
+            "roc_auc": 0.8000969666101845,
+            "mcc": 0.34109313686714554,
+            "brier": 0.10793289939831383,
+            "ece": 0.019721132156131662
+          }
+        },
+        "org.apache:digester": {
+          "total_commits": 2192,
+          "defect_commits": 112,
+          "prevalence": 0.051094890510948905,
+          "confusion_matrix_at_050": {
+            "TP": 29,
+            "FP": 26,
+            "TN": 2054,
+            "FN": 83
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 79,
+            "FP": 255,
+            "TN": 1825,
+            "FN": 33
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9502737226277372,
+            "balanced_accuracy": 0.6232142857142857,
+            "precision": 0.5272727272727272,
+            "recall": 0.25892857142857145,
+            "f1": 0.3473053892215569,
+            "pr_auc": 0.39136192422213856,
+            "roc_auc": 0.8786444024725275,
+            "mcc": 0.34693501374348146,
+            "brier": 0.04135024079786474,
+            "ece": 0.03815943759052532
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.16999999999999998,
+            "accuracy": 0.8686131386861314,
+            "balanced_accuracy": 0.7913804945054945,
+            "precision": 0.23652694610778444,
+            "recall": 0.7053571428571429,
+            "f1": 0.3542600896860987,
+            "pr_auc": 0.39136192422213856,
+            "roc_auc": 0.8786444024725275,
+            "mcc": 0.3570549532906957,
+            "brier": 0.04135024079786474,
+            "ece": 0.03815943759052532
+          }
+        },
+        "org.apache:httpclient": {
+          "total_commits": 3290,
+          "defect_commits": 925,
+          "prevalence": 0.2811550151975684,
+          "confusion_matrix_at_050": {
+            "TP": 346,
+            "FP": 199,
+            "TN": 2166,
+            "FN": 579
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 811,
+            "FP": 1104,
+            "TN": 1261,
+            "FN": 114
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.7635258358662614,
+            "balanced_accuracy": 0.6449551454202617,
+            "precision": 0.634862385321101,
+            "recall": 0.37405405405405406,
+            "f1": 0.4707482993197279,
+            "pr_auc": 0.5893251384910916,
+            "roc_auc": 0.795536712187875,
+            "mcc": 0.35057475968031804,
+            "brier": 0.15778941337475139,
+            "ece": 0.020242554009120665
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.16999999999999998,
+            "accuracy": 0.6297872340425532,
+            "balanced_accuracy": 0.7049745728815496,
+            "precision": 0.42349869451697125,
+            "recall": 0.8767567567567568,
+            "f1": 0.5711267605633803,
+            "pr_auc": 0.5893251384910916,
+            "roc_auc": 0.795536712187875,
+            "mcc": 0.37366350779122537,
+            "brier": 0.15778941337475139,
+            "ece": 0.020242554009120665
+          }
+        },
+        "org.apache:httpcore": {
+          "total_commits": 3604,
+          "defect_commits": 493,
+          "prevalence": 0.13679245283018868,
+          "confusion_matrix_at_050": {
+            "TP": 90,
+            "FP": 91,
+            "TN": 3020,
+            "FN": 403
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 330,
+            "FP": 837,
+            "TN": 2274,
+            "FN": 163
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8629300776914539,
+            "balanced_accuracy": 0.5766523681264478,
+            "precision": 0.4972375690607735,
+            "recall": 0.18255578093306288,
+            "f1": 0.26706231454005935,
+            "pr_auc": 0.36248937078559806,
+            "roc_auc": 0.7779986998956134,
+            "mcc": 0.2412049968575354,
+            "brier": 0.10369568338682938,
+            "ece": 0.02230143732881702
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.16999999999999998,
+            "accuracy": 0.7225305216426193,
+            "balanced_accuracy": 0.7001629368536562,
+            "precision": 0.2827763496143959,
+            "recall": 0.6693711967545639,
+            "f1": 0.39759036144578314,
+            "pr_auc": 0.36248937078559806,
+            "roc_auc": 0.7779986998956134,
+            "mcc": 0.29398416114043235,
+            "brier": 0.10369568338682938,
+            "ece": 0.02230143732881702
+          }
+        }
+      }
+    },
+    "SUB-1__ExtraTrees": {
+      "config_id": "SUB-1__ExtraTrees",
+      "model_name": "ExtraTrees",
+      "feature_subset": "SUB-1",
+      "frozen_training_threshold": 0.24999999999999994,
+      "aggregate_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8816517302002487,
+        "balanced_accuracy": 0.51921862166158,
+        "precision": 0.6783625730994152,
+        "recall": 0.04112017015242822,
+        "f1": 0.07754010695187166,
+        "pr_auc": 0.37705207112258854,
+        "roc_auc": 0.8033782778983409,
+        "mcc": 0.1469119602987867,
+        "brier": 0.09091291900551815,
+        "ece": 0.02379716053864995
+      },
+      "aggregate_metrics_at_tau_star": {
+        "threshold": 0.24999999999999994,
+        "accuracy": 0.8591398310535568,
+        "balanced_accuracy": 0.6522344264704611,
+        "precision": 0.4109062980030722,
+        "recall": 0.3792981212336051,
+        "f1": 0.39447004608294933,
+        "pr_auc": 0.37705207112258854,
+        "roc_auc": 0.8033782778983409,
+        "mcc": 0.3152371712120077,
+        "brier": 0.09091291900551815,
+        "ece": 0.02379716053864995
+      },
+      "per_project_breakdown": {
+        "org.apache:batik": {
+          "total_commits": 7015,
+          "defect_commits": 492,
+          "prevalence": 0.07013542409123308,
+          "confusion_matrix_at_050": {
+            "TP": 0,
+            "FP": 0,
+            "TN": 6523,
+            "FN": 492
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 27,
+            "FP": 33,
+            "TN": 6490,
+            "FN": 465
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9298645759087669,
+            "balanced_accuracy": 0.5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.24388359720242617,
+            "roc_auc": 0.7968233729554833,
+            "mcc": 0.0,
+            "brier": 0.059935729389306115,
+            "ece": 0.022597497633101406
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.24999999999999994,
+            "accuracy": 0.9290092658588739,
+            "balanced_accuracy": 0.5249095134290297,
+            "precision": 0.45,
+            "recall": 0.054878048780487805,
+            "f1": 0.09782608695652174,
+            "pr_auc": 0.24388359720242617,
+            "roc_auc": 0.7968233729554833,
+            "mcc": 0.138158397836993,
+            "brier": 0.059935729389306115,
+            "ece": 0.022597497633101406
+          }
+        },
+        "org.apache:codec": {
+          "total_commits": 2144,
+          "defect_commits": 279,
+          "prevalence": 0.13013059701492538,
+          "confusion_matrix_at_050": {
+            "TP": 0,
+            "FP": 0,
+            "TN": 1865,
+            "FN": 279
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 74,
+            "FP": 117,
+            "TN": 1748,
+            "FN": 205
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8698694029850746,
+            "balanced_accuracy": 0.5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.3571386079941386,
+            "roc_auc": 0.7589600930169986,
+            "mcc": 0.0,
+            "brier": 0.10106754080155395,
+            "ece": 0.025894804915737594
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.24999999999999994,
+            "accuracy": 0.8498134328358209,
+            "balanced_accuracy": 0.6012491952299961,
+            "precision": 0.387434554973822,
+            "recall": 0.26523297491039427,
+            "f1": 0.3148936170212766,
+            "pr_auc": 0.3571386079941386,
+            "roc_auc": 0.7589600930169986,
+            "mcc": 0.23916371457696212,
+            "brier": 0.10106754080155395,
+            "ece": 0.025894804915737594
+          }
+        },
+        "org.apache:commons-exec": {
+          "total_commits": 700,
+          "defect_commits": 0,
+          "prevalence": 0.0,
+          "confusion_matrix_at_050": {
+            "TP": 0,
+            "FP": 0,
+            "TN": 700,
+            "FN": 0
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 0,
+            "FP": 1,
+            "TN": 699,
+            "FN": 0
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 1.0,
+            "balanced_accuracy": 1.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.0,
+            "roc_auc": 0.5,
+            "mcc": 0.0,
+            "brier": 0.0018540512937516925,
+            "ece": 0.029725469024343292
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.24999999999999994,
+            "accuracy": 0.9985714285714286,
+            "balanced_accuracy": 0.9985714285714286,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.0,
+            "roc_auc": 0.5,
+            "mcc": 0.0,
+            "brier": 0.0018540512937516925,
+            "ece": 0.029725469024343292
+          }
+        },
+        "org.apache:commons-fileupload": {
+          "total_commits": 1180,
+          "defect_commits": 119,
+          "prevalence": 0.10084745762711865,
+          "confusion_matrix_at_050": {
+            "TP": 1,
+            "FP": 0,
+            "TN": 1061,
+            "FN": 118
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 30,
+            "FP": 32,
+            "TN": 1029,
+            "FN": 89
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9,
+            "balanced_accuracy": 0.5042016806722689,
+            "precision": 1.0,
+            "recall": 0.008403361344537815,
+            "f1": 0.016666666666666666,
+            "pr_auc": 0.3254695396582877,
+            "roc_auc": 0.7880626331588243,
+            "mcc": 0.08696155735029894,
+            "brier": 0.08061227834320077,
+            "ece": 0.03465441898212996
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.24999999999999994,
+            "accuracy": 0.8974576271186441,
+            "balanced_accuracy": 0.610970307067219,
+            "precision": 0.4838709677419355,
+            "recall": 0.25210084033613445,
+            "f1": 0.3314917127071823,
+            "pr_auc": 0.3254695396582877,
+            "roc_auc": 0.7880626331588243,
+            "mcc": 0.2995375060721652,
+            "brier": 0.08061227834320077,
+            "ece": 0.03465441898212996
+          }
+        },
+        "org.apache:commons-jelly": {
+          "total_commits": 1945,
+          "defect_commits": 208,
+          "prevalence": 0.10694087403598972,
+          "confusion_matrix_at_050": {
+            "TP": 0,
+            "FP": 0,
+            "TN": 1737,
+            "FN": 208
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 28,
+            "FP": 101,
+            "TN": 1636,
+            "FN": 180
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8930591259640103,
+            "balanced_accuracy": 0.5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.17342294665533164,
+            "roc_auc": 0.6406672091581418,
+            "mcc": 0.0,
+            "brier": 0.09396826126844574,
+            "ece": 0.02005445643831897
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.24999999999999994,
+            "accuracy": 0.8555269922879177,
+            "balanced_accuracy": 0.5382345777423497,
+            "precision": 0.21705426356589147,
+            "recall": 0.1346153846153846,
+            "f1": 0.1661721068249258,
+            "pr_auc": 0.17342294665533164,
+            "roc_auc": 0.6406672091581418,
+            "mcc": 0.0949653325484622,
+            "brier": 0.09396826126844574,
+            "ece": 0.02005445643831897
+          }
+        },
+        "org.apache:daemon": {
+          "total_commits": 1251,
+          "defect_commits": 193,
+          "prevalence": 0.1542765787370104,
+          "confusion_matrix_at_050": {
+            "TP": 2,
+            "FP": 0,
+            "TN": 1058,
+            "FN": 191
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 89,
+            "FP": 112,
+            "TN": 946,
+            "FN": 104
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8473221422861711,
+            "balanced_accuracy": 0.5051813471502591,
+            "precision": 1.0,
+            "recall": 0.010362694300518135,
+            "f1": 0.020512820512820513,
+            "pr_auc": 0.44034956006122733,
+            "roc_auc": 0.767858017375633,
+            "mcc": 0.09369101804040612,
+            "brier": 0.11299249844378254,
+            "ece": 0.03601931787948874
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.24999999999999994,
+            "accuracy": 0.8273381294964028,
+            "balanced_accuracy": 0.6776398914757534,
+            "precision": 0.4427860696517413,
+            "recall": 0.46113989637305697,
+            "f1": 0.4517766497461929,
+            "pr_auc": 0.44034956006122733,
+            "roc_auc": 0.767858017375633,
+            "mcc": 0.34946147444706954,
+            "brier": 0.11299249844378254,
+            "ece": 0.03601931787948874
+          }
+        },
+        "org.apache:digester": {
+          "total_commits": 2192,
+          "defect_commits": 112,
+          "prevalence": 0.051094890510948905,
+          "confusion_matrix_at_050": {
+            "TP": 6,
+            "FP": 2,
+            "TN": 2078,
+            "FN": 106
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 61,
+            "FP": 119,
+            "TN": 1961,
+            "FN": 51
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9507299270072993,
+            "balanced_accuracy": 0.5263049450549451,
+            "precision": 0.75,
+            "recall": 0.05357142857142857,
+            "f1": 0.1,
+            "pr_auc": 0.3628061953695229,
+            "roc_auc": 0.871145260989011,
+            "mcc": 0.19210415707369838,
+            "brier": 0.04196533371701423,
+            "ece": 0.047179216189514595
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.24999999999999994,
+            "accuracy": 0.9224452554744526,
+            "balanced_accuracy": 0.7437156593406593,
+            "precision": 0.3388888888888889,
+            "recall": 0.5446428571428571,
+            "f1": 0.4178082191780822,
+            "pr_auc": 0.3628061953695229,
+            "roc_auc": 0.871145260989011,
+            "mcc": 0.3909343826906905,
+            "brier": 0.04196533371701423,
+            "ece": 0.047179216189514595
+          }
+        },
+        "org.apache:httpclient": {
+          "total_commits": 3290,
+          "defect_commits": 925,
+          "prevalence": 0.2811550151975684,
+          "confusion_matrix_at_050": {
+            "TP": 106,
+            "FP": 51,
+            "TN": 2314,
+            "FN": 819
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 645,
+            "FP": 794,
+            "TN": 1571,
+            "FN": 280
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.7355623100303952,
+            "balanced_accuracy": 0.5465150562824982,
+            "precision": 0.6751592356687898,
+            "recall": 0.11459459459459459,
+            "f1": 0.19593345656192238,
+            "pr_auc": 0.5101504322539885,
+            "roc_auc": 0.7385628249814297,
+            "mcc": 0.1961913979375916,
+            "brier": 0.17678544296001605,
+            "ece": 0.04749659018645709
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.24999999999999994,
+            "accuracy": 0.6735562310030395,
+            "balanced_accuracy": 0.6807839552025599,
+            "precision": 0.448227936066713,
+            "recall": 0.6972972972972973,
+            "f1": 0.5456852791878173,
+            "pr_auc": 0.5101504322539885,
+            "roc_auc": 0.7385628249814297,
+            "mcc": 0.32767455017285657,
+            "brier": 0.17678544296001605,
+            "ece": 0.04749659018645709
+          }
+        },
+        "org.apache:httpcore": {
+          "total_commits": 3604,
+          "defect_commits": 493,
+          "prevalence": 0.13679245283018868,
+          "confusion_matrix_at_050": {
+            "TP": 1,
+            "FP": 2,
+            "TN": 3109,
+            "FN": 492
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 116,
+            "FP": 225,
+            "TN": 2886,
+            "FN": 377
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8629300776914539,
+            "balanced_accuracy": 0.5006927587315311,
+            "precision": 0.3333333333333333,
+            "recall": 0.002028397565922921,
+            "f1": 0.004032258064516129,
+            "pr_auc": 0.3095730543668532,
+            "roc_auc": 0.7473846320359022,
+            "mcc": 0.01650871541975391,
+            "brier": 0.10790452499060062,
+            "ece": 0.03200422398302795
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.24999999999999994,
+            "accuracy": 0.8329633740288568,
+            "balanced_accuracy": 0.5814850530376084,
+            "precision": 0.34017595307917886,
+            "recall": 0.23529411764705882,
+            "f1": 0.27817745803357313,
+            "pr_auc": 0.3095730543668532,
+            "roc_auc": 0.7473846320359022,
+            "mcc": 0.19133555789397447,
+            "brier": 0.10790452499060062,
+            "ece": 0.03200422398302795
+          }
+        }
+      }
+    },
+    "SUB-1__RandomForest": {
+      "config_id": "SUB-1__RandomForest",
+      "model_name": "RandomForest",
+      "feature_subset": "SUB-1",
+      "frozen_training_threshold": 0.3,
+      "aggregate_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8862827494532824,
+        "balanced_accuracy": 0.5884961828101088,
+        "precision": 0.5903743315508021,
+        "recall": 0.195675292449486,
+        "f1": 0.2939297124600639,
+        "pr_auc": 0.4296015749195257,
+        "roc_auc": 0.8350336241256777,
+        "mcc": 0.2941974827127143,
+        "brier": 0.08546001584529728,
+        "ece": 0.010972714420695558
+      },
+      "aggregate_metrics_at_tau_star": {
+        "threshold": 0.3,
+        "accuracy": 0.8635135714591998,
+        "balanced_accuracy": 0.6935466060296902,
+        "precision": 0.4398671096345515,
+        "recall": 0.4693371144984048,
+        "f1": 0.4541245069456354,
+        "pr_auc": 0.4296015749195257,
+        "roc_auc": 0.8350336241256777,
+        "mcc": 0.37648279017165254,
+        "brier": 0.08546001584529728,
+        "ece": 0.010972714420695558
+      },
+      "per_project_breakdown": {
+        "org.apache:batik": {
+          "total_commits": 7015,
+          "defect_commits": 492,
+          "prevalence": 0.07013542409123308,
+          "confusion_matrix_at_050": {
+            "TP": 10,
+            "FP": 6,
+            "TN": 6517,
+            "FN": 482
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 87,
+            "FP": 83,
+            "TN": 6440,
+            "FN": 405
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9304347826086956,
+            "balanced_accuracy": 0.5097026905421591,
+            "precision": 0.625,
+            "recall": 0.02032520325203252,
+            "f1": 0.03937007874015748,
+            "pr_auc": 0.33721104024652254,
+            "roc_auc": 0.8631600939265562,
+            "mcc": 0.10388442215905182,
+            "brier": 0.055006408927691326,
+            "ece": 0.011923845130958713
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.3,
+            "accuracy": 0.9304347826086956,
+            "balanced_accuracy": 0.5820525308196512,
+            "precision": 0.5117647058823529,
+            "recall": 0.17682926829268292,
+            "f1": 0.2628398791540785,
+            "pr_auc": 0.33721104024652254,
+            "roc_auc": 0.8631600939265562,
+            "mcc": 0.2725317031646146,
+            "brier": 0.055006408927691326,
+            "ece": 0.011923845130958713
+          }
+        },
+        "org.apache:codec": {
+          "total_commits": 2144,
+          "defect_commits": 279,
+          "prevalence": 0.13013059701492538,
+          "confusion_matrix_at_050": {
+            "TP": 26,
+            "FP": 22,
+            "TN": 1843,
+            "FN": 253
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 98,
+            "FP": 150,
+            "TN": 1715,
+            "FN": 181
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8717350746268657,
+            "balanced_accuracy": 0.5406968587544563,
+            "precision": 0.5416666666666666,
+            "recall": 0.0931899641577061,
+            "f1": 0.15902140672782875,
+            "pr_auc": 0.35157257518588936,
+            "roc_auc": 0.7625837201033949,
+            "mcc": 0.1851041460542279,
+            "brier": 0.09955237668706422,
+            "ece": 0.013672490977685837
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.3,
+            "accuracy": 0.8456156716417911,
+            "balanced_accuracy": 0.6354127629315729,
+            "precision": 0.3951612903225806,
+            "recall": 0.35125448028673834,
+            "f1": 0.3719165085388994,
+            "pr_auc": 0.35157257518588936,
+            "roc_auc": 0.7625837201033949,
+            "mcc": 0.2848958400612638,
+            "brier": 0.09955237668706422,
+            "ece": 0.013672490977685837
+          }
+        },
+        "org.apache:commons-exec": {
+          "total_commits": 700,
+          "defect_commits": 0,
+          "prevalence": 0.0,
+          "confusion_matrix_at_050": {
+            "TP": 0,
+            "FP": 1,
+            "TN": 699,
+            "FN": 0
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 0,
+            "FP": 6,
+            "TN": 694,
+            "FN": 0
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9985714285714286,
+            "balanced_accuracy": 0.9985714285714286,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.0,
+            "roc_auc": 0.5,
+            "mcc": 0.0,
+            "brier": 0.002789323202359795,
+            "ece": 0.02392409378992554
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.3,
+            "accuracy": 0.9914285714285714,
+            "balanced_accuracy": 0.9914285714285714,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.0,
+            "roc_auc": 0.5,
+            "mcc": 0.0,
+            "brier": 0.002789323202359795,
+            "ece": 0.02392409378992554
+          }
+        },
+        "org.apache:commons-fileupload": {
+          "total_commits": 1180,
+          "defect_commits": 119,
+          "prevalence": 0.10084745762711865,
+          "confusion_matrix_at_050": {
+            "TP": 20,
+            "FP": 7,
+            "TN": 1054,
+            "FN": 99
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 47,
+            "FP": 55,
+            "TN": 1006,
+            "FN": 72
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9101694915254237,
+            "balanced_accuracy": 0.5807348387045677,
+            "precision": 0.7407407407407407,
+            "recall": 0.16806722689075632,
+            "f1": 0.273972602739726,
+            "pr_auc": 0.43857709885105906,
+            "roc_auc": 0.8065801249811895,
+            "mcc": 0.325181338642781,
+            "brier": 0.0738040722687304,
+            "ece": 0.021308785450381756
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.3,
+            "accuracy": 0.8923728813559322,
+            "balanced_accuracy": 0.6715600472045558,
+            "precision": 0.46078431372549017,
+            "recall": 0.3949579831932773,
+            "f1": 0.4253393665158371,
+            "pr_auc": 0.43857709885105906,
+            "roc_auc": 0.8065801249811895,
+            "mcc": 0.3676781815266151,
+            "brier": 0.0738040722687304,
+            "ece": 0.021308785450381756
+          }
+        },
+        "org.apache:commons-jelly": {
+          "total_commits": 1945,
+          "defect_commits": 208,
+          "prevalence": 0.10694087403598972,
+          "confusion_matrix_at_050": {
+            "TP": 5,
+            "FP": 16,
+            "TN": 1721,
+            "FN": 203
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 43,
+            "FP": 100,
+            "TN": 1637,
+            "FN": 165
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8874035989717224,
+            "balanced_accuracy": 0.5074135888578893,
+            "precision": 0.23809523809523808,
+            "recall": 0.02403846153846154,
+            "f1": 0.043668122270742356,
+            "pr_auc": 0.2153909563842243,
+            "roc_auc": 0.7038342522474647,
+            "mcc": 0.044338182683825195,
+            "brier": 0.09227232853292172,
+            "ece": 0.02497292766238557
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.3,
+            "accuracy": 0.8637532133676092,
+            "balanced_accuracy": 0.5745801226695009,
+            "precision": 0.3006993006993007,
+            "recall": 0.20673076923076922,
+            "f1": 0.245014245014245,
+            "pr_auc": 0.2153909563842243,
+            "roc_auc": 0.7038342522474647,
+            "mcc": 0.1766197451074944,
+            "brier": 0.09227232853292172,
+            "ece": 0.02497292766238557
+          }
+        },
+        "org.apache:daemon": {
+          "total_commits": 1251,
+          "defect_commits": 193,
+          "prevalence": 0.1542765787370104,
+          "confusion_matrix_at_050": {
+            "TP": 29,
+            "FP": 16,
+            "TN": 1042,
+            "FN": 164
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 69,
+            "FP": 85,
+            "TN": 973,
+            "FN": 124
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8561151079136691,
+            "balanced_accuracy": 0.5675680970057886,
+            "precision": 0.6444444444444445,
+            "recall": 0.15025906735751296,
+            "f1": 0.24369747899159663,
+            "pr_auc": 0.43670779875270993,
+            "roc_auc": 0.7895089963466116,
+            "mcc": 0.2621279075951565,
+            "brier": 0.10896183633440748,
+            "ece": 0.0176967389381056
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.3,
+            "accuracy": 0.832933653077538,
+            "balanced_accuracy": 0.638586344358796,
+            "precision": 0.44805194805194803,
+            "recall": 0.35751295336787564,
+            "f1": 0.3976945244956772,
+            "pr_auc": 0.43670779875270993,
+            "roc_auc": 0.7895089963466116,
+            "mcc": 0.30472511448130674,
+            "brier": 0.10896183633440748,
+            "ece": 0.0176967389381056
+          }
+        },
+        "org.apache:digester": {
+          "total_commits": 2192,
+          "defect_commits": 112,
+          "prevalence": 0.051094890510948905,
+          "confusion_matrix_at_050": {
+            "TP": 28,
+            "FP": 31,
+            "TN": 2049,
+            "FN": 84
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 67,
+            "FP": 119,
+            "TN": 1961,
+            "FN": 45
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.947536496350365,
+            "balanced_accuracy": 0.617548076923077,
+            "precision": 0.4745762711864407,
+            "recall": 0.25,
+            "f1": 0.32748538011695905,
+            "pr_auc": 0.38306762137206446,
+            "roc_auc": 0.8850832760989011,
+            "mcc": 0.3198635621425209,
+            "brier": 0.04186651125365765,
+            "ece": 0.04405522157983882
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.3,
+            "accuracy": 0.9251824817518248,
+            "balanced_accuracy": 0.7705013736263736,
+            "precision": 0.3602150537634409,
+            "recall": 0.5982142857142857,
+            "f1": 0.44966442953020136,
+            "pr_auc": 0.38306762137206446,
+            "roc_auc": 0.8850832760989011,
+            "mcc": 0.42748237429710495,
+            "brier": 0.04186651125365765,
+            "ece": 0.04405522157983882
+          }
+        },
+        "org.apache:httpclient": {
+          "total_commits": 3290,
+          "defect_commits": 925,
+          "prevalence": 0.2811550151975684,
+          "confusion_matrix_at_050": {
+            "TP": 372,
+            "FP": 209,
+            "TN": 2156,
+            "FN": 553
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 666,
+            "FP": 647,
+            "TN": 1718,
+            "FN": 259
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.7683890577507598,
+            "balanced_accuracy": 0.6568950345694532,
+            "precision": 0.6402753872633391,
+            "recall": 0.40216216216216216,
+            "f1": 0.4940239043824701,
+            "pr_auc": 0.5778757916056754,
+            "roc_auc": 0.7898712073595794,
+            "mcc": 0.36994151014215787,
+            "brier": 0.15937567132159985,
+            "ece": 0.031161509523182637
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.3,
+            "accuracy": 0.7246200607902735,
+            "balanced_accuracy": 0.7232135306553911,
+            "precision": 0.5072353389185073,
+            "recall": 0.72,
+            "f1": 0.5951742627345844,
+            "pr_auc": 0.5778757916056754,
+            "roc_auc": 0.7898712073595794,
+            "mcc": 0.4098276481401781,
+            "brier": 0.15937567132159985,
+            "ece": 0.031161509523182637
+          }
+        },
+        "org.apache:httpcore": {
+          "total_commits": 3604,
+          "defect_commits": 493,
+          "prevalence": 0.13679245283018868,
+          "confusion_matrix_at_050": {
+            "TP": 62,
+            "FP": 75,
+            "TN": 3036,
+            "FN": 431
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 247,
+            "FP": 441,
+            "TN": 2670,
+            "FN": 246
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8596004439511654,
+            "balanced_accuracy": 0.5508263226149702,
+            "precision": 0.45255474452554745,
+            "recall": 0.1257606490872211,
+            "f1": 0.19682539682539682,
+            "pr_auc": 0.3598543800826487,
+            "roc_auc": 0.7894848026664528,
+            "mcc": 0.18266483344975845,
+            "brier": 0.10343039850101168,
+            "ece": 0.036562174734470966
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.3,
+            "accuracy": 0.8093784683684795,
+            "balanced_accuracy": 0.6796295680510758,
+            "precision": 0.35901162790697677,
+            "recall": 0.5010141987829615,
+            "f1": 0.4182895850973751,
+            "pr_auc": 0.3598543800826487,
+            "roc_auc": 0.7894848026664528,
+            "mcc": 0.3141183499668993,
+            "brier": 0.10343039850101168,
+            "ece": 0.036562174734470966
+          }
+        }
+      }
+    },
+    "SUB-4__HistGradientBoosting": {
+      "config_id": "SUB-4__HistGradientBoosting",
+      "model_name": "HistGradientBoosting",
+      "feature_subset": "SUB-4",
+      "frozen_training_threshold": 0.15999999999999998,
+      "aggregate_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8857253119506024,
+        "balanced_accuracy": 0.6059099264229083,
+        "precision": 0.5661016949152542,
+        "recall": 0.23679546260191423,
+        "f1": 0.3339165208697826,
+        "pr_auc": 0.42783686403317944,
+        "roc_auc": 0.832222607447627,
+        "mcc": 0.3151414406096879,
+        "brier": 0.08624092124763696,
+        "ece": 0.015100783504247706
+      },
+      "aggregate_metrics_at_tau_star": {
+        "threshold": 0.15999999999999998,
+        "accuracy": 0.7980361047982505,
+        "balanced_accuracy": 0.735785675378909,
+        "precision": 0.33064371525909986,
+        "recall": 0.6536689117334279,
+        "f1": 0.4391521790902596,
+        "pr_auc": 0.42783686403317944,
+        "roc_auc": 0.832222607447627,
+        "mcc": 0.36049545994136933,
+        "brier": 0.08624092124763696,
+        "ece": 0.015100783504247706
+      },
+      "per_project_breakdown": {
+        "org.apache:batik": {
+          "total_commits": 7015,
+          "defect_commits": 492,
+          "prevalence": 0.07013542409123308,
+          "confusion_matrix_at_050": {
+            "TP": 5,
+            "FP": 2,
+            "TN": 6521,
+            "FN": 487
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 147,
+            "FP": 201,
+            "TN": 6322,
+            "FN": 345
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9302922309337135,
+            "balanced_accuracy": 0.5049279971183891,
+            "precision": 0.7142857142857143,
+            "recall": 0.01016260162601626,
+            "f1": 0.02004008016032064,
+            "pr_auc": 0.3529293796591946,
+            "roc_auc": 0.8831632659420263,
+            "mcc": 0.07971877471400145,
+            "brier": 0.05661355110632851,
+            "ece": 0.03306987375101197
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.15999999999999998,
+            "accuracy": 0.9221667854597292,
+            "balanced_accuracy": 0.6339832225932255,
+            "precision": 0.4224137931034483,
+            "recall": 0.29878048780487804,
+            "f1": 0.35,
+            "pr_auc": 0.3529293796591946,
+            "roc_auc": 0.8831632659420263,
+            "mcc": 0.31516051834861497,
+            "brier": 0.05661355110632851,
+            "ece": 0.03306987375101197
+          }
+        },
+        "org.apache:codec": {
+          "total_commits": 2144,
+          "defect_commits": 279,
+          "prevalence": 0.13013059701492538,
+          "confusion_matrix_at_050": {
+            "TP": 30,
+            "FP": 15,
+            "TN": 1850,
+            "FN": 249
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 159,
+            "FP": 350,
+            "TN": 1515,
+            "FN": 120
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8768656716417911,
+            "balanced_accuracy": 0.5497419931390354,
+            "precision": 0.6666666666666666,
+            "recall": 0.10752688172043011,
+            "f1": 0.18518518518518517,
+            "pr_auc": 0.38523582039321874,
+            "roc_auc": 0.7709168132068763,
+            "mcc": 0.23349749323410965,
+            "brier": 0.09744197710447969,
+            "ece": 0.01922105718064971
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.15999999999999998,
+            "accuracy": 0.7807835820895522,
+            "balanced_accuracy": 0.6911124563982819,
+            "precision": 0.31237721021611004,
+            "recall": 0.5698924731182796,
+            "f1": 0.4035532994923858,
+            "pr_auc": 0.38523582039321874,
+            "roc_auc": 0.7709168132068763,
+            "mcc": 0.3022335972812493,
+            "brier": 0.09744197710447969,
+            "ece": 0.01922105718064971
+          }
+        },
+        "org.apache:commons-exec": {
+          "total_commits": 700,
+          "defect_commits": 0,
+          "prevalence": 0.0,
+          "confusion_matrix_at_050": {
+            "TP": 0,
+            "FP": 1,
+            "TN": 699,
+            "FN": 0
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 0,
+            "FP": 7,
+            "TN": 693,
+            "FN": 0
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9985714285714286,
+            "balanced_accuracy": 0.9985714285714286,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.0,
+            "roc_auc": 0.5,
+            "mcc": 0.0,
+            "brier": 0.001355196170498708,
+            "ece": 0.011627605363300318
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.15999999999999998,
+            "accuracy": 0.99,
+            "balanced_accuracy": 0.99,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.0,
+            "roc_auc": 0.5,
+            "mcc": 0.0,
+            "brier": 0.001355196170498708,
+            "ece": 0.011627605363300318
+          }
+        },
+        "org.apache:commons-fileupload": {
+          "total_commits": 1180,
+          "defect_commits": 119,
+          "prevalence": 0.10084745762711865,
+          "confusion_matrix_at_050": {
+            "TP": 26,
+            "FP": 10,
+            "TN": 1051,
+            "FN": 93
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 62,
+            "FP": 129,
+            "TN": 932,
+            "FN": 57
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9127118644067796,
+            "balanced_accuracy": 0.6045311621349765,
+            "precision": 0.7222222222222222,
+            "recall": 0.2184873949579832,
+            "f1": 0.33548387096774196,
+            "pr_auc": 0.4349218867715544,
+            "roc_auc": 0.807815680466343,
+            "mcc": 0.36605191603228515,
+            "brier": 0.07288262947932522,
+            "ece": 0.014781697736193315
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.15999999999999998,
+            "accuracy": 0.8423728813559322,
+            "balanced_accuracy": 0.6997124957428777,
+            "precision": 0.32460732984293195,
+            "recall": 0.5210084033613446,
+            "f1": 0.4,
+            "pr_auc": 0.4349218867715544,
+            "roc_auc": 0.807815680466343,
+            "mcc": 0.3265514209125307,
+            "brier": 0.07288262947932522,
+            "ece": 0.014781697736193315
+          }
+        },
+        "org.apache:commons-jelly": {
+          "total_commits": 1945,
+          "defect_commits": 208,
+          "prevalence": 0.10694087403598972,
+          "confusion_matrix_at_050": {
+            "TP": 13,
+            "FP": 31,
+            "TN": 1706,
+            "FN": 195
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 85,
+            "FP": 320,
+            "TN": 1417,
+            "FN": 123
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8838046272493574,
+            "balanced_accuracy": 0.522326568796776,
+            "precision": 0.29545454545454547,
+            "recall": 0.0625,
+            "f1": 0.10317460317460317,
+            "pr_auc": 0.21252325185647675,
+            "roc_auc": 0.6733799986714495,
+            "mcc": 0.09280388568059714,
+            "brier": 0.09506878160761197,
+            "ece": 0.04461284138619332
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.15999999999999998,
+            "accuracy": 0.7722365038560411,
+            "balanced_accuracy": 0.6122140848500952,
+            "precision": 0.20987654320987653,
+            "recall": 0.40865384615384615,
+            "f1": 0.27732463295269166,
+            "pr_auc": 0.21252325185647675,
+            "roc_auc": 0.6733799986714495,
+            "mcc": 0.17081305979088884,
+            "brier": 0.09506878160761197,
+            "ece": 0.04461284138619332
+          }
+        },
+        "org.apache:daemon": {
+          "total_commits": 1251,
+          "defect_commits": 193,
+          "prevalence": 0.1542765787370104,
+          "confusion_matrix_at_050": {
+            "TP": 27,
+            "FP": 13,
+            "TN": 1045,
+            "FN": 166
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 128,
+            "FP": 249,
+            "TN": 809,
+            "FN": 65
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8569144684252598,
+            "balanced_accuracy": 0.563804519231711,
+            "precision": 0.675,
+            "recall": 0.13989637305699482,
+            "f1": 0.2317596566523605,
+            "pr_auc": 0.46921896309701405,
+            "roc_auc": 0.8081383390305298,
+            "mcc": 0.2619997382154546,
+            "brier": 0.10684765725416945,
+            "ece": 0.022694404895591925
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.15999999999999998,
+            "accuracy": 0.7490007993605116,
+            "balanced_accuracy": 0.7139313593935179,
+            "precision": 0.3395225464190981,
+            "recall": 0.6632124352331606,
+            "f1": 0.44912280701754387,
+            "pr_auc": 0.46921896309701405,
+            "roc_auc": 0.8081383390305298,
+            "mcc": 0.33682129666338684,
+            "brier": 0.10684765725416945,
+            "ece": 0.022694404895591925
+          }
+        },
+        "org.apache:digester": {
+          "total_commits": 2192,
+          "defect_commits": 112,
+          "prevalence": 0.051094890510948905,
+          "confusion_matrix_at_050": {
+            "TP": 24,
+            "FP": 28,
+            "TN": 2052,
+            "FN": 88
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 76,
+            "FP": 237,
+            "TN": 1843,
+            "FN": 36
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9470802919708029,
+            "balanced_accuracy": 0.6004120879120879,
+            "precision": 0.46153846153846156,
+            "recall": 0.21428571428571427,
+            "f1": 0.2926829268292683,
+            "pr_auc": 0.3563438349420892,
+            "roc_auc": 0.8786100618131868,
+            "mcc": 0.29056822046104164,
+            "brier": 0.04146293095866399,
+            "ece": 0.035332584070554125
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.15999999999999998,
+            "accuracy": 0.8754562043795621,
+            "balanced_accuracy": 0.7823145604395605,
+            "precision": 0.24281150159744408,
+            "recall": 0.6785714285714286,
+            "f1": 0.35764705882352943,
+            "pr_auc": 0.3563438349420892,
+            "roc_auc": 0.8786100618131868,
+            "mcc": 0.3553598789131958,
+            "brier": 0.04146293095866399,
+            "ece": 0.035332584070554125
+          }
+        },
+        "org.apache:httpclient": {
+          "total_commits": 3290,
+          "defect_commits": 925,
+          "prevalence": 0.2811550151975684,
+          "confusion_matrix_at_050": {
+            "TP": 419,
+            "FP": 271,
+            "TN": 2094,
+            "FN": 506
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 844,
+            "FP": 1317,
+            "TN": 1048,
+            "FN": 81
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.7638297872340426,
+            "balanced_accuracy": 0.6691926175647106,
+            "precision": 0.6072463768115942,
+            "recall": 0.45297297297297295,
+            "f1": 0.5188854489164086,
+            "pr_auc": 0.5829450494501565,
+            "roc_auc": 0.791919090337695,
+            "mcc": 0.37366861698034093,
+            "brier": 0.15893974137032707,
+            "ece": 0.02270020822802446
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.15999999999999998,
+            "accuracy": 0.5750759878419452,
+            "balanced_accuracy": 0.6777806982458146,
+            "precision": 0.3905599259602036,
+            "recall": 0.9124324324324324,
+            "f1": 0.5469863901490603,
+            "pr_auc": 0.5829450494501565,
+            "roc_auc": 0.791919090337695,
+            "mcc": 0.33668726344330285,
+            "brier": 0.15893974137032707,
+            "ece": 0.02270020822802446
+          }
+        },
+        "org.apache:httpcore": {
+          "total_commits": 3604,
+          "defect_commits": 493,
+          "prevalence": 0.13679245283018868,
+          "confusion_matrix_at_050": {
+            "TP": 124,
+            "FP": 141,
+            "TN": 2970,
+            "FN": 369
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 343,
+            "FP": 923,
+            "TN": 2188,
+            "FN": 150
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8584905660377359,
+            "balanced_accuracy": 0.6030991254613773,
+            "precision": 0.4679245283018868,
+            "recall": 0.2515212981744422,
+            "f1": 0.32717678100263853,
+            "pr_auc": 0.3528401052606246,
+            "roc_auc": 0.7614960458961625,
+            "mcc": 0.2714734084874387,
+            "brier": 0.10705910964671236,
+            "ece": 0.036814377148071044
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.15999999999999998,
+            "accuracy": 0.7022752497225305,
+            "balanced_accuracy": 0.6995255988206476,
+            "precision": 0.27093206951026855,
+            "recall": 0.6957403651115619,
+            "f1": 0.3899943149516771,
+            "pr_auc": 0.3528401052606246,
+            "roc_auc": 0.7614960458961625,
+            "mcc": 0.2872519446666503,
+            "brier": 0.10705910964671236,
+            "ece": 0.036814377148071044
+          }
+        }
+      }
+    },
+    "SUB-5__HistGradientBoosting": {
+      "config_id": "SUB-5__HistGradientBoosting",
+      "model_name": "HistGradientBoosting",
+      "feature_subset": "SUB-5",
+      "frozen_training_threshold": 0.18,
+      "aggregate_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8792504609579349,
+        "balanced_accuracy": 0.5533144015701057,
+        "precision": 0.5036179450072359,
+        "recall": 0.12336051045728465,
+        "f1": 0.19817767653758542,
+        "pr_auc": 0.3308944689684297,
+        "roc_auc": 0.7723529365991995,
+        "mcc": 0.20505563455957415,
+        "brier": 0.09433738998735858,
+        "ece": 0.014552954117886948
+      },
+      "aggregate_metrics_at_tau_star": {
+        "threshold": 0.18,
+        "accuracy": 0.8009948115432443,
+        "balanced_accuracy": 0.6700609280569941,
+        "precision": 0.30328577604842194,
+        "recall": 0.49734136830911024,
+        "f1": 0.3767960252450651,
+        "pr_auc": 0.3308944689684297,
+        "roc_auc": 0.7723529365991995,
+        "mcc": 0.27812976259149175,
+        "brier": 0.09433738998735858,
+        "ece": 0.014552954117886948
+      },
+      "per_project_breakdown": {
+        "org.apache:batik": {
+          "total_commits": 7015,
+          "defect_commits": 492,
+          "prevalence": 0.07013542409123308,
+          "confusion_matrix_at_050": {
+            "TP": 4,
+            "FP": 4,
+            "TN": 6519,
+            "FN": 488
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 117,
+            "FP": 210,
+            "TN": 6313,
+            "FN": 375
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9298645759087669,
+            "balanced_accuracy": 0.5037584332611684,
+            "precision": 0.5,
+            "recall": 0.008130081300813009,
+            "f1": 0.016,
+            "pr_auc": 0.27969163834246835,
+            "roc_auc": 0.8459335260223674,
+            "mcc": 0.05687639044652031,
+            "brier": 0.05772736847359936,
+            "ece": 0.020644714220284584
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.18,
+            "accuracy": 0.9166072701354241,
+            "balanced_accuracy": 0.602805551089391,
+            "precision": 0.3577981651376147,
+            "recall": 0.23780487804878048,
+            "f1": 0.2857142857142857,
+            "pr_auc": 0.27969163834246835,
+            "roc_auc": 0.8459335260223674,
+            "mcc": 0.24907537521422138,
+            "brier": 0.05772736847359936,
+            "ece": 0.020644714220284584
+          }
+        },
+        "org.apache:codec": {
+          "total_commits": 2144,
+          "defect_commits": 279,
+          "prevalence": 0.13013059701492538,
+          "confusion_matrix_at_050": {
+            "TP": 24,
+            "FP": 21,
+            "TN": 1844,
+            "FN": 255
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 130,
+            "FP": 375,
+            "TN": 1490,
+            "FN": 149
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.871268656716418,
+            "balanced_accuracy": 0.5373807258785206,
+            "precision": 0.5333333333333333,
+            "recall": 0.08602150537634409,
+            "f1": 0.14814814814814814,
+            "pr_auc": 0.30150899509214457,
+            "roc_auc": 0.6870881259188791,
+            "mcc": 0.17547157315367717,
+            "brier": 0.10486523442177079,
+            "ece": 0.027412948126722333
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.18,
+            "accuracy": 0.7555970149253731,
+            "balanced_accuracy": 0.6324387173647746,
+            "precision": 0.25742574257425743,
+            "recall": 0.4659498207885305,
+            "f1": 0.33163265306122447,
+            "pr_auc": 0.30150899509214457,
+            "roc_auc": 0.6870881259188791,
+            "mcc": 0.2100154840311143,
+            "brier": 0.10486523442177079,
+            "ece": 0.027412948126722333
+          }
+        },
+        "org.apache:commons-exec": {
+          "total_commits": 700,
+          "defect_commits": 0,
+          "prevalence": 0.0,
+          "confusion_matrix_at_050": {
+            "TP": 0,
+            "FP": 0,
+            "TN": 700,
+            "FN": 0
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 0,
+            "FP": 3,
+            "TN": 697,
+            "FN": 0
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 1.0,
+            "balanced_accuracy": 1.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.0,
+            "roc_auc": 0.5,
+            "mcc": 0.0,
+            "brier": 0.0008044874806629753,
+            "ece": 0.00868496936895431
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.18,
+            "accuracy": 0.9957142857142857,
+            "balanced_accuracy": 0.9957142857142857,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.0,
+            "roc_auc": 0.5,
+            "mcc": 0.0,
+            "brier": 0.0008044874806629753,
+            "ece": 0.00868496936895431
+          }
+        },
+        "org.apache:commons-fileupload": {
+          "total_commits": 1180,
+          "defect_commits": 119,
+          "prevalence": 0.10084745762711865,
+          "confusion_matrix_at_050": {
+            "TP": 14,
+            "FP": 13,
+            "TN": 1048,
+            "FN": 105
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 45,
+            "FP": 123,
+            "TN": 938,
+            "FN": 74
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9,
+            "balanced_accuracy": 0.5526972334645451,
+            "precision": 0.5185185185185185,
+            "recall": 0.11764705882352941,
+            "f1": 0.1917808219178082,
+            "pr_auc": 0.27912037483193797,
+            "roc_auc": 0.6893805590096548,
+            "mcc": 0.21225232124979088,
+            "brier": 0.08402255023402996,
+            "ece": 0.018086850586259647
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.18,
+            "accuracy": 0.8330508474576271,
+            "balanced_accuracy": 0.6311114455207154,
+            "precision": 0.26785714285714285,
+            "recall": 0.37815126050420167,
+            "f1": 0.313588850174216,
+            "pr_auc": 0.27912037483193797,
+            "roc_auc": 0.6893805590096548,
+            "mcc": 0.2259731693421027,
+            "brier": 0.08402255023402996,
+            "ece": 0.018086850586259647
+          }
+        },
+        "org.apache:commons-jelly": {
+          "total_commits": 1945,
+          "defect_commits": 208,
+          "prevalence": 0.10694087403598972,
+          "confusion_matrix_at_050": {
+            "TP": 6,
+            "FP": 13,
+            "TN": 1724,
+            "FN": 202
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 52,
+            "FP": 239,
+            "TN": 1498,
+            "FN": 156
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8894601542416453,
+            "balanced_accuracy": 0.510680992870112,
+            "precision": 0.3157894736842105,
+            "recall": 0.028846153846153848,
+            "f1": 0.05286343612334802,
+            "pr_auc": 0.14432893672472666,
+            "roc_auc": 0.5434477547495682,
+            "mcc": 0.0671225204158912,
+            "brier": 0.09952947386295626,
+            "ece": 0.056514125101846564
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.18,
+            "accuracy": 0.7969151670951157,
+            "balanced_accuracy": 0.556203223949338,
+            "precision": 0.17869415807560138,
+            "recall": 0.25,
+            "f1": 0.20841683366733466,
+            "pr_auc": 0.14432893672472666,
+            "roc_auc": 0.5434477547495682,
+            "mcc": 0.09738869664627563,
+            "brier": 0.09952947386295626,
+            "ece": 0.056514125101846564
+          }
+        },
+        "org.apache:daemon": {
+          "total_commits": 1251,
+          "defect_commits": 193,
+          "prevalence": 0.1542765787370104,
+          "confusion_matrix_at_050": {
+            "TP": 28,
+            "FP": 18,
+            "TN": 1040,
+            "FN": 165
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 135,
+            "FP": 387,
+            "TN": 671,
+            "FN": 58
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8537170263788969,
+            "balanced_accuracy": 0.564032243846538,
+            "precision": 0.6086956521739131,
+            "recall": 0.14507772020725387,
+            "f1": 0.23430962343096234,
+            "pr_auc": 0.3884482662638739,
+            "roc_auc": 0.7299528879399003,
+            "mcc": 0.2457976721559242,
+            "brier": 0.11709856491847241,
+            "ece": 0.0376053764556512
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.18,
+            "accuracy": 0.6442845723421263,
+            "balanced_accuracy": 0.6668486831150768,
+            "precision": 0.25862068965517243,
+            "recall": 0.6994818652849741,
+            "f1": 0.3776223776223776,
+            "pr_auc": 0.3884482662638739,
+            "roc_auc": 0.7299528879399003,
+            "mcc": 0.24444167534561512,
+            "brier": 0.11709856491847241,
+            "ece": 0.0376053764556512
+          }
+        },
+        "org.apache:digester": {
+          "total_commits": 2192,
+          "defect_commits": 112,
+          "prevalence": 0.051094890510948905,
+          "confusion_matrix_at_050": {
+            "TP": 27,
+            "FP": 44,
+            "TN": 2036,
+            "FN": 85
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 62,
+            "FP": 198,
+            "TN": 1882,
+            "FN": 50
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9411496350364964,
+            "balanced_accuracy": 0.6099587912087912,
+            "precision": 0.38028169014084506,
+            "recall": 0.24107142857142858,
+            "f1": 0.29508196721311475,
+            "pr_auc": 0.278570518193624,
+            "roc_auc": 0.848190676510989,
+            "mcc": 0.2735275797953416,
+            "brier": 0.045262593578900195,
+            "ece": 0.04401060501885493
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.18,
+            "accuracy": 0.8868613138686131,
+            "balanced_accuracy": 0.7291895604395604,
+            "precision": 0.23846153846153847,
+            "recall": 0.5535714285714286,
+            "f1": 0.3333333333333333,
+            "pr_auc": 0.278570518193624,
+            "roc_auc": 0.848190676510989,
+            "mcc": 0.31215857616944437,
+            "brier": 0.045262593578900195,
+            "ece": 0.04401060501885493
+          }
+        },
+        "org.apache:httpclient": {
+          "total_commits": 3290,
+          "defect_commits": 925,
+          "prevalence": 0.2811550151975684,
+          "confusion_matrix_at_050": {
+            "TP": 198,
+            "FP": 173,
+            "TN": 2192,
+            "FN": 727
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 676,
+            "FP": 1150,
+            "TN": 1215,
+            "FN": 249
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.7264437689969605,
+            "balanced_accuracy": 0.5704519741729044,
+            "precision": 0.5336927223719676,
+            "recall": 0.21405405405405406,
+            "f1": 0.3055555555555556,
+            "pr_auc": 0.4603972810661012,
+            "roc_auc": 0.6764386035083709,
+            "mcc": 0.2002652510957865,
+            "brier": 0.1877820707724581,
+            "ece": 0.051471077041649535
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.18,
+            "accuracy": 0.5747720364741641,
+            "balanced_accuracy": 0.6222764413462087,
+            "precision": 0.3702081051478642,
+            "recall": 0.7308108108108108,
+            "f1": 0.4914576517629953,
+            "pr_auc": 0.4603972810661012,
+            "roc_auc": 0.6764386035083709,
+            "mcc": 0.22122708680006467,
+            "brier": 0.1877820707724581,
+            "ece": 0.051471077041649535
+          }
+        },
+        "org.apache:httpcore": {
+          "total_commits": 3604,
+          "defect_commits": 493,
+          "prevalence": 0.13679245283018868,
+          "confusion_matrix_at_050": {
+            "TP": 47,
+            "FP": 57,
+            "TN": 3054,
+            "FN": 446
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 186,
+            "FP": 538,
+            "TN": 2573,
+            "FN": 307
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8604328523862376,
+            "balanced_accuracy": 0.538506301333422,
+            "precision": 0.4519230769230769,
+            "recall": 0.09533468559837728,
+            "f1": 0.1574539363484087,
+            "pr_auc": 0.263700747043116,
+            "roc_auc": 0.6656860463069276,
+            "mcc": 0.1580827834371042,
+            "brier": 0.11471981675837922,
+            "ece": 0.039840027200153796
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.18,
+            "accuracy": 0.7655382907880133,
+            "balanced_accuracy": 0.6021735997960518,
+            "precision": 0.2569060773480663,
+            "recall": 0.3772819472616633,
+            "f1": 0.3056696795398521,
+            "pr_auc": 0.263700747043116,
+            "roc_auc": 0.6656860463069276,
+            "mcc": 0.17525750659775305,
+            "brier": 0.11471981675837922,
+            "ece": 0.039840027200153796
+          }
+        }
+      }
+    },
+    "CHURN-BASE__HistGradientBoosting": {
+      "config_id": "CHURN-BASE__HistGradientBoosting",
+      "model_name": "HistGradientBoosting",
+      "feature_subset": "CHURN-BASE",
+      "frozen_training_threshold": 0.19,
+      "aggregate_metrics_at_050": {
+        "threshold": 0.5,
+        "accuracy": 0.8794219801895288,
+        "balanced_accuracy": 0.5044993645221812,
+        "precision": 0.5957446808510638,
+        "recall": 0.009925558312655087,
+        "f1": 0.019525801952580194,
+        "pr_auc": 0.31636259924119425,
+        "roc_auc": 0.7529269503116867,
+        "mcc": 0.06542974155623801,
+        "brier": 0.09496137833878192,
+        "ece": 0.0031028078096531136
+      },
+      "aggregate_metrics_at_tau_star": {
+        "threshold": 0.19,
+        "accuracy": 0.8210196818318254,
+        "balanced_accuracy": 0.6493522795064888,
+        "precision": 0.31906926985825085,
+        "recall": 0.4228996809641971,
+        "f1": 0.36371951219512194,
+        "pr_auc": 0.31636259924119425,
+        "roc_auc": 0.7529269503116867,
+        "mcc": 0.2654691559728834,
+        "brier": 0.09496137833878192,
+        "ece": 0.0031028078096531136
+      },
+      "per_project_breakdown": {
+        "org.apache:batik": {
+          "total_commits": 7015,
+          "defect_commits": 492,
+          "prevalence": 0.07013542409123308,
+          "confusion_matrix_at_050": {
+            "TP": 9,
+            "FP": 7,
+            "TN": 6516,
+            "FN": 483
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 238,
+            "FP": 873,
+            "TN": 5650,
+            "FN": 254
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9301496792587313,
+            "balanced_accuracy": 0.508609778532248,
+            "precision": 0.5625,
+            "recall": 0.018292682926829267,
+            "f1": 0.03543307086614173,
+            "pr_auc": 0.25415424692197025,
+            "roc_auc": 0.7591690877433073,
+            "mcc": 0.0921828707051556,
+            "brier": 0.06295529972937795,
+            "ece": 0.05784919406387452
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.19,
+            "accuracy": 0.839344262295082,
+            "balanced_accuracy": 0.6749528559979758,
+            "precision": 0.21422142214221424,
+            "recall": 0.483739837398374,
+            "f1": 0.29694323144104806,
+            "pr_auc": 0.25415424692197025,
+            "roc_auc": 0.7591690877433073,
+            "mcc": 0.2447524618710392,
+            "brier": 0.06295529972937795,
+            "ece": 0.05784919406387452
+          }
+        },
+        "org.apache:codec": {
+          "total_commits": 2144,
+          "defect_commits": 279,
+          "prevalence": 0.13013059701492538,
+          "confusion_matrix_at_050": {
+            "TP": 0,
+            "FP": 0,
+            "TN": 1865,
+            "FN": 279
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 79,
+            "FP": 132,
+            "TN": 1733,
+            "FN": 200
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8698694029850746,
+            "balanced_accuracy": 0.5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.3188389843806637,
+            "roc_auc": 0.7574120518512112,
+            "mcc": 0.0,
+            "brier": 0.10378627389550472,
+            "ece": 0.037161539204636565
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.19,
+            "accuracy": 0.8451492537313433,
+            "balanced_accuracy": 0.606188320985519,
+            "precision": 0.3744075829383886,
+            "recall": 0.2831541218637993,
+            "f1": 0.3224489795918367,
+            "pr_auc": 0.3188389843806637,
+            "roc_auc": 0.7574120518512112,
+            "mcc": 0.2398783841113449,
+            "brier": 0.10378627389550472,
+            "ece": 0.037161539204636565
+          }
+        },
+        "org.apache:commons-exec": {
+          "total_commits": 700,
+          "defect_commits": 0,
+          "prevalence": 0.0,
+          "confusion_matrix_at_050": {
+            "TP": 0,
+            "FP": 0,
+            "TN": 700,
+            "FN": 0
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 0,
+            "FP": 12,
+            "TN": 688,
+            "FN": 0
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 1.0,
+            "balanced_accuracy": 1.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.0,
+            "roc_auc": 0.5,
+            "mcc": 0.0,
+            "brier": 0.007794651156883414,
+            "ece": 0.07390831038760608
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.19,
+            "accuracy": 0.9828571428571429,
+            "balanced_accuracy": 0.9828571428571429,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.0,
+            "roc_auc": 0.5,
+            "mcc": 0.0,
+            "brier": 0.007794651156883414,
+            "ece": 0.07390831038760608
+          }
+        },
+        "org.apache:commons-fileupload": {
+          "total_commits": 1180,
+          "defect_commits": 119,
+          "prevalence": 0.10084745762711865,
+          "confusion_matrix_at_050": {
+            "TP": 2,
+            "FP": 0,
+            "TN": 1061,
+            "FN": 117
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 29,
+            "FP": 53,
+            "TN": 1008,
+            "FN": 90
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9008474576271186,
+            "balanced_accuracy": 0.5084033613445378,
+            "precision": 1.0,
+            "recall": 0.01680672268907563,
+            "f1": 0.03305785123966942,
+            "pr_auc": 0.3082989381041017,
+            "roc_auc": 0.78089482729944,
+            "mcc": 0.12303440231798174,
+            "brier": 0.08160425706600095,
+            "ece": 0.021108036069433952
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.19,
+            "accuracy": 0.8788135593220339,
+            "balanced_accuracy": 0.5968723021725184,
+            "precision": 0.35365853658536583,
+            "recall": 0.24369747899159663,
+            "f1": 0.2885572139303483,
+            "pr_auc": 0.3082989381041017,
+            "roc_auc": 0.78089482729944,
+            "mcc": 0.22943131427464972,
+            "brier": 0.08160425706600095,
+            "ece": 0.021108036069433952
+          }
+        },
+        "org.apache:commons-jelly": {
+          "total_commits": 1945,
+          "defect_commits": 208,
+          "prevalence": 0.10694087403598972,
+          "confusion_matrix_at_050": {
+            "TP": 0,
+            "FP": 0,
+            "TN": 1737,
+            "FN": 208
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 80,
+            "FP": 234,
+            "TN": 1503,
+            "FN": 128
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8930591259640103,
+            "balanced_accuracy": 0.5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.2638855269230933,
+            "roc_auc": 0.7483282405562199,
+            "mcc": 0.0,
+            "brier": 0.08772261359963157,
+            "ece": 0.012873442328638313
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.19,
+            "accuracy": 0.8138817480719794,
+            "balanced_accuracy": 0.6249501793543244,
+            "precision": 0.25477707006369427,
+            "recall": 0.38461538461538464,
+            "f1": 0.3065134099616858,
+            "pr_auc": 0.2638855269230933,
+            "roc_auc": 0.7483282405562199,
+            "mcc": 0.2098972031281326,
+            "brier": 0.08772261359963157,
+            "ece": 0.012873442328638313
+          }
+        },
+        "org.apache:daemon": {
+          "total_commits": 1251,
+          "defect_commits": 193,
+          "prevalence": 0.1542765787370104,
+          "confusion_matrix_at_050": {
+            "TP": 0,
+            "FP": 0,
+            "TN": 1058,
+            "FN": 193
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 18,
+            "FP": 49,
+            "TN": 1009,
+            "FN": 175
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8457234212629896,
+            "balanced_accuracy": 0.5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "pr_auc": 0.27991274411080636,
+            "roc_auc": 0.7347865265384879,
+            "mcc": 0.0,
+            "brier": 0.1276858330169236,
+            "ece": 0.07559412209232258
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.19,
+            "accuracy": 0.820943245403677,
+            "balanced_accuracy": 0.5234752245413675,
+            "precision": 0.26865671641791045,
+            "recall": 0.09326424870466321,
+            "f1": 0.13846153846153847,
+            "pr_auc": 0.27991274411080636,
+            "roc_auc": 0.7347865265384879,
+            "mcc": 0.07532653430782017,
+            "brier": 0.1276858330169236,
+            "ece": 0.07559412209232258
+          }
+        },
+        "org.apache:digester": {
+          "total_commits": 2192,
+          "defect_commits": 112,
+          "prevalence": 0.051094890510948905,
+          "confusion_matrix_at_050": {
+            "TP": 1,
+            "FP": 0,
+            "TN": 2080,
+            "FN": 111
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 37,
+            "FP": 118,
+            "TN": 1962,
+            "FN": 75
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.9493613138686131,
+            "balanced_accuracy": 0.5044642857142857,
+            "precision": 1.0,
+            "recall": 0.008928571428571428,
+            "f1": 0.017699115044247787,
+            "pr_auc": 0.19843789167656276,
+            "roc_auc": 0.7880773523351648,
+            "mcc": 0.09206646481785241,
+            "brier": 0.046819243676648394,
+            "ece": 0.04201869513468965
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.19,
+            "accuracy": 0.9119525547445255,
+            "balanced_accuracy": 0.6368131868131868,
+            "precision": 0.23870967741935484,
+            "recall": 0.33035714285714285,
+            "f1": 0.27715355805243447,
+            "pr_auc": 0.19843789167656276,
+            "roc_auc": 0.7880773523351648,
+            "mcc": 0.2350375600465794,
+            "brier": 0.046819243676648394,
+            "ece": 0.04201869513468965
+          }
+        },
+        "org.apache:httpclient": {
+          "total_commits": 3290,
+          "defect_commits": 925,
+          "prevalence": 0.2811550151975684,
+          "confusion_matrix_at_050": {
+            "TP": 7,
+            "FP": 4,
+            "TN": 2361,
+            "FN": 918
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 441,
+            "FP": 424,
+            "TN": 1941,
+            "FN": 484
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.7197568389057751,
+            "balanced_accuracy": 0.5029381178218387,
+            "precision": 0.6363636363636364,
+            "recall": 0.0075675675675675675,
+            "f1": 0.014957264957264958,
+            "pr_auc": 0.5164110920495535,
+            "roc_auc": 0.7530897662990685,
+            "mcc": 0.04576343247512535,
+            "brier": 0.193622355007495,
+            "ece": 0.13591246559416997
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.19,
+            "accuracy": 0.7240121580547112,
+            "balanced_accuracy": 0.648737786412205,
+            "precision": 0.5098265895953757,
+            "recall": 0.47675675675675677,
+            "f1": 0.49273743016759775,
+            "pr_auc": 0.5164110920495535,
+            "roc_auc": 0.7530897662990685,
+            "mcc": 0.3037902443387984,
+            "brier": 0.193622355007495,
+            "ece": 0.13591246559416997
+          }
+        },
+        "org.apache:httpcore": {
+          "total_commits": 3604,
+          "defect_commits": 493,
+          "prevalence": 0.13679245283018868,
+          "confusion_matrix_at_050": {
+            "TP": 9,
+            "FP": 8,
+            "TN": 3103,
+            "FN": 484
+          },
+          "confusion_matrix_at_tau_star": {
+            "TP": 271,
+            "FP": 651,
+            "TN": 2460,
+            "FN": 222
+          },
+          "metrics_at_050": {
+            "threshold": 0.5,
+            "accuracy": 0.8634850166481687,
+            "balanced_accuracy": 0.5078420288409315,
+            "precision": 0.5294117647058824,
+            "recall": 0.018255578093306288,
+            "f1": 0.03529411764705882,
+            "pr_auc": 0.3463869732571574,
+            "roc_auc": 0.7519825939886147,
+            "mcc": 0.07865779124622459,
+            "brier": 0.10507631398117592,
+            "ece": 0.017661655543502967
+          },
+          "metrics_at_tau_star": {
+            "threshold": 0.19,
+            "accuracy": 0.7577691453940066,
+            "balanced_accuracy": 0.6702191334419579,
+            "precision": 0.29392624728850325,
+            "recall": 0.5496957403651116,
+            "f1": 0.38303886925795055,
+            "pr_auc": 0.3463869732571574,
+            "roc_auc": 0.7519825939886147,
+            "mcc": 0.26811245469054795,
+            "brier": 0.10507631398117592,
+            "ece": 0.017661655543502967
+          }
+        }
+      }
+    }
+  },
+  "stage5_statistical_analysis": {
+    "sample_size_projects": 9,
+    "test_name": "Paired Wilcoxon Signed-Rank Test (Two-Sided)",
+    "pr_auc": {
+      "mean_top": 0.34470012852868537,
+      "mean_base": 0.27625848860265656,
+      "mean_diff": 0.06844163992602884,
+      "W_statistic": 3.0,
+      "p_value": 0.0390625,
+      "rank_biserial_r": 0.8181818181818182
+    },
+    "roc_auc": {
+      "mean_top": 0.7617549112724125,
+      "mean_base": 0.7304156051790572,
+      "mean_diff": 0.03133930609335525,
+      "W_statistic": 7.0,
+      "p_value": 0.1484375,
+      "rank_biserial_r": 0.6363636363636364
+    },
+    "f1": {
+      "mean_top": 0.3427059608619965,
+      "mean_base": 0.27842824787382664,
+      "mean_diff": 0.06427771298816985,
+      "W_statistic": 5.0,
+      "p_value": 0.078125,
+      "rank_biserial_r": 0.7272727272727273
+    }
+  },
+  "stage5_heterogeneity_diagnosis": {
+    "correlation_prevalence_vs_f1": 0.8444567036164101,
+    "correlation_prevalence_vs_precision": 0.7592817600556007,
+    "correlation_prevalence_vs_recall": 0.7612270120778336,
+    "highest_f1_project": "org.apache:httpclient",
+    "lowest_f1_project": "org.apache:commons-exec"
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "phase": "Phase 3A: Advanced Target-Project Prevalence Adaptation",
+  "source_model": {
+    "architecture": "SUB-1__XGBoost",
+    "feature_subset": "SUB-1",
+    "feature_dimensions": 43,
+    "source_training_prevalence": 0.11139409938465543,
+    "source_frozen_threshold_f1": 0.170,
+    "source_frozen_threshold_mcc": 0.180,
+    "source_training_tpr_at_tau": 0.6618,
+    "source_training_fpr_at_tau": 0.1650
+  },
+  "quarantined_test_projects": [
+    "org.apache:archiva",
+    "org.apache:collections",
+    "org.apache:commons-cli",
+    "org.apache:dbcp",
+    "org.apache:santuario",
+    "org.apache:validator"
+  ],
+  "validation_projects": [
+    "org.apache:batik",
+    "org.apache:codec",
+    "org.apache:commons-exec",
+    "org.apache:commons-fileupload",
+    "org.apache:commons-jelly",
+    "org.apache:daemon",
+    "org.apache:digester",
+    "org.apache:httpclient",
+    "org.apache:httpcore"
+  ],
+  "pilot_projects": [
+    "org.apache:batik",
+    "org.apache:digester",
+    "org.apache:httpclient"
+  ],
+  "temporal_constraints": {
+    "defect_feedback_delay_days": 90.0,
+    "defect_feedback_delay_nanos": 7776000000000000,
+    "velocity_window_days": 30.0,
+    "bayes_smoothing_pseudo_weights": [10.0, 20.0],
+    "default_bayes_pseudo_weight": 10.0
+  },
+  "candidate_burn_in_sizes": [25, 50, 100, 200, 500],
+  "methods": [
+    {
+      "id": "A0",
+      "name": "Frozen Source Model (Default Threshold)",
+      "scenario": "Baseline",
+      "target_labels_required": 0,
+      "requires_burn_in": false,
+      "description": "Unadapted source probabilities evaluated at default threshold 0.50 on the post-burn-in window."
+    },
+    {
+      "id": "A1",
+      "name": "Frozen Source Model (Training-Derived Threshold)",
+      "scenario": "Operational Baseline",
+      "target_labels_required": 0,
+      "requires_burn_in": false,
+      "description": "Unadapted source probabilities evaluated at frozen training-derived threshold tau*=0.170 on the post-burn-in window."
+    },
+    {
+      "id": "A2",
+      "name": "Source Prior Reference (Null Adaptation)",
+      "scenario": "Baseline Reference",
+      "target_labels_required": 0,
+      "requires_burn_in": false,
+      "description": "Logit adjustment using source training prevalence pi_source as target prevalence (identity transformation for validation)."
+    },
+    {
+      "id": "A3-Soft",
+      "name": "Unlabeled Target Soft Mean Adaptation",
+      "scenario": "Scenario A: Zero Labels",
+      "target_labels_required": 0,
+      "requires_burn_in": false,
+      "description": "Log-odds prior adjustment using unadjusted average of target prediction probabilities: pi_hat = mean(p_i)."
+    },
+    {
+      "id": "A3-BBSE",
+      "name": "Black Box Shift Estimation (BBSE / Adjusted Count)",
+      "scenario": "Scenario A: Zero Labels",
+      "target_labels_required": 0,
+      "requires_burn_in": false,
+      "description": "Inversion of source confusion matrix: pi_hat = clip((mu_target - FPR_source) / (TPR_source - FPR_source), 0.001, 0.999)."
+    },
+    {
+      "id": "A3-EM",
+      "name": "Saerens Expectation-Maximization Prior Shift",
+      "scenario": "Scenario A: Zero Labels",
+      "target_labels_required": 0,
+      "requires_burn_in": false,
+      "description": "Iterative EM algorithm estimating target class prior distribution from unlabeled target score distribution under P(X|Y) invariance."
+    },
+    {
+      "id": "B1",
+      "name": "Bayesian Burn-in Adaptation (K=25)",
+      "scenario": "Scenario B: Limited Early Labels",
+      "target_labels_required": 25,
+      "burn_in_commits": 25,
+      "requires_burn_in": true,
+      "description": "Chronological first 25 commits; 90d defect maturation queue; Bayesian Beta-Binomial smoothed prevalence (M=10) with log-odds adjustment."
+    },
+    {
+      "id": "B2",
+      "name": "Bayesian Burn-in Adaptation (K=50)",
+      "scenario": "Scenario B: Limited Early Labels",
+      "target_labels_required": 50,
+      "burn_in_commits": 50,
+      "requires_burn_in": true,
+      "description": "Chronological first 50 commits; 90d defect maturation queue; Bayesian Beta-Binomial smoothed prevalence (M=10) with log-odds adjustment."
+    },
+    {
+      "id": "B3",
+      "name": "Bayesian Burn-in Adaptation (K=100)",
+      "scenario": "Scenario B: Limited Early Labels",
+      "target_labels_required": 100,
+      "burn_in_commits": 100,
+      "requires_burn_in": true,
+      "description": "Chronological first 100 commits; 90d defect maturation queue; Bayesian Beta-Binomial smoothed prevalence (M=10) with log-odds adjustment."
+    },
+    {
+      "id": "B4",
+      "name": "Bayesian Burn-in Adaptation (K=200)",
+      "scenario": "Scenario B: Limited Early Labels",
+      "target_labels_required": 200,
+      "burn_in_commits": 200,
+      "requires_burn_in": true,
+      "description": "Chronological first 200 commits; 90d defect maturation queue; Bayesian Beta-Binomial smoothed prevalence (M=10) with log-odds adjustment."
+    },
+    {
+      "id": "B5",
+      "name": "Bayesian Burn-in Adaptation (K=500)",
+      "scenario": "Scenario B: Limited Early Labels",
+      "target_labels_required": 500,
+      "burn_in_commits": 500,
+      "requires_burn_in": true,
+      "description": "Chronological first 500 commits; 90d defect maturation queue; Bayesian Beta-Binomial smoothed prevalence (M=10) with log-odds adjustment."
+    },
+    {
+      "id": "B-Platt",
+      "name": "Burn-in Platt Scaling Calibration",
+      "scenario": "Scenario B: Limited Early Labels",
+      "target_labels_required": 100,
+      "burn_in_commits": 100,
+      "requires_burn_in": true,
+      "description": "2-parameter logistic calibration sigma(a * logit(p) + b) fit on matured burn-in labels."
+    },
+    {
+      "id": "B-Thresh",
+      "name": "Burn-in Threshold Adaptation",
+      "scenario": "Scenario B: Limited Early Labels",
+      "target_labels_required": 100,
+      "burn_in_commits": 100,
+      "requires_burn_in": true,
+      "description": "Threshold optimized directly on matured burn-in sample and applied frozen to post-burn-in commits."
+    },
+    {
+      "id": "C1",
+      "name": "Delayed Online Sequential Adaptation",
+      "scenario": "Scenario C: Delayed Online Adaptation",
+      "target_labels_required": "Sequential Online",
+      "requires_burn_in": false,
+      "description": "Causal online queue: at each prediction timestamp T_t, update Bayesian prevalence estimate using all prior commits j < t with T_j + 90d <= T_t."
+    }
+  ],
+  "computational_cost_estimate": {
+    "pilot_projects_count": 3,
+    "pilot_estimated_seconds": 15.0,
+    "full_benchmark_projects_count": 9,
+    "full_benchmark_estimated_seconds": 65.0,
+    "peak_memory_mb": 420.0
+  }
+}

@@ -1,0 +1,638 @@
+{
+  "CSIQ": {
+    "task": "Class-level God Class Detection",
+    "samples": {
+      "train": 133464,
+      "val": 28592,
+      "test": 28591
+    },
+    "features": [
+      "CBO",
+      "RFC",
+      "SRFC",
+      "DIT",
+      "NOC",
+      "WMC",
+      "LOC",
+      "CMLOC",
+      "NOF",
+      "NOSF",
+      "NOM",
+      "NOSM",
+      "NORM",
+      "LCOM",
+      "LCAM",
+      "LTCC",
+      "ATFD",
+      "SI"
+    ],
+    "feature_importances": [
+      [
+        "LOC",
+        0.3666920980908345
+      ],
+      [
+        "WMC",
+        0.13968355897598494
+      ],
+      [
+        "CMLOC",
+        0.08710029417495224
+      ],
+      [
+        "SRFC",
+        0.050149161903967704
+      ],
+      [
+        "LCOM",
+        0.04408124639646572
+      ],
+      [
+        "RFC",
+        0.0407873159671947
+      ],
+      [
+        "NOM",
+        0.039422684854760935
+      ],
+      [
+        "DIT",
+        0.03677519660278719
+      ],
+      [
+        "LCAM",
+        0.036756298862165186
+      ],
+      [
+        "CBO",
+        0.036049518384161344
+      ],
+      [
+        "LTCC",
+        0.03463569179298238
+      ],
+      [
+        "NOF",
+        0.028417610213954107
+      ],
+      [
+        "NOSF",
+        0.01801904466837592
+      ],
+      [
+        "NOSM",
+        0.014834857033579974
+      ],
+      [
+        "NOC",
+        0.009649741949756149
+      ],
+      [
+        "ATFD",
+        0.00717593085700608
+      ],
+      [
+        "SI",
+        0.005997404250140222
+      ],
+      [
+        "NORM",
+        0.003772345020930894
+      ]
+    ],
+    "models": {
+      "MajorityBaseline": {
+        "accuracy": 0.8289321814557028,
+        "balanced_accuracy": 0.5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "pr_auc": 0.0,
+        "confusion_matrix": [
+          [
+            23700,
+            0
+          ],
+          [
+            4891,
+            0
+          ]
+        ]
+      },
+      "LogisticRegression": {
+        "accuracy": 0.7332027561120632,
+        "balanced_accuracy": 0.581884758624081,
+        "precision": 0.27852403301505096,
+        "recall": 0.35187078307094666,
+        "f1": 0.3109304426377597,
+        "pr_auc": 0.33445160053341616,
+        "confusion_matrix": [
+          [
+            19242,
+            4458
+          ],
+          [
+            3170,
+            1721
+          ]
+        ]
+      },
+      "RandomForest": {
+        "accuracy": 0.8301913189465217,
+        "balanced_accuracy": 0.5923569986033074,
+        "precision": 0.508100810081008,
+        "recall": 0.23083214066653035,
+        "f1": 0.3174469281597076,
+        "pr_auc": 0.3603966929804716,
+        "confusion_matrix": [
+          [
+            22607,
+            1093
+          ],
+          [
+            3762,
+            1129
+          ]
+        ]
+      }
+    }
+  },
+  "multi-smell": {
+    "task": "Multi-Label Code Smell Detection",
+    "samples": {
+      "train": 65443,
+      "val": 14600,
+      "test": 14668
+    },
+    "split_percentages": {
+      "train": "69.10%",
+      "val": "15.42%",
+      "test": "15.49%"
+    },
+    "features": [
+      "Logical Lines",
+      "Distinct Operators",
+      "Distinct Operands",
+      "Total Operators",
+      "Total Operands",
+      "Vocabulary",
+      "Length",
+      "Calculated Length",
+      "Volume",
+      "Difficulty",
+      "Effort",
+      "Time Required",
+      "Bugs",
+      "Cyclomatic Complexity"
+    ],
+    "targets": [
+      "God class",
+      "Data class",
+      "Feature envy",
+      "Long method"
+    ],
+    "models": {
+      "BinaryRelevanceLogisticRegression": {
+        "hamming_loss": 0.33438437414780475,
+        "subset_accuracy": 0.3713526043086992,
+        "macro_f1": 0.12927545984548827,
+        "per_label": {
+          "God class": {
+            "precision": 0.21622670807453417,
+            "recall": 0.9620034542314335,
+            "f1": 0.3530903328050713,
+            "confusion_matrix": [
+              [
+                12070,
+                2019
+              ],
+              [
+                22,
+                557
+              ]
+            ]
+          },
+          "Data class": {
+            "precision": 0.05357444651005577,
+            "recall": 0.7254004576659039,
+            "f1": 0.09977966635190431,
+            "confusion_matrix": [
+              [
+                8631,
+                5600
+              ],
+              [
+                120,
+                317
+              ]
+            ]
+          },
+          "Feature envy": {
+            "precision": 0.020102105934907466,
+            "recall": 0.7283236994219653,
+            "f1": 0.03912435957149511,
+            "confusion_matrix": [
+              [
+                8353,
+                6142
+              ],
+              [
+                47,
+                126
+              ]
+            ]
+          },
+          "Long method": {
+            "precision": 0.012831780629284584,
+            "recall": 0.5793650793650794,
+            "f1": 0.025107480653482374,
+            "confusion_matrix": [
+              [
+                8926,
+                5616
+              ],
+              [
+                53,
+                73
+              ]
+            ]
+          }
+        }
+      },
+      "MultiOutputRandomForest": {
+        "hamming_loss": 0.15235546768475594,
+        "subset_accuracy": 0.5626533951458959,
+        "macro_f1": 0.1858091604600594,
+        "per_label": {
+          "God class": {
+            "precision": 0.25827505827505826,
+            "recall": 0.9568221070811744,
+            "f1": 0.4067547723935389,
+            "confusion_matrix": [
+              [
+                12498,
+                1591
+              ],
+              [
+                25,
+                554
+              ]
+            ]
+          },
+          "Data class": {
+            "precision": 0.09121621621621621,
+            "recall": 0.8649885583524027,
+            "f1": 0.1650294695481336,
+            "confusion_matrix": [
+              [
+                10465,
+                3766
+              ],
+              [
+                59,
+                378
+              ]
+            ]
+          },
+          "Feature envy": {
+            "precision": 0.04679376083188908,
+            "recall": 0.4682080924855491,
+            "f1": 0.08508403361344538,
+            "confusion_matrix": [
+              [
+                12845,
+                1650
+              ],
+              [
+                92,
+                81
+              ]
+            ]
+          },
+          "Long method": {
+            "precision": 0.04621380846325167,
+            "recall": 0.6587301587301587,
+            "f1": 0.08636836628511967,
+            "confusion_matrix": [
+              [
+                12829,
+                1713
+              ],
+              [
+                43,
+                83
+              ]
+            ]
+          }
+        }
+      }
+    }
+  },
+  "smells": {
+    "task": "Architectural Dependency Smell Classification",
+    "samples": {
+      "train": 308005,
+      "val": 66001,
+      "test": 66001
+    },
+    "features": [
+      "numOfEdges",
+      "nPackages",
+      "nClasses",
+      "pageRankAvrg",
+      "pageRankMax",
+      "pageRankWeighted",
+      "overlapRatio",
+      "size",
+      "age"
+    ],
+    "classes": [
+      "cyclicDep",
+      "unstableDep",
+      "hubLikeDep"
+    ],
+    "safeguard_note": "Evaluates cross-smell lineage generalization within 14 projects across versions. Projects overlap across splits.",
+    "feature_importances": [
+      [
+        "pageRankWeighted",
+        0.23601048745105824
+      ],
+      [
+        "size",
+        0.21737359425807046
+      ],
+      [
+        "numOfEdges",
+        0.19869679407719806
+      ],
+      [
+        "overlapRatio",
+        0.11645480098844364
+      ],
+      [
+        "age",
+        0.09060521527234192
+      ],
+      [
+        "pageRankAvrg",
+        0.056536362084132284
+      ],
+      [
+        "pageRankMax",
+        0.03649712565909815
+      ],
+      [
+        "nClasses",
+        0.028228277544480065
+      ],
+      [
+        "nPackages",
+        0.01959734266517713
+      ]
+    ],
+    "models": {
+      "LogisticRegression": {
+        "accuracy": 0.9690913774033727,
+        "balanced_accuracy": 0.9762405145117988,
+        "macro_f1": 0.8966258937692849,
+        "weighted_f1": 0.9729625688007973,
+        "confusion_matrix": [
+          [
+            60913,
+            2024,
+            3
+          ],
+          [
+            1,
+            2750,
+            0
+          ],
+          [
+            12,
+            0,
+            298
+          ]
+        ],
+        "per_class": {
+          "cyclicDep": {
+            "precision": 0.9997866263992384,
+            "recall": 0.9677947251350493,
+            "f1": 0.9835305895080168
+          },
+          "unstableDep": {
+            "precision": 0.576036866359447,
+            "recall": 0.9996364958197019,
+            "f1": 0.7308970099667774
+          },
+          "hubLikeDep": {
+            "precision": 0.9900332225913622,
+            "recall": 0.9612903225806452,
+            "f1": 0.9754500818330606
+          }
+        }
+      },
+      "RandomForest": {
+        "accuracy": 0.978394266753534,
+        "balanced_accuracy": 0.9593379321156084,
+        "macro_f1": 0.9097314130435334,
+        "weighted_f1": 0.9801214967549494,
+        "confusion_matrix": [
+          [
+            61668,
+            1272,
+            0
+          ],
+          [
+            125,
+            2613,
+            13
+          ],
+          [
+            16,
+            0,
+            294
+          ]
+        ],
+        "per_class": {
+          "cyclicDep": {
+            "precision": 0.9977187788186187,
+            "recall": 0.9797902764537655,
+            "f1": 0.9886732558978428
+          },
+          "unstableDep": {
+            "precision": 0.6725868725868726,
+            "recall": 0.9498364231188658,
+            "f1": 0.7875226039783002
+          },
+          "hubLikeDep": {
+            "precision": 0.9576547231270358,
+            "recall": 0.9483870967741935,
+            "f1": 0.9529983792544571
+          }
+        }
+      }
+    }
+  },
+  "TD_dataset": {
+    "task": "Commit-Level Fault-Inducing Change Prediction (SZZ)",
+    "samples": {
+      "train": 107582,
+      "val": 23321,
+      "test": 23091
+    },
+    "test_project_count": 6,
+    "test_projects": [
+      "org.apache:archiva",
+      "org.apache:collections",
+      "org.apache:commons-cli",
+      "org.apache:dbcp",
+      "org.apache:santuario",
+      "org.apache:validator"
+    ],
+    "features": [
+      "N_FILES_CHANGED",
+      "LINES_ADDED",
+      "LINES_REMOVED",
+      "N_REFACTORINGS",
+      "N_PARENTS",
+      "IN_MAIN_BRANCH",
+      "AUTHOR_TIMEZONE"
+    ],
+    "feature_importances": [
+      [
+        "LINES_ADDED",
+        0.436467098148821
+      ],
+      [
+        "N_FILES_CHANGED",
+        0.17279786254189197
+      ],
+      [
+        "AUTHOR_TIMEZONE",
+        0.15591922538063085
+      ],
+      [
+        "N_REFACTORINGS",
+        0.11829487878762704
+      ],
+      [
+        "LINES_REMOVED",
+        0.11302154629733632
+      ],
+      [
+        "N_PARENTS",
+        0.003499388843692781
+      ],
+      [
+        "IN_MAIN_BRANCH",
+        0.0
+      ]
+    ],
+    "models": {
+      "LogisticRegression": {
+        "accuracy": 0.2234203802347235,
+        "balanced_accuracy": 0.5274243770609292,
+        "precision": 0.11510036951962449,
+        "recall": 0.9161367249602543,
+        "f1": 0.20450714222340519,
+        "pr_auc": 0.15899573983287857,
+        "confusion_matrix": [
+          [
+            2854,
+            17721
+          ],
+          [
+            211,
+            2305
+          ]
+        ]
+      },
+      "RandomForest": {
+        "accuracy": 0.6368715083798883,
+        "balanced_accuracy": 0.6839024314858779,
+        "precision": 0.19473629460106107,
+        "recall": 0.7440381558028617,
+        "f1": 0.3086816720257235,
+        "pr_auc": 0.2881997538055464,
+        "confusion_matrix": [
+          [
+            12834,
+            7741
+          ],
+          [
+            644,
+            1872
+          ]
+        ]
+      }
+    },
+    "project_wise_test_performance": {
+      "org.apache:archiva": {
+        "total_commits": 8695,
+        "fault_inducing_commits": 1297,
+        "fault_rate_pct": 14.91661874640598,
+        "accuracy": 0.6396779758481886,
+        "balanced_accuracy": 0.6900165561844112,
+        "precision": 0.25918153200419725,
+        "recall": 0.761757902852737,
+        "f1": 0.38676844783715014,
+        "pr_auc": 0.3534417128170404
+      },
+      "org.apache:collections": {
+        "total_commits": 3616,
+        "fault_inducing_commits": 319,
+        "fault_rate_pct": 8.821902654867257,
+        "accuracy": 0.6089601769911505,
+        "balanced_accuracy": 0.6666400441933058,
+        "precision": 0.1501597444089457,
+        "recall": 0.7366771159874608,
+        "f1": 0.2494692144373673,
+        "pr_auc": 0.1939049926283212
+      },
+      "org.apache:commons-cli": {
+        "total_commits": 1021,
+        "fault_inducing_commits": 101,
+        "fault_rate_pct": 9.892262487757101,
+        "accuracy": 0.7179236043095005,
+        "balanced_accuracy": 0.7421168747309514,
+        "precision": 0.22740524781341107,
+        "recall": 0.7722772277227723,
+        "f1": 0.35135135135135137,
+        "pr_auc": 0.38093016793854706
+      },
+      "org.apache:dbcp": {
+        "total_commits": 2465,
+        "fault_inducing_commits": 407,
+        "fault_rate_pct": 16.511156186612578,
+        "accuracy": 0.7643002028397566,
+        "balanced_accuracy": 0.7080548611160856,
+        "precision": 0.3724340175953079,
+        "recall": 0.6240786240786241,
+        "f1": 0.46648301193755737,
+        "pr_auc": 0.46734946632690866
+      },
+      "org.apache:santuario": {
+        "total_commits": 5746,
+        "fault_inducing_commits": 251,
+        "fault_rate_pct": 4.368256178210929,
+        "accuracy": 0.5685694396101636,
+        "balanced_accuracy": 0.7402125800709809,
+        "precision": 0.08648849294729027,
+        "recall": 0.9282868525896414,
+        "f1": 0.15823429541595926,
+        "pr_auc": 0.31331021316651025
+      },
+      "org.apache:validator": {
+        "total_commits": 1548,
+        "fault_inducing_commits": 141,
+        "fault_rate_pct": 9.108527131782946,
+        "accuracy": 0.6834625322997416,
+        "balanced_accuracy": 0.6439988507311467,
+        "precision": 0.16247582205029013,
+        "recall": 0.5957446808510638,
+        "f1": 0.2553191489361702,
+        "pr_auc": 0.16854621978582332
+      }
+    }
+  }
+}

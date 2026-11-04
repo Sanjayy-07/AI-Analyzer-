@@ -1,0 +1,103 @@
+{
+  "stage": "Stage 3, 4, 5: Model Comparison, Validation & Statistical Heterogeneity",
+  "models": [
+    {
+      "name": "HistGradientBoosting",
+      "family": "histogram_gradient_boosting",
+      "params": {"max_iter": 100, "learning_rate": 0.08, "max_leaf_nodes": 31, "random_state": 42}
+    },
+    {
+      "name": "XGBoost",
+      "family": "gradient_boosting",
+      "params": {"n_estimators": 100, "max_depth": 5, "learning_rate": 0.08, "tree_method": "hist", "n_jobs": 4, "random_state": 42}
+    },
+    {
+      "name": "ExtraTrees",
+      "family": "randomized_trees",
+      "params": {"n_estimators": 100, "min_samples_leaf": 10, "max_features": "sqrt", "n_jobs": 4, "random_state": 42}
+    },
+    {
+      "name": "RandomForest",
+      "family": "bagging_trees",
+      "params": {"n_estimators": 100, "min_samples_leaf": 10, "max_features": "sqrt", "n_jobs": 4, "random_state": 42}
+    },
+    {
+      "name": "LogisticRegression",
+      "family": "linear_l2",
+      "params": {"C": 1.0, "max_iter": 250, "random_state": 42}
+    }
+  ],
+  "candidate_subsets": [
+    {
+      "key": "SUB-1",
+      "name": "No-NLP Full Model (CH-1+2+3+5C)",
+      "channels": ["CH-1", "CH-2", "CH-3", "CH-5C"],
+      "dims": 43,
+      "rationale": "Strongest nested F1 and lowest calibration error in Stage 2 LOO analysis"
+    },
+    {
+      "key": "SUB-2",
+      "name": "Delayed Faults without Zero-Label (CH-1+2+3+5B)",
+      "channels": ["CH-1", "CH-2", "CH-3", "CH-5B"],
+      "dims": 39,
+      "rationale": "Isolates simulated 90-day defect feedback contribution"
+    },
+    {
+      "key": "SUB-3",
+      "name": "Zero-Label Experience without Delayed Faults (CH-1+2+3+5A)",
+      "channels": ["CH-1", "CH-2", "CH-3", "CH-5A"],
+      "dims": 39,
+      "rationale": "Pure causal developer activity metrics (0% defect labels)"
+    },
+    {
+      "key": "SUB-4",
+      "name": "Full Model with NLP (CH-1+2+3+4+5C)",
+      "channels": ["CH-1", "CH-2", "CH-3", "CH-4", "CH-5C"],
+      "dims": 73,
+      "rationale": "Highest ranking ROC-AUC in Stage 2"
+    },
+    {
+      "key": "SUB-5",
+      "name": "Top Isolated Drivers (CH-3 + CH-5B)",
+      "channels": ["CH-3", "CH-5B"],
+      "dims": 18,
+      "rationale": "Minimalist representation combining intent and delayed feedback"
+    },
+    {
+      "key": "SUB-6",
+      "name": "Process + Intent without Author History (CH-1+2+3)",
+      "channels": ["CH-1", "CH-2", "CH-3"],
+      "dims": 35,
+      "rationale": "Excludes author history entirely to test repository-independent generalization"
+    }
+  ],
+  "validation_projects": [
+    "org.apache:batik",
+    "org.apache:codec",
+    "org.apache:commons-exec",
+    "org.apache:commons-fileupload",
+    "org.apache:commons-jelly",
+    "org.apache:daemon",
+    "org.apache:digester",
+    "org.apache:httpclient",
+    "org.apache:httpcore"
+  ],
+  "quarantined_test_projects": [
+    "org.apache:archiva",
+    "org.apache:collections",
+    "org.apache:commons-cli",
+    "org.apache:dbcp",
+    "org.apache:santuario",
+    "org.apache:validator"
+  ],
+  "computational_cost_estimate": {
+    "total_models": 5,
+    "total_subsets": 6,
+    "total_configurations": 30,
+    "outer_cv_folds": 5,
+    "total_model_fits_stage3": 150,
+    "total_model_fits_stage4": 6,
+    "projected_runtime_minutes": 14.5,
+    "projected_peak_ram_mb": 280
+  }
+}

@@ -1,0 +1,157 @@
+{
+"sample_size_projects": 9,
+"statistical_test": "Paired Wilcoxon Signed-Rank Test (Exact Two-Sided Permutation Distribution)",
+"A1_SoftMean_vs_Baseline": {
+"macro_baseline_f1": 0.3630230553050376,
+"macro_adapted_f1": 0.33346282122665977,
+"f1_wilcoxon": {
+"sample_size_projects": 9,
+"non_zero_diff_count": 8,
+"w_plus": 9.0,
+"w_minus": 27.0,
+"W_statistic": 9.0,
+"p_value": 0.25,
+"rank_biserial_r": -0.5,
+"mean_diff": -0.02956023407837781,
+"median_diff": -0.010265081642413021,
+"wins": 3,
+"losses": 5,
+"ties": 1
+},
+"brier_wilcoxon": {
+"sample_size_projects": 9,
+"non_zero_diff_count": 9,
+"w_plus": 34.0,
+"w_minus": 11.0,
+"W_statistic": 11.0,
+"p_value": 0.203125,
+"rank_biserial_r": 0.5111111111111111,
+"mean_diff": 0.00522989298241794,
+"median_diff": 0.0013774163584805987,
+"wins": 6,
+"losses": 3,
+"ties": 0
+},
+"ece_wilcoxon": {
+"sample_size_projects": 9,
+"non_zero_diff_count": 9,
+"w_plus": 36.0,
+"w_minus": 9.0,
+"W_statistic": 9.0,
+"p_value": 0.12890625,
+"rank_biserial_r": 0.6,
+"mean_diff": 0.026244998616595405,
+"median_diff": 0.006630514281996638,
+"wins": 7,
+"losses": 2,
+"ties": 0
+}
+},
+"Burn_In_K100_Comparisons": {
+"Bayes_M10_Delay90d": {
+"macro_baseline_f1": 0.35628082557012036,
+"macro_bayes_f1": 0.31159628335517425,
+"wilcoxon": {
+"sample_size_projects": 9,
+"non_zero_diff_count": 6,
+"w_plus": 0.0,
+"w_minus": 21.0,
+"W_statistic": 0.0,
+"p_value": 0.03125,
+"rank_biserial_r": -1.0,
+"mean_diff": -0.044684542214946076,
+"median_diff": -0.020046943858976818,
+"wins": 0,
+"losses": 6,
+"ties": 3
+}
+},
+"Bayes_M20_Delay90d": {
+"macro_baseline_f1": 0.35628082557012036,
+"macro_bayes_f1": 0.3206515856071228,
+"wilcoxon": {
+"sample_size_projects": 9,
+"non_zero_diff_count": 6,
+"w_plus": 2.0,
+"w_minus": 19.0,
+"W_statistic": 2.0,
+"p_value": 0.09375,
+"rank_biserial_r": -0.8095238095238095,
+"mean_diff": -0.035629239962997494,
+"median_diff": -0.01385692899348806,
+"wins": 1,
+"losses": 5,
+"ties": 3
+}
+},
+"Bayes_M50_Delay90d": {
+"macro_baseline_f1": 0.35628082557012036,
+"macro_bayes_f1": 0.3280113573449943,
+"wilcoxon": {
+"sample_size_projects": 9,
+"non_zero_diff_count": 6,
+"w_plus": 2.0,
+"w_minus": 19.0,
+"W_statistic": 2.0,
+"p_value": 0.09375,
+"rank_biserial_r": -0.8095238095238095,
+"mean_diff": -0.02826946822512603,
+"median_diff": -0.007294648278254767,
+"wins": 1,
+"losses": 5,
+"ties": 3
+}
+},
+"Quantile_Threshold_K100": {
+"macro_baseline_precision": 0.2756770921440501,
+"macro_adapted_precision": 0.3168938420215825,
+"precision_wilcoxon": {
+"sample_size_projects": 9,
+"non_zero_diff_count": 8,
+"w_plus": 26.0,
+"w_minus": 10.0,
+"W_statistic": 10.0,
+"p_value": 0.3125,
+"rank_biserial_r": 0.4444444444444444,
+"mean_diff": 0.04121674987753238,
+"median_diff": 0.033239567013245985,
+"wins": 6,
+"losses": 2,
+"ties": 1
+},
+"macro_baseline_recall": 0.5387078854591443,
+"macro_adapted_recall": 0.4275167138741515,
+"recall_wilcoxon": {
+"sample_size_projects": 9,
+"non_zero_diff_count": 8,
+"w_plus": 8.0,
+"w_minus": 28.0,
+"W_statistic": 8.0,
+"p_value": 0.1953125,
+"rank_biserial_r": -0.5555555555555556,
+"mean_diff": -0.11119117158499282,
+"median_diff": -0.08461538461538459,
+"wins": 2,
+"losses": 6,
+"ties": 1
+},
+"macro_baseline_f1": 0.35628082557012036,
+"macro_adapted_f1": 0.3260770985269719,
+"f1_wilcoxon": {
+"sample_size_projects": 9,
+"non_zero_diff_count": 8,
+"w_plus": 5.0,
+"w_minus": 31.0,
+"W_statistic": 5.0,
+"p_value": 0.078125,
+"rank_biserial_r": -0.7222222222222222,
+"mean_diff": -0.030203727043148394,
+"median_diff": -0.0115927031925806,
+"wins": 2,
+"losses": 6,
+"ties": 1
+}
+}
+},
+"execution_time_ms": 1772
+}
