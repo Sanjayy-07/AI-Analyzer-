@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T05:56:34.639976700Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit11662857408180926645\\dup-iface",
+  "status": "CYCLE_NOT_BROKEN",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 1,
+  "sccMembers": [],
+  "selectedEdge": {
+    "from": "",
+    "to": "",
+    "costScore": 0.0
+  },
+  "extractedInterface": "",
+  "interfaceFilePath": "",
+  "affectedFiles": [],
+  "compilationPassed": false,
+  "testsPassed": false,
+  "executionDurationMs": 241,
+  "errors": ["Iterative refactoring completed but could not eliminate cycles."]
+}

@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T07:35:16.460735700Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit4397817749223326384\\test-proj-5",
+  "status": "COMPILE_FAILED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 1,
+  "sccMembers": ["com.pkg.ClassB", "com.pkg.ClassA"],
+  "selectedEdge": {
+    "from": "com.pkg.ClassB",
+    "to": "com.pkg.ClassA",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.pkg.IClassA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit4397817749223326384\\test-proj-5\\src\\main\\java\\com\\pkg\\IClassA.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit4397817749223326384\\test-proj-5\\src\\main\\java\\com\\pkg\\IClassA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit4397817749223326384\\test-proj-5\\src\\main\\java\\com\\pkg\\ClassA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit4397817749223326384\\test-proj-5\\src\\main\\java\\com\\pkg\\ClassB.java"],
+  "compilationPassed": false,
+  "testsPassed": false,
+  "executionDurationMs": 452,
+  "errors": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit4397817749223326384\\test-proj-5\\src\\main\\java\\com\\pkg\\ClassB.java:1: class, interface, enum, or record expected"]
+}

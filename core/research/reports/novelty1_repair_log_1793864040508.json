@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T07:34:00.507782100Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit13073582774850452580\\s3-s4",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.demo.NodeB", "com.demo.NodeA"],
+  "selectedEdge": {
+    "from": "com.demo.NodeA",
+    "to": "com.demo.NodeB",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.demo.INodeB",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit13073582774850452580\\s3-s4\\src\\com\\demo\\INodeB.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit13073582774850452580\\s3-s4\\src\\com\\demo\\INodeB.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit13073582774850452580\\s3-s4\\src\\com\\demo\\NodeB.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit13073582774850452580\\s3-s4\\src\\com\\demo\\NodeA.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 481,
+  "errors": []
+}

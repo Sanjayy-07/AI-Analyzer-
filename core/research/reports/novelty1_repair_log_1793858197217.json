@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T05:56:37.216695500Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit14034980358278583932\\reflection",
+  "status": "NO_CYCLES_DETECTED",
+  "initialCyclicSccCount": 0,
+  "finalCyclicSccCount": 0,
+  "sccMembers": [],
+  "selectedEdge": {
+    "from": "",
+    "to": "",
+    "costScore": 0.0
+  },
+  "extractedInterface": "",
+  "interfaceFilePath": "",
+  "affectedFiles": [],
+  "compilationPassed": false,
+  "testsPassed": false,
+  "executionDurationMs": 34,
+  "errors": []
+}

@@ -196,6 +196,25 @@ public class CycleRefactoringIntegrationTest {
         assertTrue(res.interfaceSource.contains("String normalMethod(String arg);"));
     }
 
+    @Test
+    @DisplayName("5b. Interface extraction on DTO/request object with no public methods generates marker interface")
+    public void testExtractInterfaceFromDtoWithNoPublicMethods() throws Exception {
+        Path provider = createJavaFile(tempDir, "OrderRequest.java",
+                "package com.test;\n" +
+                "public class OrderRequest {\n" +
+                "    public String orderId;\n" +
+                "    public double amount;\n" +
+                "}\n");
+
+        AstInterfaceExtractor extractor = new AstInterfaceExtractor();
+        AstInterfaceExtractor.ExtractionResult res = extractor.extractInterface(tempDir, provider, "OrderRequest");
+
+        assertNotNull(res.interfaceSource);
+        assertTrue(res.interfaceSource.contains("public interface IOrderRequest {"));
+        assertNotNull(res.classImplementsEdit);
+        assertTrue(res.classImplementsEdit.getReplacementText().contains("implements IOrderRequest"));
+    }
+
     // =========================================================================
     // 6. Field Dependency Rewriting
     // =========================================================================

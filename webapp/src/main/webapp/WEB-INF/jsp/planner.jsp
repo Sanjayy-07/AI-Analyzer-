@@ -566,14 +566,15 @@ async function loadCandidates() {
             return;
         }
 
-        list.innerHTML = json.candidates.map(c => `
+        window.currentCandidates = json.candidates || [];
+        list.innerHTML = json.candidates.map((c, idx) => `
             <div class="candidate-item">
                 <div class="op-info">
                     <span class="op-badge ${getBadgeClass(c.type)}">${esc(c.type)}</span>
                     <div class="op-title">${esc(c.description)}</div>
                     <div class="op-desc">Target: ${esc(c.targetComponent || '')} ${c.secondaryComponent ? '⇄ ' + esc(c.secondaryComponent) : ''}</div>
                 </div>
-                <button type="button" class="btn-add" onclick="addCandidateToPlan('${esc(c.type)}', '${esc(c.targetComponent)}', '${esc(c.secondaryComponent || '')}', '${esc(c.newComponent || '')}', '${esc(c.description)}')">
+                <button type="button" class="btn-add" onclick="addCandidateByIndex(${idx})">
                     + Add
                 </button>
             </div>
@@ -607,6 +608,7 @@ async function loadActivePlan() {
             return;
         }
 
+        window.currentPlanOperations = json.operations || [];
         list.innerHTML = json.operations.map((op, idx) => `
             <div class="plan-item">
                 <div style="font-family:'JetBrains Mono',monospace;color:#64748b;font-size:0.75rem;width:24px;">#${idx + 1}</div>
@@ -615,7 +617,11 @@ async function loadActivePlan() {
                     <div class="op-title">${esc(op.description)}</div>
                     <div class="op-desc">${esc(op.id)}</div>
                 </div>
-                <button type="button" class="btn-remove" onclick="removeOperation('${esc(op.id)}')">Remove</button>
+                <div style="display:flex;gap:4px;align-items:center;">
+                    ${idx > 0 ? `<button type="button" class="btn-remove" style="color:#93c5fd;border-color:rgba(59,130,246,0.3);" onclick="moveOperation(${idx}, -1)" title="Move Up">▲</button>` : ''}
+                    ${idx < json.operations.length - 1 ? `<button type="button" class="btn-remove" style="color:#93c5fd;border-color:rgba(59,130,246,0.3);" onclick="moveOperation(${idx}, 1)" title="Move Down">▼</button>` : ''}
+                    <button type="button" class="btn-remove" onclick="removeOperation('${esc(op.id)}')">Remove</button>
+                </div>
             </div>
         `).join('');
     } catch (e) {
@@ -623,13 +629,37 @@ async function loadActivePlan() {
     }
 }
 
+function addCandidateByIndex(idx) {
+    const c = window.currentCandidates && window.currentCandidates[idx];
+    if (!c || !c.type || c.type === 'undefined') return;
+    addCandidateToPlan(c.type, c.targetComponent, c.secondaryComponent || '', c.newComponent || '', c.description || '');
+}
+
+async function moveOperation(idx, direction) {
+    const ops = window.currentPlanOperations || [];
+    const targetIdx = idx + direction;
+    if (targetIdx < 0 || targetIdx >= ops.length) return;
+    const ids = ops.map(o => o.id);
+    const temp = ids[idx];
+    ids[idx] = ids[targetIdx];
+    ids[targetIdx] = temp;
+    const params = new URLSearchParams({ order: ids.join(',') });
+    await fetch(`${CTX}/api/refactor/simulation/plan/reorder`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params
+    });
+    loadActivePlan();
+}
+
 async function addCandidateToPlan(type, target, secondary, newComponent, description) {
+    if (!type || type === 'undefined') return;
     const params = new URLSearchParams({
         type: type,
-        target: target,
-        secondary: secondary,
-        newComponent: newComponent,
-        description: description
+        target: target || '',
+        secondary: secondary || '',
+        newComponent: newComponent || '',
+        description: description || ''
     });
     await fetch(`${CTX}/api/refactor/simulation/plan/operation`, {
         method: 'POST',

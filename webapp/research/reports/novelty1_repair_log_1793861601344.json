@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T06:53:21.341084400Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit11053087564021022323\\preexisting-setter",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.demo.ServiceB", "com.demo.ServiceA"],
+  "selectedEdge": {
+    "from": "com.demo.ServiceB",
+    "to": "com.demo.ServiceA",
+    "costScore": 6.2
+  },
+  "extractedInterface": "com.demo.IServiceA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit11053087564021022323\\preexisting-setter\\src\\main\\java\\com\\demo\\IServiceA.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit11053087564021022323\\preexisting-setter\\src\\main\\java\\com\\demo\\IServiceA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit11053087564021022323\\preexisting-setter\\src\\main\\java\\com\\demo\\ServiceA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit11053087564021022323\\preexisting-setter\\src\\main\\java\\com\\demo\\ServiceB.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 2970,
+  "errors": []
+}

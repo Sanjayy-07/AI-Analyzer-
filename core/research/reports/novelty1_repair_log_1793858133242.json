@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T05:55:33.240687300Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit6772493387080229247\\fig8",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.fig.WingRight", "com.fig.WingLeft", "com.fig.Hub"],
+  "selectedEdge": {
+    "from": "com.fig.Hub",
+    "to": "com.fig.WingLeft",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.fig.IWingLeft",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit6772493387080229247\\fig8\\src\\com\\fig\\IWingLeft.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit6772493387080229247\\fig8\\src\\com\\fig\\IWingLeft.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit6772493387080229247\\fig8\\src\\com\\fig\\WingLeft.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit6772493387080229247\\fig8\\src\\com\\fig\\Hub.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit6772493387080229247\\fig8\\src\\com\\fig\\IWingRight.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit6772493387080229247\\fig8\\src\\com\\fig\\WingRight.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit6772493387080229247\\fig8\\src\\com\\fig\\Hub.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 1286,
+  "errors": []
+}

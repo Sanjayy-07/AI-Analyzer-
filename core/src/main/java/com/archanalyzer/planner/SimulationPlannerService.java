@@ -110,6 +110,17 @@ public class SimulationPlannerService {
             int fanIn = graph.fanIn(v);
             int fanOut = graph.fanOut(v);
             if (fanIn >= 2 && fanOut >= 1) {
+                // Only propose interface extraction on actual classes with methods,
+                // avoiding DTOs, data request containers, enums, or records with 0 methods.
+                if (model != null) {
+                    Optional<ProjectModel.ComponentNode> nodeOpt = model.getComponent(v);
+                    if (nodeOpt.isPresent()) {
+                        ProjectModel.ComponentNode node = nodeOpt.get();
+                        if (node.getKind() != ProjectModel.ComponentNode.Kind.CLASS || node.getMethodCount() == 0) {
+                            continue;
+                        }
+                    }
+                }
                 candidates.add(RefactoringOperation.extractInterface(v, null, true));
             }
         }

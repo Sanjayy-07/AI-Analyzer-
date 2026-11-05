@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T05:48:32.490812600Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit17717592953585921052\\cycle-remains",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.demo.B", "com.demo.A"],
+  "selectedEdge": {
+    "from": "com.demo.B",
+    "to": "com.demo.A",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.demo.IA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit17717592953585921052\\cycle-remains\\src\\main\\java\\com\\demo\\IA.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit17717592953585921052\\cycle-remains\\src\\main\\java\\com\\demo\\IA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit17717592953585921052\\cycle-remains\\src\\main\\java\\com\\demo\\A.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit17717592953585921052\\cycle-remains\\src\\main\\java\\com\\demo\\B.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 1341,
+  "errors": []
+}

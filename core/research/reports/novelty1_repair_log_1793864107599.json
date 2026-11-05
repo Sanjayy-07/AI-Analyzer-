@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T07:35:07.598265100Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit10853991135463414123\\compile-fail",
+  "status": "COMPILE_FAILED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 1,
+  "sccMembers": ["com.demo.B", "com.demo.A"],
+  "selectedEdge": {
+    "from": "com.demo.B",
+    "to": "com.demo.A",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.demo.IA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit10853991135463414123\\compile-fail\\src\\main\\java\\com\\demo\\IA.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit10853991135463414123\\compile-fail\\src\\main\\java\\com\\demo\\IA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit10853991135463414123\\compile-fail\\src\\main\\java\\com\\demo\\A.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit10853991135463414123\\compile-fail\\src\\main\\java\\com\\demo\\B.java"],
+  "compilationPassed": false,
+  "testsPassed": false,
+  "executionDurationMs": 536,
+  "errors": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit10853991135463414123\\compile-fail\\src\\main\\java\\com\\demo\\B.java:1: class, interface, enum, or record expected", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit10853991135463414123\\compile-fail\\src\\main\\java\\com\\demo\\B.java:2: class, interface, enum, or record expected"]
+}

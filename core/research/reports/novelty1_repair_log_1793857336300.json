@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T05:42:16.300528100Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit13041780360342785714\\s12",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.pkg2.ServiceB", "com.pkg1.ServiceA"],
+  "selectedEdge": {
+    "from": "com.pkg2.ServiceB",
+    "to": "com.pkg1.ServiceA",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.pkg1.IServiceA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit13041780360342785714\\s12\\src\\com\\pkg1\\IServiceA.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit13041780360342785714\\s12\\src\\com\\pkg1\\IServiceA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit13041780360342785714\\s12\\src\\com\\pkg1\\ServiceA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit13041780360342785714\\s12\\src\\com\\pkg2\\ServiceB.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 632,
+  "errors": []
+}

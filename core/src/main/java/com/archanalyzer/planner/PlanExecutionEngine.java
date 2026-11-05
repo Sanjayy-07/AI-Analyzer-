@@ -7,6 +7,7 @@ import com.archanalyzer.validate.BuildValidator;
 import com.archanalyzer.validate.BuildValidator.BuildResult;
 import com.archanalyzer.validate.BuildValidator.Status;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -88,8 +89,14 @@ public class PlanExecutionEngine {
         }
 
         ChangeManifest manifest = new ChangeManifest();
+        Path baselineDir = null;
 
         try {
+            try {
+                baselineDir = Files.createTempDirectory("archanalyzer-plan-baseline-");
+                copyDirectory(projectRoot, baselineDir);
+            } catch (Exception ignored) {}
+
             Map<String, Path> classToFileMap = scanProjectClasses(projectRoot);
 
             // 2. Sequentially apply each operation's source code modifications
@@ -98,14 +105,18 @@ public class PlanExecutionEngine {
             }
 
             // 3. Compiler validation
-            BuildResult compileResult = buildValidator.compile(projectRoot, List.of());
+            BuildResult compileResult = buildValidator.compile(projectRoot, List.of(), baselineDir);
             if (compileResult.status == Status.FAIL) {
                 manifest.rollbackAll();
                 result.success = false;
                 result.rolledBack = true;
                 result.status = "COMPILE_FAILED";
                 result.compilerStatus = "FAIL";
-                result.compilerErrors.addAll(compileResult.errors);
+                if (compileResult.errors.isEmpty()) {
+                    result.compilerErrors.add("Compiler verification failed after applying refactoring operations.");
+                } else {
+                    result.compilerErrors.addAll(compileResult.errors);
+                }
                 result.message = "Compilation failed after applying refactoring operations. Changes were safely rolled back.";
                 result.durationMs = System.currentTimeMillis() - startTime;
                 return result;
@@ -152,6 +163,10 @@ public class PlanExecutionEngine {
             result.message = "Execution failed with exception. All changes were rolled back.";
             result.durationMs = System.currentTimeMillis() - startTime;
             return result;
+        } finally {
+            if (baselineDir != null) {
+                deleteDirectory(baselineDir);
+            }
         }
     }
 
@@ -289,5 +304,27 @@ public class PlanExecutionEngine {
         if (fqn == null) return "unknown";
         int dot = fqn.lastIndexOf('.');
         return dot >= 0 ? fqn.substring(dot + 1) : fqn;
+    }
+
+    private static void copyDirectory(Path source, Path target) throws IOException {
+        try (Stream<Path> stream = Files.walk(source)) {
+            for (Path src : (Iterable<Path>) stream::iterator) {
+                Path dest = target.resolve(source.relativize(src));
+                if (Files.isDirectory(src)) {
+                    Files.createDirectories(dest);
+                } else {
+                    Files.copy(src, dest);
+                }
+            }
+        }
+    }
+
+    private static void deleteDirectory(Path path) {
+        if (!Files.exists(path)) return;
+        try (Stream<Path> stream = Files.walk(path)) {
+            stream.sorted(Comparator.reverseOrder())
+                    .map(Path::toFile)
+                    .forEach(File::delete);
+        } catch (IOException ignored) {}
     }
 }

@@ -104,9 +104,9 @@ public class AstInterfaceExtractor {
             }
         }
 
-        if (methodSignatures.isEmpty()) {
-            throw new IOException("No public non-static methods found on " + targetClassSimpleName + " to extract.");
-        }
+        // If no public non-static methods are found, generate a clean marker interface
+        // so that data classes / DTOs can still participate in dependency inversion safely.
+        // The build validator will verify that callers and providers compile with the extracted interface.
 
         String interfaceName = "I" + targetClassSimpleName;
         Path interfaceFile = providerFile.getParent().resolve(interfaceName + ".java");

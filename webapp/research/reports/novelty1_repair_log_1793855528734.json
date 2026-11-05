@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T05:12:08.731964100Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\archanalyzer-upload-5920850552727775182\\work\\extracted",
+  "status": "COMPILE_FAILED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 1,
+  "sccMembers": ["com.demo.ServiceB", "com.demo.ServiceA"],
+  "selectedEdge": {
+    "from": "com.demo.ServiceB",
+    "to": "com.demo.ServiceA",
+    "costScore": 6.2
+  },
+  "extractedInterface": "com.demo.IServiceA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\archanalyzer-upload-5920850552727775182\\work\\extracted\\src\\main\\java\\com\\demo\\IServiceA.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\archanalyzer-upload-5920850552727775182\\work\\extracted\\src\\main\\java\\com\\demo\\IServiceA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\archanalyzer-upload-5920850552727775182\\work\\extracted\\src\\main\\java\\com\\demo\\ServiceA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\archanalyzer-upload-5920850552727775182\\work\\extracted\\src\\main\\java\\com\\demo\\ServiceB.java"],
+  "compilationPassed": false,
+  "testsPassed": false,
+  "executionDurationMs": 1183,
+  "errors": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\archanalyzer-upload-5920850552727775182\\work\\extracted\\src\\main\\java\\com\\demo\\ServiceB.java:17: method setA(com.demo.IServiceA) is already defined in class com.demo.ServiceB"]
+}

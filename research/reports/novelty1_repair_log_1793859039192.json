@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T06:10:39.187074100Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\archanalyzer-upload-15085017131799977357\\work\\extracted",
+  "status": "NO_CYCLES_DETECTED",
+  "initialCyclicSccCount": 0,
+  "finalCyclicSccCount": 0,
+  "sccMembers": [],
+  "selectedEdge": {
+    "from": "",
+    "to": "",
+    "costScore": 0.0
+  },
+  "extractedInterface": "",
+  "interfaceFilePath": "",
+  "affectedFiles": [],
+  "compilationPassed": false,
+  "testsPassed": false,
+  "executionDurationMs": 1045,
+  "errors": []
+}

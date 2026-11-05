@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T07:34:57.077432200Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit10465496516091038145\\analysis-workspace",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 2,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.e2e.notify.NotificationService", "com.e2e.billing.PaymentService"],
+  "selectedEdge": {
+    "from": "com.e2e.billing.PaymentService",
+    "to": "com.e2e.notify.NotificationService",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.e2e.notify.INotificationService",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit10465496516091038145\\analysis-workspace\\src\\main\\java\\com\\e2e\\notify\\INotificationService.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit10465496516091038145\\analysis-workspace\\src\\main\\java\\com\\e2e\\notify\\INotificationService.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit10465496516091038145\\analysis-workspace\\src\\main\\java\\com\\e2e\\notify\\NotificationService.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit10465496516091038145\\analysis-workspace\\src\\main\\java\\com\\e2e\\billing\\PaymentService.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit10465496516091038145\\analysis-workspace\\src\\main\\java\\com\\e2e\\inventory\\IInventoryService.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit10465496516091038145\\analysis-workspace\\src\\main\\java\\com\\e2e\\inventory\\InventoryService.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit10465496516091038145\\analysis-workspace\\src\\main\\java\\com\\e2e\\order\\OrderService.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 1021,
+  "errors": []
+}

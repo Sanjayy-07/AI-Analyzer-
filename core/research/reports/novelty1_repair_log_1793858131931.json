@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T05:55:31.930265100Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit5457815537174546858\\rollback-test",
+  "status": "COMPILE_FAILED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 1,
+  "sccMembers": ["com.demo.B", "com.demo.A"],
+  "selectedEdge": {
+    "from": "com.demo.B",
+    "to": "com.demo.A",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.demo.IA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit5457815537174546858\\rollback-test\\src\\com\\demo\\IA.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit5457815537174546858\\rollback-test\\src\\com\\demo\\IA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit5457815537174546858\\rollback-test\\src\\com\\demo\\A.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit5457815537174546858\\rollback-test\\src\\com\\demo\\B.java"],
+  "compilationPassed": false,
+  "testsPassed": false,
+  "executionDurationMs": 216,
+  "errors": ["Injected simulated compilation error"]
+}

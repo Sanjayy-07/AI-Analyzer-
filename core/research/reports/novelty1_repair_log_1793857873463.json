@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T05:51:13.457680Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit12041107202355335489\\pre-fail",
+  "status": "PREEXISTING_BUILD_FAILURE",
+  "initialCyclicSccCount": 0,
+  "finalCyclicSccCount": 0,
+  "sccMembers": [],
+  "selectedEdge": {
+    "from": "",
+    "to": "",
+    "costScore": 0.0
+  },
+  "extractedInterface": "",
+  "interfaceFilePath": "",
+  "affectedFiles": [],
+  "compilationPassed": false,
+  "testsPassed": false,
+  "executionDurationMs": 72,
+  "errors": ["Syntax errors in src/main/java/com/demo/Broken.java: Line 3: ';' expected; Line 3: ';' expected; Line 3: <identifier> expected"]
+}

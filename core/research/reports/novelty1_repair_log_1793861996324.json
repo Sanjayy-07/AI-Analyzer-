@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T06:59:56.322106900Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit13771678371963847984\\test-proj-4",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.pkg.CompB", "com.pkg.CompA"],
+  "selectedEdge": {
+    "from": "com.pkg.CompB",
+    "to": "com.pkg.CompA",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.pkg.ICompA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit13771678371963847984\\test-proj-4\\src\\main\\java\\com\\pkg\\ICompA.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit13771678371963847984\\test-proj-4\\src\\main\\java\\com\\pkg\\ICompA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit13771678371963847984\\test-proj-4\\src\\main\\java\\com\\pkg\\CompA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit13771678371963847984\\test-proj-4\\src\\main\\java\\com\\pkg\\CompB.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 597,
+  "errors": []
+}

@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T05:48:34.895351900Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit17759123221732263782\\fail-proj",
+  "status": "TEST_FAILED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 1,
+  "sccMembers": ["com.demo.B", "com.demo.A"],
+  "selectedEdge": {
+    "from": "com.demo.B",
+    "to": "com.demo.A",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.demo.IA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit17759123221732263782\\fail-proj\\src\\main\\java\\com\\demo\\IA.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit17759123221732263782\\fail-proj\\src\\main\\java\\com\\demo\\IA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit17759123221732263782\\fail-proj\\src\\main\\java\\com\\demo\\A.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit17759123221732263782\\fail-proj\\src\\main\\java\\com\\demo\\B.java"],
+  "compilationPassed": false,
+  "testsPassed": false,
+  "executionDurationMs": 1549,
+  "errors": ["Simulated Unit Test Failure"]
+}

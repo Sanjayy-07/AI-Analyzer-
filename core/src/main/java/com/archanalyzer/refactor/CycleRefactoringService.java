@@ -339,6 +339,18 @@ public class CycleRefactoringService {
                 dto.errors.add("Warning: Failed to package zip or recompute post metrics: " + e.getMessage());
             }
 
+        } else if (execResult.getStatus() == RefactoringStatus.NO_CYCLES_DETECTED) {
+            dto.success = false;
+            dto.rolledBack = false;
+            dto.status = "NO_CYCLES_DETECTED";
+            dto.compilerStatus = "PASSED";
+            dto.testSummary = "N/A";
+            dto.summary = "No circular dependencies detected. Project architecture is already cycle-free.";
+            dto.errors.add("No circular dependencies exist in the project architecture. All components form an acyclic dependency graph.");
+            if (baseline != null && baseline.metricsBefore != null) {
+                dto.architectureHealthAfter = baseline.metricsBefore.architectureHealthScore;
+                dto.dependencyScoreAfter = baseline.metricsBefore.dependencyScore;
+            }
         } else {
             dto.success = false;
             dto.rolledBack = true;
@@ -348,6 +360,19 @@ public class CycleRefactoringService {
             if (baseline != null && baseline.metricsBefore != null) {
                 dto.architectureHealthAfter = baseline.metricsBefore.architectureHealthScore;
                 dto.dependencyScoreAfter = baseline.metricsBefore.dependencyScore;
+            }
+            if (dto.errors.isEmpty()) {
+                if (execResult.getStatus() == RefactoringStatus.COMPILE_FAILED) {
+                    dto.errors.add("In-memory compiler verification failed. Proposed interface extraction or caller rewrite produced compiler errors.");
+                } else if (execResult.getStatus() == RefactoringStatus.TEST_FAILED) {
+                    dto.errors.add("Maven project tests failed post-refactoring.");
+                } else if (execResult.getStatus() == RefactoringStatus.CYCLE_NOT_BROKEN) {
+                    dto.errors.add("Refactoring did not eliminate the targeted architectural cycle.");
+                } else if (execResult.getStatus() == RefactoringStatus.PREEXISTING_BUILD_FAILURE) {
+                    dto.errors.add("Pre-existing compilation failure detected in original source files.");
+                } else {
+                    dto.errors.add(dto.summary);
+                }
             }
         }
 

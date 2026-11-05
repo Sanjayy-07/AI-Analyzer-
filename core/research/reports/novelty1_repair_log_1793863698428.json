@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T07:28:18.427636900Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit11754749802477960368\\four-node",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.demo.D", "com.demo.C", "com.demo.B", "com.demo.A"],
+  "selectedEdge": {
+    "from": "com.demo.D",
+    "to": "com.demo.A",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.demo.IA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit11754749802477960368\\four-node\\src\\com\\demo\\IA.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit11754749802477960368\\four-node\\src\\com\\demo\\IA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit11754749802477960368\\four-node\\src\\com\\demo\\A.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit11754749802477960368\\four-node\\src\\com\\demo\\D.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 485,
+  "errors": []
+}

@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T05:16:14.541604Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\archanalyzer-upload-16561909892380258674\\work\\extracted",
+  "status": "CYCLE_NOT_BROKEN",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.demo.ServiceB", "com.demo.ServiceA"],
+  "selectedEdge": {
+    "from": "com.demo.ServiceB",
+    "to": "com.demo.ServiceA",
+    "costScore": 4.7
+  },
+  "extractedInterface": "com.demo.IServiceA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\archanalyzer-upload-16561909892380258674\\work\\extracted\\src\\main\\java\\com\\demo\\IServiceA.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\archanalyzer-upload-16561909892380258674\\work\\extracted\\src\\main\\java\\com\\demo\\IServiceA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\archanalyzer-upload-16561909892380258674\\work\\extracted\\src\\main\\java\\com\\demo\\ServiceA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\archanalyzer-upload-16561909892380258674\\work\\extracted\\src\\main\\java\\com\\demo\\ServiceB.java"],
+  "compilationPassed": false,
+  "testsPassed": false,
+  "executionDurationMs": 1243,
+  "errors": ["Refactoring completed compilation but did not eliminate the architectural cycle."]
+}

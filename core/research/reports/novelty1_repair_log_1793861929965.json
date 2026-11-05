@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T06:58:49.964982500Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7611976904738509566\\three-cycles",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 3,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.c1.B", "com.c1.A"],
+  "selectedEdge": {
+    "from": "com.c1.B",
+    "to": "com.c1.A",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.c1.IA",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7611976904738509566\\three-cycles\\src\\com\\c1\\IA.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7611976904738509566\\three-cycles\\src\\com\\c1\\IA.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7611976904738509566\\three-cycles\\src\\com\\c1\\A.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7611976904738509566\\three-cycles\\src\\com\\c1\\B.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7611976904738509566\\three-cycles\\src\\com\\c2\\IC.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7611976904738509566\\three-cycles\\src\\com\\c2\\C.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7611976904738509566\\three-cycles\\src\\com\\c2\\D.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7611976904738509566\\three-cycles\\src\\com\\c3\\IE.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7611976904738509566\\three-cycles\\src\\com\\c3\\E.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit7611976904738509566\\three-cycles\\src\\com\\c3\\F.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 2123,
+  "errors": []
+}

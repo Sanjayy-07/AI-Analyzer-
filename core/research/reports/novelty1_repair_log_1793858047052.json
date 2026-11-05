@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T05:54:07.052062600Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\archanalyzer-isolated-15606708929752811696",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.demo.shop.service.NotificationService", "com.demo.shop.service.PaymentService", "com.demo.shop.service.OrderService"],
+  "selectedEdge": {
+    "from": "com.demo.shop.service.PaymentService",
+    "to": "com.demo.shop.service.NotificationService",
+    "costScore": 8.9
+  },
+  "extractedInterface": "com.demo.shop.service.INotificationService",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\archanalyzer-isolated-15606708929752811696\\src\\main\\java\\com\\demo\\shop\\service\\INotificationService.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\archanalyzer-isolated-15606708929752811696\\src\\main\\java\\com\\demo\\shop\\service\\INotificationService.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\archanalyzer-isolated-15606708929752811696\\src\\main\\java\\com\\demo\\shop\\service\\NotificationService.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\archanalyzer-isolated-15606708929752811696\\src\\main\\java\\com\\demo\\shop\\service\\PaymentService.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 1429,
+  "errors": []
+}

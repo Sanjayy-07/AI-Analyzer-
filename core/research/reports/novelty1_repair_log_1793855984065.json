@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T05:19:44.064194500Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit12643028143076815949\\adv-checked-exceptions",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.adv.Sender", "com.adv.Receiver"],
+  "selectedEdge": {
+    "from": "com.adv.Sender",
+    "to": "com.adv.Receiver",
+    "costScore": 3.9
+  },
+  "extractedInterface": "com.adv.IReceiver",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit12643028143076815949\\adv-checked-exceptions\\src\\main\\java\\com\\adv\\IReceiver.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit12643028143076815949\\adv-checked-exceptions\\src\\main\\java\\com\\adv\\IReceiver.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit12643028143076815949\\adv-checked-exceptions\\src\\main\\java\\com\\adv\\Receiver.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit12643028143076815949\\adv-checked-exceptions\\src\\main\\java\\com\\adv\\Sender.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 527,
+  "errors": []
+}

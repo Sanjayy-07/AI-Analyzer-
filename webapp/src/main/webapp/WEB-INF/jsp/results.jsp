@@ -1164,17 +1164,26 @@ function renderExecutionSuccess(res) {
 
 function renderExecutionFailure(res) {
     const container = document.getElementById('cycleModalBody');
+    const isNoCycles = res && (res.status === 'NO_CYCLES_DETECTED' || (res.errors && res.errors.some(e => e.includes('No circular dependencies'))));
+    const errorList = (res && res.errors && res.errors.length > 0)
+        ? res.errors
+        : [res && (res.summary || res.message || (res.status ? 'Refactoring status: ' + res.status : null)) || 'Automated compiler or build test verification failed. All project files were safely restored.'];
+
     let html = `
         <div style="text-align:center;margin-bottom:20px;">
-            <div style="font-size:3rem;margin-bottom:10px;">🛡️</div>
-            <h3 style="color:#fca5a5;margin:0 0 6px 0;font-size:1.2rem;">Refactoring Safely Rolled Back</h3>
-            <p style="color:#cbd5e1;font-size:0.85rem;margin:0;">The automated refactoring could not be verified by the compiler or build tests. All project source files were immediately restored to their exact pre-modification state.</p>
+            <div style="font-size:3rem;margin-bottom:10px;">${isNoCycles ? '✨' : '🛡️'}</div>
+            <h3 style="color:${isNoCycles ? '#67e8f9' : '#fca5a5'};margin:0 0 6px 0;font-size:1.2rem;">
+                ${isNoCycles ? 'No Circular Dependencies Found' : 'Refactoring Safely Rolled Back'}
+            </h3>
+            <p style="color:#cbd5e1;font-size:0.85rem;margin:0;">
+                ${isNoCycles ? 'The project architecture has 0 circular dependency cycles to break. All components are already acyclic.' : 'The automated refactoring could not be verified by the compiler or build tests. All project source files were immediately restored to their exact pre-modification state.'}
+            </p>
         </div>
 
-        <div style="background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:14px;margin-bottom:20px;">
-            <div style="font-weight:600;font-size:0.84rem;color:#fca5a5;margin-bottom:6px;">Error Details:</div>
-            <ul style="margin:0 0 0 20px;padding:0;font-size:0.78rem;color:#fca5a5;line-height:1.6;">
-                ${(res.errors || []).map(e => `<li>${esc(e)}</li>`).join('')}
+        <div style="background:${isNoCycles ? 'rgba(6,182,212,0.12)' : 'rgba(239,68,68,0.12)'};border:1px solid ${isNoCycles ? 'rgba(6,182,212,0.3)' : 'rgba(239,68,68,0.3)'};border-radius:8px;padding:14px;margin-bottom:20px;">
+            <div style="font-weight:600;font-size:0.84rem;color:${isNoCycles ? '#67e8f9' : '#fca5a5'};margin-bottom:6px;">${isNoCycles ? 'Architecture Details:' : 'Error Details:'}</div>
+            <ul style="margin:0 0 0 20px;padding:0;font-size:0.78rem;color:${isNoCycles ? '#a5f3fc' : '#fca5a5'};line-height:1.6;">
+                ${errorList.map(e => `<li>${esc(e)}</li>`).join('')}
             </ul>
         </div>
 

@@ -172,6 +172,7 @@ public class CycleRefactoringExecutor {
         if (cyclicSccs.isEmpty()) {
             result.setStatus(RefactoringStatus.NO_CYCLES_DETECTED);
             result.setFinalCyclicSccCount(0);
+            result.getErrors().add("No circular dependencies exist in the project architecture. All components form an acyclic dependency graph.");
             result.setExecutionDurationMs(System.currentTimeMillis() - startTime);
             logExecution(projectRoot, result, null);
             return result;
@@ -190,6 +191,7 @@ public class CycleRefactoringExecutor {
         // 4. Apply Graph-Aware Iterative Refactoring with Atomic Transactional Manifest Tracking
         ChangeManifest manifest = new ChangeManifest();
         result.setManifest(manifest);
+        Path baselineDir = null;
 
         ProjectModel currentModel = initialModel;
         DependencyGraph currentGraph = initialGraph;
@@ -203,6 +205,11 @@ public class CycleRefactoringExecutor {
         int iteration = 0;
 
         try {
+            try {
+                baselineDir = Files.createTempDirectory("archanalyzer-cycle-baseline-");
+                copyDirectory(projectRoot, baselineDir);
+            } catch (Exception ignored) {}
+
             while (iteration < maxIterations) {
                 // Goal check: if cycles eliminated, stop iteration
                 if (currentCyclicSccCount == 0) {
@@ -283,11 +290,15 @@ public class CycleRefactoringExecutor {
                 result.getModifiedFiles().add(callerPath);
 
                 // 5. In-Memory Compilation Verification for this step
-                BuildResult postBuild = buildValidator.compile(projectRoot, List.of());
+                BuildResult postBuild = buildValidator.compile(projectRoot, List.of(), baselineDir);
                 if (postBuild.status == Status.FAIL) {
                     manifest.rollbackAll();
                     result.setStatus(RefactoringStatus.COMPILE_FAILED);
-                    result.getErrors().addAll(postBuild.errors);
+                    if (postBuild.errors.isEmpty()) {
+                        result.getErrors().add("In-memory compiler verification failed post-refactoring.");
+                    } else {
+                        result.getErrors().addAll(postBuild.errors);
+                    }
                     result.setFinalCyclicSccCount(cyclicSccs.size());
                     result.setExecutionDurationMs(System.currentTimeMillis() - startTime);
                     logExecution(projectRoot, result, plan);
@@ -363,6 +374,10 @@ public class CycleRefactoringExecutor {
             result.setExecutionDurationMs(System.currentTimeMillis() - startTime);
             logExecution(projectRoot, result, result.getPlan());
             return result;
+        } finally {
+            if (baselineDir != null) {
+                deleteDirectory(baselineDir);
+            }
         }
     }
 

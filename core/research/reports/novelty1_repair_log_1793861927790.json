@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T06:58:47.789822500Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit1525194315041710986\\shared-edge",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.demo.NodeD", "com.demo.NodeC", "com.demo.NodeB", "com.demo.NodeA"],
+  "selectedEdge": {
+    "from": "com.demo.NodeA",
+    "to": "com.demo.NodeB",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.demo.INodeB",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit1525194315041710986\\shared-edge\\src\\com\\demo\\INodeB.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit1525194315041710986\\shared-edge\\src\\com\\demo\\INodeB.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit1525194315041710986\\shared-edge\\src\\com\\demo\\NodeB.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit1525194315041710986\\shared-edge\\src\\com\\demo\\NodeA.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 837,
+  "errors": []
+}

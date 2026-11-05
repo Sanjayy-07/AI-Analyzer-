@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-11-05T07:28:08.500975300Z",
+  "projectPath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit8843721109835887903\\s15",
+  "status": "VERIFIED",
+  "initialCyclicSccCount": 1,
+  "finalCyclicSccCount": 0,
+  "sccMembers": ["com.demo.Target", "com.demo.Caller1"],
+  "selectedEdge": {
+    "from": "com.demo.Target",
+    "to": "com.demo.Caller1",
+    "costScore": 3.7
+  },
+  "extractedInterface": "com.demo.ICaller1",
+  "interfaceFilePath": "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit8843721109835887903\\s15\\src\\com\\demo\\ICaller1.java",
+  "affectedFiles": ["C:\\Users\\Harini\\AppData\\Local\\Temp\\junit8843721109835887903\\s15\\src\\com\\demo\\ICaller1.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit8843721109835887903\\s15\\src\\com\\demo\\Caller1.java", "C:\\Users\\Harini\\AppData\\Local\\Temp\\junit8843721109835887903\\s15\\src\\com\\demo\\Target.java"],
+  "compilationPassed": true,
+  "testsPassed": true,
+  "executionDurationMs": 718,
+  "errors": []
+}
