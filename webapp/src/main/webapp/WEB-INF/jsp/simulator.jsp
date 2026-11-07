@@ -47,24 +47,6 @@
             font-family: 'Inter', system-ui, sans-serif;
         }
 
-        /* Topbar */
-        .topbar {
-            background: rgba(17,21,31,0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--sim-border);
-            padding: 14px 32px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .topbar .brand {
-            background: linear-gradient(135deg, #6366f1, #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 1.1rem;
-            font-weight: 700;
-        }
-
         /* Page Layout */
         .sim-layout {
             display: grid;
@@ -649,23 +631,18 @@
 <body>
 
 <header class="topbar">
-    <div class="brand">⚡ Java ArchAnalyzer</div>
+    <div style="display:flex;align-items:center;">
+        <a href="<%= request.getContextPath() %>/" style="text-decoration:none;"><div class="brand">⚡ Java ArchAnalyzer</div></a>
+    </div>
     <nav>
-        <a href="<%= request.getContextPath() %>/projects/upload">New Analysis</a>
-        <a href="<%= request.getContextPath() %>/dashboard" style="margin-left:24px;color:#94a3b8">Dashboard</a>
-        <a href="<%= request.getContextPath() %>/planner" style="margin-left:20px;background:rgba(99,102,241,0.15);color:#a5b4fc;border:1px solid rgba(99,102,241,0.4);padding:6px 14px;border-radius:8px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
-            🔮 Refactoring Planner
-        </a>
-        <a href="<%= request.getContextPath() %>/risk" style="margin-left:20px;background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.4);padding:6px 14px;border-radius:8px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
-            ⚠️ Risk Prediction (Novelty 3)
-        </a>
-        <a href="<%= request.getContextPath() %>/explanation" style="margin-left:20px;background:rgba(167,139,250,0.15);color:#a78bfa;border:1px solid rgba(167,139,250,0.4);padding:6px 14px;border-radius:8px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
-            🛡️ Verified Explanations (Novelty 4)
-        </a>
-        <a href="<%= request.getContextPath() %>/projects/download/report" style="margin-left:24px;color:#94a3b8">Download Report</a>
-        <a href="<%= request.getContextPath() %>/history" style="margin-left:20px;background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.4);padding:6px 14px;border-radius:8px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
-            🕒 View History
-        </a>
+        <a href="<%= request.getContextPath() %>/">Home</a>
+        <a href="<%= request.getContextPath() %>/projects/upload">Upload</a>
+        <a href="<%= request.getContextPath() %>/dashboard">Dashboard</a>
+        <a href="<%= request.getContextPath() %>/planner">🗺️ Planner</a>
+        <a href="<%= request.getContextPath() %>/risk">Risk Prediction</a>
+        <a href="<%= request.getContextPath() %>/explanation">AI Explanations</a>
+        <a href="<%= request.getContextPath() %>/simulator" class="active">What-If Simulator</a>
+        <a href="<%= request.getContextPath() %>/history">🕒 History</a>
     </nav>
 </header>
 
@@ -842,37 +819,62 @@
             </div>
 
             <div class="result-section" id="graphCompareSection">
-                <div class="result-section-header">
-                    <span class="icon">🕸</span>
-                    <h3>Before / After Dependency Graph</h3>
+                <div class="result-section-header" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                        <span class="icon">🕸</span>
+                        <h3>Before / After Dependency Graph</h3>
+                    </div>
+                    <div class="graph-tools" style="display:flex;gap:8px;flex-wrap:wrap;">
+                        <button type="button" class="btn-secondary" id="btnModeBoth" onclick="showGraphMode('both')" style="background:rgba(99,102,241,0.25);color:#c7d2fe;border:1px solid #6366f1;">Stacked (Both)</button>
+                        <button type="button" class="btn-secondary" id="btnModeProposed" onclick="showGraphMode('proposed')">Proposed only</button>
+                        <button type="button" class="btn-secondary" id="btnModeCurrent" onclick="showGraphMode('current')">Current only</button>
+                        <button type="button" class="btn-secondary" onclick="zoomSimGraphs(1)">🔍 Zoom In (+)</button>
+                        <button type="button" class="btn-secondary" onclick="zoomSimGraphs(-1)">🔍 Zoom Out (-)</button>
+                        <button type="button" class="btn-secondary" onclick="resetSimGraphs()">🔄 Reset view</button>
+                    </div>
                 </div>
                 <div class="result-section-body">
-                    <div class="graph-tools" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
-                        <button type="button" class="btn-secondary" onclick="showGraphMode('side')">Side by side</button>
-                        <button type="button" class="btn-secondary" onclick="showGraphMode('proposed')">Proposed only</button>
-                        <button type="button" class="btn-secondary" onclick="resetSimGraphs()">Reset view</button>
-                    </div>
-                    <div style="display:grid;grid-template-columns:2fr 1fr;gap:14px;align-items:start">
-                        <div>
-                            <div id="graphPair" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-                                <div>
-                                    <div style="font-size:0.75rem;color:#64748b;margin-bottom:6px">CURRENT</div>
-                                    <canvas id="graphBefore" style="width:100%;height:340px;background:#0a0d14;border:1px solid #1e2840;border-radius:10px"></canvas>
+                    <div id="graphPair" style="display:flex;flex-direction:column;gap:20px;width:100%;">
+                        <!-- 1. CURRENT -->
+                        <div id="graphBeforeWrapper" style="width:100%;">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                                <div style="font-size:0.85rem;font-weight:700;color:#94a3b8;letter-spacing:0.5px;display:flex;align-items:center;gap:6px;">
+                                    <span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#6366f1;"></span>
+                                    CURRENT ARCHITECTURE
                                 </div>
-                                <div>
-                                    <div style="font-size:0.75rem;color:#64748b;margin-bottom:6px">PROPOSED (added = green, removed = dashed red)</div>
-                                    <canvas id="graphAfter" style="width:100%;height:340px;background:#0a0d14;border:1px solid #1e2840;border-radius:10px"></canvas>
-                                </div>
+                                <span style="font-size:0.75rem;color:#64748b;">Scroll to zoom · Drag to pan · Click or hover node to inspect</span>
                             </div>
-                            <div id="edgeDelta" style="margin-top:12px;font-size:0.82rem;color:#94a3b8"></div>
+                            <canvas id="graphBefore" style="width:100%;height:480px;background:#0a0d14;border:1px solid #1e2840;border-radius:12px;cursor:grab;display:block;"></canvas>
                         </div>
-                        <aside class="node-detail" id="simNodeDetail" style="background:#0e1320;border:1px solid #1e2840;border-radius:10px;padding:16px;min-height:340px">
-                            <h4 style="margin:0 0 10px 0;font-size:0.92rem;color:#93c5fd">Component Inspector</h4>
-                            <div id="simNodeDetailContent" style="font-size:0.85rem;color:#94a3b8;line-height:1.6">
-                                Hover or click any module (circle) on the graph to inspect its architectural properties, metrics, and simulation blast-radius impact.
+
+                        <!-- 2. PROPOSED -->
+                        <div id="graphAfterWrapper" style="width:100%;">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                                <div style="font-size:0.85rem;font-weight:700;color:#38bdf8;letter-spacing:0.5px;display:flex;align-items:center;gap:6px;">
+                                    <span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#38bdf8;"></span>
+                                    PROPOSED ARCHITECTURE (added = green, removed = dashed red)
+                                </div>
+                                <span style="font-size:0.75rem;color:#64748b;">Scroll to zoom · Drag to pan · Click or hover node to inspect</span>
                             </div>
-                        </aside>
+                            <canvas id="graphAfter" style="width:100%;height:480px;background:#0a0d14;border:1px solid #1e2840;border-radius:12px;cursor:grab;display:block;"></canvas>
+                        </div>
                     </div>
+
+                    <!-- EDGE DELTA SUMMARY -->
+                    <div id="edgeDelta" style="margin-top:16px;padding:12px 16px;background:rgba(15,23,42,0.6);border:1px solid #1e2840;border-radius:10px;font-size:0.85rem;color:#94a3b8;line-height:1.6;"></div>
+
+                    <!-- 3. COMPONENT INSPECTOR (BELOW THE GRAPHS) -->
+                    <aside class="node-detail" id="simNodeDetail" style="margin-top:20px;background:#0e1320;border:1px solid #1e2840;border-radius:12px;padding:20px;width:100%;box-sizing:border-box;">
+                        <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1e2840;padding-bottom:10px;margin-bottom:14px;">
+                            <h4 style="margin:0;font-size:1rem;color:#93c5fd;display:flex;align-items:center;gap:8px;">
+                                <span>🔍</span> Component Inspector
+                            </h4>
+                            <span style="font-size:0.75rem;color:#64748b;">Updates dynamically as you click or hover nodes in either graph</span>
+                        </div>
+                        <div id="simNodeDetailContent" style="font-size:0.88rem;color:#94a3b8;line-height:1.6">
+                            Hover or click any module (circle) on the graph to inspect its architectural properties, metrics, and simulation blast-radius impact.
+                        </div>
+                    </aside>
                 </div>
             </div>
 
@@ -1450,34 +1452,34 @@ function renderSimNodeDetail(n, sim) {
     }
 
     const html = `
-        <div style="margin-bottom:12px">
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:6px">
-                <span style="font-weight:700;font-size:1.05rem;color:#f1f5f9;word-break:break-all">${escHtml(n.label || shortName(n.id))}</span>
+        <div style="margin-bottom:14px">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px">
+                <span style="font-weight:700;font-size:1.15rem;color:#f1f5f9;word-break:break-all">${escHtml(n.label || shortName(n.id))}</span>
                 ${impactBadge}
             </div>
-            <div style="font-size:0.75rem;color:#64748b;word-break:break-all">${escHtml(n.id)}</div>
+            <div style="font-size:0.78rem;color:#64748b;font-family:monospace;word-break:break-all">${escHtml(n.id)}</div>
             ${impactDesc}
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;background:rgba(255,255,255,0.02);padding:10px;border-radius:6px;border:1px solid #1e2840">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:12px;margin-bottom:14px;background:rgba(255,255,255,0.02);padding:12px 16px;border-radius:8px;border:1px solid #1e2840">
             <div>
-                <span style="color:#64748b;font-size:0.72rem;text-transform:uppercase">Type</span>
-                <div style="font-weight:600;color:#e2e8f0">${escHtml(n.kind || 'CLASS')}</div>
+                <span style="color:#64748b;font-size:0.72rem;text-transform:uppercase;font-weight:600;">Type</span>
+                <div style="font-weight:600;color:#e2e8f0;font-size:1rem;margin-top:2px;">${escHtml(n.kind || 'CLASS')}</div>
             </div>
             <div>
-                <span style="color:#64748b;font-size:0.72rem;text-transform:uppercase">Layer</span>
-                <div style="font-weight:600;color:#e2e8f0">${escHtml(n.layer || 'business')}</div>
+                <span style="color:#64748b;font-size:0.72rem;text-transform:uppercase;font-weight:600;">Layer</span>
+                <div style="font-weight:600;color:#e2e8f0;font-size:1rem;margin-top:2px;">${escHtml(n.layer || 'business')}</div>
             </div>
             <div>
-                <span style="color:#64748b;font-size:0.72rem;text-transform:uppercase">Fan-in / Fan-out</span>
-                <div style="font-weight:600;color:#e2e8f0">${n.fanIn ?? 0} / ${n.fanOut ?? 0}</div>
+                <span style="color:#64748b;font-size:0.72rem;text-transform:uppercase;font-weight:600;">Fan-in / Fan-out</span>
+                <div style="font-weight:600;color:#e2e8f0;font-size:1rem;margin-top:2px;">${n.fanIn ?? 0} / ${n.fanOut ?? 0}</div>
             </div>
             <div>
-                <span style="color:#64748b;font-size:0.72rem;text-transform:uppercase">Cycle Status</span>
-                <div style="font-weight:600;color:${n.inCycle ? '#ef4444' : '#34d399'}">${n.inCycle ? 'In cycle ⚠️' : 'None'}</div>
+                <span style="color:#64748b;font-size:0.72rem;text-transform:uppercase;font-weight:600;">Cycle Status</span>
+                <div style="font-weight:600;color:${n.inCycle ? '#ef4444' : '#34d399'};font-size:1rem;margin-top:2px;">${n.inCycle ? 'In cycle ⚠️' : 'None'}</div>
             </div>
         </div>
-        ${n.smell ? `<div style="margin-bottom:10px;padding:8px 10px;background:rgba(245,158,11,0.1);border-left:3px solid #f59e0b;border-radius:4px;font-size:0.8rem;color:#fbbf24"><strong>Smell:</strong> ${escHtml(n.smell)}<div style="color:#cbd5e1;font-size:0.75rem;margin-top:2px">${escHtml(n.smellEvidence||'')}</div></div>` : ''}
-        ${n.risk ? `<div style="font-size:0.8rem;color:#cbd5e1"><strong>ML Defect Risk:</strong> ${escHtml(n.risk)} ${n.riskConfidence ? '(' + Math.round(n.riskConfidence*100) + '%)' : ''}</div>` : ''}
+        ${n.smell ? `<div style="margin-bottom:10px;padding:10px 14px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);border-left:4px solid #f59e0b;border-radius:6px;font-size:0.85rem;color:#fcd34d"><strong>Smell:</strong> ${escHtml(n.smell)}<div style="color:#cbd5e1;font-size:0.78rem;margin-top:3px">${escHtml(n.smellEvidence||'')}</div></div>` : ''}
+        ${n.risk ? `<div style="font-size:0.85rem;color:#cbd5e1;margin-top:6px;"><strong>ML Defect Risk:</strong> <span style="font-weight:700;color:${n.risk === 'HIGH' ? '#f87171' : (n.risk === 'MEDIUM' ? '#fbbf24' : '#34d399')};">${escHtml(n.risk)}</span> ${n.riskConfidence ? '(' + Math.round(n.riskConfidence*100) + '%)' : ''}</div>` : ''}
     `;
     const container = document.getElementById('simNodeDetailContent');
     if (container) container.innerHTML = html;
@@ -1507,15 +1509,44 @@ function renderGraphs(sim) {
     const added = plan.addedDependencies || [];
     const removed = plan.removedDependencies || [];
     document.getElementById('edgeDelta').innerHTML =
-        '<strong>Added:</strong> ' + (added.map(e => escHtml(shortName(e.from)+' → '+shortName(e.to))).join(', ') || 'none')
-        + '<br><strong>Removed:</strong> ' + (removed.map(e => escHtml(shortName(e.from)+' → '+shortName(e.to))).join(', ') || 'none')
-        + '<br><strong>New components:</strong> ' + ((plan.createdComponents||[]).map(escHtml).join(', ') || 'none');
+        '<strong>Added Dependencies:</strong> ' + (added.map(e => escHtml(shortName(e.from)+' → '+shortName(e.to))).join(', ') || 'none')
+        + '<br><strong>Removed Dependencies:</strong> ' + (removed.map(e => escHtml(shortName(e.from)+' → '+shortName(e.to))).join(', ') || 'none')
+        + '<br><strong>New Components Created:</strong> ' + ((plan.createdComponents||[]).map(escHtml).join(', ') || 'none');
 }
 
 function showGraphMode(mode) {
-    const pair = document.getElementById('graphPair');
-    pair.style.gridTemplateColumns = mode === 'proposed' ? '1fr' : '1fr 1fr';
-    pair.firstElementChild.style.display = mode === 'proposed' ? 'none' : '';
+    const beforeWrap = document.getElementById('graphBeforeWrapper');
+    const afterWrap = document.getElementById('graphAfterWrapper');
+    const btnBoth = document.getElementById('btnModeBoth');
+    const btnProp = document.getElementById('btnModeProposed');
+    const btnCur = document.getElementById('btnModeCurrent');
+
+    if (btnBoth) { btnBoth.style.background = ''; btnBoth.style.color = ''; btnBoth.style.borderColor = ''; }
+    if (btnProp) { btnProp.style.background = ''; btnProp.style.color = ''; btnProp.style.borderColor = ''; }
+    if (btnCur) { btnCur.style.background = ''; btnCur.style.color = ''; btnCur.style.borderColor = ''; }
+
+    if (mode === 'proposed') {
+        if (beforeWrap) beforeWrap.style.display = 'none';
+        if (afterWrap) afterWrap.style.display = 'block';
+        if (btnProp) { btnProp.style.background = 'rgba(99,102,241,0.25)'; btnProp.style.color = '#c7d2fe'; btnProp.style.borderColor = '#6366f1'; }
+    } else if (mode === 'current') {
+        if (beforeWrap) beforeWrap.style.display = 'block';
+        if (afterWrap) afterWrap.style.display = 'none';
+        if (btnCur) { btnCur.style.background = 'rgba(99,102,241,0.25)'; btnCur.style.color = '#c7d2fe'; btnCur.style.borderColor = '#6366f1'; }
+    } else { // 'both'
+        if (beforeWrap) beforeWrap.style.display = 'block';
+        if (afterWrap) afterWrap.style.display = 'block';
+        if (btnBoth) { btnBoth.style.background = 'rgba(99,102,241,0.25)'; btnBoth.style.color = '#c7d2fe'; btnBoth.style.borderColor = '#6366f1'; }
+    }
+    setTimeout(() => {
+        if (graphBefore && graphBefore.resize) graphBefore.resize();
+        if (graphAfter && graphAfter.resize) graphAfter.resize();
+    }, 60);
+}
+
+function zoomSimGraphs(dir) {
+    if (graphBefore && graphBefore.zoom) graphBefore.zoom(dir);
+    if (graphAfter && graphAfter.zoom) graphAfter.zoom(dir);
 }
 function resetSimGraphs() {
     if (graphBefore) graphBefore.resetView();

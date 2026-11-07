@@ -24,7 +24,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LLM Architecture Explanations with Automatic Claim Verification (Novelty 4) — <%= projectName %></title>
+    <title>LLM Architecture Explanations with Automatic Claim Verification — <%= projectName %></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<%= ctx %>/css/main.css">
@@ -49,41 +49,6 @@
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             margin: 0;
             padding: 0;
-        }
-
-        .topbar {
-            background: rgba(17,23,38,0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--exp-border);
-            padding: 14px 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .topbar .brand {
-            font-size: 1.15rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .nav-links { display: flex; gap: 14px; align-items: center; }
-        .nav-link {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.88rem;
-            padding: 6px 12px;
-            border-radius: 6px;
-            transition: all 0.2s;
-        }
-        .nav-link:hover { color: #f8fafc; background: rgba(255,255,255,0.05); }
-        .nav-link.active {
-            color: #60a5fa;
-            background: rgba(59,130,246,0.15);
-            font-weight: 600;
         }
 
         .container {
@@ -336,22 +301,27 @@
 </head>
 <body>
 
-    <div class="topbar">
-        <div class="brand">AI Architecture Analyzer</div>
-        <div class="nav-links">
-            <a href="<%= ctx %>/dashboard" class="nav-link">Overview</a>
-            <a href="<%= ctx %>/refactor/cycles" class="nav-link">Cycle Breaker (N1)</a>
-            <a href="<%= ctx %>/planner" class="nav-link">Simulation (N2)</a>
-            <a href="<%= ctx %>/risk" class="nav-link">Defect Risk (N3)</a>
-            <a href="<%= ctx %>/explanation" class="nav-link active">Verified Explanations (N4)</a>
-        </div>
+<header class="topbar">
+    <div style="display:flex;align-items:center;">
+        <a href="<%= ctx %>/" style="text-decoration:none;"><div class="brand">⚡ Java ArchAnalyzer</div></a>
     </div>
+    <nav>
+        <a href="<%= ctx %>/">Home</a>
+        <a href="<%= ctx %>/projects/upload">Upload</a>
+        <a href="<%= ctx %>/dashboard">Dashboard</a>
+        <a href="<%= ctx %>/planner">🗺️ Planner</a>
+        <a href="<%= ctx %>/risk">Risk Prediction</a>
+        <a href="<%= ctx %>/explanation" class="active">AI Explanations</a>
+        <a href="<%= ctx %>/simulator">What-If Simulator</a>
+        <a href="<%= ctx %>/history">🕒 History</a>
+    </nav>
+</header>
 
     <div class="container">
         <div class="hero-banner">
             <div>
                 <h1 class="hero-title">LLM Architecture Explanations with Automatic Claim Verification</h1>
-                <p class="hero-sub">Novelty 4: Deterministic Ground-Truth Auditing & Automated Hallucination Prevention for Project: <strong><%= projectName %></strong></p>
+                <p class="hero-sub">Deterministic Ground-Truth Auditing &amp; Automated Claim Verification for Project: <strong><%= projectName %></strong></p>
             </div>
             <div class="hero-meta">
                 Model: <span><%= explanation != null ? explanation.modelUsed() : "N/A" %></span><br>

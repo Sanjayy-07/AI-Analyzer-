@@ -8,14 +8,18 @@
 </head>
 <body>
 <header class="topbar">
-    <a href="${pageContext.request.contextPath}/" style="text-decoration:none;color:inherit"><div class="brand">⚡ Java ArchAnalyzer</div></a>
+    <div style="display:flex;align-items:center;">
+        <a href="${pageContext.request.contextPath}/" style="text-decoration:none;"><div class="brand">⚡ Java ArchAnalyzer</div></a>
+    </div>
     <nav>
-        <a href="${pageContext.request.contextPath}/" style="color:#94a3b8">Home</a>
-        <a href="${pageContext.request.contextPath}/dashboard" style="margin-left:20px;color:#94a3b8">Dashboard</a>
-        <a href="${pageContext.request.contextPath}/simulator" style="margin-left:20px;color:#a5b4fc;font-weight:600">🔮 What-If Simulator</a>
-        <a href="${pageContext.request.contextPath}/history" style="margin-left:20px;background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.4);padding:6px 14px;border-radius:8px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
-            🕒 View History
-        </a>
+        <a href="${pageContext.request.contextPath}/">Home</a>
+        <a href="${pageContext.request.contextPath}/projects/upload" class="active">Upload</a>
+        <a href="${pageContext.request.contextPath}/dashboard">Dashboard</a>
+        <a href="${pageContext.request.contextPath}/planner">🗺️ Planner</a>
+        <a href="${pageContext.request.contextPath}/risk">Risk Prediction</a>
+        <a href="${pageContext.request.contextPath}/explanation">AI Explanations</a>
+        <a href="${pageContext.request.contextPath}/simulator">What-If Simulator</a>
+        <a href="${pageContext.request.contextPath}/history">🕒 History</a>
     </nav>
 </header>
 
@@ -26,7 +30,7 @@
         Please upload a Java project archive containing <code>.java</code> source files.
     </p>
     <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:20px">
-        Supported archive formats: ZIP, TAR, TAR.GZ / TGZ.<br>
+        Supported archive formats: ZIP, TAR, TAR.GZ / TGZ (Maximum archive size: 500 MB).<br>
         Mixed-language projects will have their Java source files analyzed, while non-Java files are preserved intact.<br>
         Non-source resources (build files, XML, JSON, properties, documentation) are supported as project assets.
     </p>

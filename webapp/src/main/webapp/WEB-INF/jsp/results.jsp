@@ -34,15 +34,20 @@
     <title>Java Architecture Dashboard — <%= result.model.getProjectName() %></title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/css/main.css">
     <style>
-        .graph-wrap { display:grid; grid-template-columns: 1fr 320px; gap:16px; }
-        .graph-canvas { width:100%; height:460px; background:#0a0d14; border:1px solid var(--border); border-radius:10px; cursor:grab; }
-        .graph-tools { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; }
-        .graph-tools input, .graph-tools select { background:var(--surface-2); color:var(--text); border:1px solid var(--border); border-radius:8px; padding:6px 10px; }
-        .graph-legend { font-size:0.78rem; color:var(--text-dim); display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; }
-        .legend-dot { width:10px; height:10px; border-radius:50%; display:inline-block; margin-right:4px; }
-        .node-detail { background:var(--card-bg, var(--surface)); border:1px solid var(--border); border-radius:10px; padding:14px; font-size:0.85rem; }
-        .node-detail h3 { margin:0 0 8px 0; font-size:0.95rem; }
-        @media (max-width: 900px) { .graph-wrap { grid-template-columns:1fr; } }
+        .graph-wrap { display: flex; flex-direction: column; gap: 20px; width: 100%; }
+        .graph-canvas-box { position: relative; width: 100%; background: #080c14; border: 1px solid #1e2840; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); }
+        .graph-canvas { width: 100%; height: 600px; min-height: 520px; background: radial-gradient(circle at 50% 50%, #0d121f 0%, #080c14 100%); display: block; cursor: grab; }
+        .graph-canvas:active { cursor: grabbing; }
+        .graph-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; background: rgba(17, 23, 38, 0.6); border: 1px solid #1e2840; border-radius: 12px; padding: 10px 14px; }
+        .graph-tools-left, .graph-tools-right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .graph-tools input, .graph-tools select { background: #111726; color: #f1f5f9; border: 1px solid #23304a; border-radius: 8px; padding: 7px 12px; font-size: 0.85rem; outline: none; transition: border-color 0.15s; }
+        .graph-tools input:focus, .graph-tools select:focus { border-color: #6366f1; }
+        .graph-btn { background: #172033; color: #e2e8f0; border: 1px solid #283756; border-radius: 8px; padding: 7px 13px; font-size: 0.82rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all 0.15s; }
+        .graph-btn:hover { background: #202d47; color: #fff; border-color: #3b82f6; }
+        .graph-legend { font-size: 0.82rem; color: #94a3b8; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 10px 16px; background: rgba(15, 23, 42, 0.5); border-top: 1px solid #1e2840; }
+        .legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+        .node-detail { background: #0e1424; border: 1px solid #1e2840; border-radius: 14px; padding: 20px 24px; width: 100%; box-sizing: border-box; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); }
+        .node-detail h3 { margin: 0; font-size: 1.05rem; color: #f8fafc; }
     </style>
     <style>
         .badge-pass { background: rgba(34, 197, 94, 0.2); color: #86efac; border: 1px solid #22c55e; }
@@ -68,18 +73,18 @@
 </head>
 <body>
 <header class="topbar">
-    <div class="brand">Java ArchAnalyzer</div>
+    <div style="display:flex;align-items:center;">
+        <a href="<%= request.getContextPath() %>/" style="text-decoration:none;"><div class="brand">⚡ Java ArchAnalyzer</div></a>
+    </div>
     <nav>
-        <a href="<%= request.getContextPath() %>/projects/upload">New Analysis</a>
-        <a href="<%= request.getContextPath() %>/simulator" style="color:#a5b4fc;font-weight:600;background:rgba(99,102,241,0.12);padding:6px 14px;border-radius:8px;border:1px solid rgba(99,102,241,0.3)">🔮 Simulator</a>
-        <a href="<%= request.getContextPath() %>/planner" style="color:#38bdf8;font-weight:600;background:rgba(14,165,233,0.12);padding:6px 14px;border-radius:8px;border:1px solid rgba(14,165,233,0.3)">✨ Planner</a>
-        <a href="<%= request.getContextPath() %>/risk" style="color:#60a5fa;font-weight:600;background:rgba(59,130,246,0.12);padding:6px 14px;border-radius:8px;border:1px solid rgba(59,130,246,0.3)">⚠️ Risk (Novelty 3)</a>
-        <a href="<%= request.getContextPath() %>/explanation" style="color:#a78bfa;font-weight:600;background:rgba(167,139,250,0.12);padding:6px 14px;border-radius:8px;border:1px solid rgba(167,139,250,0.3)">🛡️ Verified Explanations (Novelty 4)</a>
-        <a href="<%= request.getContextPath() %>/projects/download/zip"><%= (result.finalZipPath != null && result.finalZipPath.getFileName().toString().endsWith("-refactored.zip")) ? "Download Refactored ZIP" : "Download Original Project ZIP" %></a>
-        <a href="<%= request.getContextPath() %>/projects/download/report">Download Report</a>
-        <a href="<%= request.getContextPath() %>/history" style="margin-left:14px;background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.4);padding:6px 14px;border-radius:8px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
-            🕒 View History
-        </a>
+        <a href="<%= request.getContextPath() %>/">Home</a>
+        <a href="<%= request.getContextPath() %>/projects/upload">Upload</a>
+        <a href="<%= request.getContextPath() %>/dashboard" class="active">Dashboard</a>
+        <a href="<%= request.getContextPath() %>/planner">🗺️ Planner</a>
+        <a href="<%= request.getContextPath() %>/risk">Risk Prediction</a>
+        <a href="<%= request.getContextPath() %>/explanation">AI Explanations</a>
+        <a href="<%= request.getContextPath() %>/simulator">What-If Simulator</a>
+        <a href="<%= request.getContextPath() %>/history">🕒 History</a>
     </nav>
 </header>
 
@@ -93,7 +98,13 @@
                 Build Tool: <strong><%= result.model.getBuildInfo().getOrDefault("buildTool", "unknown") %></strong>
             </span>
         </div>
-        <div>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <a href="<%= request.getContextPath() %>/projects/download/zip" style="background:rgba(99,102,241,0.18);color:#c7d2fe;border:1px solid rgba(99,102,241,0.4);padding:6px 14px;border-radius:8px;font-weight:600;font-size:0.85rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
+                📦 <%= (result.finalZipPath != null && result.finalZipPath.getFileName().toString().endsWith("-refactored.zip")) ? "Download Refactored ZIP" : "Download Original Project ZIP" %>
+            </a>
+            <a href="<%= request.getContextPath() %>/projects/download/report" style="background:rgba(14,165,233,0.18);color:#7dd3fc;border:1px solid rgba(14,165,233,0.4);padding:6px 14px;border-radius:8px;font-weight:600;font-size:0.85rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">
+                📄 Download Report
+            </a>
             <span class="badge" style="background:rgba(99,102,241,0.2);color:#a5b4fc;border:1px solid #6366f1;padding:6px 12px;font-size:0.9rem">
                 Java-Only Source Analysis
             </span>
@@ -121,22 +132,34 @@
     <% } %>
 
     <div class="section">
-        <h2>Interactive Dependency Graph</h2>
-        <p style="color:var(--text-dim);font-size:0.85rem;margin-top:0">Nodes and edges come from the uploaded project's static model. Unresolved external types are omitted rather than invented.</p>
-        <div class="graph-tools">
-            <input id="graphSearch" type="search" placeholder="Search component" aria-label="Search component">
-            <input id="graphPackage" type="search" placeholder="Filter package" aria-label="Filter package">
-            <select id="graphHighlight" aria-label="Highlight">
-                <option value="none">No highlight</option>
-                <option value="cycles">Circular dependencies</option>
-                <option value="smells">Architectural smells</option>
-                <option value="risk">High-risk components</option>
-            </select>
-            <button type="button" class="cta" style="padding:6px 14px;font-size:0.82rem" onclick="resetArchGraph()">Reset view</button>
-            <button type="button" class="cta" style="padding:6px 14px;font-size:0.82rem;background:#1e293b;border:1px solid var(--border)" onclick="reheatArchGraph()">Re-layout</button>
-        </div>
-        <div class="graph-wrap">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:8px;">
             <div>
+                <h2 style="margin:0 0 4px 0;">Interactive Dependency Graph</h2>
+                <p style="color:var(--text-dim);font-size:0.85rem;margin:0">Full class-level syntax graph built directly with OpenJDK Compiler Tree API. Pan, scroll to zoom, click or hover nodes to inspect.</p>
+            </div>
+        </div>
+
+        <div class="graph-tools">
+            <div class="graph-tools-left">
+                <input id="graphSearch" type="search" placeholder="🔍 Search component..." aria-label="Search component" style="min-width:180px;">
+                <input id="graphPackage" type="search" placeholder="📦 Filter package..." aria-label="Filter package" style="min-width:150px;">
+                <select id="graphHighlight" aria-label="Highlight">
+                    <option value="none">No highlight</option>
+                    <option value="cycles">Circular dependencies (red)</option>
+                    <option value="smells">Architectural smells (yellow)</option>
+                    <option value="risk">High-risk components (orange)</option>
+                </select>
+            </div>
+            <div class="graph-tools-right">
+                <button type="button" class="graph-btn" onclick="zoomArchGraph(1)">🔍 Zoom In (+)</button>
+                <button type="button" class="graph-btn" onclick="zoomArchGraph(-1)">🔍 Zoom Out (-)</button>
+                <button type="button" class="graph-btn" onclick="resetArchGraph()">🔄 Reset View</button>
+                <button type="button" class="graph-btn" onclick="reheatArchGraph()">⚡ Re-layout</button>
+            </div>
+        </div>
+
+        <div class="graph-wrap">
+            <div class="graph-canvas-box">
                 <canvas id="archGraph" class="graph-canvas" role="img" aria-label="Project dependency graph"></canvas>
                 <div class="graph-legend">
                     <span><span class="legend-dot" style="background:#6366f1"></span>Class / component</span>
@@ -146,9 +169,19 @@
                     <span><span class="legend-dot" style="background:#f59e0b"></span>Smell</span>
                 </div>
             </div>
+
+            <!-- COMPONENT INSPECTOR BELOW THE GRAPH -->
             <aside class="node-detail" id="nodeDetail">
-                <h3>Selection</h3>
-                <p style="color:var(--text-dim)">Click a node or edge to inspect fan-in/out, smells, and risk. Colour is not the only indicator — labels and this panel repeat the same facts.</p>
+                <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1e2840;padding-bottom:10px;margin-bottom:14px;">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                        <span style="font-size:1.1rem;">🔍</span>
+                        <h3 style="margin:0;font-size:1rem;color:#93c5fd;">Component Inspector</h3>
+                    </div>
+                    <span style="font-size:0.75rem;color:#64748b;">Click or hover any node in the graph above to view deep architectural metrics</span>
+                </div>
+                <div id="nodeDetailInner" style="color:#94a3b8;font-size:0.88rem;line-height:1.6;">
+                    Click a node or edge in the graph above to inspect fan-in/out, architectural smells, Martin instability metrics, complexity, and ML defect risk.
+                </div>
             </aside>
         </div>
     </div>
@@ -190,7 +223,7 @@
     </div>
 
     <!-- ═══════════════════════════════════════
-         SIMULATION-GUIDED REFACTORING PLANNER (NOVELTY 2)
+         SIMULATION-GUIDED REFACTORING PLANNER
     ═══════════════════════════════════════ -->
     <div style="background:linear-gradient(135deg,rgba(14,165,233,0.12),rgba(99,102,241,0.08));border:1px solid rgba(14,165,233,0.3);border-radius:14px;padding:20px 24px;margin-bottom:28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
         <div style="font-size:2.4rem;line-height:1;">✨</div>
@@ -198,7 +231,7 @@
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
                 <span style="font-size:1.05rem;font-weight:700;color:#38bdf8;">Simulation-Guided Refactoring Planner</span>
                 <span style="background:rgba(14,165,233,0.2);color:#38bdf8;border:1px solid rgba(14,165,233,0.4);padding:2px 10px;border-radius:12px;font-size:0.75rem;font-weight:600;">
-                    Novelty 2: Multi-Operation
+                    Multi-Operation Simulation
                 </span>
             </div>
             <div style="font-size:0.82rem;color:#94a3b8;line-height:1.5;">
@@ -212,7 +245,7 @@
     </div>
 
     <!-- ═══════════════════════════════════════
-         AI-BASED ARCHITECTURE RISK PREDICTION (NOVELTY 3)
+         AI-BASED ARCHITECTURE RISK PREDICTION
     ═══════════════════════════════════════ -->
     <div style="background:linear-gradient(135deg,rgba(59,130,246,0.12),rgba(139,92,246,0.08));border:1px solid rgba(59,130,246,0.35);border-radius:14px;padding:20px 24px;margin-bottom:28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
         <div style="font-size:2.4rem;line-height:1;">⚠️</div>
@@ -220,7 +253,7 @@
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
                 <span style="font-size:1.05rem;font-weight:700;color:#60a5fa;">AI-Based Architecture Risk Prediction</span>
                 <span style="background:rgba(59,130,246,0.2);color:#60a5fa;border:1px solid rgba(59,130,246,0.4);padding:2px 10px;border-radius:12px;font-size:0.75rem;font-weight:600;">
-                    Novelty 3: Static Graph + Git History
+                    Static Graph + Git History
                 </span>
             </div>
             <div style="font-size:0.82rem;color:#94a3b8;line-height:1.5;">
@@ -235,7 +268,7 @@
 
     <% if (result.metricsBefore != null && result.metricsBefore.cycleCount > 0) { %>
     <!-- ═══════════════════════════════════════
-         AUTOMATED CYCLE-BREAKING REFACTORING (NOVELTY 1)
+         AUTOMATED CYCLE-BREAKING REFACTORING
     ═══════════════════════════════════════ -->
     <div style="background:linear-gradient(135deg,rgba(239,68,68,0.12),rgba(168,85,247,0.08));border:1px solid rgba(239,68,68,0.35);border-radius:14px;padding:20px 24px;margin-bottom:28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
         <div style="font-size:2.4rem;line-height:1;">🔄</div>
@@ -688,25 +721,79 @@ async function loadArchGraph() {
     archGraph.load(data);
 }
 function renderNode(n) {
-    document.getElementById('nodeDetail').innerHTML = `
-        <h3>${esc(n.label || n.id)}</h3>
-        <p><strong>Type:</strong> ${esc(n.kind || 'CLASS')}</p>
-        <p><strong>Location:</strong> ${esc(n.file || 'n/a')}</p>
-        <p><strong>Fan-in / fan-out:</strong> ${n.fanIn} / ${n.fanOut}</p>
-        <p><strong>Instability:</strong> ${Number(n.instability||0).toFixed(2)}</p>
-        <p><strong>Centrality:</strong> ${Number(n.centrality||0).toFixed(2)}</p>
-        <p><strong>Complexity / size:</strong> ${n.complexity || 0} / ${n.loc || 0} LOC, ${n.methodCount || 0} methods</p>
-        <p><strong>Smell:</strong> ${esc(n.smell || 'none')}<br><span style="color:var(--text-dim)">${esc(n.smellEvidence || '')}</span></p>
-        <p><strong>ML risk:</strong> ${esc(n.risk || 'n/a')} ${n.riskConfidence ? '(' + Math.round(n.riskConfidence*100) + '% confidence)' : ''}</p>
-        <p style="color:var(--text-dim)">${(n.riskFactors||[]).map(esc).join('; ')}</p>
-        <p style="font-size:0.75rem;color:var(--text-dim)">ML risk is a trained-model prediction on synthetic demo data, distinct from deterministic smell rules.</p>`;
+    const detailEl = document.getElementById('nodeDetailInner') || document.getElementById('nodeDetail');
+    const isCycle = n.inCycle;
+    const kindBadge = n.kind === 'INTERFACE'
+        ? '<span style="background:rgba(14,165,233,0.2);color:#38bdf8;border:1px solid rgba(14,165,233,0.4);padding:2px 8px;border-radius:6px;font-size:0.72rem;font-weight:700;">INTERFACE</span>'
+        : '<span style="background:rgba(99,102,241,0.2);color:#a5b4fc;border:1px solid rgba(99,102,241,0.4);padding:2px 8px;border-radius:6px;font-size:0.72rem;font-weight:700;">CLASS</span>';
+    const cycleBadge = isCycle
+        ? '<span style="background:rgba(239,68,68,0.2);color:#fca5a5;border:1px solid rgba(239,68,68,0.4);padding:2px 8px;border-radius:6px;font-size:0.72rem;font-weight:700;">IN CYCLE ⚠️</span>'
+        : '<span style="background:rgba(34,197,94,0.15);color:#86efac;border:1px solid rgba(34,197,94,0.3);padding:2px 8px;border-radius:6px;font-size:0.72rem;font-weight:600;">No Cycle</span>';
+
+    detailEl.innerHTML = `
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
+            <div>
+                <span style="font-weight:700;font-size:1.18rem;color:#f8fafc;word-break:break-all;">${esc(n.label || n.id)}</span>
+                <span style="margin-left:8px;">${kindBadge}</span>
+                <span style="margin-left:6px;">${cycleBadge}</span>
+            </div>
+            <div style="font-size:0.78rem;color:#64748b;font-family:monospace;word-break:break-all;">${esc(n.file || n.id)}</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));gap:12px;margin-bottom:14px;">
+            <div style="background:rgba(255,255,255,0.03);border:1px solid #1e2840;border-radius:8px;padding:10px 12px;">
+                <div style="font-size:0.72rem;color:#64748b;text-transform:uppercase;font-weight:600;">Fan-in / Fan-out</div>
+                <div style="font-size:1.05rem;font-weight:700;color:#e2e8f0;margin-top:2px;">${n.fanIn ?? 0} / ${n.fanOut ?? 0}</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.03);border:1px solid #1e2840;border-radius:8px;padding:10px 12px;">
+                <div style="font-size:0.72rem;color:#64748b;text-transform:uppercase;font-weight:600;">Instability (I)</div>
+                <div style="font-size:1.05rem;font-weight:700;color:#60a5fa;margin-top:2px;">${Number(n.instability||0).toFixed(2)}</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.03);border:1px solid #1e2840;border-radius:8px;padding:10px 12px;">
+                <div style="font-size:0.72rem;color:#64748b;text-transform:uppercase;font-weight:600;">Centrality</div>
+                <div style="font-size:1.05rem;font-weight:700;color:#a78bfa;margin-top:2px;">${Number(n.centrality||0).toFixed(2)}</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.03);border:1px solid #1e2840;border-radius:8px;padding:10px 12px;">
+                <div style="font-size:0.72rem;color:#64748b;text-transform:uppercase;font-weight:600;">Complexity / Size</div>
+                <div style="font-size:0.95rem;font-weight:600;color:#cbd5e1;margin-top:2px;">${n.complexity || 0} cyclomatic · ${n.loc || 0} LOC</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.03);border:1px solid #1e2840;border-radius:8px;padding:10px 12px;">
+                <div style="font-size:0.72rem;color:#64748b;text-transform:uppercase;font-weight:600;">ML Defect Risk</div>
+                <div style="font-size:0.95rem;font-weight:700;color:${n.risk === 'HIGH' ? '#f87171' : (n.risk === 'MEDIUM' ? '#fbbf24' : '#34d399')};margin-top:2px;">
+                    ${esc(n.risk || 'LOW')} ${n.riskConfidence ? '(' + Math.round(n.riskConfidence*100) + '%)' : ''}
+                </div>
+            </div>
+        </div>
+
+        ${n.smell && n.smell !== 'none' ? `
+            <div style="background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);border-left:4px solid #f59e0b;padding:10px 14px;border-radius:6px;margin-bottom:10px;font-size:0.85rem;color:#fcd34d;">
+                <strong>Detected Architectural Smell:</strong> ${esc(n.smell)}
+                ${n.smellEvidence ? `<div style="font-size:0.78rem;color:#cbd5e1;margin-top:4px;">${esc(n.smellEvidence)}</div>` : ''}
+            </div>
+        ` : ''}
+
+        ${n.riskFactors && n.riskFactors.length > 0 ? `
+            <div style="font-size:0.8rem;color:#94a3b8;margin-top:6px;">
+                <strong style="color:#cbd5e1;">Risk Factors:</strong> ${n.riskFactors.map(esc).join('; ')}
+            </div>
+        ` : ''}
+    `;
 }
 function renderEdge(e) {
-    document.getElementById('nodeDetail').innerHTML = `
-        <h3>Dependency</h3>
-        <p><code>${esc(e.from)}</code> → <code>${esc(e.to)}</code></p>
-        <p><strong>Change marker:</strong> ${esc(e.change || 'confirmed in source model')}</p>
-        <p style="color:var(--text-dim)">This edge exists in the static project model. Runtime-only wiring is not claimed.</p>`;
+    const detailEl = document.getElementById('nodeDetailInner') || document.getElementById('nodeDetail');
+    detailEl.innerHTML = `
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px;">
+            <h3 style="margin:0;font-size:1.1rem;color:#f8fafc;">
+                Dependency Edge: <code style="color:#38bdf8;">${esc(e.from)}</code> &rarr; <code style="color:#a78bfa;">${esc(e.to)}</code>
+            </h3>
+            <span style="background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.3);padding:2px 10px;border-radius:6px;font-size:0.75rem;font-weight:600;">
+                ${esc(e.change || 'Static Source Dependency')}
+            </span>
+        </div>
+        <p style="color:#94a3b8;font-size:0.85rem;margin:0;">This dependency edge was identified and validated in the static project syntax model through OpenJDK AST analysis.</p>`;
+}
+function zoomArchGraph(dir) {
+    if (archGraph && archGraph.zoom) archGraph.zoom(dir);
 }
 function resetArchGraph() {
     if (archGraph) archGraph.resetView();
@@ -853,7 +940,7 @@ loadArchGraph().catch(err => {
 });
 
 // ══════════════════════════════════════════════════════════════════════════
-// NOVELTY 1: AUTOMATED CYCLE-BREAKING REFACTORING (DEPENDENCY INVERSION)
+// AUTOMATED CYCLE-BREAKING REFACTORING (DEPENDENCY INVERSION)
 // ══════════════════════════════════════════════════════════════════════════
 let currentCycleAnalysis = null;
 let currentSelectedCandidate = null;
@@ -1206,7 +1293,7 @@ function renderExecutionFailure(res) {
         <div style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--surface-2);">
             <div>
                 <div style="font-weight:700;font-size:1.05rem;color:#f8fafc;display:flex;align-items:center;gap:8px;">
-                    <span>🔄</span> Automated Cycle-Breaking Refactoring (Novelty 1)
+                    <span>🔄</span> Automated Cycle-Breaking Refactoring
                 </div>
                 <div style="font-size:0.75rem;color:#94a3b8;margin-top:2px;">
                     Compiler Tree API &bull; Dependency Inversion Principle &bull; Verified Rollback

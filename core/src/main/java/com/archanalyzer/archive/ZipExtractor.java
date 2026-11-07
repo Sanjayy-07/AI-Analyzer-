@@ -66,7 +66,7 @@ public class ZipExtractor implements ArchiveExtractor {
 
     /** Streaming copy that aborts if the entry turns out larger than declared (zip-bomb defence). */
     private long copyWithLimit(InputStream in, OutputStream out, long limit) throws IOException {
-        byte[] buffer = new byte[8192];
+        byte[] buffer = new byte[65536];
         long total = 0;
         int read;
         while ((read = in.read(buffer)) != -1) {

@@ -305,14 +305,20 @@
 <body>
 
 <header class="topbar">
-    <div class="brand" style="background:linear-gradient(135deg,#6366f1,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:1.05rem;font-weight:700">⚡ Java ArchAnalyzer</div>
-    <nav>
-        <a href="${pageContext.request.contextPath}/dashboard" style="color:#94a3b8">Dashboard</a>
-        <a href="${pageContext.request.contextPath}/projects/upload" style="margin-left:24px;color:#94a3b8">Upload Project</a>
-        <a href="${pageContext.request.contextPath}/simulator" style="margin-left:24px;color:#a5b4fc;font-weight:600">What-If Simulator</a>
-        <a href="${pageContext.request.contextPath}/history" style="margin-left:24px;background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.4);padding:6px 14px;border-radius:8px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
-            🕒 View History
+    <div style="display:flex;align-items:center;">
+        <a href="${pageContext.request.contextPath}/" style="text-decoration:none;">
+            <div class="brand">⚡ Java ArchAnalyzer</div>
         </a>
+    </div>
+    <nav>
+        <a href="${pageContext.request.contextPath}/" class="active">Home</a>
+        <a href="${pageContext.request.contextPath}/projects/upload">Upload</a>
+        <a href="${pageContext.request.contextPath}/dashboard">Dashboard</a>
+        <a href="${pageContext.request.contextPath}/planner">🗺️ Planner</a>
+        <a href="${pageContext.request.contextPath}/risk">Risk Prediction</a>
+        <a href="${pageContext.request.contextPath}/explanation">AI Explanations</a>
+        <a href="${pageContext.request.contextPath}/simulator">What-If Simulator</a>
+        <a href="${pageContext.request.contextPath}/history">🕒 History</a>
     </nav>
 </header>
 
@@ -323,31 +329,29 @@
     <div class="hero-content">
         <div class="hero-badge">
             <span class="dot"></span>
-            AI-Powered · Java Architecture Analysis
+            AI-Powered Architecture &amp; Refactoring Analyzer
         </div>
         <h1 class="hero-title">
             Understand. Simulate.<br>
             <span class="gradient-text">Refactor with Confidence.</span>
         </h1>
         <p class="hero-subtitle">
-            Upload a Java project. Get real static analysis, class-level dependency graphs, ML risk scoring,
-            and a <strong style="color:#a5b4fc">What-If Simulator</strong> that predicts the blast radius
-            of any architectural change — before touching a single file.
+            Upload your Java project to analyze code dependencies, detect architectural smells, predict refactoring risks, and simulate changes safely before modifying any source code.
         </p>
         <div class="hero-actions">
             <a href="${pageContext.request.contextPath}/projects/upload" class="btn-primary-hero">
                 📤 Upload Java Project
             </a>
             <a href="${pageContext.request.contextPath}/simulator" class="btn-secondary-hero">
-                🔮 Open What-If Simulator
+                🔮 What-If Simulator
             </a>
         </div>
         <div class="hero-stats">
-            <div class="stat-pill"><span class="val">100%</span><span class="lbl">Pure Java</span></div>
+            <div class="stat-pill"><span class="val">100%</span><span class="lbl">Pure Java AST</span></div>
             <div class="stat-sep"></div>
-            <div class="stat-pill"><span class="val">0</span><span class="lbl">Files Modified</span></div>
+            <div class="stat-pill"><span class="val">Safe</span><span class="lbl">Atomic Rollback</span></div>
             <div class="stat-sep"></div>
-            <div class="stat-pill"><span class="val">ML+</span><span class="lbl">Risk Scoring</span></div>
+            <div class="stat-pill"><span class="val">500 MB</span><span class="lbl">Archive Limit</span></div>
             <div class="stat-sep"></div>
             <div class="stat-pill"><span class="val">Instant</span><span class="lbl">Impact Maps</span></div>
         </div>
@@ -357,53 +361,58 @@
 <!-- FEATURES -->
 <section class="features-section">
     <div class="features-heading">
-        <h2>Everything you need to reason about Java architecture</h2>
-        <p>No external services. No language runtimes. Runs entirely from a self-contained WAR file.</p>
+        <h2>Comprehensive Architecture Analysis &amp; Refactoring</h2>
+        <p>Analyze class dependencies, detect architectural flaws, simulate structural changes, and refactor code safely.</p>
     </div>
     <div class="features-grid">
 
-        <a href="${pageContext.request.contextPath}/simulator" class="feat-card"
-           style="--card-grad: radial-gradient(ellipse 100% 80% at 0% 0%, rgba(99,102,241,0.08), transparent);">
-            <div class="feat-icon" style="background:rgba(99,102,241,0.15)">🔮</div>
-            <h3>What-If Architecture Simulator</h3>
-            <p>Describe any proposed change in plain English. The engine traverses the dependency graph, computes blast-radius impact, identifies compatibility risks, and projects architecture metrics — all without modifying source files.</p>
-            <span class="feat-badge" style="background:rgba(99,102,241,0.15);color:#a5b4fc;">Flagship Feature →</span>
+        <a href="${pageContext.request.contextPath}/dashboard" class="feat-card"
+           style="--card-grad: radial-gradient(ellipse 100% 80% at 0% 0%, rgba(16,185,129,0.08), transparent);">
+            <div class="feat-icon" style="background:rgba(16,185,129,0.15)">♻️</div>
+            <h3>Automated Cycle Breaking</h3>
+            <p>Identifies cyclic dependencies with graph algorithms, extracts clean interfaces, updates caller injection points, and validates against javac with automatic rollback on build failure.</p>
+            <span class="feat-badge" style="background:rgba(16,185,129,0.15);color:#6ee7b7;">Dependency Inversion →</span>
         </a>
 
-        <div class="feat-card" style="--card-grad: radial-gradient(ellipse 100% 80% at 0% 0%, rgba(14,165,233,0.07), transparent);">
-            <div class="feat-icon" style="background:rgba(14,165,233,0.12)">🕸</div>
-            <h3>Java Dependency Graph</h3>
-            <p>Real class-level dependency graphs built directly from Java syntax trees using the Compiler Tree API. Tracks inheritance, interfaces, coupling, fan-in/out, and Tarjan SCC cycles with zero false positives.</p>
-            <span class="feat-badge" style="background:rgba(14,165,233,0.12);color:#7dd3fc;">Compiler Tree API</span>
-        </div>
+        <a href="${pageContext.request.contextPath}/planner" class="feat-card"
+           style="--card-grad: radial-gradient(ellipse 100% 80% at 0% 0%, rgba(99,102,241,0.08), transparent);">
+            <div class="feat-icon" style="background:rgba(99,102,241,0.15)">🗺️</div>
+            <h3>Simulation-Guided Planner</h3>
+            <p>Assemble multi-operation refactoring plans, simulate their combined architectural effect on isolated in-memory graph snapshots, detect structural conflicts, and verify post-application improvements.</p>
+            <span class="feat-badge" style="background:rgba(99,102,241,0.15);color:#a5b4fc;">Simulate &amp; Refactor →</span>
+        </a>
 
-        <div class="feat-card" style="--card-grad: radial-gradient(ellipse 100% 80% at 0% 0%, rgba(168,85,247,0.07), transparent);">
-            <div class="feat-icon" style="background:rgba(168,85,247,0.12)">🤖</div>
-            <h3>ML Risk Prediction</h3>
-            <p>A trained Random Forest ensemble scores each Java component LOW, MEDIUM, or HIGH structural risk using complexity, coupling, and centrality metrics. Combined with deterministic heuristics for a transparent, auditable 0–100 score.</p>
-            <span class="feat-badge" style="background:rgba(168,85,247,0.12);color:#d8b4fe;">Random Forest</span>
-        </div>
+        <a href="${pageContext.request.contextPath}/risk" class="feat-card"
+           style="--card-grad: radial-gradient(ellipse 100% 80% at 0% 0%, rgba(168,85,247,0.08), transparent);">
+            <div class="feat-icon" style="background:rgba(168,85,247,0.15)">🤖</div>
+            <h3>ML Architecture Risk Prediction</h3>
+            <p>Combines static architecture metrics with temporal Git history churn and co-change coupling. Evaluates component risk levels with transparent, auditable breakdown.</p>
+            <span class="feat-badge" style="background:rgba(168,85,247,0.15);color:#d8b4fe;">Risk Assessment →</span>
+        </a>
 
-        <div class="feat-card" style="--card-grad: radial-gradient(ellipse 100% 80% at 0% 0%, rgba(16,185,129,0.07), transparent);">
-            <div class="feat-icon" style="background:rgba(16,185,129,0.12)">♻️</div>
-            <h3>Automated Refactoring</h3>
-            <p>Extracts interfaces from Java classes, updates import headers, re-analyzes the architecture, and recompiles with javac to guarantee build safety. Isolated on a working copy — your original project is never modified.</p>
-            <span class="feat-badge" style="background:rgba(16,185,129,0.12);color:#6ee7b7;">Build-Safe</span>
-        </div>
+        <a href="${pageContext.request.contextPath}/explanation" class="feat-card"
+           style="--card-grad: radial-gradient(ellipse 100% 80% at 0% 0%, rgba(14,165,233,0.08), transparent);">
+            <div class="feat-icon" style="background:rgba(14,165,233,0.15)">🛡️</div>
+            <h3>Verified AI Explanations</h3>
+            <p>Natural language architectural insights and interactive Q&amp;A. Every generated claim is automatically cross-checked against ground-truth AST facts, displaying verified or refuted badges.</p>
+            <span class="feat-badge" style="background:rgba(14,165,233,0.15);color:#7dd3fc;">Claim Verification →</span>
+        </a>
 
-        <div class="feat-card" style="--card-grad: radial-gradient(ellipse 100% 80% at 0% 0%, rgba(245,158,11,0.07), transparent);">
-            <div class="feat-icon" style="background:rgba(245,158,11,0.12)">🦨</div>
-            <h3>Architecture Smell Detection</h3>
-            <p>Detects God Classes, Feature Envy, cyclic dependencies, high-coupling hotspots, and missing abstraction layers. Each smell is annotated with severity, evidence, and a recommended remedy.</p>
-            <span class="feat-badge" style="background:rgba(245,158,11,0.12);color:#fcd34d;">8+ Smell Patterns</span>
-        </div>
+        <a href="${pageContext.request.contextPath}/dashboard" class="feat-card"
+           style="--card-grad: radial-gradient(ellipse 100% 80% at 0% 0%, rgba(245,158,11,0.08), transparent);">
+            <div class="feat-icon" style="background:rgba(245,158,11,0.15)">🕸</div>
+            <h3>AST Dependency Graph &amp; Metrics</h3>
+            <p>Real class-level dependency graphs built directly from Java syntax trees. Computes Instability, Abstractness, and Distance from Main Sequence with zero false positives.</p>
+            <span class="feat-badge" style="background:rgba(245,158,11,0.15);color:#fcd34d;">Dependency Metrics →</span>
+        </a>
 
-        <div class="feat-card" style="--card-grad: radial-gradient(ellipse 100% 80% at 0% 0%, rgba(239,68,68,0.07), transparent);">
-            <div class="feat-icon" style="background:rgba(239,68,68,0.12)">📋</div>
-            <h3>Full Architecture Report</h3>
-            <p>Auto-generated Markdown report covering metrics, risk predictions, smell findings, dependency paths, refactoring candidates, simulation results, and validation plan — ready to download and share with the team.</p>
-            <span class="feat-badge" style="background:rgba(239,68,68,0.12);color:#fca5a5;">Downloadable</span>
-        </div>
+        <a href="${pageContext.request.contextPath}/simulator" class="feat-card"
+           style="--card-grad: radial-gradient(ellipse 100% 80% at 0% 0%, rgba(236,72,153,0.08), transparent);">
+            <div class="feat-icon" style="background:rgba(236,72,153,0.15)">🔮</div>
+            <h3>What-If Architecture Simulator</h3>
+            <p>Traverse and modify hypothetical in-memory dependency graphs. Add or rewire components and dependencies to predict architectural blast-radius and metric deltas before modifying source files.</p>
+            <span class="feat-badge" style="background:rgba(236,72,153,0.15);color:#f472b6;">Blast Radius Prediction →</span>
+        </a>
 
     </div>
 </section>
@@ -416,32 +425,32 @@
             <div class="step">
                 <div class="step-num">1</div>
                 <h4>Upload Archive</h4>
-                <p>ZIP / TAR / TAR.GZ Java project</p>
+                <p>ZIP / TAR / TGZ up to 500 MB with safe extraction</p>
             </div>
             <div class="step">
                 <div class="step-num">2</div>
-                <h4>Parse ASTs</h4>
-                <p>Compiler Tree API builds class-level model</p>
+                <h4>Parse Syntax Trees</h4>
+                <p>Builds class-level AST models directly from Java sources</p>
             </div>
             <div class="step">
                 <div class="step-num">3</div>
-                <h4>Graph + Metrics</h4>
-                <p>Dependency graph, SCC cycles, coupling scores</p>
+                <h4>Graph &amp; Metrics</h4>
+                <p>Dependency graph, cyclic cycles, and architecture metrics</p>
             </div>
             <div class="step">
                 <div class="step-num">4</div>
-                <h4>ML Risk Scoring</h4>
-                <p>Random Forest predicts component risk</p>
+                <h4>Risk &amp; Smells</h4>
+                <p>Evaluates component risk and pinpoints architectural smells</p>
             </div>
             <div class="step">
                 <div class="step-num">5</div>
-                <h4>What-If Simulate</h4>
-                <p>Predict blast-radius of any change</p>
+                <h4>Simulate &amp; Plan</h4>
+                <p>Interactive planner tests multi-operation plans on isolated graph snapshots</p>
             </div>
             <div class="step">
                 <div class="step-num">6</div>
-                <h4>Approve &amp; Refactor</h4>
-                <p>Isolated implementation with build validation</p>
+                <h4>Verified Apply</h4>
+                <p>Applies refactoring with compiler validation and atomic rollback</p>
             </div>
         </div>
     </div>
@@ -449,17 +458,26 @@
 
 <!-- BOTTOM CTA -->
 <section class="cta-section">
-    <h2>Ready to analyze your Java project?</h2>
-    <p>Upload a ZIP file and get a full architecture assessment in seconds.</p>
+    <h2>Ready to analyze and refactor your Java project?</h2>
+    <p>Upload a project archive (up to 500 MB) or explore the interactive What-If simulator.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
         <a href="${pageContext.request.contextPath}/projects/upload" class="btn-primary-hero">
             📤 Upload Java Project
         </a>
         <a href="${pageContext.request.contextPath}/simulator" class="btn-secondary-hero">
-            🔮 Try the Simulator
+            🔮 What-If Simulator
         </a>
     </div>
 </section>
+
+<footer style="text-align:center;padding:32px 24px;border-top:1px solid #1e2840;color:#64748b;font-size:0.85rem;background:#0d1018;">
+    <div style="margin-bottom:8px;font-weight:700;color:#f1f5f9;font-size:1rem;">
+        ⚡ Java ArchAnalyzer
+    </div>
+    <div style="color:#94a3b8;">
+        Built by Sanjay J - 23MIS0571 and Madhumitha N - 23MIS0573
+    </div>
+</footer>
 
 </body>
 </html>

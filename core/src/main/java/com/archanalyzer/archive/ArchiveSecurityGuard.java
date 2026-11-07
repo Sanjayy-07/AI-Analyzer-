@@ -22,9 +22,9 @@ import java.nio.file.*;
  */
 public final class ArchiveSecurityGuard {
 
-    public static final long MAX_TOTAL_UNCOMPRESSED_BYTES = 500L * 1024 * 1024; // 500 MB
-    public static final long MAX_SINGLE_ENTRY_BYTES = 100L * 1024 * 1024;       // 100 MB
-    public static final int MAX_ENTRY_COUNT = 50_000;
+    public static final long MAX_TOTAL_UNCOMPRESSED_BYTES = 2500L * 1024 * 1024; // 2.5 GB (supports 500 MB compressed archives)
+    public static final long MAX_SINGLE_ENTRY_BYTES = 250L * 1024 * 1024;       // 250 MB
+    public static final int MAX_ENTRY_COUNT = 100_000;
 
     private long totalBytesSoFar = 0;
     private int entryCountSoFar = 0;

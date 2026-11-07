@@ -180,14 +180,18 @@
 <body>
 
 <header class="topbar">
-    <a href="<%= request.getContextPath() %>/" style="text-decoration:none;color:inherit"><div class="brand">⚡ Java ArchAnalyzer</div></a>
+    <div style="display:flex;align-items:center;">
+        <a href="<%= request.getContextPath() %>/" style="text-decoration:none;"><div class="brand">⚡ Java ArchAnalyzer</div></a>
+    </div>
     <nav>
-        <a href="<%= request.getContextPath() %>/projects/upload">New Analysis</a>
-        <a href="<%= request.getContextPath() %>/dashboard" style="margin-left:20px;color:#94a3b8">Dashboard</a>
-        <a href="<%= request.getContextPath() %>/simulator" style="margin-left:20px;color:#a5b4fc;font-weight:600">🔮 What-If Simulator</a>
-        <a href="<%= request.getContextPath() %>/history" style="margin-left:20px;background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.4);padding:5px 12px;border-radius:6px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px">
-            🕒 View History
-        </a>
+        <a href="<%= request.getContextPath() %>/">Home</a>
+        <a href="<%= request.getContextPath() %>/projects/upload">Upload</a>
+        <a href="<%= request.getContextPath() %>/dashboard">Dashboard</a>
+        <a href="<%= request.getContextPath() %>/planner">🗺️ Planner</a>
+        <a href="<%= request.getContextPath() %>/risk">Risk Prediction</a>
+        <a href="<%= request.getContextPath() %>/explanation">AI Explanations</a>
+        <a href="<%= request.getContextPath() %>/simulator">What-If Simulator</a>
+        <a href="<%= request.getContextPath() %>/history" class="active">🕒 History</a>
     </nav>
 </header>
 

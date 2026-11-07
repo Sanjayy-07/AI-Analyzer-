@@ -38,7 +38,7 @@ public class CycleRefactoringLogger {
         StringBuilder sb = new StringBuilder();
         sb.append("{\n");
         sb.append("  \"timestamp\": \"").append(escape(entry.timestamp)).append("\",\n");
-        sb.append("  \"projectPath\": \"").append(escape(entry.projectPath)).append("\",\n");
+        sb.append("  \"projectPath\": \"").append(escape(sanitizePath(entry.projectPath))).append("\",\n");
         sb.append("  \"status\": \"").append(escape(entry.status)).append("\",\n");
         sb.append("  \"initialCyclicSccCount\": ").append(entry.initialCyclicSccCount).append(",\n");
         sb.append("  \"finalCyclicSccCount\": ").append(entry.finalCyclicSccCount).append(",\n");
@@ -56,11 +56,11 @@ public class CycleRefactoringLogger {
         sb.append("    \"costScore\": ").append(entry.selectedEdgeCost).append("\n");
         sb.append("  },\n");
         sb.append("  \"extractedInterface\": \"").append(escape(entry.extractedInterface)).append("\",\n");
-        sb.append("  \"interfaceFilePath\": \"").append(escape(entry.interfaceFilePath)).append("\",\n");
+        sb.append("  \"interfaceFilePath\": \"").append(escape(sanitizePath(entry.interfaceFilePath))).append("\",\n");
         sb.append("  \"affectedFiles\": [");
         if (entry.affectedFiles != null) {
             for (int i = 0; i < entry.affectedFiles.size(); i++) {
-                sb.append("\"").append(escape(entry.affectedFiles.get(i))).append("\"");
+                sb.append("\"").append(escape(sanitizePath(entry.affectedFiles.get(i)))).append("\"");
                 if (i < entry.affectedFiles.size() - 1) sb.append(", ");
             }
         }
@@ -71,7 +71,7 @@ public class CycleRefactoringLogger {
         sb.append("  \"errors\": [");
         if (entry.errors != null) {
             for (int i = 0; i < entry.errors.size(); i++) {
-                sb.append("\"").append(escape(entry.errors.get(i))).append("\"");
+                sb.append("\"").append(escape(sanitizePath(entry.errors.get(i)))).append("\"");
                 if (i < entry.errors.size() - 1) sb.append(", ");
             }
         }
@@ -85,6 +85,13 @@ public class CycleRefactoringLogger {
         String filename = "novelty1_repair_log_" + System.currentTimeMillis() + ".json";
         Path targetFile = outputDir.resolve(filename);
         Files.writeString(targetFile, toJson(entry), StandardCharsets.UTF_8);
+    }
+
+    private static String sanitizePath(String s) {
+        if (s == null) return "";
+        // Sanitize random JUnit temp directory names (e.g., junit2908243674735743881)
+        // to prevent false positives in GitHub secret scanning.
+        return s.replaceAll("(?i)junit\\d+", "junit-temp-dir");
     }
 
     private static String escape(String s) {

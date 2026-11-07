@@ -493,6 +493,14 @@
                 state.panY = -(minY + maxY) / 2;
                 draw();
             },
+            zoom(delta) {
+                const factor = delta > 0 ? 1.25 : 0.80;
+                state.scale = Math.max(0.20, Math.min(5.0, state.scale * factor));
+                draw();
+            },
+            resize() {
+                resize();
+            },
             searchAndSelect(query) {
                 state.filters.query = query || '';
                 const found = visibleNodes()[0];

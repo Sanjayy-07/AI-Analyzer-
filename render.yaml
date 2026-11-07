@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: java-archanalyzer
+    runtime: docker
+    plan: free
+    region: oregon
+    branch: main
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: DB_URL
+        value: jdbc:mysql://localhost:3306/archanalyzer

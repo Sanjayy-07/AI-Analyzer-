@@ -1,0 +1,17 @@
+.git
+.github
+.idea
+*.iml
+target/
+core/target/
+webapp/target/
+.env
+.env.local
+node_modules/
+*.log
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+sample-demo-project/
+phase-s/

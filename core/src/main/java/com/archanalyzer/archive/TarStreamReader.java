@@ -63,7 +63,7 @@ public final class TarStreamReader {
                 try (OutputStream out = Files.newOutputStream(targetPath,
                         StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
                     long remaining = size;
-                    byte[] buf = new byte[8192];
+                    byte[] buf = new byte[65536];
                     while (remaining > 0) {
                         int chunk = (int) Math.min(buf.length, remaining);
                         int n = in.read(buf, 0, chunk);

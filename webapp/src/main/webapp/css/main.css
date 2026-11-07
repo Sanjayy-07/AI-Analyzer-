@@ -31,13 +31,58 @@ a { color: var(--accent); text-decoration: none; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 32px;
-    border-bottom: 1px solid var(--border);
-    background: var(--surface);
+    padding: 12px 32px;
+    border-bottom: 1px solid #1e293b;
+    background: rgba(11, 15, 25, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    width: 100%;
 }
-.topbar .brand { font-weight: 700; font-size: 1.1rem; letter-spacing: 0.3px; }
-.topbar nav a { margin-left: 24px; color: var(--text-dim); font-weight: 500; }
-.topbar nav a:hover { color: var(--text); }
+.topbar .brand {
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.3px;
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-flex;
+    align-items: center;
+}
+.topbar nav, .topbar .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.topbar nav a, .topbar .nav-link {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+.topbar nav a:hover, .topbar .nav-link:hover {
+    color: #f8fafc;
+    background: rgba(255, 255, 255, 0.05);
+}
+.topbar nav a.active, .topbar .nav-link.active {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.35), rgba(168, 85, 247, 0.30)) !important;
+    border: 1px solid rgba(129, 140, 248, 0.55) !important;
+    font-weight: 600 !important;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.3) !important;
+}
 
 .landing { max-width: 980px; margin: 0 auto; padding: 64px 24px; }
 .hero h1 { font-size: 2.2rem; line-height: 1.25; margin-bottom: 16px; }

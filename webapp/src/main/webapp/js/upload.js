@@ -51,6 +51,18 @@
                 return;
             }
 
+            const file = fileInput.files[0];
+            const maxBytes = 500 * 1024 * 1024; // 500 MB
+            if (file && file.size > maxBytes) {
+                e.preventDefault();
+                if (clientError) {
+                    const mbSize = (file.size / (1024 * 1024)).toFixed(1);
+                    clientError.textContent = 'Selected archive is ' + mbSize + ' MB, which exceeds the 500 MB limit. Please choose an archive under 500 MB.';
+                    clientError.style.display = 'block';
+                }
+                return;
+            }
+
             // Prevent duplicate submits and show loading feedback
             if (submitBtn) {
                 submitBtn.disabled = true;

@@ -17,9 +17,9 @@
         <servlet-name>UploadServlet</servlet-name>
         <servlet-class>com.archanalyzer.web.servlet.UploadServlet</servlet-class>
         <multipart-config>
-            <max-file-size>209715200</max-file-size>      <!-- 200 MB -->
-            <max-request-size>209715200</max-request-size>
-            <file-size-threshold>1048576</file-size-threshold>
+            <max-file-size>524288000</max-file-size>      <!-- 500 MB (500 * 1024 * 1024) -->
+            <max-request-size>545259520</max-request-size> <!-- 520 MB (allowing multipart overhead) -->
+            <file-size-threshold>10485760</file-size-threshold> <!-- 10 MB in-memory buffer before disk spool -->
         </multipart-config>
     </servlet>
     <servlet-mapping>

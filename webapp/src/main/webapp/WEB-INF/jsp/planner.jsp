@@ -17,7 +17,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulation-Guided Refactoring Planner (Novelty 2) — <%= model.getProjectName() %></title>
+    <title>Simulation-Guided Refactoring Planner — <%= model.getProjectName() %></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<%= ctx %>/css/main.css">
@@ -42,40 +42,6 @@
             font-family: 'Inter', system-ui, sans-serif;
             margin: 0;
             padding: 0;
-        }
-
-        .topbar {
-            background: rgba(17,21,31,0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--sim-border);
-            padding: 14px 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .topbar .brand {
-            font-size: 1.1rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #6366f1, #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .nav-links { display: flex; gap: 16px; align-items: center; }
-        .nav-link {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            padding: 6px 12px;
-            border-radius: 6px;
-            transition: all 0.15s;
-        }
-        .nav-link:hover, .nav-link.active {
-            color: #e2e8f0;
-            background: var(--sim-panel-2);
         }
 
         .container {
@@ -341,24 +307,28 @@
 </head>
 <body>
 
-<div class="topbar">
-    <div class="brand">🔮 Architecture Refactoring Planner</div>
-    <div class="nav-links">
-        <a href="<%= ctx %>/dashboard" class="nav-link">Results Dashboard</a>
-        <a href="<%= ctx %>/simulator" class="nav-link">What-If Simulator</a>
-        <a href="<%= ctx %>/planner" class="nav-link active">Simulation Planner</a>
-        <a href="<%= ctx %>/risk" class="nav-link">Risk Prediction (Novelty 3)</a>
-        <a href="<%= ctx %>/explanation" class="nav-link">Verified Explanations (Novelty 4)</a>
-        <a href="<%= ctx %>/projects/upload" class="nav-link">Upload</a>
+<header class="topbar">
+    <div style="display:flex;align-items:center;">
+        <a href="<%= ctx %>/" style="text-decoration:none;"><div class="brand">⚡ Java ArchAnalyzer</div></a>
     </div>
-</div>
+    <nav>
+        <a href="<%= ctx %>/">Home</a>
+        <a href="<%= ctx %>/projects/upload">Upload</a>
+        <a href="<%= ctx %>/dashboard">Dashboard</a>
+        <a href="<%= ctx %>/planner" class="active">🗺️ Planner</a>
+        <a href="<%= ctx %>/risk">Risk Prediction</a>
+        <a href="<%= ctx %>/explanation">AI Explanations</a>
+        <a href="<%= ctx %>/simulator">What-If Simulator</a>
+        <a href="<%= ctx %>/history">🕒 History</a>
+    </nav>
+</header>
 
 <div class="container">
 
     <!-- Hero / Context Banner -->
     <div class="hero-banner">
         <div>
-            <h1 class="hero-title">Novelty 2: Simulation-Guided Refactoring Planner</h1>
+            <h1 class="hero-title">Simulation-Guided Refactoring Planner</h1>
             <p class="hero-subtitle">
                 Assemble multi-operation refactoring plans, simulate their combined architectural effect on an isolated graph snapshot,
                 detect structural conflicts, and verify actual post-application improvements.

@@ -19,7 +19,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Based Architecture Risk Prediction (Novelty 3) — <%= projectName %></title>
+    <title>AI-Based Architecture Risk Prediction — <%= projectName %></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<%= ctx %>/css/main.css">
@@ -44,40 +44,6 @@
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             margin: 0;
             padding: 0;
-        }
-
-        .topbar {
-            background: rgba(17,23,38,0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--risk-border);
-            padding: 14px 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .topbar .brand {
-            font-size: 1.15rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .nav-links { display: flex; gap: 14px; align-items: center; }
-        .nav-link {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            padding: 6px 12px;
-            border-radius: 6px;
-            transition: all 0.15s;
-        }
-        .nav-link:hover, .nav-link.active {
-            color: #e2e8f0;
-            background: var(--risk-panel-2);
         }
 
         .container {
@@ -346,17 +312,21 @@
 </head>
 <body>
 
-<div class="topbar">
-    <div class="brand">AI-Powered Architecture Refactoring Analyzer</div>
-    <div class="nav-links">
-        <a href="<%= ctx %>/dashboard" class="nav-link">Dashboard</a>
-        <a href="<%= ctx %>/results" class="nav-link">Results</a>
-        <a href="<%= ctx %>/simulator" class="nav-link">What-If Simulator</a>
-        <a href="<%= ctx %>/planner" class="nav-link">Planner (Novelty 2)</a>
-        <a href="<%= ctx %>/risk" class="nav-link active">Risk Prediction (Novelty 3)</a>
-        <a href="<%= ctx %>/explanation" class="nav-link">Verified Explanations (Novelty 4)</a>
+<header class="topbar">
+    <div style="display:flex;align-items:center;">
+        <a href="<%= ctx %>/" style="text-decoration:none;"><div class="brand">⚡ Java ArchAnalyzer</div></a>
     </div>
-</div>
+    <nav>
+        <a href="<%= ctx %>/">Home</a>
+        <a href="<%= ctx %>/projects/upload">Upload</a>
+        <a href="<%= ctx %>/dashboard">Dashboard</a>
+        <a href="<%= ctx %>/planner">🗺️ Planner</a>
+        <a href="<%= ctx %>/risk" class="active">Risk Prediction</a>
+        <a href="<%= ctx %>/explanation">AI Explanations</a>
+        <a href="<%= ctx %>/simulator">What-If Simulator</a>
+        <a href="<%= ctx %>/history">🕒 History</a>
+    </nav>
+</header>
 
 <div class="container">
 
@@ -365,7 +335,7 @@
         <div>
             <div class="hero-title">
                 AI-Based Architecture Risk Prediction
-                <span class="hero-badge">Novelty 3</span>
+                <span class="hero-badge">Risk Prediction</span>
             </div>
             <div class="hero-sub">
                 Predicts component-level architectural defect and change risk by combining <strong>static dependency graph topology</strong> (fan-in/out, cyclomatic complexity, dependency depth, cyclic SCCs) with <strong>evolutionary Git history</strong> (commit frequency, code churn, burstiness, co-change graphs).
@@ -432,7 +402,7 @@
         </div>
     </div>
 
-    <!-- Cross-Novelty Integration Alert if cyclic high-risk components exist -->
+    <!-- Architectural Integration Alert if cyclic high-risk components exist -->
     <% if (!overview.cycleComponentsWithHighRisk().isEmpty()) { %>
     <div style="background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.3); border-radius: 12px; padding: 16px 20px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
         <div>
@@ -442,7 +412,7 @@
             <div style="font-size: 0.82rem; color: #c4b5fd;">
                 These components represent the primary architectural defect vectors:
                 <strong><%= String.join(", ", overview.cycleComponentsWithHighRisk()) %></strong>.
-                Use Novelty 1 (Cycle Breaking) or Novelty 2 (Simulation Planner) to decouple them.
+                Use Automated Cycle Breaking or the Simulation Planner to decouple them.
             </div>
         </div>
         <a href="<%= ctx %>/planner" class="btn btn-primary" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); box-shadow: 0 4px 14px rgba(139,92,246,0.35);">
@@ -615,7 +585,7 @@
                 <div class="model-card featured">
                     <div class="model-name" style="color: #60a5fa;">
                         4. Multi-Modal Ensemble
-                        <span class="badge badge-low" style="font-size: 0.68rem;">Novelty 3</span>
+                        <span class="badge badge-low" style="font-size: 0.68rem;">ML Scoring</span>
                     </div>
                     <div class="metric-row"><span class="metric-name">Precision</span><span class="metric-val" style="color: #60a5fa;"><%= String.format(Locale.US, "%.3f", abl.combinedMetrics().precision()) %></span></div>
                     <div class="metric-row"><span class="metric-name">Recall</span><span class="metric-val" style="color: #60a5fa;"><%= String.format(Locale.US, "%.3f", abl.combinedMetrics().recall()) %></span></div>

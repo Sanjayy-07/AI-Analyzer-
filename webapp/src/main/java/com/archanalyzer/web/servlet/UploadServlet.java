@@ -24,12 +24,24 @@ import java.nio.file.*;
  * whatever the JSP renders comes directly from the PipelineResult object.
  */
 @WebServlet(name = "UploadServlet", urlPatterns = "/projects/upload")
-@MultipartConfig
+@MultipartConfig(
+    maxFileSize = 524_288_000L,        // 500 MB
+    maxRequestSize = 545_259_520L,     // 520 MB
+    fileSizeThreshold = 10_485_760     // 10 MB
+)
 public class UploadServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Part filePart = req.getPart("projectArchive");
+        Part filePart;
+        try {
+            filePart = req.getPart("projectArchive");
+        } catch (IllegalStateException | ServletException e) {
+            req.setAttribute("errorMessage", "Upload exceeds the maximum file size limit (500 MB). Please upload an archive under 500 MB.");
+            req.getRequestDispatcher("/WEB-INF/jsp/upload.jsp").forward(req, resp);
+            return;
+        }
+
         if (filePart == null || filePart.getSize() == 0) {
             req.setAttribute("errorMessage", "No file was uploaded. Please choose a project archive.");
             req.getRequestDispatcher("/WEB-INF/jsp/upload.jsp").forward(req, resp);
